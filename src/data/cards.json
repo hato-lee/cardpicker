@@ -1,0 +1,59 @@
+[
+  {
+    "id": "shinhan-deep-oil",
+    "name": "신한카드 Deep Oil",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 10000,
+    "minSpend": 300000,
+    "benefits": [
+      { "tag": "주유", "type": "discount", "rate": 10, "monthlyCap": 15000, "stars": 3, "note": "정유사 1곳 선택, LPG 제외. 실적 70만↑이면 한도 3만" },
+      { "tag": "카페·편의점", "type": "discount", "rate": 5, "monthlyCap": 5000, "stars": 1, "note": "GS25·CU·스타벅스·이디야" },
+      { "tag": "대중교통·택시", "type": "discount", "rate": 5, "monthlyCap": 5000, "stars": 1, "note": "택시만" }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1192711_2207.html",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 연회비 Master 1.3만/S& 1만 → 1만 기록. 롯데시네마 5천원 할인은 태그 밖."
+  },
+  {
+    "id": "kb-my-wesh",
+    "name": "KB국민 My WE:SH 카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 400000,
+    "benefits": [
+      { "tag": "배달·외식", "type": "discount", "rate": 10, "monthlyCap": 5000, "stars": 2, "note": "A팩. KB Pay 결제 10%, 건당 2,500원 한도" },
+      { "tag": "카페·편의점", "type": "discount", "rate": 5, "monthlyCap": 5000, "stars": 1, "note": "A팩" },
+      { "tag": "통신비·OTT", "type": "discount", "rate": 20, "monthlyCap": 5000, "stars": 2, "note": "B팩" },
+      { "tag": "대중교통·택시", "type": "discount", "rate": 20, "monthlyCap": 5000, "stars": 2, "note": "B팩" }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?mainCC=b&allianceCode=09923",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. A/B 팩 선택형이라 복잡도 3. 팩별 세부 한도는 상품설명서 확인 필요."
+  },
+  {
+    "id": "hyundai-the-red-mileage",
+    "name": "현대카드 the Red (항공 마일리지형)",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 300000,
+    "minSpend": 0,
+    "benefits": [
+      { "tag": "마일리지", "type": "mileage", "rate": 0.067, "monthlyCap": null, "stars": 1, "note": "국내외 가맹점 1,500원당 1마일" },
+      { "tag": "모든 가맹점", "type": "mileage", "rate": 0.067, "monthlyCap": null, "stars": 1 }
+    ],
+    "universal": { "type": "mileage", "rate": 0.067, "monthlyCap": null },
+    "complexity": 1,
+    "officialUrl": "https://www.hyundaicard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 공식 페이지 안 읽혀 뱅크샐러드 참고 → 사용자 확인 필요. 바우처·라운지는 태그 밖."
+  }
+]
