@@ -1,0 +1,86 @@
+import type { Persona } from '../data/types'
+import { won } from './format'
+
+export interface Profile {
+  persona: Persona | null
+  monthlySpendMan: number | ''
+  feeLimit: number | null
+}
+
+export const PERSONAS: { value: Persona; label: string; desc: string }[] = [
+  { value: 'meticulous', label: '꼼꼼형', desc: '실적·한도 다 따지고 결제 전에 어떤 카드 낼지 생각해요' },
+  { value: 'moderate', label: '적당형', desc: '대충은 알고 쓰지만 매번 계산하진 않아요' },
+  { value: 'carefree', label: '무심형', desc: '한 장 꽂아두고 신경 끄고 싶어요' },
+]
+
+export const FEE_SLIDER = { min: 0, max: 200_000, step: 10_000 } as const
+
+interface Props {
+  value: Profile
+  onChange: (p: Profile) => void
+  onNext: () => void
+}
+
+export function StepProfile({ value, onChange, onNext }: Props) {
+  const sliderValue = value.feeLimit ?? FEE_SLIDER.max
+  const canNext = value.persona !== null && value.monthlySpendMan !== '' && value.monthlySpendMan > 0
+
+  return (
+    <section className="step">
+      <h2>나에 대해</h2>
+
+      <fieldset className="field">
+        <legend>나는 어떤 사람?</legend>
+        <div className="persona-list">
+          {PERSONAS.map((p) => (
+            <label key={p.value} className={`persona ${value.persona === p.value ? 'is-selected' : ''}`}>
+              <input
+                type="radio"
+                name="persona"
+                value={p.value}
+                checked={value.persona === p.value}
+                onChange={() => onChange({ ...value, persona: p.value })}
+              />
+              <span className="persona-label">{p.label}</span>
+              <span className="persona-desc">{p.desc}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
+
+      <div className="field">
+        <label htmlFor="spend">한 달 카드 사용액</label>
+        <div className="input-row">
+          <input
+            id="spend"
+            type="number"
+            inputMode="numeric"
+            min={0}
+            value={value.monthlySpendMan}
+            onChange={(e) => onChange({ ...value, monthlySpendMan: e.target.value === '' ? '' : Number(e.target.value) })}
+          />
+          <span>만 원</span>
+        </div>
+      </div>
+
+      <div className="field">
+        <label htmlFor="fee">연회비 허용치</label>
+        <input
+          id="fee"
+          type="range"
+          min={FEE_SLIDER.min}
+          max={FEE_SLIDER.max}
+          step={FEE_SLIDER.step}
+          value={sliderValue}
+          onChange={(e) => {
+            const v = Number(e.target.value)
+            onChange({ ...value, feeLimit: v >= FEE_SLIDER.max ? null : v })
+          }}
+        />
+        <div className="slider-value">{value.feeLimit === null ? '상관없음' : won(value.feeLimit)}</div>
+      </div>
+
+      <button className="primary" disabled={!canNext} onClick={onNext}>다음</button>
+    </section>
+  )
+}

@@ -1,3 +1,21 @@
 *, *::before, *::after { box-sizing: border-box; }
 body { margin: 0; font-family: system-ui, -apple-system, "Apple SD Gothic Neo", sans-serif; background: #f6f7f9; color: #1c1e21; }
 .app { max-width: 480px; margin: 0 auto; padding: 24px 16px 48px; }
+
+.step h2 { font-size: 20px; margin: 0 0 20px; }
+.field { margin: 0 0 24px; padding: 0; border: 0; }
+.field legend, .field > label { display: block; font-weight: 600; margin-bottom: 8px; }
+.persona-list { display: grid; gap: 8px; }
+.persona { display: grid; grid-template-columns: auto 1fr; column-gap: 10px; align-items: start; padding: 12px; background: #fff; border: 1px solid #dfe3e8; border-radius: 10px; cursor: pointer; }
+.persona.is-selected { border-color: #2563eb; box-shadow: 0 0 0 2px rgba(37,99,235,.15); }
+.persona input { margin-top: 3px; }
+.persona-label { font-weight: 600; }
+.persona-desc { grid-column: 2; font-size: 13px; color: #555; }
+.input-row { display: flex; align-items: center; gap: 8px; }
+.input-row input { flex: 1; font-size: 16px; padding: 10px; border: 1px solid #dfe3e8; border-radius: 8px; }
+input[type=range] { width: 100%; }
+.slider-value { text-align: right; font-weight: 600; margin-top: 4px; }
+button.primary { width: 100%; padding: 14px; font-size: 16px; font-weight: 600; color: #fff; background: #2563eb; border: 0; border-radius: 10px; cursor: pointer; }
+button.primary:disabled { background: #b8c4d6; cursor: not-allowed; }
+button.secondary { width: 100%; padding: 12px; font-size: 15px; background: #fff; border: 1px solid #dfe3e8; border-radius: 10px; cursor: pointer; }
+.button-row { display: grid; grid-template-columns: 1fr 2fr; gap: 8px; }
