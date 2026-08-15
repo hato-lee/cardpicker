@@ -1,4 +1,5 @@
 import { recommend, coveredTagsOf, isUniversalCard } from './recommend'
+import { RULES } from './rules'
 import type { Card, Query } from '../data/types'
 
 const base: Card = {
@@ -6,7 +7,8 @@ const base: Card = {
   benefits: [], universal: null, complexity: 1,
   officialUrl: 'https://example.com', lastChecked: '2026-08-16', status: 'active',
 }
-const card = (over: Partial<Card>): Card => ({ ...base, ...over, id: over.id ?? Math.random().toString(36).slice(2) })
+let autoId = 0
+const card = (over: Partial<Card>): Card => ({ ...base, ...over, id: over.id ?? `auto-${autoId++}` })
 
 const q = (over: Partial<Query> = {}): Query => ({
   persona: 'moderate', monthlySpend: 1_000_000, feeLimit: null, tags: ['주유'], ...over,
@@ -88,5 +90,48 @@ describe('순위', () => {
   test('최대 topN장', () => {
     const many = Array.from({ length: 8 }, (_, i) => card({ ...oilCard, id: `o${i}` }))
     expect(recommend(many, q())).toHaveLength(5)
+  })
+  test('베이스 점수가 같으면 연회비 낮은 쪽이 위 (tie-break)', () => {
+    const commonBenefits = [{ tag: '주유' as const, type: 'discount' as const, rate: 10, monthlyCap: 15000, stars: 3 as const }]
+    const cardA = card({ id: 'tieA', complexity: 2, annualFee: 0, minSpend: 500_000, benefits: commonBenefits })
+    const cardB = card({ id: 'tieB', complexity: 2, annualFee: 100_000, minSpend: 0, benefits: commonBenefits })
+    const r = recommend([cardB, cardA], q({ persona: 'meticulous' }))
+    expect(r).toHaveLength(2)
+    // 둘 다 fee+minSpend 보너스 합이 10 → baseScore 동일 → 연회비로만 갈린다
+    expect(r[0].score).toBeCloseTo(r[1].score)
+    expect(r[0].card.id).toBe('tieA')
+  })
+})
+
+describe('경계값', () => {
+  test('feeLimit이 0이면 0원 카드는 통과하고 유료 카드는 빠진다', () => {
+    const free = card({ ...oilCard, id: 'free', annualFee: 0 })
+    const paid = card({ ...oilCard, id: 'paid', annualFee: 10_000 })
+    const r = recommend([free, paid], q({ feeLimit: 0 }))
+    expect(r.map((s) => s.card.id)).toEqual(['free'])
+  })
+  test('월 사용액이 실적과 같으면 통과한다', () => {
+    const c = card({ ...oilCard, id: 'exact', minSpend: 300_000 })
+    const r = recommend([c], q({ monthlySpend: 300_000 }))
+    expect(r).toHaveLength(1)
+  })
+  test('isUniversal과 score가 결과에 올바르게 채워진다', () => {
+    const r = recommend([oilCard, universalCard], q({ persona: 'moderate', tags: ['주유', '모든 가맹점'] }))
+    const oil = r.find((s) => s.card.id === 'oil')
+    const uni = r.find((s) => s.card.id === 'uni')
+    expect(oil?.isUniversal).toBe(false)
+    expect(uni?.isUniversal).toBe(true)
+    for (const s of r) {
+      expect(Number.isFinite(s.score)).toBe(true)
+      expect(s.score).toBeGreaterThan(0)
+    }
+  })
+})
+
+describe('rules 주입', () => {
+  test('injected topN으로 결과 개수를 줄일 수 있다', () => {
+    const many = Array.from({ length: 8 }, (_, i) => card({ ...oilCard, id: `t${i}` }))
+    const r = recommend(many, q(), { ...RULES, topN: 2 })
+    expect(r).toHaveLength(2)
   })
 })

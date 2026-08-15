@@ -24,7 +24,7 @@ export const RULES = {
   },
   // 무심형은 복잡도 3 제외
   carefreeMaxComplexity: 2,
-} as const
+}
 
 export type Rules = typeof RULES
 
