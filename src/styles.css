@@ -47,3 +47,7 @@ button.secondary { width: 100%; padding: 12px; font-size: 15px; background: #fff
 .badge { margin-left: 6px; padding: 2px 6px; background: #fde8e8; color: #c22; border-radius: 4px; font-weight: 600; }
 .max-table th { text-align: left; font-weight: 600; padding: 3px 0; }
 .max-table th:last-child { text-align: right; }
+h1 { font-size: 22px; margin: 0 0 24px; }
+.empty { background: #fff; border: 1px dashed #dfe3e8; border-radius: 12px; padding: 24px 16px; text-align: center; margin-bottom: 12px; }
+.report { text-align: center; font-size: 13px; color: #666; margin-top: 16px; }
+.report a { color: #2563eb; }
