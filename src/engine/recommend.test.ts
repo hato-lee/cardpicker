@@ -24,6 +24,8 @@ describe('coveredTagsOf / isUniversalCard', () => {
   test('universal + 복잡도 1이면 범용 카드', () => {
     expect(isUniversalCard(universalCard)).toBe(true)
     expect(isUniversalCard(oilCard)).toBe(false)
+    // 복잡도가 2~3이어도 universal이 있으면 범용 카드다 (2026-08-16 실데이터 조정)
+    expect(isUniversalCard({ ...universalCard, id: 'u2', complexity: 2 })).toBe(true)
   })
 })
 

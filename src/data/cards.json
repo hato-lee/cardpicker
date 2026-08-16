@@ -303,7 +303,7 @@
         "type": "discount",
         "rate": 0.7,
         "monthlyCap": null,
-        "stars": 1,
+        "stars": 2,
         "note": "전월실적/한도 조건 없이 국내외 전 가맹점 0.7% 캐시백"
       },
       {
@@ -447,7 +447,7 @@
         "type": "points",
         "rate": 1,
         "monthlyCap": null,
-        "stars": 1,
+        "stars": 3,
         "note": "실적조건 없이 전 가맹점 1% 적립(월 100만P 한도로 사실상 무제한). 전월실적 300만원 이상 시 0.5% 추가 적립(최대1.5%)"
       }
     ],
@@ -511,7 +511,7 @@
         "type": "points",
         "rate": 0.5,
         "monthlyCap": null,
-        "stars": 1,
+        "stars": 2,
         "note": "전월실적 조건 없음. 주말·공휴일 0.3%p 추가적립 별도"
       },
       {
@@ -1023,7 +1023,7 @@
         "type": "discount",
         "rate": 0.7,
         "monthlyCap": null,
-        "stars": 1,
+        "stars": 2,
         "note": "국내외 전 가맹점 건당 10만원 미만 0.7%, 10만원 이상 1% 청구할인, 실적조건·한도 없음"
       },
       {
@@ -1163,7 +1163,7 @@
         "type": "discount",
         "rate": 0.8,
         "monthlyCap": null,
-        "stars": 1,
+        "stars": 2,
         "note": "국내외 가맹점 0.8% 청구할인, 전월실적/한도 없음"
       }
     ],
@@ -1327,7 +1327,7 @@
         "type": "points",
         "rate": 1.5,
         "monthlyCap": null,
-        "stars": 1,
+        "stars": 3,
         "note": "국내외 가맹점 1.5% M포인트 적립, 전월실적 50만원 이상"
       },
       {
@@ -1423,7 +1423,7 @@
         "type": "discount",
         "rate": 1,
         "monthlyCap": null,
-        "stars": 1,
+        "stars": 3,
         "note": "국내외 가맹점 1% 청구할인. 전월실적 조건 출처마다 상이(0원/50만원)해 확인 필요"
       }
     ],
@@ -1507,7 +1507,7 @@
         "type": "discount",
         "rate": 0.5,
         "monthlyCap": null,
-        "stars": 1,
+        "stars": 2,
         "note": "전월 150만원 이상 이용 시 1.0%로 상향. 신규발급 첫달은 실적무관 1.0% 특별할인. 국세·지방세·공과금 등 제외"
       }
     ],
@@ -1623,7 +1623,7 @@
         "type": "discount",
         "rate": 0.8,
         "monthlyCap": null,
-        "stars": 1,
+        "stars": 2,
         "note": "전월실적·한도 없이 국내외 가맹점 0.8% 청구할인"
       },
       {
@@ -1691,7 +1691,7 @@
         "type": "discount",
         "rate": 0.7,
         "monthlyCap": null,
-        "stars": 1,
+        "stars": 2,
         "note": "국내 가맹점 0.7~1.0% 청구할인(실적 구간별 차등, 조건 상세 확인 필요), 해외겸용이나 국내 기준"
       },
       {
@@ -1759,7 +1759,7 @@
         "type": "points",
         "rate": 0.5,
         "monthlyCap": null,
-        "stars": 1,
+        "stars": 2,
         "note": "일반가맹점 기본 적립 0.5%, 월 한도 미확인. 확인 필요"
       },
       {
@@ -2127,7 +2127,7 @@
         "type": "discount",
         "rate": 0.5,
         "monthlyCap": null,
-        "stars": 1,
+        "stars": 2,
         "note": "국내 전 가맹점 오프라인 0.5%, 온라인 1% 캐시백, 한도 없음"
       },
       {
@@ -2605,5 +2605,1009 @@
     "lastChecked": "2026-08-16",
     "status": "active",
     "memo": "AI 수집, 검수 전. 출처: 신한카드 공식 페이지. 연회비는 페이지에 명시 안됨(체크카드 통상 무료로 추정, 확인 필요). 공항라운지 서비스, 환전우대는 태그 밖."
+  },
+  {
+    "id": "samsung-id-all",
+    "name": "삼성 iD ALL 카드",
+    "issuer": "삼성카드",
+    "kind": "credit",
+    "annualFee": 20000,
+    "minSpend": 400000,
+    "benefits": [
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 2.5,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "주유소·LPG충전소·전기차충전소 청구할인"
+      },
+      {
+        "tag": "통신비·OTT",
+        "type": "discount",
+        "rate": 2.5,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "SKT/KT/LGU+/알뜰폰 정기결제 청구할인"
+      },
+      {
+        "tag": "관리비·공과금",
+        "type": "discount",
+        "rate": 2.5,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "아파트관리비 정기결제 청구할인"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "discount",
+        "rate": 0.5,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "국내외 전 가맹점 청구할인"
+      }
+    ],
+    "universal": {
+      "type": "discount",
+      "rate": 0.5,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://www.samsungcard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요. '많이 쓰는 영역 자동 맞춤 5% 적립'은 소비패턴에 따라 자동 선정되는 방식이라 특정 태그로 매핑하지 않고 메모로만 남김(태그 밖). 각 항목 월 한도가 뱅크샐러드 페이지에 명시되지 않아 null로 처리, 확인 필요."
+  },
+  {
+    "id": "samsung-id-move",
+    "name": "삼성 iD MOVE 카드",
+    "issuer": "삼성카드",
+    "kind": "credit",
+    "annualFee": 20000,
+    "minSpend": 400000,
+    "benefits": [
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "버스·지하철·택시 청구할인, 월 5천원"
+      },
+      {
+        "tag": "통신비·OTT",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "이동통신+스트리밍 청구할인, 월 5천원"
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 3000,
+        "stars": 1,
+        "note": "커피전문점+편의점 청구할인, 월 3천원"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 1.5,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "해외가맹점/항공/철도 등 청구할인"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://www.samsungcard.com/personal/card/cardfinder/UHPPCA0102M0.jsp",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요. 뱅크샐러드에 월 통합한도 13,000원 표기가 있었으나 태그별 한도와의 관계(합산인지 별도인지) 확인 필요."
+  },
+  {
+    "id": "samsung-id-pet",
+    "name": "삼성 iD PET 카드",
+    "issuer": "삼성카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 400000,
+    "benefits": [
+      {
+        "tag": "병의원·약국",
+        "type": "discount",
+        "rate": 30,
+        "monthlyCap": 50000,
+        "stars": 3,
+        "note": "동물병원·반려동물쇼핑몰 청구할인. 전월실적 구간(40만/80만/120만)별 한도 1만~5만원, 기재값은 최고구간"
+      },
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "온라인 간편결제 청구할인, 실적구간별 한도 3천~1만원"
+      },
+      {
+        "tag": "통신비·OTT",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "스트리밍 서비스 청구할인, 전월실적 40만원 이상"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 1.5,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "해외가맹점 청구할인, 월 결제금액 100만원까지 적용으로 추정(확인 필요)"
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "건당 1만원 이상 결제 시 1,000원 정액 청구할인"
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://www.samsungcard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 공식·뱅크샐러드 모두 접속 불가하여 card-data.tistory.com 블로그(2022.08 출시 정리) 참고, 공식 확인 반드시 필요. 손해보험 10% 청구할인은 태그 밖이라 미기재. 전월실적 구간별로 한도가 세분화되어 있어 대표값만 기재함."
+  },
+  {
+    "id": "samsung-card4-v4",
+    "name": "삼성카드 4 V4",
+    "issuer": "삼성카드",
+    "kind": "credit",
+    "annualFee": 20000,
+    "minSpend": 400000,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "discount",
+        "rate": 0.5,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "국내외 전 가맹점 청구할인"
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 2,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "스타벅스·이디야 등 디저트업종 청구할인, 월한도 미확인"
+      }
+    ],
+    "universal": {
+      "type": "discount",
+      "rate": 0.5,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://www.samsungcard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요. 삼성카드4는 V2/V3/V4/4+ 등 여러 버전이 있어 최신형인 V4로 기재. 이마트·롯데마트 등 생활업종 1% 할인, 영화 5천원 할인, 자동납부 포인트(10만원당 1000점, 월2만점 한도)는 태그 밖."
+  },
+  {
+    "id": "hyundai-zero-edition3-points",
+    "name": "현대카드 ZERO Edition3(포인트형)",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 1.2,
+        "monthlyCap": null,
+        "stars": 3,
+        "note": "국내외 전 가맹점 M포인트 적립, 실적조건·한도 없음"
+      }
+    ],
+    "universal": {
+      "type": "points",
+      "rate": 1.2,
+      "monthlyCap": null
+    },
+    "complexity": 1,
+    "officialUrl": "https://www.hyundaicard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요. 연회비 15,000원이나 100% 캐시백 제공(뱅크샐러드 표기)으로 실질 무료라는 설명 있음, 확인 필요. M포인트 유효기간 60개월. 기존 수집된 'ZERO Edition3(할인형)'과 다른 포인트형 버전."
+  },
+  {
+    "id": "hyundai-the-green-edition3",
+    "name": "현대카드 the Green Edition3",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 150000,
+    "minSpend": 1000000,
+    "benefits": [
+      {
+        "tag": "해외 결제",
+        "type": "points",
+        "rate": 5,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "해외 온오프라인 가맹점 M포인트 적립, 전월실적 100만원 이상 조건"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 1.5,
+        "monthlyCap": null,
+        "stars": 3,
+        "note": "국내외 전 가맹점 기본 M포인트 적립"
+      }
+    ],
+    "universal": {
+      "type": "points",
+      "rate": 1.5,
+      "monthlyCap": null
+    },
+    "complexity": 3,
+    "officialUrl": "https://www.hyundaicard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요. 국내 항공사/여행사/특급호텔/면세점 5% 적립은 마일리지가 아닌 M포인트라 마일리지 태그 미적용, 태그 밖으로 메모. 연회비 100% 캐시백 제공 여부(뱅크샐러드 표기) 확인 필요. 브리프의 '연회비 15만, 마일리지 아님' 조건에 부합."
+  },
+  {
+    "id": "hyundai-the-pink-edition2",
+    "name": "현대카드 the Pink Edition2",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 150000,
+    "minSpend": 1000000,
+    "benefits": [
+      {
+        "tag": "온라인 쇼핑",
+        "type": "points",
+        "rate": 5,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "온라인 백화점몰·편집숍 등 프리미엄쇼핑 M포인트 적립, 전월실적 100만원 이상"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 1.5,
+        "monthlyCap": null,
+        "stars": 3,
+        "note": "국내외 전 가맹점 기본 M포인트 적립"
+      }
+    ],
+    "universal": {
+      "type": "points",
+      "rate": 1.5,
+      "monthlyCap": null
+    },
+    "complexity": 3,
+    "officialUrl": "https://www.hyundaicard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요. 오프라인 백화점 프리미엄쇼핑 5%는 백화점 관련 혜택이라 태그 제외 규정에 따라 미기재. 공항라운지·발렛파킹 등 부가서비스는 태그 밖."
+  },
+  {
+    "id": "hyundai-x-edition2",
+    "name": "현대카드X Edition2",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "discount",
+        "rate": 0.5,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "국내외 전 가맹점 기본 할인"
+      }
+    ],
+    "universal": {
+      "type": "discount",
+      "rate": 0.5,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardflag=C&cardWcd=XE2",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요. '시즌 스페셜' 5% 할인(월 3만원 한도, 전월실적 50만원 이상)은 분기별로 대상 가맹점이 바뀌는 로테이션형이라 특정 태그로 고정 매핑하지 않고 메모로만 남김."
+  },
+  {
+    "id": "shinhan-hey-young-check",
+    "name": "신한카드 Hey Young 체크카드",
+    "issuer": "신한카드",
+    "kind": "check",
+    "annualFee": 0,
+    "minSpend": 200000,
+    "benefits": [
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 3000,
+        "stars": 2,
+        "note": "대중교통 이용금액 5% 할인, 최대 3,000원. 전월실적 구간(20/50/80/100만원)별 통합 할인한도(5천/1만/2만/3만원) 내 적용"
+      },
+      {
+        "tag": "통신비·OTT",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 2000,
+        "stars": 1,
+        "note": "통신료 건당 5만원 이상 결제 시 월1회 2,000원 정액 할인"
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "편의점/카페/패스트푸드 건당 1만원 이상 시 1,000원 정액 할인, 일1회·월5회 한도"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 1.2,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "해외 가맹점 이용금액 1.2% 캐시백(한도 없음), 해외 ATM 인출 시 건당 3달러 캐시백"
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://www.shinhancard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 나무위키 참고(신한카드 공식 상세페이지를 찾지 못함, 공식 확인 필요). CGV 영화 건당 2만원 이상 시 월1회 5,000원 할인은 태그 밖. 전월실적 구간별 통합 할인한도: 20만~40만원 5천/50만~80만원 1만/80만~100만원 2만/100만원 이상 3만원."
+  },
+  {
+    "id": "shinhan-deep-dream-check",
+    "name": "신한카드 Deep Dream 체크카드",
+    "issuer": "신한카드",
+    "kind": "check",
+    "annualFee": 0,
+    "minSpend": 200000,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 0.2,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "국내외 전 가맹점 기본 0.2% 적립. 전월실적 구간(20~40/40~80/80만원+)별 통합 적립한도 5천/1.5만/3만원 중 최저 구간 값"
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "points",
+        "rate": 0.4,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "DREAM영역(편의점·할인점·커피) 기본적립 0.2%에 추가 0.4% 적립, 모든가맹점 항목의 통합 적립한도 내에서 적용"
+      },
+      {
+        "tag": "통신비·OTT",
+        "type": "points",
+        "rate": 0.4,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "DREAM영역(이동통신사) 기본적립 0.2%에 추가 0.4% 적립, 모든가맹점 항목의 통합 적립한도 내에서 적용"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "points",
+        "rate": 0.4,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "DREAM영역(해외가맹점) 기본적립 0.2%에 추가 0.4% 적립, 모든가맹점 항목의 통합 적립한도 내에서 적용"
+      },
+      {
+        "tag": "주유",
+        "type": "points",
+        "rate": 0,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "전월실적 20만원 이상 시 리터당 20원 적립, 월 20만원 결제분까지(정확한 월 적립 원화 한도는 확인 필요)"
+      },
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 3000,
+        "stars": 1,
+        "note": "전월실적 20만원 이상 시 택시 이용 월 3·6·9번째 결제 건당 1,000원 할인(월 최대 3,000원). 버스·지하철 별도 혜택은 확인되지 않음"
+      }
+    ],
+    "universal": {
+      "type": "points",
+      "rate": 0.2,
+      "monthlyCap": 5000
+    },
+    "complexity": 3,
+    "officialUrl": "https://www.shinhancard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 나무위키 참고(신한카드 공식 상세페이지를 찾지 못함, 공식 확인 필요, 나무위키 상 '현재 판매 중'으로 표기됨). 신한금융그룹 계열 ATM수수료 10회 면제는 태그 밖. 전월실적 구간별 통합 적립한도: 20만~40만원 5천/40만~80만원 1.5만/80만원 이상 3만원."
+  },
+  {
+    "id": "kakaobank-friends-check",
+    "name": "카카오뱅크 프렌즈 체크카드",
+    "issuer": "카카오뱅크",
+    "kind": "check",
+    "annualFee": 0,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "discount",
+        "rate": 0.2,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "평일(월~금) 이용금액 0.2%, 주말/공휴일(토~일) 이용금액 0.4% 캐시백. 매월 10일 지급. 등록금·수수료·상품권·제세공과금·교통카드 충전 등은 적립 제외"
+      }
+    ],
+    "universal": {
+      "type": "discount",
+      "rate": 0.2,
+      "monthlyCap": null
+    },
+    "complexity": 1,
+    "officialUrl": "https://www.kakaobank.com/products/checkcard",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 공식 페이지(kakaobank.com/products/checkcard). 전월실적 30만원 초과 시 추가 캐시백 안내 문구가 있으나 구체적 적립률/한도는 페이지에 명시되지 않아 확인 필요. 재발급 수수료 2,000원(분실/훼손 시)은 태그 밖."
+  },
+  {
+    "id": "tossbank-check",
+    "name": "토스뱅크 체크카드",
+    "issuer": "토스뱅크",
+    "kind": "check",
+    "annualFee": 0,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "discount",
+        "rate": 0.3,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "'어디서나 캐시백' 선택 시 모든 결제처 0.3% 캐시백. 오프라인 캐시백(대중교통·편의점·음식음료 등 건당 정액)/온라인 캐시백/기부 캐시백 중 매 시즌 택1 가능"
+      }
+    ],
+    "universal": {
+      "type": "discount",
+      "rate": 0.3,
+      "monthlyCap": null
+    },
+    "complexity": 3,
+    "officialUrl": "https://www.tossbank.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 나무위키 참고(토스뱅크 공식 상세페이지를 찾지 못함, 공식 확인 필요). 약관상 고정 혜택이 아니라 시즌제 프로모션(2026-08 기준 시즌6, 2026.4~2026.9)으로 운영되어 시즌 종료 후 조건이 바뀔 수 있음 - 재확인 필요. 해외결제 2% 캐시백, 국내 ATM 월 30회 수수료 면제는 태그 밖."
+  },
+  {
+    "id": "kb-coupang-wow",
+    "name": "KB국민 쿠팡 와우카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 20000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "온라인 쇼핑",
+        "type": "points",
+        "rate": 2,
+        "monthlyCap": 20000,
+        "stars": 2,
+        "note": "쿠팡·쿠팡플레이 등 쿠팡 계열 기본 적립(상시). ★등급 산정: 정률 2%는 낮으나 월한도 2만원이 넉넉해 잠정 2등급, 검수 필요. 2026-10-15까지 추가 2%(동일 한도) 프로모션은 이벤트성이라 제외."
+      },
+      {
+        "tag": "배달·외식",
+        "type": "points",
+        "rate": 2,
+        "monthlyCap": 20000,
+        "stars": 2,
+        "note": "쿠팡이츠 포함, 쿠팡 계열(쇼핑+이츠+플레이) 합산 월2만원 한도로 온라인쇼핑 항목과 통합 한도일 가능성 있음, 확인 필요."
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 0.2,
+        "monthlyCap": 2000,
+        "stars": 1,
+        "note": "쿠팡 계열 외 모든 가맹점 기본 적립(상시값). 2026-10-15까지 편의점 2.2%/그 외 1% 추가 프로모션은 이벤트성이라 제외."
+      }
+    ],
+    "universal": {
+      "type": "points",
+      "rate": 0.2,
+      "monthlyCap": 2000
+    },
+    "complexity": 2,
+    "officialUrl": "https://www.kbcard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 나무위키(쿠팡 와우 카드 문서) 참고 — KB국민카드 공식 상세페이지의 정확한 URL(allianceCode)을 찾지 못해 홈 도메인으로 대체, 공식 확인 필요. 2023년 10월 출시, 발급사가 기존 현대카드에서 KB국민카드로 이관된 카드. 연회비는 국내전용/비자 공통 2만원으로 파악(비접촉 결제 등 브랜드별 차이 확인 필요)."
+  },
+  {
+    "id": "hyundai-naver-edition2",
+    "name": "네이버 현대카드 Edition2",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 20000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "온라인 쇼핑",
+        "type": "points",
+        "rate": 7,
+        "monthlyCap": 20000,
+        "stars": 3,
+        "note": "네이버플러스 멤버십 회원이 적립대상 결제 시(네이버페이/네이버쇼핑 등) 네이버페이 포인트 적립. 비회원은 0.7%만 적용."
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 0.7,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "네이버플러스 적립대상 외 모든 가맹점 기본 적립, 한도 없음."
+      }
+    ],
+    "universal": {
+      "type": "points",
+      "rate": 0.7,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://www.hyundaicard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 나무위키(네이버페이/제휴카드 문서) 참고 — 현대카드 공식페이지는 JS 렌더링이라 상세 확인 불가, 홈 도메인으로 대체. 2025-10-30 아메리칸익스프레스 브랜드 추가 확인됨, 그 시점까지 판매중이었음(2026-08 현재도 판매중으로 추정되나 공식 재확인 필요). VISA Platinum/AMEX Platinum/국내전용 브랜드 존재."
+  },
+  {
+    "id": "hyundai-costco-reward-edition2",
+    "name": "코스트코 리워드 현대카드 Edition2",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 20000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "온라인 쇼핑",
+        "type": "points",
+        "rate": 3,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "코스트코 온라인몰(costco.co.kr) 한정 3% 적립. 코스트코 오프라인 매장은 2%(대형마트라 12개 태그 밖이라 미기재). 연간 50만 포인트 통합한도(전체 적립 합산)."
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 1,
+        "monthlyCap": null,
+        "stars": 3,
+        "note": "코스트코 외 모든 가맹점 1% 적립. 연간 50만 포인트 통합한도(코스트코 적립분과 합산)."
+      }
+    ],
+    "universal": {
+      "type": "points",
+      "rate": 1,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://www.hyundaicard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 나무위키(현대카드/카드 상품/코스트코 문서) 참고 — 현대카드 공식페이지는 JS 렌더링이라 상세 확인 불가, 홈 도메인으로 대체. 2023-12-28 출시. 적립 포인트는 코스트코 리워드 포인트로, 매년 12월 현금처럼 쓸 수 있는 바우처로 지급. 연간 50만 포인트 한도가 월 단위로 어떻게 배분되는지는 확인 필요(월 한도는 null로 처리)."
+  },
+  {
+    "id": "samsung-starbucks",
+    "name": "스타벅스 삼성카드",
+    "issuer": "삼성카드",
+    "kind": "credit",
+    "annualFee": 30000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "카페·편의점",
+        "type": "points",
+        "rate": 0,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "정액/구간형 '별' 리워드 적립이라 %로 환산하지 않음(브리프 지침). 전월실적 50만원 미만: 3만원당 별 1개, 50만원 이상: 1만원당 별 5개. 별의 원화 환산가치가 명확히 공시되지 않아 rate 0, ★등급도 잠정 1등급으로 표기 — 검수 필요."
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://www.samsungcard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 나무위키(스타벅스 삼성카드 문서) 참고 — 삼성카드 공식 상세페이지 주소를 찾지 못해 홈 도메인으로 대체, 공식 확인 필요. 2025-09-25 신용카드 출시(기존 스타벅스 현대카드는 2025-10-15부로 신규발급 중단, 파트너사가 삼성카드로 변경됨). 전월 50만원 이상 시 국내외 가맹점 별 적립 혜택도 있으나 정확한 적립 기준 불명확해 태그에 미반영. 후불교통카드 필수 탑재, 마스터카드 비접촉결제는 태그 밖."
+  },
+  {
+    "id": "shinhan-emart",
+    "name": "신한카드 이마트",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 400000,
+    "benefits": [
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 15,
+        "monthlyCap": 20000,
+        "stars": 3,
+        "note": "SSG.COM 이용분 한정으로 온라인쇼핑 태그 적용. 전월실적 40만원 이상 시 월2만원, 100만원 이상 시 월5만원 한도(이마트/트레이더스/이마트24/노브랜드/일렉트로마트/스타벅스 할인과 통합한도인지 별도인지 확인 필요)."
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 15,
+        "monthlyCap": 20000,
+        "stars": 3,
+        "note": "스타벅스 15% 할인. 온라인쇼핑(SSG.COM) 항목과 한도 통합 여부 확인 필요."
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 0.5,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "이마트 계열·SSG.COM·스타벅스 등 할인 대상 외 그 외 가맹점 기본 적립."
+      }
+    ],
+    "universal": {
+      "type": "points",
+      "rate": 0.5,
+      "monthlyCap": null
+    },
+    "complexity": 3,
+    "officialUrl": "https://www.shinhancard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 나무위키(신한카드/카드 상품/제휴 문서) 참고 — 신한카드 공식 상세페이지의 정확한 URL(숫자 ID)을 찾지 못해 홈 도메인으로 대체, 공식 확인 필요. 2026-03-26 출시 신상품. 이마트/트레이더스/이마트에브리데이/이마트24/노브랜드/일렉트로마트 15% 할인은 대형마트·전문점이라 12개 태그 밖(브리프 기준)이라 개별 기재하지 않음 — SSG.COM은 온라인쇼핑, 스타벅스는 카페·편의점으로만 반영. 마스터카드 연회비 18,000원, 국내전용 15,000원(낮은 값 사용)."
+  },
+  {
+    "id": "shinhan-shinsegae-best-fit",
+    "name": "신한카드 신세계 Best Fit",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 12000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 3,
+        "monthlyCap": 50000,
+        "stars": 2,
+        "note": "SRT 포함 대중교통 3% 할인, 전월실적 조건 없이 적용(무실적)."
+      },
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "연 1천만원 이상 신세계 계열 구매 시에만 적용되는 해외 오프라인 5% 캐시백 — 조건이 매우 높아 일반 사용자에게는 사실상 적용되지 않을 수 있음, 검수 필요."
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://www.shinhancard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 나무위키(신한카드/카드 상품/제휴 문서) 참고 — 공식 상세페이지 주소를 찾지 못해 홈 도메인으로 대체, 공식 확인 필요. 2025-11-13 출시. 신세계백화점 5%·이마트 5% 할인은 백화점·대형마트 특정 가맹점이라 12개 태그 밖이라 미기재(카드 핵심 혜택이 태그 밖이라는 점 유의). 마스터카드 연회비 15,000원, 국내전용 12,000원(낮은 값 사용)."
+  },
+  {
+    "id": "kb-need-autoslim",
+    "name": "KB국민 NEED AutoSlim카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 20000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "주유/충전 5% 청구할인, 월 최대 1만원. 오토슬림할부 최대 2만원·자동차보험 2만원 청구할인은 태그 밖"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?mainCC=b&allianceCode=09792",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: KB국민카드 공식 모바일 페이지(m.kbcard.com). 전월 실적 정확한 금액 확인 필요(페이지에 반복 노출된 '20만원' 표기는 카드와 무관한 공용 이벤트 배너로 판단되어 채택하지 않음). 모바일단독카드 연회비는 1만4천원으로 더 낮음."
+  },
+  {
+    "id": "kb-easy-auto-titanium",
+    "name": "KB국민 Easy auto 티타늄카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 30000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "주유",
+        "type": "points",
+        "rate": 0,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "주유(SK,GS) 리터당 150점 적립(정액/리터형이라 %환산 불가, 원화가치·월 적립한도는 상품설명서 확인 필요). 정비·주차·세차 5% 적립, 자동차보험 1만점 적립은 태그 밖"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?mainCC=b&allianceCode=09246",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: KB국민카드 공식 모바일 페이지. 브리프의 'KB국민 이지오토'로 추정되는 카드(정식명 Easy auto 티타늄카드). 전월실적·월 한도 확인 필요."
+  },
+  {
+    "id": "kb-tmap",
+    "name": "TMAP KB국민카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "주유·식음료 5% 청구할인. 티맵 결제 최대 50%, OTT 10% 할인은 태그 밖. 전월실적·월 한도 확인 필요"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?mainCC=b&allianceCode=09389",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: KB국민카드 공식 모바일 페이지. 통신비·OTT 태그에 해당하는 OTT 10% 할인도 있으나 이번 수집 범위(주유/학원) 밖이라 memo만 기재."
+  },
+  {
+    "id": "kb-sk-energy-loveyou",
+    "name": "SK에너지 러브유 KB국민카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 7000,
+    "minSpend": 300000,
+    "benefits": [
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "SK에너지 주유소 리터당 100원 현장할인(휘발유·경유·등유, LPG 제외). 전월실적 30만원 이상 필요(신규발급 후 60일은 실적 무관 적용). 할인 적용 대상은 일 30만원·월 30만원 이용금액까지(원화 할인한도 자체는 페이지에 미기재). 스피드메이트 엔진오일 무료교환·대중교통 10%(월 4천원)는 태그 밖"
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?mainCC=b&allianceCode=02245",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: KB국민카드 공식 모바일 페이지. 브리프가 언급한 SK 정유사 제휴 주유카드. 리터당 할인의 원화 월 한도는 명시되어 있지 않아 확인 필요."
+  },
+  {
+    "id": "kb-e1-lpg",
+    "name": "E1 LPG KB국민카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "E1 LPG 충전소 리터당 100원 청구할인(신규가입 후 무실적이어도 월 1만원까지 제공). 전월실적 50만원↑ 시 월 1만원, 100만원↑ 시 2만원, 200만원↑ 시 5만원까지 한도 확대. 골프장·쇼핑몰·외식 10% 할인은 태그 밖"
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?mainCC=b&allianceCode=04459",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: KB국민카드 공식 모바일 페이지. LPG 충전 특화 카드(브리프의 '충전 특화' 카테고리 해당)."
+  },
+  {
+    "id": "kb-you-prime",
+    "name": "KB국민 YOU Prime 카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 30000,
+    "minSpend": 400000,
+    "benefits": [
+      {
+        "tag": "관리비·공과금",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "가족팩 선택시 '생활요금'(아파트관리비·도시가스·보험료업종) 10% 청구할인. 전월실적 40만~80만원 구간 월한도 5,000원, 80만~160만원 7,000원, 160만원이상 1만원. 아파트관리비/도시가스/4대사회보험료 등은 전월실적 산정에서는 제외(실적 미인정)되지만 이 할인 자체는 적용됨. 일상팩 선택시에는 미적용(일상팩/가족팩 중 매월 택1 변경 가능)."
+      },
+      {
+        "tag": "병의원·약국",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "가족팩 '일상케어'(종합병원·일반/치과/한방병원·일반/치과/한의원·약국·한약방, 미용실·세탁소 포함) 10% 청구할인. 구간별 월한도는 생활요금과 동일(40만~80만원 5,000원, 80만~160만원 7,000원, 160만원이상 1만원)."
+      },
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "가족팩 '온라인장보기'(네이버플러스스토어·쿠팡·마켓컬리·오아시스마켓) 10% 청구할인, KB Pay 결제시 제공. 구간별 월한도 동일(5,000/7,000/10,000원)."
+      },
+      {
+        "tag": "학원·교육",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "가족팩 '학원'(기술/사무/가정계·예체능계·문리계·외국어학원, 문화센터·학습지) 5% 청구할인. 구간별 월한도 동일(5,000/7,000/10,000원)."
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "가족팩 '카페'(커피전문점 오프라인 결제, 키즈카페) 5% 청구할인, 앱주문·백화점/대형마트 입점매장 제외. 구간별 월한도 동일(5,000/7,000/10,000원)."
+      },
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "[일상팩] 주유/배달/통신보험 앱 10% 청구할인. 일상팩·가족팩 중 매월 택1(동시 적용 불가). 월 할인한도 확인 필요 (일상팩 선택 시. 한도 확인 필요)"
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?allianceCode=09771&mainCC=b",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 공식 페이지 + 상품설명서 PDF(09771, 2026-03-30자, 2025.11.28 출시, https://img2.kbcard.com/obj/card/download/09771__prdctOpmn_20260330.pdf). 위 5개 혜택은 모두 '가족팩' 선택시 동시 적용. '일상팩' 선택시에는 주유10%·배달10%(배민/쿠팡이츠)·통신/보험/APP10%·온라인쇼핑5%(7개몰)·편의점5%(GS25/CU)·취미자기관리5%(스포츠/미용실)로 전면 대체되어 이번 배치 태그와 무관하므로 제외. 가족팩 '대형마트'(이마트 등, 건당5만원이상 5%)는 온라인쇼핑과 구분해 태그 밖으로 둠. 국제브랜드수수료 1%·해외서비스수수료0.25% 면제, 공항라운지·발레파킹 등은 태그 밖. 연회비 모바일단독 발급시 24,000원. [병합] 다른 수집본의 주유(일상팩) 혜택을 합침."
+  },
+  {
+    "id": "kb-woongjin-thinkbig",
+    "name": "KB국민 웅진씽크빅 카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "학원·교육",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 17000,
+        "stars": 2,
+        "note": "웅진씽크빅 학습지 요금 자동납부 시 월 1만2천원 또는 1만7천원 정액 청구할인(전월실적 구간별로 금액 상이). 정확한 구간 조건 확인 필요"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?mainCC=b&allianceCode=02171",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: KB국민카드 공식 모바일 페이지. 웅진씽크빅 학습지 자동이체 전용 할인카드."
+  },
+  {
+    "id": "kb-milkt",
+    "name": "KB국민 밀크T 카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "학원·교육",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 17000,
+        "stars": 2,
+        "note": "밀크T(초등 AI학습 서비스) 학습비 자동이체 시 월 1만2천원 또는 1만7천원 정액 청구할인(전월실적 구간별로 금액 상이). 정확한 구간 조건 확인 필요"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?mainCC=b&allianceCode=04320",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: KB국민카드 공식 모바일 페이지. 밀크T 학습비 자동이체 전용 할인카드."
+  },
+  {
+    "id": "kb-visang-onlyone",
+    "name": "KB국민 비상온리원 카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "학원·교육",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 17000,
+        "stars": 2,
+        "note": "비상교육 학습지(온리원) 요금 자동납부 시 월 1만2천원 또는 1만7천원 정액 청구할인(전월실적 구간별로 금액 상이). 정확한 구간 조건 확인 필요"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?mainCC=b&allianceCode=02210",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: KB국민카드 공식 모바일 페이지. 비상교육 학습지 자동이체 전용 할인카드."
+  },
+  {
+    "id": "kb-you-with",
+    "name": "KB국민 YOU With 카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 400000,
+    "benefits": [
+      {
+        "tag": "병의원·약국",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 7000,
+        "stars": 2,
+        "note": "2nd선택 '돌봄중심'(종합병원·일반/치과/한방병원·일반/치과/한의원·한약방·건강식품점) 10% 청구할인, 건당 3만원 이상 매출에 한함. 전월실적 40만/80만/120만/200만원 구간별 월한도 7,000/9,000/12,000/15,000원. 1st선택 '동네중심' 선택시 약국 5%(월한도 8,000원부터, 배달앱·세탁소·정육점·제과·미용원·서점 포함)도 추가 적용 가능(1st+2nd 각 1개씩 필수 선택, 둘 다 동시 보유 가능)."
+      },
+      {
+        "tag": "배달·외식",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 8000,
+        "stars": 2,
+        "note": "1st선택 '동네중심'(이마트에브리데이·홈플러스익스프레스·롯데슈퍼, 배달의민족·요기요) 5% 청구할인. 전월실적 40만/80만/120만/200만원 구간별 월한도 8,000/11,000/13,000/30,000원. 동일 팩에 세탁소·정육점·제과아이스크림·미용원·서점도 포함(약국은 병의원·약국 태그로 별도 표기)."
+      },
+      {
+        "tag": "통신비·OTT",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "'YOU With 기본서비스'로 이동통신(SKT/KT/LGU+/Liiv M) 자동납부요금 10% 청구할인, 월한도 5,000원. 선택서비스(1st/2nd)와 무관하게 전월실적 40만원 이상이면 기본 제공. 인터넷/IPTV 등 결합상품 제외."
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?allianceCode=09924&mainCC=b",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 공식 페이지 + 상품설명서 PDF(09924, 2026-05-19자, https://img2.kbcard.com/obj/card/download/09924__prdctOpmn_20260519.pdf). 1st선택 '마트중심'(이마트·롯데마트·홈플러스 등, 5%)·'백화점중심'(신세계·롯데·현대백화점, 5%), 2nd선택 '둘이중심'(영화관·공연장·커피·주차장, 10%)·'자녀중심'(학원·독서실·편의점, 10%)은 미선택시 적용 안 되므로 태그에서 제외. 가정의달(5월) 2nd선택 한도 2배는 계절 이벤트라 제외. 전월실적 채워드림 서비스는 태그 밖. 연회비 모바일단독 발급시 9,000원."
   }
 ]

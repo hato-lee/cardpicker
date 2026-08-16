@@ -1,0 +1,111 @@
+[
+  {
+    "id": "kb-coupang-wow",
+    "name": "KB국민 쿠팡 와우카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 20000,
+    "minSpend": 0,
+    "benefits": [
+      { "tag": "온라인 쇼핑", "type": "points", "rate": 2, "monthlyCap": 20000, "stars": 2, "note": "쿠팡·쿠팡플레이 등 쿠팡 계열 기본 적립(상시). ★등급 산정: 정률 2%는 낮으나 월한도 2만원이 넉넉해 잠정 2등급, 검수 필요. 2026-10-15까지 추가 2%(동일 한도) 프로모션은 이벤트성이라 제외." },
+      { "tag": "배달·외식", "type": "points", "rate": 2, "monthlyCap": 20000, "stars": 2, "note": "쿠팡이츠 포함, 쿠팡 계열(쇼핑+이츠+플레이) 합산 월2만원 한도로 온라인쇼핑 항목과 통합 한도일 가능성 있음, 확인 필요." },
+      { "tag": "모든 가맹점", "type": "points", "rate": 0.2, "monthlyCap": 2000, "stars": 1, "note": "쿠팡 계열 외 모든 가맹점 기본 적립(상시값). 2026-10-15까지 편의점 2.2%/그 외 1% 추가 프로모션은 이벤트성이라 제외." }
+    ],
+    "universal": { "type": "points", "rate": 0.2, "monthlyCap": 2000 },
+    "complexity": 2,
+    "officialUrl": "https://www.kbcard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 나무위키(쿠팡 와우 카드 문서) 참고 — KB국민카드 공식 상세페이지의 정확한 URL(allianceCode)을 찾지 못해 홈 도메인으로 대체, 공식 확인 필요. 2023년 10월 출시, 발급사가 기존 현대카드에서 KB국민카드로 이관된 카드. 연회비는 국내전용/비자 공통 2만원으로 파악(비접촉 결제 등 브랜드별 차이 확인 필요)."
+  },
+  {
+    "id": "hyundai-naver-edition2",
+    "name": "네이버 현대카드 Edition2",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 20000,
+    "minSpend": 500000,
+    "benefits": [
+      { "tag": "온라인 쇼핑", "type": "points", "rate": 7, "monthlyCap": 20000, "stars": 3, "note": "네이버플러스 멤버십 회원이 적립대상 결제 시(네이버페이/네이버쇼핑 등) 네이버페이 포인트 적립. 비회원은 0.7%만 적용." },
+      { "tag": "모든 가맹점", "type": "points", "rate": 0.7, "monthlyCap": null, "stars": 1, "note": "네이버플러스 적립대상 외 모든 가맹점 기본 적립, 한도 없음." }
+    ],
+    "universal": { "type": "points", "rate": 0.7, "monthlyCap": null },
+    "complexity": 2,
+    "officialUrl": "https://www.hyundaicard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 나무위키(네이버페이/제휴카드 문서) 참고 — 현대카드 공식페이지는 JS 렌더링이라 상세 확인 불가, 홈 도메인으로 대체. 2025-10-30 아메리칸익스프레스 브랜드 추가 확인됨, 그 시점까지 판매중이었음(2026-08 현재도 판매중으로 추정되나 공식 재확인 필요). VISA Platinum/AMEX Platinum/국내전용 브랜드 존재."
+  },
+  {
+    "id": "hyundai-costco-reward-edition2",
+    "name": "코스트코 리워드 현대카드 Edition2",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 20000,
+    "minSpend": 500000,
+    "benefits": [
+      { "tag": "온라인 쇼핑", "type": "points", "rate": 3, "monthlyCap": null, "stars": 2, "note": "코스트코 온라인몰(costco.co.kr) 한정 3% 적립. 코스트코 오프라인 매장은 2%(대형마트라 12개 태그 밖이라 미기재). 연간 50만 포인트 통합한도(전체 적립 합산)." },
+      { "tag": "모든 가맹점", "type": "points", "rate": 1, "monthlyCap": null, "stars": 1, "note": "코스트코 외 모든 가맹점 1% 적립. 연간 50만 포인트 통합한도(코스트코 적립분과 합산)." }
+    ],
+    "universal": { "type": "points", "rate": 1, "monthlyCap": null },
+    "complexity": 2,
+    "officialUrl": "https://www.hyundaicard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 나무위키(현대카드/카드 상품/코스트코 문서) 참고 — 현대카드 공식페이지는 JS 렌더링이라 상세 확인 불가, 홈 도메인으로 대체. 2023-12-28 출시. 적립 포인트는 코스트코 리워드 포인트로, 매년 12월 현금처럼 쓸 수 있는 바우처로 지급. 연간 50만 포인트 한도가 월 단위로 어떻게 배분되는지는 확인 필요(월 한도는 null로 처리)."
+  },
+  {
+    "id": "samsung-starbucks",
+    "name": "스타벅스 삼성카드",
+    "issuer": "삼성카드",
+    "kind": "credit",
+    "annualFee": 30000,
+    "minSpend": 500000,
+    "benefits": [
+      { "tag": "카페·편의점", "type": "points", "rate": 0, "monthlyCap": null, "stars": 1, "note": "정액/구간형 '별' 리워드 적립이라 %로 환산하지 않음(브리프 지침). 전월실적 50만원 미만: 3만원당 별 1개, 50만원 이상: 1만원당 별 5개. 별의 원화 환산가치가 명확히 공시되지 않아 rate 0, ★등급도 잠정 1등급으로 표기 — 검수 필요." }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://www.samsungcard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 나무위키(스타벅스 삼성카드 문서) 참고 — 삼성카드 공식 상세페이지 주소를 찾지 못해 홈 도메인으로 대체, 공식 확인 필요. 2025-09-25 신용카드 출시(기존 스타벅스 현대카드는 2025-10-15부로 신규발급 중단, 파트너사가 삼성카드로 변경됨). 전월 50만원 이상 시 국내외 가맹점 별 적립 혜택도 있으나 정확한 적립 기준 불명확해 태그에 미반영. 후불교통카드 필수 탑재, 마스터카드 비접촉결제는 태그 밖."
+  },
+  {
+    "id": "shinhan-emart",
+    "name": "신한카드 이마트",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 400000,
+    "benefits": [
+      { "tag": "온라인 쇼핑", "type": "discount", "rate": 15, "monthlyCap": 20000, "stars": 3, "note": "SSG.COM 이용분 한정으로 온라인쇼핑 태그 적용. 전월실적 40만원 이상 시 월2만원, 100만원 이상 시 월5만원 한도(이마트/트레이더스/이마트24/노브랜드/일렉트로마트/스타벅스 할인과 통합한도인지 별도인지 확인 필요)." },
+      { "tag": "카페·편의점", "type": "discount", "rate": 15, "monthlyCap": 20000, "stars": 3, "note": "스타벅스 15% 할인. 온라인쇼핑(SSG.COM) 항목과 한도 통합 여부 확인 필요." },
+      { "tag": "모든 가맹점", "type": "points", "rate": 0.5, "monthlyCap": null, "stars": 1, "note": "이마트 계열·SSG.COM·스타벅스 등 할인 대상 외 그 외 가맹점 기본 적립." }
+    ],
+    "universal": { "type": "points", "rate": 0.5, "monthlyCap": null },
+    "complexity": 3,
+    "officialUrl": "https://www.shinhancard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 나무위키(신한카드/카드 상품/제휴 문서) 참고 — 신한카드 공식 상세페이지의 정확한 URL(숫자 ID)을 찾지 못해 홈 도메인으로 대체, 공식 확인 필요. 2026-03-26 출시 신상품. 이마트/트레이더스/이마트에브리데이/이마트24/노브랜드/일렉트로마트 15% 할인은 대형마트·전문점이라 12개 태그 밖(브리프 기준)이라 개별 기재하지 않음 — SSG.COM은 온라인쇼핑, 스타벅스는 카페·편의점으로만 반영. 마스터카드 연회비 18,000원, 국내전용 15,000원(낮은 값 사용)."
+  },
+  {
+    "id": "shinhan-shinsegae-best-fit",
+    "name": "신한카드 신세계 Best Fit",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 12000,
+    "minSpend": 0,
+    "benefits": [
+      { "tag": "대중교통·택시", "type": "discount", "rate": 3, "monthlyCap": 50000, "stars": 2, "note": "SRT 포함 대중교통 3% 할인, 전월실적 조건 없이 적용(무실적)." },
+      { "tag": "해외 결제", "type": "discount", "rate": 5, "monthlyCap": null, "stars": 2, "note": "연 1천만원 이상 신세계 계열 구매 시에만 적용되는 해외 오프라인 5% 캐시백 — 조건이 매우 높아 일반 사용자에게는 사실상 적용되지 않을 수 있음, 검수 필요." }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://www.shinhancard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 나무위키(신한카드/카드 상품/제휴 문서) 참고 — 공식 상세페이지 주소를 찾지 못해 홈 도메인으로 대체, 공식 확인 필요. 2025-11-13 출시. 신세계백화점 5%·이마트 5% 할인은 백화점·대형마트 특정 가맹점이라 12개 태그 밖이라 미기재(카드 핵심 혜택이 태그 밖이라는 점 유의). 마스터카드 연회비 15,000원, 국내전용 12,000원(낮은 값 사용)."
+  }
+]

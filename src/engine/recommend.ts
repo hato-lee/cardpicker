@@ -14,8 +14,9 @@ export interface Scored {
 
 const UNIVERSAL_TAG = '모든 가맹점'
 
+/** 범용 카드 = 전 가맹점 적립/할인(universal)이 있는 카드. 복잡도는 무심형 필터(carefreeMaxComplexity)가 따로 본다. */
 export function isUniversalCard(card: Card): boolean {
-  return card.universal !== null && card.complexity === 1
+  return card.universal !== null
 }
 
 export function coveredTagsOf(card: Card, tags: Tag[]): Tag[] {

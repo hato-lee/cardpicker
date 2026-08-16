@@ -15,8 +15,9 @@ test('세 화면을 순서대로 지나 결과가 나온다', async () => {
   render(<App />)
   expect(screen.getByRole('heading', { name: '나에 대해' })).toBeInTheDocument()
   await goToResults()
-  expect(screen.getByRole('heading', { name: /맞는 카드/ })).toBeInTheDocument()
-  expect(screen.getByText('신한카드 Deep Oil')).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: /맞는 카드 TOP \d/ })).toBeInTheDocument()
+  // 실데이터에 의존하지 않도록 특정 카드명 대신 "결과 카드가 1장 이상"만 확인한다
+  expect(screen.getAllByRole('link', { name: /카드사 페이지/ }).length).toBeGreaterThan(0)
 })
 
 test('조건 바꾸기를 누르면 첫 화면으로', async () => {
