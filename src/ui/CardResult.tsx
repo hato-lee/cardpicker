@@ -28,7 +28,9 @@ export function CardResult({ rank, scored, persona, pickedCount, today }: Props)
   const { card } = scored
   const stale = isStale(card.lastChecked, today)
   const table = persona === 'meticulous' ? maxBenefitTable(scored) : null
-  const allUncapped = table ? table.rows.every((r) => r.monthlyMax === null) : false
+  // 원 단위로 합칠 수 있는 줄. 한도 없는 줄과 마일리지(마일 단위) 줄은 뺀다.
+  const moneyRows = table ? table.rows.filter((r) => r.monthlyMax !== null && r.type !== 'mileage') : []
+  const noMoneyCap = table !== null && moneyRows.length === 0
 
   return (
     <article className="card">
@@ -64,8 +66,8 @@ export function CardResult({ rank, scored, persona, pickedCount, today }: Props)
               ))}
             </tbody>
           </table>
-          {allUncapped ? (
-            <div className="max-sum">한도 없음 — 쓰는 만큼 적립돼요 (연회비 {won(card.annualFee)})</div>
+          {noMoneyCap ? (
+            <div className="max-sum">금액 한도 없음 — 쓰는 만큼 적립돼요 (연회비 {won(card.annualFee)})</div>
           ) : (
             <div className="max-sum">
               {table.annualNet >= 0 ? (
@@ -76,7 +78,7 @@ export function CardResult({ rank, scored, persona, pickedCount, today }: Props)
               {table.hasUncapped && ' (한도 없는 항목은 합계에서 제외)'}
             </div>
           )}
-          {table.rows.some((r) => r.requiredSpend !== null) && (
+          {!noMoneyCap && table.rows.some((r) => r.requiredSpend !== null) && (
             <div className="max-note">
               ※ 한도를 다 채우려면 {table.rows.filter((r) => r.requiredSpend !== null).map((r) => `${r.tag} ${won(r.requiredSpend!)}`).join('·')} 이상 써야 해요
             </div>

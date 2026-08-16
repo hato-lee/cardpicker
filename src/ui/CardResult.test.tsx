@@ -56,8 +56,22 @@ test('한도 없는 항목만 있으면 합계 대신 안내 문구', () => {
   render(<CardResult rank={1} scored={mileageScored} persona="meticulous" pickedCount={1} today={today} />)
   const sum = screen.getByText(/한도 없음 — 쓰는 만큼 적립돼요/)
   expect(sum).toBeInTheDocument()
-  expect(sum.textContent).toBe('한도 없음 — 쓰는 만큼 적립돼요 (연회비 30만 원)')
+  expect(sum.textContent).toBe('금액 한도 없음 — 쓰는 만큼 적립돼요 (연회비 30만 원)')
   expect(screen.queryByText(/약 -/)).not.toBeInTheDocument()
+  expect(screen.queryByText(/※ 한도를 다 채우려면/)).not.toBeInTheDocument()
+})
+
+test('마일리지 한도만 있으면 0원 합계 대신 금액 한도 없음 안내', () => {
+  const mileCapped: Card = {
+    id: 'mile-capped', name: '마일 한도 카드', issuer: '테스트', kind: 'credit', annualFee: 100000, minSpend: 0,
+    benefits: [{ tag: '마일리지', type: 'mileage', rate: 0.1, monthlyCap: 5000, stars: 2 }],
+    universal: null, complexity: 1, officialUrl: 'https://example.com/mile-capped', lastChecked: '2026-08-16', status: 'active',
+  }
+  const s: Scored = { card: mileCapped, score: 100, coveredTags: ['마일리지'], universalCovers: [], isUniversal: false }
+  render(<CardResult rank={1} scored={s} persona="meticulous" pickedCount={1} today={today} />)
+  expect(screen.getByText(/금액 한도 없음 — 쓰는 만큼 적립돼요/)).toBeInTheDocument()
+  expect(screen.queryByText(/월 최대 0원/)).not.toBeInTheDocument()
+  expect(screen.getByText('월 최대 5,000마일')).toBeInTheDocument()
   expect(screen.queryByText(/※ 한도를 다 채우려면/)).not.toBeInTheDocument()
 })
 
