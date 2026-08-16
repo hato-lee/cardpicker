@@ -72,6 +72,13 @@ test('reasonLine 명시 커버 + 범용 커버 섞임', () => {
   expect(reasonLine(s, 2)).toBe('고른 2개 중 2개 커버 · 주유 ★★★ · 그 외 1개는 모든 가맹점 ★★ · 연회비 0원 · 실적 없음')
 })
 
+test("'모든 가맹점'을 직접 커버했으면 reasonLine에 한 번만 나온다", () => {
+  const s: Scored = { card: uni, score: 0, coveredTags: ['모든 가맹점'], universalCovers: ['배달·외식'], isUniversal: true }
+  const line = reasonLine(s, 2)
+  expect(line).toBe('고른 2개 중 2개 커버 · 모든 가맹점 ★★ · 연회비 0원 · 실적 없음')
+  expect(line.match(/모든 가맹점/g)).toHaveLength(1)
+})
+
 test('maxBenefitTable에 범용 커버가 있으면 모든 가맹점 줄이 붙는다', () => {
   const s: Scored = { card: uni, score: 0, coveredTags: ['주유'], universalCovers: ['카페·편의점'], isUniversal: true }
   const t = maxBenefitTable(s)

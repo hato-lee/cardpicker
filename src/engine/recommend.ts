@@ -48,8 +48,10 @@ function baseScore(card: Card, covered: Tag[], universalCovers: Tag[], rules: Ru
   const starsSum = card.benefits
     .filter((b) => covered.includes(b.tag))
     .reduce((s, b) => s + b.stars, 0)
-  // 범용으로 커버되는 태그가 있으면 '모든 가맹점' 벤핏의 ★을 한 번만 더한다
-  const universalStars = universalCovers.length > 0 ? universalStarsOf(card) : 0
+  // 범용으로 커버되는 태그가 있으면 '모든 가맹점' 벤핏의 ★을 한 번만 더한다.
+  // '모든 가맹점'을 직접 골랐으면 이미 starsSum에 들어갔으므로 더하지 않는다.
+  const countUniversalStars = universalCovers.length > 0 && !covered.includes(UNIVERSAL_TAG)
+  const universalStars = countUniversalStars ? universalStarsOf(card) : 0
   const feeBonus = w.fee * (1 - Math.min(card.annualFee, rules.feeCap) / rules.feeCap)
   const spendBonus = w.minSpend * (1 - Math.min(card.minSpend, rules.spendCap) / rules.spendCap)
   return (

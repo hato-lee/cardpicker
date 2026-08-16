@@ -31,6 +31,8 @@ export function CardResult({ rank, scored, persona, pickedCount, today }: Props)
   // 원 단위로 합칠 수 있는 줄. 한도 없는 줄과 마일리지(마일 단위) 줄은 뺀다.
   const moneyRows = table ? table.rows.filter((r) => r.monthlyMax !== null && r.type !== 'mileage') : []
   const noMoneyCap = table !== null && moneyRows.length === 0
+  // 금액 합계를 보여주는데 마일 항목도 섞여 있으면 제외했다고 알린다
+  const hasCappedMileage = table ? table.rows.some((r) => r.type === 'mileage' && r.monthlyMax !== null) : false
 
   return (
     <article className="card">
@@ -76,6 +78,7 @@ export function CardResult({ rank, scored, persona, pickedCount, today }: Props)
                 <>다 챙기면 월 최대 {won(table.monthlyTotal)} · 연 최대 {won(table.annualTotal)} – 연회비 {won(card.annualFee)} → 연회비가 최대 혜택보다 {won(-table.annualNet)} 커요</>
               )}
               {table.hasUncapped && ' (한도 없는 항목은 합계에서 제외)'}
+              {hasCappedMileage && ' (마일 항목은 금액 합계에서 제외)'}
             </div>
           )}
           {!noMoneyCap && table.rows.some((r) => r.requiredSpend !== null) && (

@@ -61,6 +61,20 @@ test('한도 없는 항목만 있으면 합계 대신 안내 문구', () => {
   expect(screen.queryByText(/※ 한도를 다 채우려면/)).not.toBeInTheDocument()
 })
 
+test('금액 합계와 마일 항목이 섞이면 제외 안내를 붙인다', () => {
+  const mixed: Card = {
+    id: 'mixed', name: '섞인 카드', issuer: '테스트', kind: 'credit', annualFee: 0, minSpend: 0,
+    benefits: [
+      { tag: '마일리지', type: 'mileage', rate: 0.1, monthlyCap: 5000, stars: 2 },
+      { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3 },
+    ],
+    universal: null, complexity: 2, officialUrl: 'https://example.com/mixed', lastChecked: '2026-08-16', status: 'active',
+  }
+  const s: Scored = { card: mixed, score: 100, coveredTags: ['마일리지', '주유'], universalCovers: [], isUniversal: false }
+  render(<CardResult rank={1} scored={s} persona="meticulous" pickedCount={2} today={today} />)
+  expect(screen.getByText(/마일 항목은 금액 합계에서 제외/)).toBeInTheDocument()
+})
+
 test('마일리지 한도만 있으면 0원 합계 대신 금액 한도 없음 안내', () => {
   const mileCapped: Card = {
     id: 'mile-capped', name: '마일 한도 카드', issuer: '테스트', kind: 'credit', annualFee: 100000, minSpend: 0,

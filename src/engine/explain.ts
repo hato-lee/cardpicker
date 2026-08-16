@@ -13,7 +13,8 @@ export function reasonLine(s: Scored, pickedCount: number): string {
     const b = s.card.benefits.find((x) => x.tag === tag)
     if (b) parts.push(`${tag} ${'★'.repeat(b.stars)}`)
   }
-  const uni = s.card.benefits.find((x) => x.tag === UNIVERSAL_TAG)
+  // '모든 가맹점'을 직접 골랐으면 위에서 이미 한 줄 나갔으니 또 쓰지 않는다
+  const uni = s.coveredTags.includes(UNIVERSAL_TAG) ? undefined : s.card.benefits.find((x) => x.tag === UNIVERSAL_TAG)
   if (s.universalCovers.length > 0 && uni) {
     parts.push(`그 외 ${s.universalCovers.length}개는 ${UNIVERSAL_TAG} ${'★'.repeat(uni.stars)}`)
   }

@@ -154,6 +154,15 @@ describe('범용 커버 (universal)', () => {
     expect(r[0].score).toBeCloseTo(85.1)
     expect(r[1].score).toBeCloseTo(51)
   })
+  test("'모든 가맹점'을 직접 고르면 그 ★을 두 번 세지 않는다", () => {
+    const r = recommend([universalCard], q({ persona: 'carefree', tags: ['모든 가맹점', '주유'] }))
+    const w = RULES.weight
+    // 커버 1개(30) + 범용 커버 1개(15) + ★2(16) + 연회비(10) + 실적(10) = 81
+    const base = 1 * w.coverage + 1 * w.universalCoverage + 2 * w.stars + w.fee + w.minSpend
+    expect(base).toBe(81)
+    expect(r[0].score).toBeCloseTo(base * RULES.personaMultiplier.carefree.universal)
+    expect(r[0].score).toBeCloseTo(113.4)
+  })
   test('고른 태그가 모두 명시 벤핏이면 universalCovers는 비어 있다', () => {
     const r = recommend([universalCard], q({ tags: ['모든 가맹점'] }))
     expect(r[0].coveredTags).toEqual(['모든 가맹점'])

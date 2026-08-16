@@ -34,8 +34,10 @@ test('범용 카드는 고른 태그에 딱 맞는 벤핏이 없어도 추천된
 
 test('맞는 카드가 없으면 빈 안내', async () => {
   render(<App />)
-  // 연회비 1만 원까지만 허용 → 학원·교육을 커버하는 카드가 없다
-  await goToResults('무심형', ['학원·교육'], '10000')
+  // 연회비 0원까지만 허용 → 학원·교육을 커버하는 카드가 없다.
+  // 주의: cards.json에 '연회비 0원 + universal' 카드가 생기면 이 테스트가 깨진다
+  // (범용 카드는 어떤 태그든 커버하므로). 그때는 조건을 다시 잡아야 한다.
+  await goToResults('무심형', ['학원·교육'], '0')
   expect(screen.getByText(/맞는 카드를 못 찾았어요/)).toBeInTheDocument()
   expect(screen.getByRole('heading', { name: '당신에게 맞는 카드' })).toBeInTheDocument()
 })
