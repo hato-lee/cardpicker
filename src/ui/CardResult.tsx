@@ -2,7 +2,7 @@ import { useState } from 'react'
 import type { Scored } from '../engine/recommend'
 import type { Persona, Benefit } from '../data/types'
 import { reasonLine, maxBenefitTable, isStale } from '../engine/explain'
-import { won } from './format'
+import { won, rateText } from './format'
 
 interface Props {
   rank: number
@@ -12,11 +12,9 @@ interface Props {
   today: Date
 }
 
-const TYPE_LABEL: Record<Benefit['type'], string> = { discount: '할인', points: '적립', mileage: '마일 적립' }
-
 function benefitText(b: Benefit): string {
   const cap = b.monthlyCap === null ? '한도 없음' : `월 최대 ${won(b.monthlyCap)}`
-  return `${b.tag} ${b.rate}% ${TYPE_LABEL[b.type]} · ${cap}${b.note ? ` (${b.note})` : ''}`
+  return `${b.tag} ${rateText(b.type, b.rate)} · ${cap}${b.note ? ` (${b.note})` : ''}`
 }
 
 export function CardResult({ rank, scored, persona, pickedCount, today }: Props) {
@@ -24,6 +22,7 @@ export function CardResult({ rank, scored, persona, pickedCount, today }: Props)
   const { card } = scored
   const stale = isStale(card.lastChecked, today)
   const table = persona === 'meticulous' ? maxBenefitTable(scored) : null
+  const allUncapped = table ? table.rows.every((r) => r.monthlyMax === null) : false
 
   return (
     <article className="card">
@@ -52,16 +51,24 @@ export function CardResult({ rank, scored, persona, pickedCount, today }: Props)
               {table.rows.map((r) => (
                 <tr key={r.tag}>
                   <td>{r.tag}</td>
-                  <td>{r.rate}% {TYPE_LABEL[r.type]}</td>
+                  <td>{rateText(r.type, r.rate)}</td>
                   <td className="num">{r.monthlyMax === null ? '한도 없음' : `월 최대 ${won(r.monthlyMax)}`}</td>
                 </tr>
               ))}
             </tbody>
           </table>
-          <div className="max-sum">
-            다 챙기면 월 최대 {won(table.monthlyTotal)} · 연 최대 {won(table.annualTotal)} – 연회비 {won(card.annualFee)} = 약 {won(table.annualNet)}
-            {table.hasUncapped && ' (한도 없는 항목은 합계에서 제외)'}
-          </div>
+          {allUncapped ? (
+            <div className="max-sum">한도 없음 — 쓰는 만큼 적립돼요 (연회비 {won(card.annualFee)})</div>
+          ) : (
+            <div className="max-sum">
+              {table.annualNet >= 0 ? (
+                <>다 챙기면 월 최대 {won(table.monthlyTotal)} · 연 최대 {won(table.annualTotal)} – 연회비 {won(card.annualFee)} = 약 {won(table.annualNet)}</>
+              ) : (
+                <>다 챙기면 월 최대 {won(table.monthlyTotal)} · 연 최대 {won(table.annualTotal)} – 연회비 {won(card.annualFee)} → 연회비가 최대 혜택보다 {won(-table.annualNet)} 커요</>
+              )}
+              {table.hasUncapped && ' (한도 없는 항목은 합계에서 제외)'}
+            </div>
+          )}
           {table.rows.some((r) => r.requiredSpend !== null) && (
             <div className="max-note">
               ※ 한도를 다 채우려면 {table.rows.filter((r) => r.requiredSpend !== null).map((r) => `${r.tag} ${won(r.requiredSpend!)}`).join('·')} 이상 써야 해요
