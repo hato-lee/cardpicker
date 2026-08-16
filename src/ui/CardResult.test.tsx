@@ -74,6 +74,37 @@ test('연회비가 최대 혜택보다 크면 마이너스 대신 경고 문구'
   expect(screen.getByText(/연회비가 최대 혜택보다 4만 원 커요/)).toBeInTheDocument()
 })
 
+test('이유 줄 앞에 ★ 기호를 붙이지 않는다', () => {
+  const { container } = render(<CardResult rank={1} scored={scored} persona="moderate" pickedCount={2} today={today} />)
+  expect(container.querySelector('.reason')!.textContent).toBe(
+    '고른 2개 중 2개 커버 · 주유 ★★★ · 카페·편의점 ★ · 연회비 1만 원 · 실적 30만 원',
+  )
+})
+
+test('최대 혜택 표에 상한이라는 안내가 붙는다', () => {
+  render(<CardResult rank={1} scored={scored} persona="meticulous" pickedCount={2} today={today} />)
+  expect(screen.getByText(/영역별 월 최대 혜택/)).toBeInTheDocument()
+  expect(screen.getByText(/'최대'는 한도를 다 채웠을 때의 상한이에요/)).toBeInTheDocument()
+})
+
+test('마일리지 한도는 마일 단위로 보여주고 원 합계에서 뺀다', async () => {
+  const mile: Card = {
+    id: 'mile', name: '마일 카드', issuer: '테스트', kind: 'credit', annualFee: 0, minSpend: 0,
+    benefits: [
+      { tag: '마일리지', type: 'mileage', rate: 0.1, monthlyCap: 5000, stars: 2 },
+      { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3 },
+    ],
+    universal: null, complexity: 2, officialUrl: 'https://example.com/mile', lastChecked: '2026-08-16', status: 'active',
+  }
+  const s: Scored = { card: mile, score: 100, coveredTags: ['마일리지', '주유'], universalCovers: [], isUniversal: false }
+  render(<CardResult rank={1} scored={s} persona="meticulous" pickedCount={2} today={today} />)
+  expect(screen.getByText('월 최대 5,000마일')).toBeInTheDocument()
+  // 마일은 원이 아니므로 합계는 주유 1.5만 원만
+  expect(screen.getByText(/월 최대 1.5만 원 · 연 최대 18만 원/)).toBeInTheDocument()
+  await userEvent.click(screen.getByRole('button', { name: /혜택 요약/ }))
+  expect(screen.getByText(/1,000원당 1마일 · 월 최대 5,000마일/)).toBeInTheDocument()
+})
+
 test('혜택 요약 펼치기', async () => {
   render(<CardResult rank={1} scored={scored} persona="moderate" pickedCount={2} today={today} />)
   expect(screen.queryByText(/10% 할인/)).not.toBeInTheDocument()

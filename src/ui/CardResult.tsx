@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { Scored } from '../engine/recommend'
-import type { Persona, Benefit } from '../data/types'
+import type { Persona, Benefit, BenefitType } from '../data/types'
 import { reasonLine, maxBenefitTable, isStale } from '../engine/explain'
 import { won, rateText } from './format'
 
@@ -12,9 +12,15 @@ interface Props {
   today: Date
 }
 
+/** 월 한도 표기. 마일리지 한도는 '원'이 아니라 '마일' 단위다. */
+function capText(type: BenefitType, cap: number | null): string {
+  if (cap === null) return '한도 없음'
+  if (type === 'mileage') return `월 최대 ${cap.toLocaleString('ko-KR')}마일`
+  return `월 최대 ${won(cap)}`
+}
+
 function benefitText(b: Benefit): string {
-  const cap = b.monthlyCap === null ? '한도 없음' : `월 최대 ${won(b.monthlyCap)}`
-  return `${b.tag} ${rateText(b.type, b.rate)} · ${cap}${b.note ? ` (${b.note})` : ''}`
+  return `${b.tag} ${rateText(b.type, b.rate)} · ${capText(b.type, b.monthlyCap)}${b.note ? ` (${b.note})` : ''}`
 }
 
 export function CardResult({ rank, scored, persona, pickedCount, today }: Props) {
@@ -34,11 +40,12 @@ export function CardResult({ rank, scored, persona, pickedCount, today }: Props)
         </div>
       </header>
 
-      <p className="reason">★ {reasonLine(scored, pickedCount)}</p>
+      <p className="reason">{reasonLine(scored, pickedCount)}</p>
 
       {table && (
         <div className="max-table">
           <div className="max-title">영역별 월 최대 혜택</div>
+          <div className="max-note">※ '최대'는 한도를 다 채웠을 때의 상한이에요</div>
           <table>
             <thead>
               <tr>
@@ -52,7 +59,7 @@ export function CardResult({ rank, scored, persona, pickedCount, today }: Props)
                 <tr key={r.tag}>
                   <td>{r.tag}</td>
                   <td>{rateText(r.type, r.rate)}</td>
-                  <td className="num">{r.monthlyMax === null ? '한도 없음' : `월 최대 ${won(r.monthlyMax)}`}</td>
+                  <td className="num">{capText(r.type, r.monthlyMax)}</td>
                 </tr>
               ))}
             </tbody>

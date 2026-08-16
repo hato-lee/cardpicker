@@ -25,9 +25,12 @@ export function Results({ query, results, onEdit, today }: Props) {
         ))
       )}
       <button type="button" className="secondary" onClick={onEdit}>조건 바꾸기</button>
-      <p className="report">
-        정보가 틀렸나요? <a href={REPORT_FORM_URL} target="_blank" rel="noopener noreferrer">제보하기</a>
-      </p>
+      {/* 제보 폼 주소를 아직 안 넣었으면(자리표시자) 링크를 숨긴다 */}
+      {!REPORT_FORM_URL.includes('REPLACE_ME') && (
+        <p className="report">
+          정보가 틀렸나요? <a href={REPORT_FORM_URL} target="_blank" rel="noopener noreferrer">제보하기</a>
+        </p>
+      )}
     </section>
   )
 }

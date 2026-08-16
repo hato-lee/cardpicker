@@ -40,8 +40,10 @@ test('맞는 카드가 없으면 빈 안내', async () => {
   expect(screen.getByRole('heading', { name: '당신에게 맞는 카드' })).toBeInTheDocument()
 })
 
-test('제보 링크가 있다', async () => {
+// 제보 폼 주소는 아직 자리표시자(REPLACE_ME)라 링크를 숨긴다.
+// Task 10에서 실제 구글 폼 주소로 바꾸면 링크가 보인다.
+test('제보 폼 주소가 자리표시자면 링크를 숨긴다', async () => {
   render(<App />)
   await goToResults()
-  expect(screen.getByRole('link', { name: /제보하기/ })).toBeInTheDocument()
+  expect(screen.queryByRole('link', { name: /제보하기/ })).toBeNull()
 })
