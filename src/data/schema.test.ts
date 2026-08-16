@@ -35,6 +35,34 @@ test('날짜 형식이 틀리면 실패한다', () => {
   expect(() => validateCards([{ ...good, lastChecked: '2026/08/16' }])).toThrow()
 })
 
+test('officialUrl은 https만 통과한다', () => {
+  expect(() => validateCards([{ ...good, officialUrl: 'javascript:alert(1)' }])).toThrow(/https/)
+  expect(() => validateCards([{ ...good, officialUrl: 'http://x.com' }])).toThrow(/https/)
+  expect(validateCards([{ ...good, officialUrl: 'https://x.com' }])).toHaveLength(1)
+})
+
+test('모르는 키(오타)가 있으면 실패한다', () => {
+  const bad = { ...good, statuss: 'active' }
+  expect(() => validateCards([bad])).toThrow(/shinhan-deep-oil/)
+  expect(() => validateCards([bad])).toThrow(/statuss/)
+})
+
+test('벤핏·universal 안의 모르는 키도 실패한다', () => {
+  const badBenefit = { ...good, benefits: [{ ...good.benefits[0], starz: 3 }] }
+  expect(() => validateCards([badBenefit])).toThrow(/starz/)
+  const badUniversal = {
+    ...good,
+    universal: { type: 'points', rate: 1, monthlyCap: null, cap: 100 },
+    benefits: [...good.benefits, { tag: '모든 가맹점', type: 'points', rate: 1, monthlyCap: null, stars: 2 }],
+  }
+  expect(() => validateCards([badUniversal])).toThrow(/cap/)
+})
+
+test('복잡도·날짜 오류 메시지는 한국어다', () => {
+  expect(() => validateCards([{ ...good, complexity: 4 }])).toThrow(/1~3 중 하나여야 합니다/)
+  expect(() => validateCards([{ ...good, lastChecked: '2026/08/16' }])).toThrow(/YYYY-MM-DD 형식이어야 합니다/)
+})
+
 test('id가 겹치면 실패한다', () => {
   expect(() => validateCards([good, good])).toThrow(/중복/)
 })

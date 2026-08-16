@@ -3,9 +3,9 @@ import { TAGS } from './tags'
 import type { Card } from './types'
 
 const benefitType = z.enum(['discount', 'points', 'mileage'])
-const oneToThree = z.union([z.literal(1), z.literal(2), z.literal(3)])
+const oneToThree = z.union([z.literal(1), z.literal(2), z.literal(3)], { error: '1~3 중 하나여야 합니다' })
 
-const benefitSchema = z.object({
+const benefitSchema = z.strictObject({
   tag: z.enum([...TAGS]),
   type: benefitType,
   rate: z.number().min(0),
@@ -15,7 +15,7 @@ const benefitSchema = z.object({
 })
 
 const cardSchema = z
-  .object({
+  .strictObject({
     id: z.string().min(1),
     name: z.string().min(1),
     issuer: z.string().min(1),
@@ -23,10 +23,12 @@ const cardSchema = z
     annualFee: z.number().int().min(0),
     minSpend: z.number().int().min(0),
     benefits: z.array(benefitSchema),
-    universal: z.object({ type: benefitType, rate: z.number().min(0), monthlyCap: z.number().int().min(0).nullable() }).nullable(),
+    universal: z
+      .strictObject({ type: benefitType, rate: z.number().min(0), monthlyCap: z.number().int().min(0).nullable() })
+      .nullable(),
     complexity: oneToThree,
-    officialUrl: z.string().url(),
-    lastChecked: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    officialUrl: z.url({ protocol: /^https$/, error: 'officialUrl은 https:// 로 시작해야 합니다' }),
+    lastChecked: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'YYYY-MM-DD 형식이어야 합니다'),
     status: z.enum(['active', 'discontinued']),
     memo: z.string().optional(),
   })
