@@ -9,7 +9,8 @@ export interface Benefit {
   tag: Tag
   type: BenefitType
   rate: number            // 퍼센트. 마일리지는 "1,000원당 1마일" = 0.1
-  monthlyCap: number | null  // 원. 한도 없으면 null
+  // 월 한도. type이 'mileage'면 '마일' 단위(월 최대 적립 마일), 그 밖(discount/points)은 '원'. 한도 없으면 null
+  monthlyCap: number | null
   stars: Stars
   note?: string
 }
@@ -17,7 +18,7 @@ export interface Benefit {
 export interface Universal {
   type: BenefitType
   rate: number
-  monthlyCap: number | null
+  monthlyCap: number | null  // Benefit.monthlyCap와 같은 단위 규칙 (mileage면 마일, 그 밖은 원)
 }
 
 export interface Card {

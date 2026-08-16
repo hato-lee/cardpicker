@@ -8,7 +8,8 @@ export const RULES = {
 
   // 점수 비중
   weight: {
-    coverage: 30,   // 고른 태그 하나 커버할 때마다
+    coverage: 30,   // 고른 태그를 벤핏으로 직접 커버할 때마다
+    universalCoverage: 15, // 벤핏은 없지만 범용(universal)으로 커버되는 태그마다
     stars: 8,       // 커버한 태그의 ★ 하나마다
     fee: 10,        // 연회비 0원이면 만점, feeCap 이상이면 0점
     minSpend: 10,   // 실적 0원이면 만점, spendCap 이상이면 0점
@@ -37,5 +38,6 @@ export const STAR_GUIDE = `
 복잡도 2: 영역 혜택 2~3개, 실적 조건 1단계
 복잡도 3: 선택형 팩, 실적 구간별 한도, 제외 항목 많음
 "모든 가맹점" 태그: universal이 있으면 벤핏에도 tag '모든 가맹점'을 하나 넣는다.
-전 가맹점 마일리지 적립 카드: universal(type mileage) + 벤핏 tag '마일리지'.
+전 가맹점 마일리지 적립 카드: universal(type mileage) + 벤핏 tag '마일리지'와 '모든 가맹점' 둘 다 넣는다.
+monthlyCap 단위: type이 'mileage'면 "월 최대 적립 마일"(마일 단위), 그 밖(discount/points)은 원 단위.
 `

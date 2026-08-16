@@ -1,4 +1,4 @@
-import { recommend, coveredTagsOf, isUniversalCard } from './recommend'
+import { recommend, coveredTagsOf, universalCoversOf, isUniversalCard } from './recommend'
 import { RULES } from './rules'
 import type { Card, Query } from '../data/types'
 
@@ -125,6 +125,39 @@ describe('경계값', () => {
       expect(Number.isFinite(s.score)).toBe(true)
       expect(s.score).toBeGreaterThan(0)
     }
+  })
+})
+
+describe('범용 커버 (universal)', () => {
+  test('universalCoversOf는 명시 벤핏이 없는 고른 태그를 돌려준다', () => {
+    expect(universalCoversOf(universalCard, ['주유', '모든 가맹점'])).toEqual(['주유'])
+    expect(universalCoversOf(oilCard, ['주유', '카페·편의점'])).toEqual([])
+  })
+  test('범용 카드는 명시 벤핏이 없어도 걸러지지 않는다', () => {
+    const r = recommend([universalCard], q({ tags: ['병의원·약국'] }))
+    expect(r).toHaveLength(1)
+    expect(r[0].coveredTags).toEqual([])
+    expect(r[0].universalCovers).toEqual(['병의원·약국'])
+  })
+  test('범용이 아닌 카드는 커버 못 하면 여전히 빠진다', () => {
+    expect(recommend([oilCard], q({ tags: ['병의원·약국'] }))).toHaveLength(0)
+  })
+  test('무심형 + 주유: 범용 카드가 주유 카드보다 위', () => {
+    const r = recommend([oilCard, universalCard], q({ persona: 'carefree', tags: ['주유'] }))
+    expect(r.map((s) => s.card.id)).toEqual(['uni', 'oil'])
+    expect(r[0].score).toBeCloseTo(71.4)
+    expect(r[1].score).toBeCloseTo(44.4)
+  })
+  test('꼼꼼형 + 주유: 주유 카드가 범용 카드보다 위', () => {
+    const r = recommend([universalCard, oilCard], q({ persona: 'meticulous', tags: ['주유'] }))
+    expect(r.map((s) => s.card.id)).toEqual(['oil', 'uni'])
+    expect(r[0].score).toBeCloseTo(85.1)
+    expect(r[1].score).toBeCloseTo(51)
+  })
+  test('고른 태그가 모두 명시 벤핏이면 universalCovers는 비어 있다', () => {
+    const r = recommend([universalCard], q({ tags: ['모든 가맹점'] }))
+    expect(r[0].coveredTags).toEqual(['모든 가맹점'])
+    expect(r[0].universalCovers).toEqual([])
   })
 })
 

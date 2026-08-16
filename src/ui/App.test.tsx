@@ -2,10 +2,10 @@ import { render, screen, fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import App from './App'
 
-async function goToResults(persona = '적당형', tags = ['주유']) {
+async function goToResults(persona = '적당형', tags = ['주유'], feeLimit = '200000') {
   await userEvent.click(screen.getByText(persona))
   await userEvent.type(screen.getByLabelText(/한 달 카드 사용액/), '100')
-  fireEvent.change(screen.getByLabelText(/연회비 허용치/), { target: { value: '200000' } })
+  fireEvent.change(screen.getByLabelText(/연회비 허용치/), { target: { value: feeLimit } })
   await userEvent.click(screen.getByRole('button', { name: '다음' }))
   for (const t of tags) await userEvent.click(screen.getByRole('button', { name: t }))
   await userEvent.click(screen.getByRole('button', { name: '추천 받기' }))
@@ -26,9 +26,16 @@ test('조건 바꾸기를 누르면 첫 화면으로', async () => {
   expect(screen.getByRole('heading', { name: '나에 대해' })).toBeInTheDocument()
 })
 
-test('맞는 카드가 없으면 빈 안내', async () => {
+test('범용 카드는 고른 태그에 딱 맞는 벤핏이 없어도 추천된다', async () => {
   render(<App />)
   await goToResults('무심형', ['학원·교육'])
+  expect(screen.getByText(/그 외 1개는 모든 가맹점/)).toBeInTheDocument()
+})
+
+test('맞는 카드가 없으면 빈 안내', async () => {
+  render(<App />)
+  // 연회비 1만 원까지만 허용 → 학원·교육을 커버하는 카드가 없다
+  await goToResults('무심형', ['학원·교육'], '10000')
   expect(screen.getByText(/맞는 카드를 못 찾았어요/)).toBeInTheDocument()
   expect(screen.getByRole('heading', { name: '당신에게 맞는 카드' })).toBeInTheDocument()
 })

@@ -12,7 +12,7 @@ const oil: Card = {
   ],
   universal: null, complexity: 2, officialUrl: 'https://example.com/oil', lastChecked: '2026-08-16', status: 'active',
 }
-const scored: Scored = { card: oil, score: 100, coveredTags: ['주유', '카페·편의점'], isUniversal: false }
+const scored: Scored = { card: oil, score: 100, coveredTags: ['주유', '카페·편의점'], universalCovers: [], isUniversal: false }
 const today = new Date('2026-08-20')
 
 test('이름·카드사·이유·공식 링크·확인일이 보인다', () => {
@@ -52,7 +52,7 @@ test('한도 없는 항목만 있으면 합계 대신 안내 문구', () => {
     ],
     universal: null, complexity: 1, officialUrl: 'https://example.com/mileage', lastChecked: '2026-08-16', status: 'active',
   }
-  const mileageScored: Scored = { card: mileageOnly, score: 100, coveredTags: ['마일리지'], isUniversal: false }
+  const mileageScored: Scored = { card: mileageOnly, score: 100, coveredTags: ['마일리지'], universalCovers: [], isUniversal: false }
   render(<CardResult rank={1} scored={mileageScored} persona="meticulous" pickedCount={1} today={today} />)
   const sum = screen.getByText(/한도 없음 — 쓰는 만큼 적립돼요/)
   expect(sum).toBeInTheDocument()
@@ -69,7 +69,7 @@ test('연회비가 최대 혜택보다 크면 마이너스 대신 경고 문구'
     ],
     universal: null, complexity: 1, officialUrl: 'https://example.com/loss', lastChecked: '2026-08-16', status: 'active',
   }
-  const lossScored: Scored = { card: lossCard, score: 100, coveredTags: ['주유'], isUniversal: false }
+  const lossScored: Scored = { card: lossCard, score: 100, coveredTags: ['주유'], universalCovers: [], isUniversal: false }
   render(<CardResult rank={1} scored={lossScored} persona="meticulous" pickedCount={1} today={today} />)
   expect(screen.getByText(/연회비가 최대 혜택보다 4만 원 커요/)).toBeInTheDocument()
 })

@@ -4,11 +4,18 @@ import type { Tag } from '../data/tags'
 import { RULES } from './rules'
 import { won } from '../ui/format'
 
+const UNIVERSAL_TAG = '모든 가맹점'
+
 export function reasonLine(s: Scored, pickedCount: number): string {
-  const parts: string[] = [`고른 ${pickedCount}개 중 ${s.coveredTags.length}개 커버`]
+  const coveredCount = s.coveredTags.length + s.universalCovers.length
+  const parts: string[] = [`고른 ${pickedCount}개 중 ${coveredCount}개 커버`]
   for (const tag of s.coveredTags) {
     const b = s.card.benefits.find((x) => x.tag === tag)
     if (b) parts.push(`${tag} ${'★'.repeat(b.stars)}`)
+  }
+  const uni = s.card.benefits.find((x) => x.tag === UNIVERSAL_TAG)
+  if (s.universalCovers.length > 0 && uni) {
+    parts.push(`그 외 ${s.universalCovers.length}개는 ${UNIVERSAL_TAG} ${'★'.repeat(uni.stars)}`)
   }
   parts.push(`연회비 ${won(s.card.annualFee)}`)
   parts.push(s.card.minSpend === 0 ? '실적 없음' : `실적 ${won(s.card.minSpend)}`)
@@ -33,14 +40,20 @@ export interface MaxBenefitTable {
 
 export function maxBenefitTable(s: Scored): MaxBenefitTable {
   const rows: MaxBenefitRow[] = []
-  for (const tag of s.coveredTags) {
+  const addRow = (tag: Tag) => {
     const b = s.card.benefits.find((x) => x.tag === tag)
-    if (!b) continue
+    if (!b) return
     const monthlyMax = b.monthlyCap
     const requiredSpend = b.monthlyCap !== null && b.rate > 0 ? Math.round(b.monthlyCap / (b.rate / 100)) : null
     rows.push({ tag, rate: b.rate, type: b.type, monthlyMax, requiredSpend })
   }
-  const monthlyTotal = rows.reduce((sum, r) => sum + (r.monthlyMax ?? 0), 0)
+  for (const tag of s.coveredTags) addRow(tag)
+  // 범용으로만 커버되는 태그가 있으면 '모든 가맹점' 줄을 한 번 붙인다
+  if (s.universalCovers.length > 0 && !s.coveredTags.includes(UNIVERSAL_TAG)) addRow(UNIVERSAL_TAG)
+  // 마일리지 한도는 '마일' 단위라 원 단위 합계에 넣지 않는다
+  const monthlyTotal = rows
+    .filter((r) => r.type !== 'mileage')
+    .reduce((sum, r) => sum + (r.monthlyMax ?? 0), 0)
   const annualTotal = monthlyTotal * 12
   return {
     rows,
