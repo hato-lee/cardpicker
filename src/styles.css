@@ -25,3 +25,23 @@ button.secondary { width: 100%; padding: 12px; font-size: 15px; background: #fff
 .tag { padding: 12px 8px; font-size: 15px; background: #fff; border: 1px solid #dfe3e8; border-radius: 10px; cursor: pointer; }
 .tag.is-selected { background: #2563eb; color: #fff; border-color: #2563eb; }
 .warn { color: #d33; font-size: 12px; margin: 0 0 16px; }
+
+.card { background: #fff; border: 1px solid #dfe3e8; border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+.card-head { display: flex; gap: 12px; align-items: flex-start; }
+.rank { flex: none; width: 28px; height: 28px; border-radius: 50%; background: #2563eb; color: #fff; font-weight: 700; display: grid; place-items: center; }
+.card h3 { margin: 0 0 4px; font-size: 17px; }
+.card-sub { font-size: 13px; color: #555; }
+.reason { margin: 12px 0; font-size: 14px; }
+.max-table { background: #f6f7f9; border-radius: 8px; padding: 10px 12px; margin-bottom: 12px; font-size: 13px; }
+.max-title { font-weight: 600; margin-bottom: 6px; }
+.max-table table { width: 100%; border-collapse: collapse; }
+.max-table td { padding: 3px 0; }
+.max-table td.num { text-align: right; }
+.max-sum { border-top: 1px solid #dfe3e8; margin-top: 6px; padding-top: 6px; font-weight: 600; }
+.max-note { color: #666; margin-top: 4px; }
+.link-btn { background: none; border: 0; color: #2563eb; padding: 0; font-size: 14px; cursor: pointer; }
+.benefits { margin: 8px 0 0; padding-left: 18px; font-size: 13px; color: #333; }
+.benefits .memo { color: #777; }
+.card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-size: 12px; color: #666; }
+.card-foot a { color: #2563eb; text-decoration: none; }
+.badge { margin-left: 6px; padding: 2px 6px; background: #fde8e8; color: #c22; border-radius: 4px; font-weight: 600; }
