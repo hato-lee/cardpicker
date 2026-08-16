@@ -41,6 +41,13 @@ export function CardResult({ rank, scored, persona, pickedCount, today }: Props)
         <div className="max-table">
           <div className="max-title">영역별 월 최대 혜택</div>
           <table>
+            <thead>
+              <tr>
+                <th scope="col">영역</th>
+                <th scope="col">혜택</th>
+                <th scope="col">월 최대</th>
+              </tr>
+            </thead>
             <tbody>
               {table.rows.map((r) => (
                 <tr key={r.tag}>
@@ -63,12 +70,12 @@ export function CardResult({ rank, scored, persona, pickedCount, today }: Props)
         </div>
       )}
 
-      <button type="button" className="link-btn" onClick={() => setOpen((v) => !v)}>
+      <button type="button" className="link-btn" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
         혜택 요약 {open ? '접기 ▲' : '펼치기 ▼'}
       </button>
       {open && (
         <ul className="benefits">
-          {card.benefits.map((b, i) => <li key={i}>{benefitText(b)}</li>)}
+          {card.benefits.map((b) => <li key={b.tag}>{benefitText(b)}</li>)}
           {card.memo && <li className="memo">메모: {card.memo}</li>}
         </ul>
       )}

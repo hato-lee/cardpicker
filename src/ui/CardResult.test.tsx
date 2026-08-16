@@ -47,6 +47,9 @@ test('꼼꼼형에는 최대 혜택 표와 합계가 있다', () => {
 test('혜택 요약 펼치기', async () => {
   render(<CardResult rank={1} scored={scored} persona="moderate" pickedCount={2} today={today} />)
   expect(screen.queryByText(/10% 할인/)).not.toBeInTheDocument()
-  await userEvent.click(screen.getByRole('button', { name: /혜택 요약/ }))
+  const toggle = screen.getByRole('button', { name: /혜택 요약/ })
+  expect(toggle).toHaveAttribute('aria-expanded', 'false')
+  await userEvent.click(toggle)
   expect(screen.getByText(/10% 할인/)).toBeInTheDocument()
+  expect(toggle).toHaveAttribute('aria-expanded', 'true')
 })
