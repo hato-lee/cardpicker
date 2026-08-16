@@ -29,18 +29,10 @@ test('조건 바꾸기를 누르면 첫 화면으로', async () => {
 test('범용 카드는 고른 태그에 딱 맞는 벤핏이 없어도 추천된다', async () => {
   render(<App />)
   await goToResults('무심형', ['학원·교육'])
-  expect(screen.getByText(/그 외 1개는 모든 가맹점/)).toBeInTheDocument()
+  expect(screen.getAllByText(/그 외 1개는 모든 가맹점/).length).toBeGreaterThan(0)
 })
 
-test('맞는 카드가 없으면 빈 안내', async () => {
-  render(<App />)
-  // 연회비 0원까지만 허용 → 학원·교육을 커버하는 카드가 없다.
-  // 주의: cards.json에 '연회비 0원 + universal' 카드가 생기면 이 테스트가 깨진다
-  // (범용 카드는 어떤 태그든 커버하므로). 그때는 조건을 다시 잡아야 한다.
-  await goToResults('무심형', ['학원·교육'], '0')
-  expect(screen.getByText(/맞는 카드를 못 찾았어요/)).toBeInTheDocument()
-  expect(screen.getByRole('heading', { name: '당신에게 맞는 카드' })).toBeInTheDocument()
-})
+// '맞는 카드가 없으면 빈 안내' 테스트는 실데이터와 무관하게 AppEmpty.test.tsx에서 cards.json을 비워 검증한다.
 
 // 제보 폼 주소는 아직 자리표시자(REPLACE_ME)라 링크를 숨긴다.
 // Task 10에서 실제 구글 폼 주소로 바꾸면 링크가 보인다.
