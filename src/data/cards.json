@@ -232,7 +232,7 @@
     "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1227020_2207.html",
     "lastChecked": "2026-08-16",
     "status": "active",
-    "memo": "AI 수집, 검수 전. 출처: 공식 페이지(혜택 상세)+검색 스니펫(연회비 15,000/18,000원, 공식 페이지 연회비는 템플릿 변수라 재확인 필요). 계획소비 보너스 포인트는 태그 밖이라 제외."
+    "memo": "AI 수집, 검수 전. 출처: 공식 페이지(혜택 상세)+검색 스니펫(연회비 15,000/18,000원, 공식 페이지 연회비는 템플릿 변수라 재확인 필요). 계획소비 보너스 포인트는 태그 밖이라 제외. 검증(2026-08-16): 공식 페이지(shinhancard.com) 재확인, '오늘도5%' 최상위구간(100만원↑) 월 최대 2만P, 통신비 자동이체 10%(최대 3만원 결제분) 구조 일치. 연회비는 페이지가 템플릿 변수(\"{{=$data.wlAfe}}\")로 렌더링되어 여전히 확인 못함, 기재값(15,000/18,000원)은 이전 검색 스니펫 기준 유지."
   },
   {
     "id": "shinhan-air-one",
@@ -264,7 +264,7 @@
     "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1187901_2207.html",
     "lastChecked": "2026-08-16",
     "status": "active",
-    "memo": "AI 수집, 검수 전. 출처: 공식 페이지(적립조건·마일리지율)+검색 스니펫(연회비 국내49,000/해외51,000원, 공식 페이지 연회비는 템플릿 변수라 재확인 필요)."
+    "memo": "AI 수집, 검수 전. 출처: 공식 페이지(적립조건·마일리지율)+검색 스니펫(연회비 국내49,000/해외51,000원, 공식 페이지 연회비는 템플릿 변수라 재확인 필요). 검증(2026-08-16): 공식 페이지(shinhancard.com) 재확인, 국내 1,000원당1마일 기본적립 + 항공/면세 업종 추가1마일(월2천마일 한도), 해외도 동일 구조(기본1마일+추가1마일, 추가분 월2천마일 한도) 확인되어 기재값과 일치. 연회비는 페이지가 템플릿 변수라 여전히 확인 못함(검색 스니펫 값 유지)."
   },
   {
     "id": "shinhan-b-big",
@@ -323,8 +323,8 @@
     "complexity": 1,
     "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1188272_2207.html",
     "lastChecked": "2026-08-16",
-    "status": "active",
-    "memo": "AI 수집, 검수 전. 출처: 공식 페이지(캐시백 구조)+검색 스니펫(연회비 국내전용 1만원/해외겸용 1만3천원, 공식 페이지 연회비는 템플릿 변수라 재확인 필요). 영화할인·잔돈할인(Coin-Save)은 태그 밖이라 제외."
+    "status": "discontinued",
+    "memo": "AI 수집, 검수 전. 출처: 공식 페이지(캐시백 구조)+검색 스니펫(연회비 국내전용 1만원/해외겸용 1만3천원, 공식 페이지 연회비는 템플릿 변수라 재확인 필요). 영화할인·잔돈할인(Coin-Save)은 태그 밖이라 제외. 검증(2026-08-16): 공식 페이지(shinhancard.com) 확인 결과 \"해당카드는 신규발급 및 유효기간 연장이 중단되었\"다고 명시(기존 소지자 재발급만 가능). status를 discontinued로 정정. 후속 상품은 Simple Plan 시리즈."
   },
   {
     "id": "shinhan-point-plan-plus",
@@ -496,7 +496,7 @@
     "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?allianceCode=01513&mainCC=b",
     "lastChecked": "2026-08-16",
     "status": "active",
-    "memo": "AI 수집, 검수 전. 출처: 공식 페이지(m.kbcard.com). 전월실적 조건이 페이지에 명시되지 않아 0으로 기재, 확인 필요. 상위 등급인 스카이패스 플래티늄/플래티늄S(GS칼텍스 1.5마일 등)는 별도 카드이며 미수집."
+    "memo": "AI 수집, 검수 전. 출처: 공식 페이지(m.kbcard.com). 전월실적 조건이 페이지에 명시되지 않아 0으로 기재, 확인 필요. 상위 등급인 스카이패스 플래티늄/플래티늄S(GS칼텍스 1.5마일 등)는 별도 카드이며 미수집. 검증(2026-08-16): 공식 페이지(m.kbcard.com) 재확인, 연회비 20,000원(MASTER/VISA/JCB 공통) 및 국내 1,500원당 1마일(=0.067) 일치. 해외 적립률·전월실적·월한도는 페이지에 여전히 명시 안 됨, 확인 필요 상태 유지."
   },
   {
     "id": "kb-gaon",
@@ -556,7 +556,7 @@
     "issuer": "KB국민카드",
     "kind": "credit",
     "annualFee": 4000,
-    "minSpend": 300000,
+    "minSpend": 200000,
     "benefits": [
       {
         "tag": "카페·편의점",
@@ -604,7 +604,7 @@
     "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?allianceCode=09174&mainCC=b",
     "lastChecked": "2026-08-16",
     "status": "active",
-    "memo": "AI 수집, 검수 전. 출처: 공식 페이지(m.kbcard.com). 연회비는 JCB(K-WORLD) 모바일단독 4,000원 기준(일반 10,000원, MASTER 6,000~12,000원). 전월실적 30만원은 KB 청춘대로 시리즈 공통 패턴으로 추정, 정확한 금액 확인 필요. 각 할인의 구체적 월 한도가 페이지에 표로 제시되지 않아 확인 필요."
+    "memo": "AI 수집, 검수 전. 출처: 공식 페이지(m.kbcard.com). 연회비는 JCB(K-WORLD) 모바일단독 4,000원 기준(일반 10,000원, MASTER 6,000~12,000원). 전월실적 30만원은 KB 청춘대로 시리즈 공통 패턴으로 추정, 정확한 금액 확인 필요. 각 할인의 구체적 월 한도가 페이지에 표로 제시되지 않아 확인 필요. 검증(2026-08-16): 공식 페이지(m.kbcard.com) 재확인 결과 \"전월 이용실적: 20만원\"으로 명시되어 있어 기존 30만원(추정 기재)을 20만원으로 정정. 연회비(JCB 모바일단독 4,000원)는 일치. 각 할인의 월 한도는 여전히 페이지에 숫자로 없음, 확인 필요 유지."
   },
   {
     "id": "kb-cheongchundaero-kkulshopping-alpha",
@@ -684,7 +684,7 @@
     "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?allianceCode=09061&mainCC=b",
     "lastChecked": "2026-08-16",
     "status": "active",
-    "memo": "AI 수집, 검수 전. 출처: 공식 페이지(m.kbcard.com). 국내전용 모바일 연회비 1,000원 기준(플라스틱 5,000원, 국내외겸용 6,000~10,000원). 전월실적 1구간 30만원/2구간 60만원/3구간 120만원. 외식 업종 할인 여부는 페이지상 '편의점, 약국'으로만 확인되어 note에 반영."
+    "memo": "AI 수집, 검수 전. 출처: 공식 페이지(m.kbcard.com). 국내전용 모바일 연회비 1,000원 기준(플라스틱 5,000원, 국내외겸용 6,000~10,000원). 전월실적 1구간 30만원/2구간 60만원/3구간 120만원. 외식 업종 할인 여부는 페이지상 '편의점, 약국'으로만 확인되어 note에 반영. 검증(2026-08-16): 공식 페이지(m.kbcard.com) 재확인, 연회비(국내전용 모바일 1,000원)/전월실적 1구간 30만원/주유 리터당60원(1구간 20만원 한도)/통신비10%·3천원/편의점·약국10%·5천원/학원10%·3만원 모두 기재값과 정확히 일치. 고신뢰."
   },
   {
     "id": "kb-tantandaero-auto",
@@ -708,7 +708,7 @@
     "officialUrl": "https://m.kbcard.com/CXHIACRC0002.cms?mainCC=b&allianceCode=09237",
     "lastChecked": "2026-08-16",
     "status": "active",
-    "memo": "AI 수집, 검수 전. 출처: 공식 페이지(m.kbcard.com) + 보조 검색(월 한도 5만원 수치는 공식 페이지에서 확인 안 됨, 재확인 필요). 연회비 50,000원(JCB/MASTER 공통)으로 오토카드치고 높게 확인됨, 재확인 필요. 전월실적 구간 금액도 페이지에 숫자로 명시되지 않아 30만원으로 추정 기재. 차량정비/세차장 10%, 통신요금/편의점 10% 혜택은 별도 존재하나 월한도 미기재로 태그에는 미포함(memo 기록만)."
+    "memo": "AI 수집, 검수 전. 출처: 공식 페이지(m.kbcard.com) + 보조 검색(월 한도 5만원 수치는 공식 페이지에서 확인 안 됨, 재확인 필요). 연회비 50,000원(JCB/MASTER 공통)으로 오토카드치고 높게 확인됨, 재확인 필요. 전월실적 구간 금액도 페이지에 숫자로 명시되지 않아 30만원으로 추정 기재. 차량정비/세차장 10%, 통신요금/편의점 10% 혜택은 별도 존재하나 월한도 미기재로 태그에는 미포함(memo 기록만). 검증(2026-08-16): 공식 페이지(m.kbcard.com) 재확인, 연회비 50,000원(JCB/MASTER 공통) 일치, 주유 10~15% 할인 및 차량정비·세차장 10%, 통신요금·편의점 10% 부가혜택 존재 확인(태그 밖 유지). 전월실적 정확 금액과 주유 월한도(5만원 추정치)는 페이지에 숫자로 없음, 확인 필요 상태 유지."
   },
   {
     "id": "kb-goldenlife-olim",
@@ -1008,7 +1008,7 @@
     "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1671",
     "lastChecked": "2026-08-16",
     "status": "active",
-    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드/ajd.co.kr 참고, 공식 페이지는 연회비(1.5만원)만 확인됨(그 외 공식 확인 필요). 멤버십리워즈는 삼성카드 포인트와 합산 사용 가능, 유효기간 5년."
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드/ajd.co.kr 참고, 공식 페이지는 연회비(1.5만원)만 확인됨(그 외 공식 확인 필요). 멤버십리워즈는 삼성카드 포인트와 합산 사용 가능, 유효기간 5년. 검증(2026-08-16): 공식 페이지(samsungcard.com)에서 연회비 \"해외 발급 기준 15,000원\"만 확인, 나머지 적립률·한도(해외5%/배달외식7%/카페20%/온라인1.5%/교통·통신5%/20%)는 페이지 접힘 및 검색예산 소진으로 이번 세션에서 재검증 못함. 기존 2차 출처(뱅크샐러드/ajd.co.kr) 값 그대로 유지, 확인 필요 상태 지속."
   },
   {
     "id": "samsung-id-simple",
@@ -1044,7 +1044,7 @@
     "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1767",
     "lastChecked": "2026-08-16",
     "status": "active",
-    "memo": "AI 수집, 검수 전. 출처: 공식페이지+뱅크샐러드/혜택창고 참고. 온라인쇼핑몰 멤버십 50% 할인·영화 3천원 할인은 태그 밖."
+    "memo": "AI 수집, 검수 전. 출처: 공식페이지+뱅크샐러드/혜택창고 참고. 온라인쇼핑몰 멤버십 50% 할인·영화 3천원 할인은 태그 밖. 검증(2026-08-16): 공식 페이지(samsungcard.com)에서 연회비 \"해외 본인 7,000원\" 확인(국내전용 금액은 페이지에 별도 명시 없음, 기재값 7,000원과 상충 없음). 0.7%/1%(10만원 기준) 할인 구조 문구 존재. 전월실적·한도 등 세부 수치는 페이지 접힘으로 재확인 못함."
   },
   {
     "id": "samsung-id-select-all",
@@ -1075,7 +1075,7 @@
         "type": "discount",
         "rate": 7,
         "monthlyCap": 15000,
-        "stars": 2,
+        "stars": 3,
         "note": "생활소비 옵션(택1): 온라인쇼핑·배달앱·병원·약국 7% 청구할인. 월 통합한도 전월실적 40/80/120만원 기준 최고 15,000원"
       },
       {
@@ -1083,7 +1083,7 @@
         "type": "discount",
         "rate": 7,
         "monthlyCap": 15000,
-        "stars": 2,
+        "stars": 3,
         "note": "생활소비 옵션(택1): 음식점·편의점·할인점·주유 7% 청구할인. LPG 제외 여부 공식 확인 필요, 한도는 병의원·약국과 동일 풀"
       },
       {
@@ -1100,7 +1100,7 @@
     "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1875",
     "lastChecked": "2026-08-16",
     "status": "active",
-    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드/ajd.co.kr/한국일보 기사 참고, 공식페이지는 연회비만 확인됨(그 외 공식 확인 필요). 2026년 5월 출시 신규 카드. 고정비·생활소비 각각 택1 구조라 실제로는 매월 각 그룹에서 한 개씩만 동시 적용됨(예: 관리비 선택 시 학원비 혜택은 미적용). 다이소·여행·도서·와인 5% 할인, 디지털콘텐츠 50% 할인은 태그 밖."
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드/ajd.co.kr/한국일보 기사 참고, 공식페이지는 연회비만 확인됨(그 외 공식 확인 필요). 2026년 5월 출시 신규 카드. 고정비·생활소비 각각 택1 구조라 실제로는 매월 각 그룹에서 한 개씩만 동시 적용됨(예: 관리비 선택 시 학원비 혜택은 미적용). 다이소·여행·도서·와인 5% 할인, 디지털콘텐츠 50% 할인은 태그 밖. 검증(2026-08-16): 공식 페이지(samsungcard.com)에서 연회비 \"본인 20,000원\"(해외 기준)만 확인, 나머지 세부 수치는 페이지 접힘/검색예산 소진으로 재확인 못함(기존 2차 출처 값 유지). STAR_GUIDE를 경계값(7%·한도15,000원)에 엄격 적용하면 생활소비 옵션 중 병의원·약국, 주유(둘 다 7%·1.5만원)는 조건을 정확히 충족하므로 stars 2→3으로 정정."
   },
   {
     "id": "samsung-taptap-digital",
@@ -1176,7 +1176,7 @@
     "officialUrl": "https://www.hyundaicard.com/upload/card/%EA%B0%80%EC%9D%B4%EB%93%9C%EB%B6%81_ZERO%20Ed3_%ED%95%A0%EC%9D%B8_260330.pdf",
     "lastChecked": "2026-08-16",
     "status": "active",
-    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요."
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요. 검증(2026-08-16): WebSearch 교차 확인(banksalad, ajd.co.kr, 토스 카드라운지 등) 결과 연회비 국내전용/Visa 모두 15,000원, 전월실적 없음, 국내외 가맹점 0.8% 청구할인(한도 없음) 모두 기재값과 일치."
   },
   {
     "id": "hyundai-z-work-edition2",
@@ -1364,7 +1364,7 @@
     "officialUrl": "https://www.hyundaicard.com",
     "lastChecked": "2026-08-16",
     "status": "active",
-    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요. 공식 상세페이지 URL 못 찾아 홈 도메인 사용. M 긴급적립(최대 50만원 선지급) 등은 태그 밖."
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요. 공식 상세페이지 URL 못 찾아 홈 도메인 사용. M 긴급적립(최대 50만원 선지급) 등은 태그 밖. 검증(2026-08-16): 현대카드 공식 홈(hyundaicard.com) 접속 시 \"접속이 원활하지 않습니다\" 오류로 상세 재확인 불가, 검색예산도 소진되어 재검증 못함. 기존 뱅크샐러드 출처 값(연회비 30,000원, 전가맹점 1.5% M포인트, 온라인/외식/해외 5%) 그대로 유지, 확인 필요 상태 지속."
   },
   {
     "id": "hyundai-koreanair-060",
@@ -1644,7 +1644,7 @@
     "officialUrl": "https://m.wooricard.com/dcmw/yh1/crd/crd01/M1CRD101S08.do?tab=1",
     "lastChecked": "2026-08-16",
     "status": "active",
-    "memo": "AI 수집, 검수 전. 출처: 공식 페이지."
+    "memo": "AI 수집, 검수 전. 출처: 공식 페이지. 검증(2026-08-16): 공식 페이지(m.wooricard.com) 재확인, 연회비 12,000원, 전가맹점 0.8%(실적·한도 없음), 온라인 간편결제 전월실적 40만원↑ 시 2% 추가할인 모두 일치."
   },
   {
     "id": "woori-d4-jeongseok",
@@ -1712,7 +1712,7 @@
     "officialUrl": "https://m.wooricard.com/dcmw/yh1/crd/crd01/M1CRD101S02.do?recomNo=102245",
     "lastChecked": "2026-08-16",
     "status": "active",
-    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 및 검색요약 참고, 공식 확인 필요(공식 페이지가 JS 렌더링이라 세부 수치 미확인). 대중교통·커피전문점 할인(전월실적 30만원 이상시 적용, 정확한 태그·수치 확인 필요)은 이번 수집에서 제외."
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 및 검색요약 참고, 공식 확인 필요(공식 페이지가 JS 렌더링이라 세부 수치 미확인). 대중교통·커피전문점 할인(전월실적 30만원 이상시 적용, 정확한 태그·수치 확인 필요)은 이번 수집에서 제외. 검증(2026-08-16): 공식 모바일 페이지(m.wooricard.com) 접속했으나 개별 카드 상세정보가 노출되지 않음(내비게이션/공통 안내만 표시, JS 렌더링 추정), 검색예산도 소진되어 재검증 못함. 기존 값(연회비 12,000원, 0.7~1.0% 할인, 주유 한도 7,000원 등) 그대로 유지, 확인 필요 상태 지속."
   },
   {
     "id": "woori-every-mile-skypass",
@@ -1891,7 +1891,7 @@
         "type": "mileage",
         "rate": 0.067,
         "monthlyCap": null,
-        "stars": 2,
+        "stars": 1,
         "note": "전 가맹점 1,500원당 1마일 적립(대한항공 스카이패스). 할부/상품권/공과금/보험료 등 일부 제외"
       },
       {
@@ -1899,7 +1899,7 @@
         "type": "mileage",
         "rate": 0.067,
         "monthlyCap": null,
-        "stars": 2,
+        "stars": 1,
         "note": "전 가맹점 1,500원당 1마일 적립(대한항공 스카이패스). 할부/상품권/공과금/보험료 등 일부 제외"
       }
     ],
@@ -1912,7 +1912,7 @@
     "officialUrl": "https://m.hanacard.co.kr/MKCDCM1030M.web?CD_PD_SEQ=17960",
     "lastChecked": "2026-08-16",
     "status": "active",
-    "memo": "AI 수집, 검수 전. 출처: 공식 페이지(모바일). 해외 이용 시 별도 수수료 면제 없음(트래블로그 체크카드와 다름, ATM $3 또는 1% 중 큰 금액·환전수수료 1.2% 부과). 전월실적 조건 명시 안 됨, 확인 필요."
+    "memo": "AI 수집, 검수 전. 출처: 공식 페이지(모바일). 해외 이용 시 별도 수수료 면제 없음(트래블로그 체크카드와 다름, ATM $3 또는 1% 중 큰 금액·환전수수료 1.2% 부과). 전월실적 조건 명시 안 됨, 확인 필요. 검증(2026-08-16): 공식 페이지(m.hanacard.co.kr) 재확인, 연회비 48,000원(국내/해외 동일) 일치. STAR_GUIDE 기준 1,500원당1마일(=0.067)은 '1,000원당 1마일 안팎'에 못 미쳐 stars 2→1로 하향 정정."
   },
   {
     "id": "nh-allone-pi",
@@ -1960,7 +1960,7 @@
     "officialUrl": "https://card.nonghyup.com/",
     "lastChecked": "2026-08-16",
     "status": "active",
-    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요 (정확한 상세 페이지 주소를 찾지 못해 공식 홈 도메인으로 대체). 선택업종은 의료/주유/이동통신/대형마트/해외 중 1~2개만 고를 수 있어 병의원 혜택과 온라인쇼핑 기본할인 외 항목은 동시 적용 안 될 수 있음, 확인 필요."
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요 (정확한 상세 페이지 주소를 찾지 못해 공식 홈 도메인으로 대체). 선택업종은 의료/주유/이동통신/대형마트/해외 중 1~2개만 고를 수 있어 병의원 혜택과 온라인쇼핑 기본할인 외 항목은 동시 적용 안 될 수 있음, 확인 필요. 검증(2026-08-16): NH농협카드 공식 사이트가 시스템 점검 공지(2026-08-24 예정)만 표시해 상세 재확인 불가했고, 이번 세션 WebSearch 예산도 소진되어 추가 검증 못함. 기존 뱅크샐러드 출처 값 그대로 유지, 확인 필요 상태 지속(선택업종 1~2개 제한 구조 포함)."
   },
   {
     "id": "nh-zgm-playplus",
@@ -2112,7 +2112,7 @@
     "officialUrl": "https://m.bccard.com/app/mobileweb/CardDetail.do?exec=cardDetail&cardGdsNo=101922",
     "lastChecked": "2026-08-16",
     "status": "active",
-    "memo": "AI 수집, 검수 전. 출처: 공식 페이지. 위 5개 태그는 '매일할인 7%'와 '라이프스타일할인 10%'로 나뉘며 전월실적 구간(15만/30만/50만원)에 따라 월 통합한도 5천/1만/2만원 공유. 올리브영 10%는 태그 밖. 무이자할부 이용액은 할인 제외."
+    "memo": "AI 수집, 검수 전. 출처: 공식 페이지. 위 5개 태그는 '매일할인 7%'와 '라이프스타일할인 10%'로 나뉘며 전월실적 구간(15만/30만/50만원)에 따라 월 통합한도 5천/1만/2만원 공유. 올리브영 10%는 태그 밖. 무이자할부 이용액은 할인 제외. 검증(2026-08-16): 공식 모바일 페이지(m.bccard.com) 재확인, 연회비 5,000원·실적구간별(15/30/50만원) 통합한도(5천/1만/2만원)·업종별 할인율(배달외식·교통 7%, 편의점·온라인·통신 10%) 모두 기재값과 일치. 단 VISA 브랜드는 2023.10.2부로 신규발급 중단(MasterCard/국내전용 LOCAL만 가능), 카드 자체는 판매중 유지."
   },
   {
     "id": "kbank-one-check",
@@ -2172,6 +2172,438 @@
     "officialUrl": "https://www.kbanknow.com/web/product/card/one-card",
     "lastChecked": "2026-08-16",
     "status": "active",
-    "memo": "AI 수집, 검수 전. 출처: 공식 페이지. '369 캐시백'(3의 배수 결제마다 1천원)은 별도 선택형 팩으로 태그 매핑이 어려워 memo에만 기재. 부가서비스는 출시(2024.8) 후 3년간 유지 예정이라고 안내됨."
+    "memo": "AI 수집, 검수 전. 출처: 공식 페이지. '369 캐시백'(3의 배수 결제마다 1천원)은 별도 선택형 팩으로 태그 매핑이 어려워 memo에만 기재. 부가서비스는 출시(2024.8) 후 3년간 유지 예정이라고 안내됨. 검증(2026-08-16): 공식 페이지(kbanknow.com) 재확인, 연회비 없음/전가맹점 오프라인0.5%·온라인1%/여기서더캐시백 팩 5%(건당1만원↑)/대중교통 정액 3천원(월5만원↑ 사용시, 후불한도 월30만원) 모두 일치. 기존 note의 '7%설'은 오정보로 판단, 5%가 맞음."
+  },
+  {
+    "id": "shinhan-edu",
+    "name": "신한카드 Edu",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 10000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "학원·교육",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 45000,
+        "stars": 3,
+        "note": "전월실적 50만~100만원 5%(월1.5만원), 100만~150만원 7%(월3만원), 150만원↑ 10%(월4.5만원). 대상: 일반전문학원/학습지/유치원"
+      },
+      {
+        "tag": "병의원·약국",
+        "type": "discount",
+        "rate": 1,
+        "monthlyCap": 2000,
+        "stars": 1,
+        "note": "병원/약국 이용금액 월 20만원까지만 1% 캐시백 적용(사실상 최대 약 2,000원)"
+      },
+      {
+        "tag": "관리비·공과금",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "아파트관리비 자동이체 정액 월 5천원 캐시백. 단, 당월 학원비(학원/학습지/유치원) 결제가 있어야 적용되는 조건부 혜택"
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1188281_2207.html",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 신한카드 공식 페이지(shinhancard.com). 연회비는 페이지가 자바스크립트 템플릿({{=$data.wlAfe}})이라 실제 숫자가 노출되지 않아 확인 불가 — 유사 신한 캐시백카드 기준 잠정 1만원으로 기재, 검수 시 재확인 필요. 학원비 항목은 이용건수 2건 이상시 추가 캐시백(3~5천원)도 있으나 태그 밖이라 생략."
+  },
+  {
+    "id": "hyundai-h",
+    "name": "현대카드 H",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 400000,
+    "benefits": [
+      {
+        "tag": "학원·교육",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "학원/유치원 10% 청구할인. 전월실적 40만~80만원 월1만원, 80만~120만원 월2만원, 120만원↑ 월3.5만원 (병원과 통합한도인지 별도인지 확인 필요)"
+      },
+      {
+        "tag": "병의원·약국",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "병원/약국 10% 청구할인. 전월실적 40만~80만원 월1만원, 80만~120만원 월2만원, 120만원↑ 월3.5만원 (학원과 통합한도인지 별도인지 확인 필요)"
+      },
+      {
+        "tag": "관리비·공과금",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "아파트관리비/도시가스 5% 청구할인(통신비와 통합 영역). 전월실적 40만~80만원 통합월5천원, 80만~120만원 1만원, 120만원↑ 1.5만원, 개별 항목별 월 최대 5천원"
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://www.hyundaicard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 현대카드 매거진(card.hyundaicard.com) 아티클 참고 — 현대카드 상품 상세페이지는 자바스크립트 렌더링이라 직접 확인 불가, 정확한 상세페이지 URL과 학원/병원 통합한도 여부 확인 필요."
+  },
+  {
+    "id": "woori-loca-apt-platinum",
+    "name": "카드의정석 APT Platinum",
+    "issuer": "우리카드",
+    "kind": "credit",
+    "annualFee": 29000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "관리비·공과금",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 15000,
+        "stars": 2,
+        "note": "아파트관리비 최대 월 1.5만원 할인(정액), 도시가스요금 별도 월 3천원 할인. 정확한 할인율(%) 및 산정방식 확인 필요"
+      },
+      {
+        "tag": "학원·교육",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "학원 10% 할인, 월 한도 미확인 — 확인 필요"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://www.wooricard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: BC카드 모바일 상세페이지(m.bccard.com, 우리카드 발급 카드) 참고 — 우리카드 공식 홈페이지에서 정확한 상세페이지를 찾지 못해 홈 URL로 대체. 전월실적, 학원 할인 월한도, 정확한 판매중 여부 확인 필요."
+  },
+  {
+    "id": "kb-need-edu",
+    "name": "KB NEED Edu카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 25000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "학원·교육",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 30000,
+        "stars": 2,
+        "note": "전월실적 구간별 학원업종 할인/캐시백 월1만원→2만원→3만원 차등 지급. 정확한 할인율(%)과 구간 기준금액은 표 형태라 확인 필요. 모바일단독 연회비는 1.9만원으로 더 저렴"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?mainCC=b&allianceCode=09790",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: KB국민카드 공식 모바일 페이지(m.kbcard.com). 학원업종 할인율(%)이 이미지/표 형태로 되어있어 텍스트 추출 실패 — 정확한 %와 전월실적 구간 기준금액 확인 필요."
+  },
+  {
+    "id": "ibk-naui-alpha-edu",
+    "name": "나의알파 캐시백 에듀카드",
+    "issuer": "IBK기업은행",
+    "kind": "credit",
+    "annualFee": 5000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "학원·교육",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 1000,
+        "stars": 1,
+        "note": "학원 등 교육업종 1만원 이상 결제시 1천원 캐시백. 건별 캐시백인지 월누적 한도인지 확인 필요"
+      }
+    ],
+    "universal": null,
+    "complexity": 1,
+    "officialUrl": "https://www.ibk.co.kr/card/mainList.ibk",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: BC카드 모바일 상세페이지(m.bccard.com, IBK기업은행 발급) 참고 — IBK 공식 홈페이지에서 정확한 상세페이지를 찾지 못해 홈 URL로 대체. 전월실적 조건과 캐시백 한도 구조 확인 필요."
+  },
+  {
+    "id": "bnk-gyeongnam-kpass-check",
+    "name": "[BNK경남] 경남은행 K-패스 체크카드",
+    "issuer": "경남은행",
+    "kind": "check",
+    "annualFee": 0,
+    "minSpend": 300000,
+    "benefits": [
+      {
+        "tag": "병의원·약국",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 3000,
+        "stars": 2,
+        "note": "병원/약국/카페/편의점 통합 10% 할인, 월 2회·건당 1만원 이상 결제시. 전월실적 30만~60만원 월3천원, 60만원↑ 월5천원 (다른 통합업종과 한도 공유 여부 확인 필요)"
+      },
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 15,
+        "monthlyCap": 3000,
+        "stars": 2,
+        "note": "버스/지하철/GTX/택시 15% 할인. 병원/약국 항목과 월한도(3천~5천원) 공유하는지 별도인지 확인 필요"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://m.bccard.com/app/mobileweb/CardDetail.do?exec=cardDetail&cardGdsNo=104512",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: BC카드 모바일 상세페이지(m.bccard.com, 경남은행 발급/BC 제휴 체크카드). 경남은행 자체 공식 페이지를 찾지 못해 BC카드 페이지 URL 사용 — 확인 필요. 어학시험 2천원 할인은 태그 밖이라 생략."
+  },
+  {
+    "id": "kb-skypass-platinum",
+    "name": "KB국민 스카이패스 플래티늄카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 120000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "국내 일반가맹점 신판입금액 1,500원당 1마일 적립. 해외 적립률·월/연 적립한도 공식페이지 미명시(확인 필요). GS칼텍스 우대적립 언급 있었으나 이 페이지에서 미확인"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://m.kbcard.com/c/01515",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: KB국민카드 공식 모바일 페이지. 연회비는 기본연회비 1만원+제휴연회비 11만원 합계=12만원. 전월실적 조건 명시 안됨, 확인 필요."
+  },
+  {
+    "id": "kb-skypass-platinum-s",
+    "name": "KB국민 스카이패스 플래티늄S카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 40000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "국내·해외(매입완료 기준) 동일하게 1,500원당 1마일 적립. 월 적립한도 명시 안됨(기업개별카드 연 3만마일 한도는 별도 상품, 본 카드 해당여부 확인 필요)"
+      }
+    ],
+    "universal": null,
+    "complexity": 1,
+    "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?cooperationcode=01512&mainCC=a",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: KB국민카드 공식 모바일 페이지. 플래티늄(일반)카드보다 연회비가 낮은 하위 등급. 전월실적 조건 명시 안됨, 확인 필요."
+  },
+  {
+    "id": "nh-chaeum-skypass",
+    "name": "NH농협카드 채움 스카이패스카드",
+    "issuer": "NH농협카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "국내 일반가맹점 1,500원당 1마일 기본적립. 영화(CGV·롯데시네마 등) 1,500원당 2마일, 백화점·면세점 1,500원당 3마일 우대적립. 해외 적립률·월 적립한도·전월실적 조건은 확인 필요"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://card.nonghyup.com/servlet/IpCc1411R.act",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: NH농협카드 공식 페이지(카드 상세페이지 직접 접근 어려워 목록/검색 페이지 기준) + 뱅크샐러드 참고. 세부 조건 공식 확인 필요. 무료 보험가입 혜택은 태그 밖."
+  },
+  {
+    "id": "woori-jeongseok-premium-mileage-asiana",
+    "name": "우리카드 카드의 정석 프리미엄 마일리지(아시아나)",
+    "issuer": "우리카드",
+    "kind": "credit",
+    "annualFee": 135000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.15,
+        "monthlyCap": null,
+        "stars": 3,
+        "note": "아시아나항공 마일리지 1,000원당 1.5마일 적립(국내 기준으로 추정). 해외 적립률·전월실적 조건·월 적립한도 미확인"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://pc.wooricard.com/dcpc/yh2/bcd/bcd01/cdadv/H2BCD201S02.do",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 우리카드 공식 페이지(상세 상품페이지 접근 실패, 프리미엄 카드 목록 페이지로 대체) + BC카드·카드고릴라 참고, 공식 상세 수치 재확인 필요. 가족카드 연회비 3만원은 본인카드 아님."
+  },
+  {
+    "id": "shinhan-the-best-plus",
+    "name": "신한카드 The BEST+",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 295000,
+    "minSpend": 300000,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "발급 시 대한항공 스카이패스 또는 아시아나클럽 중 택1(동시적립 불가). 아시아나 선택 시 기본 1,000원당1마일(rate=0.1), 월 200만원 이상 이용 시 특별 1,000원당1.5마일. 대한항공 선택 시 기본 1,500원당1마일(rate=0.067), 월 200만원 이상 시 특별 1,500원당1.5마일(해외는 1,500원당3마일). 월/연 적립한도 명시 안됨"
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/premium/1188285_2205.html",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 신한카드 공식 페이지. 프리미엄 카드(연회비 29.5만~30만원). 대한항공/아시아나 선택형이라 rate는 아시아나 기본(또는 대한항공 특별)을 대표값으로 사용, note에 전체 매트릭스 기재. 공항라운지·골프 등은 태그 밖."
+  },
+  {
+    "id": "samsung-taptap-drive",
+    "name": "삼성카드 taptap DRIVE",
+    "issuer": "삼성카드",
+    "kind": "credit",
+    "annualFee": 10000,
+    "minSpend": 300000,
+    "benefits": [
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 15000,
+        "stars": 2,
+        "note": "리터당 60~150원 청구할인(전월 생활요금 자동납부 결제건수에 따라 차등). LPG 등 예외 여부 확인 필요"
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "CU·GS25·세븐일레븐·미니스톱·이마트24 및 커피전문점 10% 청구할인, 월 한도 미명시(확인 필요)"
+      },
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 1,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "온라인쇼핑 1% 청구할인, 한도 없음(명시)"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 1.5,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "해외 이용 1.5% 청구할인, 한도 미명시"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1483",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 삼성카드 공식페이지는 taptap O 카드만 노출되어 세부수치 미확인(공식 확인 필요). 전월실적 구간(30만/50만원) 정확한 경계값 재확인 필요."
+  },
+  {
+    "id": "hana-club-sk",
+    "name": "하나카드 CLUB SK",
+    "issuer": "하나카드",
+    "kind": "credit",
+    "annualFee": 6000,
+    "minSpend": 400000,
+    "benefits": [
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 15000,
+        "stars": 2,
+        "note": "SK주유소 리터당 100~150원 할인(전월실적 40만~100만원 구간별 차등), LPG충전소 리터당 35~70원 할인. 실적 상위구간 월한도 22,000원"
+      },
+      {
+        "tag": "통신비·OTT",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 15000,
+        "stars": 2,
+        "note": "SK텔레콤 통신요금 자동이체 정액 할인 2,000~15,000원(요금제·기기별 차등)"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://www.hanacard.co.kr/PI41000000D.web?CD_PD_SEQ=1544",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 하나카드 공식 페이지. 연회비는 브랜드별 상이(UPI 6천/Visa·Mastercard·Amex 7천/JCB 2만5천원) 중 최저값 사용. 마트·학원·대중교통·커피·영화 할인 등은 뱅크샐러드 요약에서만 확인되어 이번 수집에는 미포함, 공식 확인 후 추가 필요."
+  },
+  {
+    "id": "shinhan-sol-travel-check",
+    "name": "신한카드 SOL트래블 체크",
+    "issuer": "신한카드",
+    "kind": "check",
+    "annualFee": 0,
+    "minSpend": 300000,
+    "benefits": [
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "국제브랜드수수료 1%, 해외서비스수수료 0.2% 면제(전제조건 없이 기본 제공으로 추정, 확인 필요). 해외 ATM 인출수수료($3/건) 면제. 마스터트래블리워드 제휴 400여 가맹점 캐시백(최대10%)은 별도 프로그램"
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 3000,
+        "stars": 1,
+        "note": "국내 4대 편의점 5% 할인. 전월(1일~말일) 국내 이용금액 30만원 이상 시 적용, 신규발급 익월까지는 조건 면제"
+      },
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 1,
+        "monthlyCap": 3000,
+        "stars": 1,
+        "note": "국내 대중교통 1% 할인, 전월 국내 30만원 이상 조건. 해외 대중교통 컨택리스 결제 1% 할인(월 3천원 별도한도)은 태그 내 포함하지 않음"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/check/1225714_2206.html",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 신한카드 공식 페이지. 연회비는 페이지에 명시 안됨(체크카드 통상 무료로 추정, 확인 필요). 공항라운지 서비스, 환전우대는 태그 밖."
   }
 ]
