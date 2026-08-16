@@ -32,12 +32,14 @@ export default function App() {
     setStep(3)
   }
 
+  const today = new Date()
+
   return (
     <main className="app">
       <h1>카드픽</h1>
       {step === 1 && <StepProfile value={profile} onChange={setProfile} onNext={() => setStep(2)} />}
       {step === 2 && <StepTags value={tags} onChange={setTags} onBack={() => setStep(1)} onSubmit={submit} />}
-      {step === 3 && query && <Results query={query} results={results} onEdit={() => setStep(1)} today={new Date()} />}
+      {step === 3 && query && <Results query={query} results={results} onEdit={() => setStep(1)} today={today} />}
     </main>
   )
 }

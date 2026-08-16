@@ -13,7 +13,7 @@ interface Props {
 export function Results({ query, results, onEdit, today }: Props) {
   return (
     <section className="step">
-      <h2>당신에게 맞는 카드 TOP {results.length || 5}</h2>
+      <h2>{results.length > 0 ? `당신에게 맞는 카드 TOP ${results.length}` : '당신에게 맞는 카드'}</h2>
       {results.length === 0 ? (
         <div className="empty">
           <p>조건에 맞는 카드를 못 찾았어요.</p>

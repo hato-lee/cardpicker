@@ -30,6 +30,7 @@ test('맞는 카드가 없으면 빈 안내', async () => {
   render(<App />)
   await goToResults('무심형', ['학원·교육'])
   expect(screen.getByText(/맞는 카드를 못 찾았어요/)).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: '당신에게 맞는 카드' })).toBeInTheDocument()
 })
 
 test('제보 링크가 있다', async () => {
