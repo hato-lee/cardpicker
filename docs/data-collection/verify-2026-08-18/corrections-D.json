@@ -1,0 +1,31 @@
+[
+  {
+    "id": "samsung-taptap-digital",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 검증(2026-08-18): 공식페이지(samsungcard.com, code=AAP1666) 로딩 확인, 카드명·활성상태·혜택 카테고리(온라인간편결제/스트리밍/편의점·헬스&뷰티/해외가맹점) 일치. 해외연회비 10,000원 확인(국내전용 7,000원은 페이지에 미표시). 세부 요율·월한도는 페이지 렌더링 제한 및 WebSearch 세션 예산 소진으로 미확인, 기존 값 유지."
+  },
+  {
+    "id": "samsung-taptap-o",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 검증(2026-08-18): 공식페이지(code=AAP1483) 로딩 확인, 활성상태·혜택 카테고리(대중교통·택시/스타벅스/이동통신) 일치, 해외연회비 10,000원 일치 확인. 세부 요율·한도는 WebSearch 세션 예산 소진(뱅크샐러드·카드고릴라 접근 불가)으로 미확인, 기존 값 유지."
+  },
+  {
+    "id": "samsung-id-on",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 검증(2026-08-18): 공식페이지(code=AAP1731) 로딩, 연회비 '본인 20,000원' 정확히 일치 확인, 활성상태 확인. 세부 혜택 카테고리별 요율·한도는 페이지 미노출 및 WebSearch 세션 예산 소진으로 미확인, 기존 값 유지."
+  },
+  {
+    "id": "samsung-id-pet",
+    "memoAppend": " 검증(2026-08-18): 확인 실패 — officialUrl이 상세페이지가 아닌 samsungcard.com 홈(JS 미렌더링)이라 정확한 code 특정 못함, 뱅크샐러드·카드고릴라도 WebFetch로 접근 불가(JS 렌더링), WebSearch는 세션 예산 소진으로 사용 불가. 기존 값 미변경."
+  },
+  {
+    "id": "samsung-mileage-platinum",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 검증(2026-08-18): 공식페이지(code=AAP1452) 로딩, 연회비 '해외 기준 49,000원' 정확히 일치 확인, 활성상태 확인. 마일리지 적립률·한도 수치는 페이지 미노출 및 WebSearch 세션 예산 소진으로 미확인, 기존 값 유지."
+  },
+  {
+    "id": "samsung-taptap-drive",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 검증(2026-08-18): officialUrl이 taptap O 페이지(code=AAP1483)와 동일하여 오류로 추정되나 정확한 code를 WebSearch 예산 소진으로 못 찾아 교체 보류. 단 iD ON 공식페이지 내 taptap Drive 소개에서 '주유 리터당 60~150원 결제일할인' 문구를 확인해 기존 주유 혜택 내용과 일치함을 확인. 그 외 세부 항목은 미확인, 기존 값 유지."
+  }
+]

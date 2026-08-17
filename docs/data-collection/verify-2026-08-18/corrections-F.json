@@ -1,0 +1,37 @@
+[
+  {
+    "id": "hana-1q-daily",
+    "memoAppend": " 검증(2026-08-18): 확인 실패 — 공식 페이지(hanacard.co.kr)가 프레임/JS 렌더링이라 '1Q Daily' 상세페이지를 찾지 못함, WebSearch는 세션 한도(200/200) 소진으로 사용 불가, Bing/Google/DuckDuckGo를 WebFetch로 대신 시도했으나 무관한 캐시 결과·차단·CAPTCHA로 뱅크샐러드·카드고릴라 대조 불가."
+  },
+  {
+    "id": "hana-travelog-check",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 검증(2026-08-18): 공식 페이지(hanacard.co.kr, 일부 로드) 확인 — 연회비 0원(무료) 표기 일치, 기존 값 유지. 해외 ATM/가맹점 수수료 면제 세부 조건 및 마일리지/캐시백 적립률은 페이지 인코딩 깨짐으로 재확인 불가하여 미확인 처리, 기존 값 유지. WebSearch 세션 한도 소진으로 뱅크샐러드·카드고릴라 대조 못 함. 출처: hanacard.co.kr(부분 로드)"
+  },
+  {
+    "id": "woori-loca-apt-platinum",
+    "memoAppend": " 검증(2026-08-18): 확인 실패 — 공식 페이지(wooricard.com)가 JS 렌더링이라 상세 콘텐츠 미로드, WebSearch는 세션 한도 소진으로 사용 불가, Bing/Google/DuckDuckGo를 WebFetch로 대신 시도했으나 무관한 캐시 결과·차단·CAPTCHA로 뱅크샐러드·카드고릴라 대조 불가."
+  },
+  {
+    "id": "woori-jeongseok-premium-mileage-asiana",
+    "memoAppend": " 검증(2026-08-18): 확인 실패 — 공식 페이지(wooricard.com, 프리미엄 카드 목록 페이지)에 개별 카드 상세 수치 없음, WebSearch는 세션 한도 소진으로 사용 불가, Bing/Google/DuckDuckGo를 WebFetch로 대신 시도했으나 무관한 캐시 결과·차단·CAPTCHA로 뱅크샐러드·카드고릴라 대조 불가."
+  },
+  {
+    "id": "woori-every-mile-skypass",
+    "memoAppend": " 검증(2026-08-18): 확인 실패 — 공식 상세페이지(pc.wooricard.com, cdPrdCd=835314)가 JS 렌더링이라 미로드, WebSearch는 세션 한도 소진으로 사용 불가, Bing/Google/DuckDuckGo를 WebFetch로 대신 시도했으나 무관한 캐시 결과·차단·CAPTCHA로 뱅크샐러드·카드고릴라 대조 불가."
+  },
+  {
+    "id": "woori-d4-jeongseok",
+    "memoAppend": " 검증(2026-08-18): 확인 실패 — 공식 상세페이지(m.wooricard.com, recomNo=834141)가 JS 렌더링이라 미로드, WebSearch는 세션 한도 소진으로 사용 불가, Bing/Google/DuckDuckGo를 WebFetch로 대신 시도했으나 무관한 캐시 결과·차단·CAPTCHA로 뱅크샐러드·카드고릴라 대조 불가."
+  },
+  {
+    "id": "nh-chaeum-skypass",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 검증(2026-08-18): 공식 페이지(card.nonghyup.com) 연회비 안내 확인 — 마스터/비자/JCB 일반 15,000원으로 기존 값 일치. '이용금액 1,500원당 1~3 항공마일리지 적립' 문구 확인, 기본 적립률 1,500원당1마일(rate 0.067)은 일치하여 유지. 전월실적 조건은 해당 페이지에 표시되지 않아 미확인, 기존 값(0) 유지. WebSearch 세션 한도 소진으로 뱅크샐러드 대조 못 함. 출처: card.nonghyup.com"
+  },
+  {
+    "id": "nh-zgm-playplus",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 검증(2026-08-18): 공식 상세페이지 링크(card.nonghyup.com/index_cardProd.html?cd_wrs_sqno=90010468) 확인 — '국내전용 63,000원 / VISA 65,000원' 표기로 국내전용 기준 연회비 63,000원 기존 값 일치. 카페·편의점·온라인쇼핑 할인율/한도는 상세페이지가 JS 렌더링이라 미확인, 기존 값 유지. WebSearch 세션 한도 소진으로 뱅크샐러드 대조 못 함. 출처: card.nonghyup.com"
+  }
+]
