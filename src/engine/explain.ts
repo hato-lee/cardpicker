@@ -1,4 +1,31 @@
-import { RULES } from './rules'
+import type { Persona } from '../data/types'
+import type { AnnualBenefit, BenefitRow } from './benefit'
+import { RULES, type Rules } from './rules'
+import { won, rateText } from '../ui/format'
+
+export const PERSONA_LABEL: Record<Persona, string> = { meticulous: '꼼꼼형', moderate: '적당형', carefree: '무심형' }
+
+/** 줄 하나의 연 혜택(성향 반영). 화면 내역·막대에 쓴다. */
+export function rowAnnualValue(row: BenefitRow, persona: Persona, rules: Rules = RULES): number {
+  return Math.round(row.monthlyValue * 12 * rules.personaRealization[persona])
+}
+
+function tipOf(row: BenefitRow): string {
+  if (row.viaUniversal) return `그 외 소비는 모든 가맹점 ${rateText(row.type, row.rate)}`
+  if (row.rate === 0) return `${row.tag}: ${row.note ?? '정액 혜택'}`
+  if (row.monthlyCap === null) return `${row.tag}는 쓰는 만큼 ${rateText(row.type, row.rate)} — 한도 없음`
+  const cap = row.type === 'mileage' ? `${row.monthlyCap.toLocaleString('ko-KR')}마일` : won(row.monthlyCap)
+  return `${row.tag}에 월 ${won(Math.round(row.requiredSpend!))} 이상 쓰면 한도(${cap})를 꽉 채워요`
+}
+
+/** "이렇게 쓰면 최대" 문장들. 월 혜택 큰 순, 성향별 개수 제한. */
+export function tips(ab: AnnualBenefit, persona: Persona, rules: Rules = RULES): string[] {
+  const sorted = [...ab.rows].sort((a, b) => b.monthlyValue - a.monthlyValue)
+  const n = rules.tipCount[persona]
+  const picked = Number.isFinite(n) ? sorted.slice(0, n) : sorted
+  const lines = picked.map(tipOf)
+  return persona === 'carefree' ? lines.map((l) => `이것만 챙기세요: ${l}`) : lines
+}
 
 export function isStale(lastChecked: string, today: Date, staleDays: number = RULES.staleDays): boolean {
   const checked = new Date(lastChecked + 'T00:00:00')
