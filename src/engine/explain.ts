@@ -10,9 +10,10 @@ export function rowAnnualValue(row: BenefitRow, persona: Persona, rules: Rules =
   return Math.round(row.monthlyValue * 12 * rules.personaRealization[persona])
 }
 
-function tipOf(row: BenefitRow): string {
+function tipOf(row: BenefitRow, rules: Rules): string {
   if (row.viaUniversal) return `그 외 소비는 모든 가맹점 ${rateText(row.type, row.rate)}`
   if (row.rate === 0) return `${row.tag}: ${row.note ?? '정액 혜택'}`
+  if (row.assumedCap) return `${row.tag}는 한도 정보가 없어 월 ${won(rules.assumedCapWhenUnknown)}으로 계산했어요`
   if (row.monthlyCap === null) return `${row.tag}는 쓰는 만큼 ${rateText(row.type, row.rate)} — 한도 없음`
   const cap = row.type === 'mileage' ? `${row.monthlyCap.toLocaleString('ko-KR')}마일` : won(row.monthlyCap)
   return `${row.tag}에 월 ${won(Math.round(row.requiredSpend!))} 이상 쓰면 한도(${cap})를 꽉 채워요`
@@ -23,7 +24,7 @@ export function tips(ab: AnnualBenefit, persona: Persona, rules: Rules = RULES):
   const sorted = [...ab.rows].sort((a, b) => b.monthlyValue - a.monthlyValue)
   const n = rules.tipCount[persona]
   const picked = Number.isFinite(n) ? sorted.slice(0, n) : sorted
-  const lines = picked.map(tipOf)
+  const lines = picked.map((row) => tipOf(row, rules))
   return persona === 'carefree' ? lines.map((l) => `이것만 챙기세요: ${l}`) : lines
 }
 

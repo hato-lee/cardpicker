@@ -50,6 +50,12 @@ test('범용 줄 문구', () => {
   expect(tips(ab, 'meticulous')).toEqual(['그 외 소비는 모든 가맹점 1.2% 적립'])
 })
 
+test('가정 한도가 걸린 줄의 문구', () => {
+  const c: Card = { ...base, benefits: [{ tag: '온라인 쇼핑', type: 'discount', rate: 10, monthlyCap: null, stars: 2 }] }
+  const ab = annualBenefit(c, q({ tags: ['온라인 쇼핑'], monthlySpend: 500_000 }))!
+  expect(tips(ab, 'meticulous')).toEqual(['온라인 쇼핑는 한도 정보가 없어 월 1만 원으로 계산했어요'])
+})
+
 test('정액인데 note가 없으면 "정액 혜택"', () => {
   const c: Card = { ...base, benefits: [{ tag: '해외 결제', type: 'discount', rate: 0, monthlyCap: null, stars: 1 }] }
   const ab = annualBenefit(c, q({ tags: ['해외 결제'] }))!

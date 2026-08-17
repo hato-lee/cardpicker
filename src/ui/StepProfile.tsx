@@ -58,6 +58,7 @@ export function StepProfile({ value, onChange, onNext }: Props) {
               key={m}
               type="button"
               className={`preset ${value.monthlySpendMan === m ? 'is-selected' : ''}`}
+              aria-pressed={value.monthlySpendMan === m}
               onClick={() => onChange({ ...value, monthlySpendMan: m })}
             >
               {m}만

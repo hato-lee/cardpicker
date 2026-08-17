@@ -17,6 +17,8 @@ export const RULES = {
   spendPresetsMan: [30, 50, 100, 150],
   // 결과 카드의 내역 줄 최대 개수 (넘으면 "외 N개")
   breakdownMaxRows: 3,
+  // 월 한도 정보가 없는 영역 혜택(할인/적립)은 이 금액까지만 계산. 범용·마일리지는 예외
+  assumedCapWhenUnknown: 10_000,
 }
 
 export type Rules = typeof RULES

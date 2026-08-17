@@ -99,6 +99,27 @@ test('성향 비율과 연회비 차감', () => {
   expect(annualBenefit(c, q({ persona: 'carefree' }))!.annualNet).toBe(Math.round(120000 * 0.6 - 30000))
 })
 
+test('한도 정보 없는 영역 할인은 가정 한도까지만', () => {
+  const c = card({ benefits: [{ tag: '온라인 쇼핑', type: 'discount', rate: 10, monthlyCap: null, stars: 2 }] })
+  const r = annualBenefit(c, q({ tags: ['온라인 쇼핑'], monthlySpend: 500_000 }))!
+  expect(r.rows[0].monthlyValue).toBe(RULES.assumedCapWhenUnknown)
+  expect(r.rows[0].requiredSpend).toBe(RULES.assumedCapWhenUnknown / 0.1)
+  expect(r.rows[0].assumedCap).toBe(true)
+})
+test('가정 한도에 안 걸리면 assumedCap=false, 값은 S×rate', () => {
+  const c = card({ benefits: [{ tag: '대중교통·택시', type: 'points', rate: 0.8, monthlyCap: null, stars: 1 }] })
+  const r = annualBenefit(c, q({ tags: ['대중교통·택시'], monthlySpend: 500_000 }))!
+  expect(r.rows[0].monthlyValue).toBe(4000)
+  expect(r.rows[0].assumedCap).toBe(false)
+})
+test('범용 줄과 마일리지 줄은 가정 한도 예외', () => {
+  const uni = card({ universal: { type: 'points', rate: 1.2, monthlyCap: null }, benefits: [{ tag: '모든 가맹점', type: 'points', rate: 1.2, monthlyCap: null, stars: 3 }] })
+  expect(annualBenefit(uni, q({ tags: ['주유'], monthlySpend: 2_000_000 }))!.rows[0].monthlyValue).toBe(24000)
+  expect(annualBenefit(uni, q({ tags: ['모든 가맹점'], monthlySpend: 2_000_000 }))!.rows[0].monthlyValue).toBe(24000)
+  const mile = card({ benefits: [{ tag: '마일리지', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 2 }] })
+  expect(annualBenefit(mile, q({ tags: ['마일리지'], monthlySpend: 2_000_000 }))!.rows[0].monthlyValue).toBe(2000 * RULES.mileWon)
+})
+
 test('줄이 하나도 없으면 null', () => {
   const c = card({ benefits: [{ tag: '주유', type: 'discount', rate: 10, monthlyCap: 10000, stars: 2 }] })
   expect(annualBenefit(c, q({ tags: ['병의원·약국'] }))).toBeNull()

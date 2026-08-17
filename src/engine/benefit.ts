@@ -14,6 +14,7 @@ export interface BenefitRow {
   monthlyValue: number        // 원. 상한 조정 후, 성향 반영 전
   requiredSpend: number | null // 한도를 채우는 데 필요한 월 지출(원). 정액은 null
   viaUniversal: boolean       // 고른 태그에 벤핏이 없어 범용으로 대신 계산한 줄
+  assumedCap: boolean         // 한도 정보가 없어 가정 한도(RULES.assumedCapWhenUnknown)로 계산했는지
 }
 
 export interface AnnualBenefit {
@@ -39,17 +40,24 @@ function makeRow(
   const r = b.rate / 100
   let monthlyValue: number
   let requiredSpend: number | null
+  let assumedCap = false
   if (b.rate === 0) {
     monthlyValue = toWon(b.type, b.monthlyCap ?? 0, rules)
     requiredSpend = null
   } else if (b.monthlyCap === null) {
-    monthlyValue = toWon(b.type, spend * r, rules)
-    requiredSpend = spend
+    if (!viaUniversal && b.tag !== UNIVERSAL_TAG && b.type !== 'mileage') {
+      monthlyValue = Math.min(spend * r, rules.assumedCapWhenUnknown)
+      requiredSpend = Math.min(spend, rules.assumedCapWhenUnknown / r)
+      assumedCap = spend * r > rules.assumedCapWhenUnknown
+    } else {
+      monthlyValue = toWon(b.type, spend * r, rules)
+      requiredSpend = spend
+    }
   } else {
     monthlyValue = toWon(b.type, b.monthlyCap, rules)
     requiredSpend = b.monthlyCap / r
   }
-  return { tag: b.tag, type: b.type, rate: b.rate, monthlyCap: b.monthlyCap, note: b.note, monthlyValue, requiredSpend, viaUniversal }
+  return { tag: b.tag, type: b.type, rate: b.rate, monthlyCap: b.monthlyCap, note: b.note, monthlyValue, requiredSpend, viaUniversal, assumedCap }
 }
 
 export function annualBenefit(card: Card, q: Query, rules: Rules = RULES): AnnualBenefit | null {
