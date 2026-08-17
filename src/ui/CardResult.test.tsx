@@ -2,7 +2,11 @@ import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { CardResult } from './CardResult'
 import type { Scored } from '../engine/recommend'
+import type { AnnualBenefit } from '../engine/benefit'
 import type { Card } from '../data/types'
+
+// TODO(task 3): replace with real annualBenefit() output once CardResult is rewritten for annualBenefit.
+const DUMMY_BENEFIT: AnnualBenefit = { rows: [], monthlyMax: 0, annualGross: 0, annualRealized: 0, annualNet: 0, clampFactor: 1 }
 
 const oil: Card = {
   id: 'oil', name: '신한카드 Deep Oil', issuer: '신한카드', kind: 'credit', annualFee: 10000, minSpend: 300000,
@@ -12,7 +16,7 @@ const oil: Card = {
   ],
   universal: null, complexity: 2, officialUrl: 'https://example.com/oil', lastChecked: '2026-08-16', status: 'active',
 }
-const scored: Scored = { card: oil, score: 100, coveredTags: ['주유', '카페·편의점'], universalCovers: [], isUniversal: false }
+const scored: Scored = { card: oil, benefit: DUMMY_BENEFIT, coveredTags: ['주유', '카페·편의점'], universalCovers: [] }
 const today = new Date('2026-08-20')
 
 test('이름·카드사·이유·공식 링크·확인일이 보인다', () => {
@@ -52,7 +56,7 @@ test('한도 없는 항목만 있으면 합계 대신 안내 문구', () => {
     ],
     universal: null, complexity: 1, officialUrl: 'https://example.com/mileage', lastChecked: '2026-08-16', status: 'active',
   }
-  const mileageScored: Scored = { card: mileageOnly, score: 100, coveredTags: ['마일리지'], universalCovers: [], isUniversal: false }
+  const mileageScored: Scored = { card: mileageOnly, benefit: DUMMY_BENEFIT, coveredTags: ['마일리지'], universalCovers: [] }
   render(<CardResult rank={1} scored={mileageScored} persona="meticulous" pickedCount={1} today={today} />)
   const sum = screen.getByText(/한도 없음 — 쓰는 만큼 적립돼요/)
   expect(sum).toBeInTheDocument()
@@ -70,7 +74,7 @@ test('금액 합계와 마일 항목이 섞이면 제외 안내를 붙인다', (
     ],
     universal: null, complexity: 2, officialUrl: 'https://example.com/mixed', lastChecked: '2026-08-16', status: 'active',
   }
-  const s: Scored = { card: mixed, score: 100, coveredTags: ['마일리지', '주유'], universalCovers: [], isUniversal: false }
+  const s: Scored = { card: mixed, benefit: DUMMY_BENEFIT, coveredTags: ['마일리지', '주유'], universalCovers: [] }
   render(<CardResult rank={1} scored={s} persona="meticulous" pickedCount={2} today={today} />)
   expect(screen.getByText(/마일 항목은 금액 합계에서 제외/)).toBeInTheDocument()
 })
@@ -81,7 +85,7 @@ test('마일리지 한도만 있으면 0원 합계 대신 금액 한도 없음 �
     benefits: [{ tag: '마일리지', type: 'mileage', rate: 0.1, monthlyCap: 5000, stars: 2 }],
     universal: null, complexity: 1, officialUrl: 'https://example.com/mile-capped', lastChecked: '2026-08-16', status: 'active',
   }
-  const s: Scored = { card: mileCapped, score: 100, coveredTags: ['마일리지'], universalCovers: [], isUniversal: false }
+  const s: Scored = { card: mileCapped, benefit: DUMMY_BENEFIT, coveredTags: ['마일리지'], universalCovers: [] }
   render(<CardResult rank={1} scored={s} persona="meticulous" pickedCount={1} today={today} />)
   expect(screen.getByText(/금액 한도 없음 — 쓰는 만큼 적립돼요/)).toBeInTheDocument()
   expect(screen.queryByText(/월 최대 0원/)).not.toBeInTheDocument()
@@ -97,7 +101,7 @@ test('연회비가 최대 혜택보다 크면 마이너스 대신 경고 문구'
     ],
     universal: null, complexity: 1, officialUrl: 'https://example.com/loss', lastChecked: '2026-08-16', status: 'active',
   }
-  const lossScored: Scored = { card: lossCard, score: 100, coveredTags: ['주유'], universalCovers: [], isUniversal: false }
+  const lossScored: Scored = { card: lossCard, benefit: DUMMY_BENEFIT, coveredTags: ['주유'], universalCovers: [] }
   render(<CardResult rank={1} scored={lossScored} persona="meticulous" pickedCount={1} today={today} />)
   expect(screen.getByText(/연회비가 최대 혜택보다 4만 원 커요/)).toBeInTheDocument()
 })
@@ -124,7 +128,7 @@ test('마일리지 한도는 마일 단위로 보여주고 원 합계에서 뺀�
     ],
     universal: null, complexity: 2, officialUrl: 'https://example.com/mile', lastChecked: '2026-08-16', status: 'active',
   }
-  const s: Scored = { card: mile, score: 100, coveredTags: ['마일리지', '주유'], universalCovers: [], isUniversal: false }
+  const s: Scored = { card: mile, benefit: DUMMY_BENEFIT, coveredTags: ['마일리지', '주유'], universalCovers: [] }
   render(<CardResult rank={1} scored={s} persona="meticulous" pickedCount={2} today={today} />)
   expect(screen.getByText('월 최대 5,000마일')).toBeInTheDocument()
   // 마일은 원이 아니므로 합계는 주유 1.5만 원만

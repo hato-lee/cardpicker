@@ -5,26 +5,18 @@
 export const RULES = {
   topN: 5,
   staleDays: 90,
-
-  // 점수 비중
-  weight: {
-    coverage: 30,   // 고른 태그를 벤핏으로 직접 커버할 때마다
-    universalCoverage: 15, // 벤핏은 없지만 범용(universal)으로 커버되는 태그마다
-    stars: 8,       // 커버한 태그의 ★ 하나마다
-    fee: 10,        // 연회비 0원이면 만점, feeCap 이상이면 0점
-    minSpend: 10,   // 실적 0원이면 만점, spendCap 이상이면 0점
-  },
-  feeCap: 100_000,
-  spendCap: 500_000,
-
-  // 성향 보정: 최종 점수에 곱한다
-  personaMultiplier: {
-    meticulous: { universal: 1.0, area: 1.15 },
-    moderate:   { universal: 1.05, area: 0.95 },  // 2026-08-16 실데이터로 완화 (1.15/0.85 → 영역 카드가 전혀 안 떴음)
-    carefree:   { universal: 1.4,  area: 0.6 },
-  },
+  // 성향 = 한도를 실제로 얼마나 챙기는지. 연 혜택에 곱한다.
+  personaRealization: { meticulous: 1.0, moderate: 0.8, carefree: 0.6 },
+  // 1마일 ≈ 15원으로 환산
+  mileWon: 15,
   // 무심형은 복잡도 3 제외
   carefreeMaxComplexity: 2,
+  // "이렇게 쓰면 최대" 문장 개수 (성향별)
+  tipCount: { meticulous: Infinity, moderate: 2, carefree: 1 },
+  // 한 달 사용액 빠른 선택 버튼 (만 원)
+  spendPresetsMan: [30, 50, 100, 150],
+  // 결과 카드의 내역 줄 최대 개수 (넘으면 "외 N개")
+  breakdownMaxRows: 3,
 }
 
 export type Rules = typeof RULES
