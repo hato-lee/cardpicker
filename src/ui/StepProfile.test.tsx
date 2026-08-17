@@ -11,9 +11,22 @@ function Harness({ onNext = () => {} }: { onNext?: () => void }) {
 test('성향 3개와 설명이 보인다', () => {
   render(<Harness />)
   expect(screen.getByText('꼼꼼형')).toBeInTheDocument()
-  expect(screen.getByText('실적·한도 다 따지고 결제 전에 어떤 카드 낼지 생각해요')).toBeInTheDocument()
-  expect(screen.getByText('적당형')).toBeInTheDocument()
-  expect(screen.getByText('무심형')).toBeInTheDocument()
+  expect(screen.getByText('실적·한도 다 따지고 결제 전에 어떤 카드 낼지 생각해요 → 한도를 다 챙긴다고 계산해요')).toBeInTheDocument()
+  expect(screen.getByText('대충은 알고 쓰지만 매번 계산하진 않아요 → 한도의 80%로 계산해요')).toBeInTheDocument()
+  expect(screen.getByText('한 장 꽂아두고 신경 끄고 싶어요 → 한도의 60%로 계산해요')).toBeInTheDocument()
+})
+
+test('사용액 빠른 선택 버튼을 누르면 입력칸에 들어간다', async () => {
+  render(<Harness />)
+  await userEvent.click(screen.getByRole('button', { name: '50만' }))
+  expect(screen.getByLabelText(/한 달 카드 사용액/)).toHaveValue(50)
+  await userEvent.click(screen.getByRole('button', { name: '150만' }))
+  expect(screen.getByLabelText(/한 달 카드 사용액/)).toHaveValue(150)
+})
+
+test('연회비 힌트 문구', () => {
+  render(<Harness />)
+  expect(screen.getByText('이 금액을 넘는 카드는 안 보여줘요. 결과의 연 혜택은 연회비를 이미 뺀 금액이에요.')).toBeInTheDocument()
 })
 
 test('성향과 사용액을 넣기 전엔 다음 버튼이 비활성', async () => {

@@ -1,7 +1,7 @@
 import { TAGS, type Tag } from '../data/tags'
 
 export const TAG_WARN_FROM = 4
-export const TAG_WARN_TEXT = '많이 고르면 추천이 흐려져요. 2~3개가 딱 좋아요.'
+export const TAG_WARN_TEXT = '많이 고를수록 한도 합이 커져서 조건 많은 카드가 위로 와요. 2~3개가 딱 좋아요.'
 
 interface Props {
   value: Tag[]
