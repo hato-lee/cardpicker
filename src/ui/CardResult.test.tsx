@@ -1,148 +1,88 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { CardResult } from './CardResult'
+import { annualBenefit } from '../engine/benefit'
 import type { Scored } from '../engine/recommend'
-import type { AnnualBenefit } from '../engine/benefit'
-import type { Card } from '../data/types'
-
-// TODO(task 3): replace with real annualBenefit() output once CardResult is rewritten for annualBenefit.
-const DUMMY_BENEFIT: AnnualBenefit = { rows: [], monthlyMax: 0, annualGross: 0, annualRealized: 0, annualNet: 0, clampFactor: 1 }
+import type { Card, Query } from '../data/types'
 
 const oil: Card = {
   id: 'oil', name: '신한카드 Deep Oil', issuer: '신한카드', kind: 'credit', annualFee: 10000, minSpend: 300000,
   benefits: [
-    { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3 },
+    { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3, note: '정유사 1곳 선택' },
     { tag: '카페·편의점', type: 'discount', rate: 5, monthlyCap: 5000, stars: 1 },
   ],
-  universal: null, complexity: 2, officialUrl: 'https://example.com/oil', lastChecked: '2026-08-16', status: 'active',
+  universal: null, complexity: 2, officialUrl: 'https://example.com/oil', lastChecked: '2026-08-18', status: 'active',
+  memo: 'AI 수집, 검수 전. 출처: 공식 페이지',
 }
-const scored: Scored = { card: oil, benefit: DUMMY_BENEFIT, coveredTags: ['주유', '카페·편의점'], universalCovers: [] }
+const q: Query = { persona: 'moderate', monthlySpend: 1_000_000, feeLimit: null, tags: ['주유', '카페·편의점'] }
+const scored: Scored = { card: oil, benefit: annualBenefit(oil, q)!, coveredTags: ['주유', '카페·편의점'], universalCovers: [] }
 const today = new Date('2026-08-20')
+// 월 2만 × 12 × 0.8 = 192,000 − 10,000 = 182,000
 
-test('이름·카드사·이유·공식 링크·확인일이 보인다', () => {
-  render(<CardResult rank={1} scored={scored} persona="moderate" pickedCount={2} today={today} />)
+test('이름·카드사·큰 숫자·부제·링크·확인일이 보인다', () => {
+  render(<CardResult rank={1} scored={scored} persona="moderate" today={today} />)
   expect(screen.getByText('신한카드 Deep Oil')).toBeInTheDocument()
   expect(screen.getByText(/신한카드 · 신용/)).toBeInTheDocument()
-  expect(screen.getByText(/고른 2개 중 2개 커버/)).toBeInTheDocument()
+  expect(screen.getByText('연 최대')).toBeInTheDocument()
+  expect(screen.getByText('약 18.2만 원')).toBeInTheDocument()
+  expect(screen.getByText('연회비 1만 원 뺀 금액 · 적당형 기준(한도의 80%)')).toBeInTheDocument()
   expect(screen.getByRole('link', { name: /카드사 페이지/ })).toHaveAttribute('href', 'https://example.com/oil')
-  expect(screen.getByText(/마지막 확인 2026-08-16/)).toBeInTheDocument()
-  expect(screen.queryByText('확인 필요')).not.toBeInTheDocument()
+  expect(screen.getByText(/마지막 확인 2026-08-18/)).toBeInTheDocument()
+})
+
+test('내역 줄: 태그와 연 금액', () => {
+  render(<CardResult rank={2} scored={scored} persona="moderate" today={today} />)
+  // 주유 15,000×12×0.8 = 144,000 / 카페 5,000×12×0.8 = 48,000
+  expect(screen.getByText('주유')).toBeInTheDocument()
+  expect(screen.getByText('14.4만 원')).toBeInTheDocument()
+  expect(screen.getByText('카페·편의점')).toBeInTheDocument()
+  expect(screen.getByText('4.8만 원')).toBeInTheDocument()
+})
+
+test('1위는 추천 배지, 2위는 없음', () => {
+  const { unmount } = render(<CardResult rank={1} scored={scored} persona="moderate" today={today} />)
+  expect(screen.getByText('추천')).toBeInTheDocument()
+  unmount()
+  render(<CardResult rank={2} scored={scored} persona="moderate" today={today} />)
+  expect(screen.queryByText('추천')).not.toBeInTheDocument()
+})
+
+test('자세히 보기를 펼치면 tips와 전체 혜택이 보이고 memo·★는 없다', async () => {
+  render(<CardResult rank={1} scored={scored} persona="meticulous" today={today} />)
+  expect(screen.queryByText(/이렇게 쓰면 최대/)).not.toBeInTheDocument()
+  await userEvent.click(screen.getByRole('button', { name: /자세히 보기/ }))
+  expect(screen.getByText(/이렇게 쓰면 최대/)).toBeInTheDocument()
+  expect(screen.getByText('주유에 월 15만 원 이상 쓰면 한도(1.5만 원)를 꽉 채워요')).toBeInTheDocument()
+  expect(screen.getByText(/주유 10% 할인 · 월 최대 1.5만 원 \(정유사 1곳 선택\)/)).toBeInTheDocument()
+  expect(screen.queryByText(/AI 수집/)).not.toBeInTheDocument()
+  expect(screen.queryByText(/★/)).not.toBeInTheDocument()
+  expect(screen.getByRole('button', { name: /접기/ })).toHaveAttribute('aria-expanded', 'true')
+})
+
+test('연회비가 혜택보다 크면 문구로 표시', () => {
+  const pricey: Card = { ...oil, id: 'p', annualFee: 300000 }
+  const s: Scored = { ...scored, card: pricey, benefit: annualBenefit(pricey, q)! }
+  render(<CardResult rank={3} scored={s} persona="moderate" today={today} />)
+  // 192,000 − 300,000 = −108,000
+  expect(screen.getByText('연회비가 혜택보다 커요 (−10.8만 원)')).toBeInTheDocument()
+  expect(screen.queryByText(/^약 /)).not.toBeInTheDocument()
 })
 
 test('90일 넘으면 확인 필요 뱃지', () => {
-  render(<CardResult rank={1} scored={scored} persona="moderate" pickedCount={2} today={new Date('2026-12-01')} />)
+  render(<CardResult rank={1} scored={scored} persona="moderate" today={new Date('2026-12-01')} />)
   expect(screen.getByText('확인 필요')).toBeInTheDocument()
 })
 
-test('적당형에는 최대 혜택 표가 없다', () => {
-  render(<CardResult rank={1} scored={scored} persona="moderate" pickedCount={2} today={today} />)
-  expect(screen.queryByText(/영역별 월 최대 혜택/)).not.toBeInTheDocument()
-})
-
-test('꼼꼼형에는 최대 혜택 표와 합계가 있다', () => {
-  render(<CardResult rank={1} scored={scored} persona="meticulous" pickedCount={2} today={today} />)
-  expect(screen.getByText(/영역별 월 최대 혜택/)).toBeInTheDocument()
-  expect(screen.getByText(/월 최대 2만 원/)).toBeInTheDocument()
-  expect(screen.getByText(/연 최대 24만 원/)).toBeInTheDocument()
-  expect(screen.getByText(/약 23만 원/)).toBeInTheDocument()
-  expect(screen.getByText(/주유 15만 원·카페·편의점 10만 원 이상/)).toBeInTheDocument()
-})
-
-test('한도 없는 항목만 있으면 합계 대신 안내 문구', () => {
-  const mileageOnly: Card = {
-    id: 'mileage', name: '마일리지 카드', issuer: '테스트', kind: 'credit', annualFee: 300000, minSpend: 0,
-    benefits: [
-      { tag: '마일리지', type: 'mileage', rate: 0.067, monthlyCap: null, stars: 1 },
-    ],
-    universal: null, complexity: 1, officialUrl: 'https://example.com/mileage', lastChecked: '2026-08-16', status: 'active',
-  }
-  const mileageScored: Scored = { card: mileageOnly, benefit: DUMMY_BENEFIT, coveredTags: ['마일리지'], universalCovers: [] }
-  render(<CardResult rank={1} scored={mileageScored} persona="meticulous" pickedCount={1} today={today} />)
-  const sum = screen.getByText(/한도 없음 — 쓰는 만큼 적립돼요/)
-  expect(sum).toBeInTheDocument()
-  expect(sum.textContent).toBe('금액 한도 없음 — 쓰는 만큼 적립돼요 (연회비 30만 원)')
-  expect(screen.queryByText(/약 -/)).not.toBeInTheDocument()
-  expect(screen.queryByText(/※ 한도를 다 채우려면/)).not.toBeInTheDocument()
-})
-
-test('금액 합계와 마일 항목이 섞이면 제외 안내를 붙인다', () => {
-  const mixed: Card = {
-    id: 'mixed', name: '섞인 카드', issuer: '테스트', kind: 'credit', annualFee: 0, minSpend: 0,
-    benefits: [
-      { tag: '마일리지', type: 'mileage', rate: 0.1, monthlyCap: 5000, stars: 2 },
-      { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3 },
-    ],
-    universal: null, complexity: 2, officialUrl: 'https://example.com/mixed', lastChecked: '2026-08-16', status: 'active',
-  }
-  const s: Scored = { card: mixed, benefit: DUMMY_BENEFIT, coveredTags: ['마일리지', '주유'], universalCovers: [] }
-  render(<CardResult rank={1} scored={s} persona="meticulous" pickedCount={2} today={today} />)
-  expect(screen.getByText(/마일 항목은 금액 합계에서 제외/)).toBeInTheDocument()
-})
-
-test('마일리지 한도만 있으면 0원 합계 대신 금액 한도 없음 안내', () => {
-  const mileCapped: Card = {
-    id: 'mile-capped', name: '마일 한도 카드', issuer: '테스트', kind: 'credit', annualFee: 100000, minSpend: 0,
-    benefits: [{ tag: '마일리지', type: 'mileage', rate: 0.1, monthlyCap: 5000, stars: 2 }],
-    universal: null, complexity: 1, officialUrl: 'https://example.com/mile-capped', lastChecked: '2026-08-16', status: 'active',
-  }
-  const s: Scored = { card: mileCapped, benefit: DUMMY_BENEFIT, coveredTags: ['마일리지'], universalCovers: [] }
-  render(<CardResult rank={1} scored={s} persona="meticulous" pickedCount={1} today={today} />)
-  expect(screen.getByText(/금액 한도 없음 — 쓰는 만큼 적립돼요/)).toBeInTheDocument()
-  expect(screen.queryByText(/월 최대 0원/)).not.toBeInTheDocument()
-  expect(screen.getByText('월 최대 5,000마일')).toBeInTheDocument()
-  expect(screen.queryByText(/※ 한도를 다 채우려면/)).not.toBeInTheDocument()
-})
-
-test('연회비가 최대 혜택보다 크면 마이너스 대신 경고 문구', () => {
-  const lossCard: Card = {
-    id: 'loss', name: '손해 카드', issuer: '테스트', kind: 'credit', annualFee: 100000, minSpend: 0,
-    benefits: [
-      { tag: '주유', type: 'discount', rate: 10, monthlyCap: 5000, stars: 1 },
-    ],
-    universal: null, complexity: 1, officialUrl: 'https://example.com/loss', lastChecked: '2026-08-16', status: 'active',
-  }
-  const lossScored: Scored = { card: lossCard, benefit: DUMMY_BENEFIT, coveredTags: ['주유'], universalCovers: [] }
-  render(<CardResult rank={1} scored={lossScored} persona="meticulous" pickedCount={1} today={today} />)
-  expect(screen.getByText(/연회비가 최대 혜택보다 4만 원 커요/)).toBeInTheDocument()
-})
-
-test('이유 줄 앞에 ★ 기호를 붙이지 않는다', () => {
-  const { container } = render(<CardResult rank={1} scored={scored} persona="moderate" pickedCount={2} today={today} />)
-  expect(container.querySelector('.reason')!.textContent).toBe(
-    '고른 2개 중 2개 커버 · 주유 ★★★ · 카페·편의점 ★ · 연회비 1만 원 · 실적 30만 원',
-  )
-})
-
-test('최대 혜택 표에 상한이라는 안내가 붙는다', () => {
-  render(<CardResult rank={1} scored={scored} persona="meticulous" pickedCount={2} today={today} />)
-  expect(screen.getByText(/영역별 월 최대 혜택/)).toBeInTheDocument()
-  expect(screen.getByText(/'최대'는 한도를 다 채웠을 때의 상한이에요/)).toBeInTheDocument()
-})
-
-test('마일리지 한도는 마일 단위로 보여주고 원 합계에서 뺀다', async () => {
-  const mile: Card = {
-    id: 'mile', name: '마일 카드', issuer: '테스트', kind: 'credit', annualFee: 0, minSpend: 0,
-    benefits: [
-      { tag: '마일리지', type: 'mileage', rate: 0.1, monthlyCap: 5000, stars: 2 },
-      { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3 },
-    ],
-    universal: null, complexity: 2, officialUrl: 'https://example.com/mile', lastChecked: '2026-08-16', status: 'active',
-  }
-  const s: Scored = { card: mile, benefit: DUMMY_BENEFIT, coveredTags: ['마일리지', '주유'], universalCovers: [] }
-  render(<CardResult rank={1} scored={s} persona="meticulous" pickedCount={2} today={today} />)
-  expect(screen.getByText('월 최대 5,000마일')).toBeInTheDocument()
-  // 마일은 원이 아니므로 합계는 주유 1.5만 원만
-  expect(screen.getByText(/월 최대 1.5만 원 · 연 최대 18만 원/)).toBeInTheDocument()
-  await userEvent.click(screen.getByRole('button', { name: /혜택 요약/ }))
-  expect(screen.getByText(/1,000원당 1마일 · 월 최대 5,000마일/)).toBeInTheDocument()
-})
-
-test('혜택 요약 펼치기', async () => {
-  render(<CardResult rank={1} scored={scored} persona="moderate" pickedCount={2} today={today} />)
-  expect(screen.queryByText(/10% 할인/)).not.toBeInTheDocument()
-  const toggle = screen.getByRole('button', { name: /혜택 요약/ })
-  expect(toggle).toHaveAttribute('aria-expanded', 'false')
-  await userEvent.click(toggle)
-  expect(screen.getByText(/10% 할인/)).toBeInTheDocument()
-  expect(toggle).toHaveAttribute('aria-expanded', 'true')
+test('내역이 3개 넘으면 상위 3개 + 외 N개', () => {
+  const many: Card = { ...oil, id: 'm', benefits: [
+    { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3 },
+    { tag: '카페·편의점', type: 'discount', rate: 5, monthlyCap: 5000, stars: 1 },
+    { tag: '온라인 쇼핑', type: 'discount', rate: 5, monthlyCap: 8000, stars: 2 },
+    { tag: '통신비·OTT', type: 'discount', rate: 5, monthlyCap: 3000, stars: 1 },
+  ] }
+  const mq: Query = { ...q, tags: ['주유', '카페·편의점', '온라인 쇼핑', '통신비·OTT'] }
+  const s: Scored = { card: many, benefit: annualBenefit(many, mq)!, coveredTags: mq.tags, universalCovers: [] }
+  render(<CardResult rank={1} scored={s} persona="moderate" today={today} />)
+  expect(screen.getByText('외 1개')).toBeInTheDocument()
+  expect(screen.queryByText('통신비·OTT')).not.toBeInTheDocument()
 })

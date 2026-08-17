@@ -1,7 +1,9 @@
 import type { Query } from '../data/types'
 import type { Scored } from '../engine/recommend'
+import { PERSONA_LABEL } from '../engine/explain'
 import { CardResult } from './CardResult'
 import { REPORT_FORM_URL } from './config'
+import { won } from './format'
 
 interface Props {
   query: Query
@@ -11,8 +13,20 @@ interface Props {
 }
 
 export function Results({ query, results, onEdit, today }: Props) {
+  const chips = [
+    PERSONA_LABEL[query.persona],
+    `월 ${won(query.monthlySpend)}`,
+    query.feeLimit === null ? '연회비 상관없음' : `연회비 ${won(query.feeLimit)}까지`,
+    ...query.tags,
+  ]
   return (
     <section className="step">
+      <div className="summary">
+        <ul className="chips" aria-label="내 조건">
+          {chips.map((c) => <li key={c} className="chip">{c}</li>)}
+        </ul>
+        <button type="button" className="link-btn" onClick={onEdit}>조건 바꾸기</button>
+      </div>
       <h2>{results.length > 0 ? `당신에게 맞는 카드 TOP ${results.length}` : '당신에게 맞는 카드'}</h2>
       {results.length === 0 ? (
         <div className="empty">
@@ -21,7 +35,7 @@ export function Results({ query, results, onEdit, today }: Props) {
         </div>
       ) : (
         results.map((s, i) => (
-          <CardResult key={s.card.id} rank={i + 1} scored={s} persona={query.persona} pickedCount={query.tags.length} today={today} />
+          <CardResult key={s.card.id} rank={i + 1} scored={s} persona={query.persona} today={today} />
         ))
       )}
       <button type="button" className="secondary" onClick={onEdit}>조건 바꾸기</button>

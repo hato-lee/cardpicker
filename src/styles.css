@@ -1,3 +1,4 @@
+:root { --brand: #2563eb; --ink: #1c1e21; --muted: #666; --line: #dfe3e8; --bg: #f6f7f9; --good: #0f7b3f; }
 *, *::before, *::after { box-sizing: border-box; }
 body { margin: 0; font-family: system-ui, -apple-system, "Apple SD Gothic Neo", sans-serif; background: #f6f7f9; color: #1c1e21; }
 .app { max-width: 480px; margin: 0 auto; padding: 24px 16px 48px; }
@@ -31,23 +32,33 @@ button.secondary { width: 100%; padding: 12px; font-size: 15px; background: #fff
 .rank { flex: none; width: 28px; height: 28px; border-radius: 50%; background: #2563eb; color: #fff; font-weight: 700; display: grid; place-items: center; }
 .card h3 { margin: 0 0 4px; font-size: 17px; }
 .card-sub { font-size: 13px; color: #555; }
-.reason { margin: 12px 0; font-size: 14px; }
-.max-table { background: #f6f7f9; border-radius: 8px; padding: 10px 12px; margin-bottom: 12px; font-size: 13px; }
-.max-title { font-weight: 600; margin-bottom: 6px; }
-.max-table table { width: 100%; border-collapse: collapse; }
-.max-table td { padding: 3px 0; }
-.max-table td.num { text-align: right; }
-.max-sum { border-top: 1px solid #dfe3e8; margin-top: 6px; padding-top: 6px; font-weight: 600; }
-.max-note { color: #666; margin-top: 4px; }
 .link-btn { background: none; border: 0; color: #2563eb; padding: 0; font-size: 14px; cursor: pointer; }
 .benefits { margin: 8px 0 0; padding-left: 18px; font-size: 13px; color: #333; }
-.benefits .memo { color: #777; }
 .card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 12px; font-size: 12px; color: #666; }
 .card-foot a { color: #2563eb; text-decoration: none; }
 .badge { margin-left: 6px; padding: 2px 6px; background: #fde8e8; color: #c22; border-radius: 4px; font-weight: 600; }
-.max-table th { text-align: left; font-weight: 600; padding: 3px 0; }
-.max-table th:last-child { text-align: right; }
 h1 { font-size: 22px; margin: 0 0 24px; }
+.summary { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 16px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.chip { font-size: 12px; padding: 4px 8px; background: #fff; border: 1px solid var(--line); border-radius: 999px; color: #333; }
+.card.is-top { border-color: var(--brand); box-shadow: 0 0 0 2px rgba(37,99,235,.15); }
+.card-title { min-width: 0; flex: 1; }
+.top-badge { display: inline-block; margin-left: 6px; padding: 2px 6px; font-size: 11px; font-weight: 700; color: var(--brand); background: #e8effd; border-radius: 4px; vertical-align: middle; }
+.annual { display: grid; grid-template-columns: auto 1fr; column-gap: 10px; align-items: baseline; margin: 14px 0 10px; }
+.annual-label { font-size: 13px; color: var(--muted); }
+.annual-value { font-size: 26px; font-weight: 800; color: var(--good); letter-spacing: -0.5px; }
+.annual-negative { font-size: 14px; font-weight: 600; color: #b42318; }
+.annual-sub { grid-column: 1 / -1; font-size: 12px; color: var(--muted); margin-top: 2px; }
+.breakdown { list-style: none; margin: 0 0 10px; padding: 0; display: grid; gap: 6px; }
+.breakdown li { display: grid; grid-template-columns: 96px 1fr auto; align-items: center; column-gap: 8px; font-size: 13px; }
+.bd-tag { color: #333; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bd-bar { height: 8px; background: #eef1f5; border-radius: 4px; overflow: hidden; }
+.bd-bar > span { display: block; height: 100%; background: var(--brand); border-radius: 4px; }
+.bd-value { font-weight: 600; font-variant-numeric: tabular-nums; }
+.bd-rest { grid-template-columns: 1fr; color: var(--muted); font-size: 12px; }
+.detail { background: var(--bg); border-radius: 8px; padding: 10px 12px; margin-top: 8px; font-size: 13px; }
+.detail-title { font-weight: 600; margin: 4px 0 4px; }
+.tips { margin: 0 0 8px; padding-left: 18px; }
 .empty { background: #fff; border: 1px dashed #dfe3e8; border-radius: 12px; padding: 24px 16px; text-align: center; margin-bottom: 12px; }
 .report { text-align: center; font-size: 13px; color: #666; margin-top: 16px; }
 .report a { color: #2563eb; }
