@@ -12,11 +12,11 @@
 
 ### 1. 줄(row) 만들기 — 고른 태그마다 하나, 범용은 한 번
 - 고른 태그 t에 카드 benefits 항목 b가 있으면 **영역 줄**:
-  - `type mileage`: 월 마일 = `min(cap, S × rate/100)` (cap null이면 `S × rate/100`) → 원 = 마일 × `RULES.mileWon`(15원). requiredSpend = cap 있으면 `cap/(rate/100)`, 없으면 S.
+  - `type mileage`: 월 마일 = cap 있으면 cap, 없으면 `S × rate/100` → 원 = 마일 × `RULES.mileWon`(15원). requiredSpend = cap 있으면 `cap/(rate/100)`, 없으면 S. (사용액이 부족해 한도를 못 채우는 경우는 아래 2번 상한 조정이 처리한다 — 줄마다 min()을 따로 걸지 않는다)
   - `rate > 0`, cap 있음: 월 혜택 = cap. requiredSpend = `cap/(rate/100)`.
   - `rate > 0`, cap 없음: 월 혜택 = `S × rate/100`. requiredSpend = S. (총액 기준 상한 — 태그별 나누기 없음)
   - `rate = 0`(정액·수수료 면제): 월 혜택 = cap ?? 0. requiredSpend = null (아래 상한 조정에서 제외).
-- 고른 태그 중 benefits에 없는 태그가 하나라도 있고 `card.universal`이 있으면 **범용 줄** 한 번(고른 태그 수와 무관): 월 혜택 = `min(cap, S × rate/100)` (mileage면 마일→원 환산), requiredSpend = `min(S, cap/(rate/100))`. '모든 가맹점'을 직접 골랐으면 그 영역 줄이 곧 범용 줄이므로 중복으로 넣지 않는다.
+- 고른 태그 중 benefits에 없는 태그가 하나라도 있고 `card.universal`이 있으면 **범용 줄** 한 번(고른 태그 수와 무관): 월 혜택 = cap 있으면 cap, 없으면 `S × rate/100` (mileage면 마일→원 환산), requiredSpend = cap 있으면 `cap/(rate/100)`, 없으면 S. (영역 줄과 같은 규칙) '모든 가맹점'을 직접 골랐으면 그 영역 줄이 곧 범용 줄이므로 중복으로 넣지 않는다.
 - 중복 방지: '마일리지' 줄과 '모든 가맹점' 줄이 둘 다 `type mileage`이면(전 가맹점 마일리지 카드) 같은 적립을 두 번 세는 것이므로 **'마일리지' 줄만** 남긴다.
 - 어떤 줄도 없으면 카드는 후보에서 제외(기존 필터와 동일).
 
