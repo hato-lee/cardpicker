@@ -5,6 +5,13 @@ import { won, rateText } from '../ui/format'
 
 export const PERSONA_LABEL: Record<Persona, string> = { meticulous: '꼼꼼형', moderate: '적당형', carefree: '무심형' }
 
+/** 받침 있으면 '은', 없으면 '는' (마지막 글자가 한글이 아니면 '는') */
+function eun(s: string): string {
+  const c = s.charCodeAt(s.length - 1)
+  const hasJong = c >= 0xac00 && c <= 0xd7a3 && (c - 0xac00) % 28 !== 0
+  return hasJong ? '은' : '는'
+}
+
 /** 줄 하나의 연 혜택(성향 반영). 화면 내역·막대에 쓴다. */
 export function rowAnnualValue(row: BenefitRow, persona: Persona, rules: Rules = RULES): number {
   return Math.round(row.monthlyValue * 12 * rules.personaRealization[persona])
@@ -13,8 +20,8 @@ export function rowAnnualValue(row: BenefitRow, persona: Persona, rules: Rules =
 function tipOf(row: BenefitRow, rules: Rules): string {
   if (row.viaUniversal) return `그 외 소비는 모든 가맹점 ${rateText(row.type, row.rate)}`
   if (row.rate === 0) return `${row.tag}: ${row.note ?? '정액 혜택'}`
-  if (row.assumedCap) return `${row.tag}는 한도 정보가 없어 월 ${won(rules.assumedCapWhenUnknown)}으로 계산했어요`
-  if (row.monthlyCap === null) return `${row.tag}는 쓰는 만큼 ${rateText(row.type, row.rate)} — 한도 없음`
+  if (row.assumedCap) return `${row.tag}${eun(row.tag)} 한도 정보가 없어 월 ${won(rules.assumedCapWhenUnknown)}으로 계산했어요`
+  if (row.monthlyCap === null) return `${row.tag}${eun(row.tag)} 쓰는 만큼 ${rateText(row.type, row.rate)} — 한도 없음`
   const cap = row.type === 'mileage' ? `${row.monthlyCap.toLocaleString('ko-KR')}마일` : won(row.monthlyCap)
   return `${row.tag}에 월 ${won(Math.round(row.requiredSpend!))} 이상 쓰면 한도(${cap})를 꽉 채워요`
 }

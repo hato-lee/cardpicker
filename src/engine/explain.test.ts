@@ -53,7 +53,20 @@ test('범용 줄 문구', () => {
 test('가정 한도가 걸린 줄의 문구', () => {
   const c: Card = { ...base, benefits: [{ tag: '온라인 쇼핑', type: 'discount', rate: 10, monthlyCap: null, stars: 2 }] }
   const ab = annualBenefit(c, q({ tags: ['온라인 쇼핑'], monthlySpend: 500_000 }))!
-  expect(tips(ab, 'meticulous')).toEqual(['온라인 쇼핑는 한도 정보가 없어 월 1만 원으로 계산했어요'])
+  expect(tips(ab, 'meticulous')).toEqual(['온라인 쇼핑은 한도 정보가 없어 월 1만 원으로 계산했어요'])
+})
+
+test('조사 은/는: 받침 있으면 은, 없으면 는 (한글 아니면 는)', () => {
+  const c: Card = { ...base, benefits: [
+    { tag: '온라인 쇼핑', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 2 },
+    { tag: '해외 결제', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 1 },
+    { tag: '통신비·OTT', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 1 },
+  ] }
+  const ab = annualBenefit(c, q({ tags: ['온라인 쇼핑', '해외 결제', '통신비·OTT'], monthlySpend: 500_000 }))!
+  const t = tips(ab, 'meticulous')
+  expect(t).toContain('온라인 쇼핑은 쓰는 만큼 1,000원당 1마일 — 한도 없음')
+  expect(t).toContain('해외 결제는 쓰는 만큼 1,000원당 1마일 — 한도 없음')
+  expect(t).toContain('통신비·OTT는 쓰는 만큼 1,000원당 1마일 — 한도 없음')
 })
 
 test('정액인데 note가 없으면 "정액 혜택"', () => {

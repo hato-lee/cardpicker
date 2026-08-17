@@ -23,9 +23,9 @@ test('한도 있는 할인: 월 혜택 = 한도, 필요 지출 = 한도/요율',
 
 test('한도 없는 정률: 총 사용액 × 요율', () => {
   const c = card({ benefits: [{ tag: '해외 결제', type: 'discount', rate: 2, monthlyCap: null, stars: 1 }] })
-  const r = annualBenefit(c, q({ tags: ['해외 결제'], monthlySpend: 500_000 }))!
-  expect(r.rows[0].monthlyValue).toBe(10000)
-  expect(r.rows[0].requiredSpend).toBe(500_000)
+  const r = annualBenefit(c, q({ tags: ['해외 결제'], monthlySpend: 400_000 }))!
+  expect(r.rows[0].monthlyValue).toBe(8000)
+  expect(r.rows[0].requiredSpend).toBe(400_000)
 })
 
 test('마일리지: 마일 × mileWon, 한도는 마일 단위', () => {

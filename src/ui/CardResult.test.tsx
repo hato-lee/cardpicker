@@ -68,6 +68,16 @@ test('연회비가 혜택보다 크면 문구로 표시', () => {
   expect(screen.queryByText(/^약 /)).not.toBeInTheDocument()
 })
 
+test('연회비가 혜택과 정확히 같으면(net 0) 괄호 없이 문구만', () => {
+  // monthlyMax 20,000 × 12 × 0.8(적당형) = 192,000 = annualFee → net 0
+  const evenFee: Card = { ...oil, id: 'e', annualFee: 192000 }
+  const s: Scored = { ...scored, card: evenFee, benefit: annualBenefit(evenFee, q)! }
+  render(<CardResult rank={3} scored={s} persona="moderate" today={today} />)
+  expect(screen.getByText('연회비가 혜택보다 커요')).toBeInTheDocument()
+  expect(screen.queryByText(/−/)).not.toBeInTheDocument()
+  expect(screen.queryByText(/^약 /)).not.toBeInTheDocument()
+})
+
 test('90일 넘으면 확인 필요 뱃지', () => {
   render(<CardResult rank={1} scored={scored} persona="moderate" today={new Date('2026-12-01')} />)
   expect(screen.getByText('확인 필요')).toBeInTheDocument()

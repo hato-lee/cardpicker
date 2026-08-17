@@ -42,8 +42,8 @@ annualNet 내림차순 → 동률이면 연회비 낮은 순 → 실적 낮은 �
 - **breakdown**: 줄마다 `{ tag, type, rate, monthlyValue(상한 조정 후, 성향 반영 전), requiredSpend, capped, viaUniversal }`. 화면의 "온라인쇼핑 9만 · 교통 6만" 내역과 미니 막대에 쓴다 (금액은 연 = 월×12×성향비율로 표기).
 - **tips** ("이렇게 쓰면 최대"): 줄마다 한 문장.
   - cap 있고 rate>0: `"{tag}에 월 {won(requiredSpend)} 이상 쓰면 한도({won(cap)})를 꽉 채워요"`
-  - cap 없음: `"{tag}는 쓰는 만큼 {rateText} — 한도 없음"`
-  - 가정 한도가 걸림(assumedCap=true): `"{tag}는 한도 정보가 없어 월 {won(RULES.assumedCapWhenUnknown)}으로 계산했어요"`
+  - cap 없음: `"{tag}은/는 쓰는 만큼 {rateText} — 한도 없음"`
+  - 가정 한도가 걸림(assumedCap=true): `"{tag}은/는 한도 정보가 없어 월 {won(RULES.assumedCapWhenUnknown)}으로 계산했어요"`
   - 정액: `"{tag}: {note 앞부분}"` (note 없으면 "정액 혜택")
   - 범용 줄: `"그 외 소비는 모든 가맹점 {rateText}"`
   - 성향별 개수: 꼼꼼형 전부 / 적당형 상위 2개(월 혜택 큰 순) / 무심형 상위 1개, 무심형 문구 앞에 "이것만 챙기세요:" 접두.

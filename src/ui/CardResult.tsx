@@ -54,6 +54,8 @@ export function CardResult({ rank, scored, persona, today }: Props) {
         <div className="annual-label">연 최대</div>
         {net > 0 ? (
           <div className="annual-value">약 {won(net)}</div>
+        ) : net === 0 ? (
+          <div className="annual-negative">연회비가 혜택보다 커요</div>
         ) : (
           <div className="annual-negative">연회비가 혜택보다 커요 (−{won(-net)})</div>
         )}

@@ -27,7 +27,7 @@ test('조건 바꾸기를 누르면 첫 화면으로', async () => {
   expect(screen.getByRole('heading', { name: '나에 대해' })).toBeInTheDocument()
 })
 
-test('범용 카드는 고른 태그에 딱 맞는 벤핏이 없어도 추천된다', async () => {
+test('무심형·학원·교육 조합에서도 결과가 나온다', async () => {
   render(<App />)
   await goToResults('무심형', ['학원·교육'])
   expect(screen.getAllByText('연 최대').length).toBeGreaterThan(0)
