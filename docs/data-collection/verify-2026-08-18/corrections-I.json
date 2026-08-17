@@ -1,0 +1,114 @@
+[
+  {
+    "id": "hyundai-koreanair-060",
+    "set": {
+      "lastChecked": "2026-08-18",
+      "officialUrl": "https://www.hyundaicard.com/koreanair/m/html/hub_kal1.html"
+    },
+    "memoAppend": " 재검증(2026-08-18): 공식 페이지(hyundaicard.com/koreanair/m/html/hub_kal1.html)와 뱅크샐러드(CARD004617) 교차 확인 — 연회비 6만원, 전월실적 50만원, 국내 1,000원당1마일·해외/항공권 1,000원당2마일·연1회 1,000마일 보너스 모두 기존 값과 일치. 변경 없음."
+  },
+  {
+    "id": "shinhan-hey-young-check",
+    "set": {
+      "status": "discontinued",
+      "lastChecked": "2026-08-18",
+      "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/check/1229883_2206.html"
+    },
+    "memoAppend": " 재검증(2026-08-18): 공식 상세페이지(shinhancard.com/pconts/html/card/apply/check/1229883_2206.html)에 '신규발급 및 유효기간 연장이 중단되었다'고 명시되어 있어 status를 discontinued로 변경. 연회비 0원은 확인됨. 개별 혜택 한도(대중교통/통신비/카페편의점 등)는 페이지상 전월실적 구간별 통합한도(5천~3만원)로만 표기돼 있어 세부 수치는 재검증하지 못함(미확인)."
+  },
+  {
+    "id": "shinhan-deep-dream-check",
+    "set": {
+      "lastChecked": "2026-08-18",
+      "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/check/1188313_2206.html"
+    },
+    "benefits": [
+      {
+        "tag": "주유",
+        "set": {
+          "note": "주말(토·일) 주유 시 리터당 40원 적립. 월 적립 한도는 공식페이지에 미기재(미확인)."
+        }
+      }
+    ],
+    "memoAppend": " 재검증(2026-08-18): 공식 상세페이지(shinhancard.com/.../1188313_2206.html) 확인 — 모두드림 기본 0.2%, 더해드림(DREAM영역) 0.6%(=기본0.2%+추가0.4%) 구조로 기존 카페·편의점/통신비/해외결제 +0.4% 값 일치 확인. 주유 혜택은 '리터당 20원'이 아니라 '주말 한정 리터당 40원'으로 정정. 택시 3·6·9회차 1,000원 할인도 일치. 판매중(활성) 확인."
+  },
+  {
+    "id": "hyundai-naver-edition2",
+    "set": {
+      "lastChecked": "2026-08-18"
+    },
+    "memoAppend": " 재검증(2026-08-18): 카드모어(cardmore.co.kr)와 현대차그룹 뉴스룸 보도자료 교차 확인 — 연회비 2만원, 전월실적 50만원, 네이버플러스 회원 네이버쇼핑 7%(월2만포인트 한도), 그 외 기본 0.7% 무한도 모두 기존 값과 일치, 변경 없음. ('네이버쇼핑 최대 12%'는 네이버플러스 자체 5%+카드 7% 합산 마케팅 문구이며 카드 자체 적립률은 7%.) hyundaicard.com은 여전히 JS 렌더링으로 공식 상세 URL을 찾지 못해 officialUrl은 변경하지 않음."
+  },
+  {
+    "id": "hyundai-costco-reward-edition2",
+    "set": {
+      "lastChecked": "2026-08-18",
+      "officialUrl": "https://www.hyundaicard.com/costco/m/html/costco_reward_2604_v3.html"
+    },
+    "memoAppend": " 재검증(2026-08-18): 현대카드 공식 페이지(hyundaicard.com/costco/m/html/costco_reward_2604_v3.html)와 나무위키 교차 확인 — 연회비 2만원, 전월실적 50만원, 코스트코 온라인몰 3%/오프라인 매장 2%(태그밖)/그 외 가맹점 1%, 연간 50만 포인트 통합한도 모두 기존 값과 일치. 변경 없음."
+  },
+  {
+    "id": "shinhan-emart",
+    "set": {
+      "annualFee": 18000,
+      "lastChecked": "2026-08-18",
+      "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1236769_2207.html",
+      "universal": { "type": "points", "rate": 0.5, "monthlyCap": 30000 }
+    },
+    "benefits": [
+      {
+        "tag": "온라인 쇼핑",
+        "set": {
+          "note": "SSG.COM 직접 접속 결제분 한정. 전월실적 40만~100만원 미만 시 월2만원, 100만원 이상 시 월5만원 — 스타벅스(카페·편의점)와 통합한도인 것으로 공식 확인됨."
+        }
+      },
+      {
+        "tag": "카페·편의점",
+        "set": {
+          "note": "스타벅스(사이렌오더 포함) 직접 결제분 한정 15% 할인. 온라인쇼핑(SSG.COM)과 통합한도(월2만~5만원)로 공식 확인됨."
+        }
+      },
+      {
+        "tag": "모든 가맹점",
+        "set": {
+          "monthlyCap": 30000,
+          "note": "이마트 계열 제외 국내외 가맹점 0.5% 적립, 월 3만원 한도(공식페이지에서 확인 — 기존 무한도 기재는 오류)."
+        }
+      }
+    ],
+    "memoAppend": " 재검증(2026-08-18): 공식 상세페이지(shinhancard.com/.../1236769_2207.html) 및 헤럴드경제 출시 보도자료 교차 확인 — 연회비 국내전용 1.8만원/해외겸용(마스터) 2.1만원으로 정정(기존 1.5만원 오류). 모든가맹점 기본적립 0.5%에 월3만원 한도가 있음을 확인해 monthlyCap 추가(기존 무한도 기재 오류). SSG.COM·스타벅스 통합한도 여부 공식 확인 완료."
+  },
+  {
+    "id": "shinhan-shinsegae-best-fit",
+    "set": {
+      "annualFee": 15000,
+      "minSpend": 300000,
+      "lastChecked": "2026-08-18",
+      "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1236008_2207.html",
+      "universal": { "type": "points", "rate": 0.7, "monthlyCap": null }
+    },
+    "benefits": [
+      { "tag": "대중교통·택시", "remove": true },
+      {
+        "tag": "해외 결제",
+        "set": {
+          "rate": 2,
+          "monthlyCap": null,
+          "stars": 1,
+          "note": "해외 가맹점 이용금액 2% 할인, 한도 없음(일시불만 적용, 할부 전환 제외). 기존 '연 1천만원 이상 신세계 구매시 5%' 조건은 공식페이지에서 확인되지 않아 정정."
+        }
+      }
+    ],
+    "addBenefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 0.7,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "국내 가맹점 이용금액 0.7% 마이신한포인트 적립, 한도 없음."
+      }
+    ],
+    "memoAppend": " 재검증(2026-08-18): 공식 상세페이지(shinhancard.com/.../1236008_2207.html) 확인 — 연회비 국내전용 1.5만원/해외겸용(마스터) 1.8만원(기존 1.2만원 오류), 전월실적 30만원(기존 0원 오류)으로 정정. 공식페이지에 대중교통 할인 언급이 없어 해당 혜택 삭제, 해외결제는 조건 없는 2% 할인로 정정(기존 5%·고액조건은 근거 없음으로 확인), 국내 기본적립 0.7%(모든 가맹점) 누락되어 추가. 신세계백화점 2.5~3%/아카데미 2.7% 할인은 백화점 특정 가맹점이라 12개 태그 밖."
+  }
+]
