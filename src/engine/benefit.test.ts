@@ -120,6 +120,36 @@ test('범용 줄과 마일리지 줄은 가정 한도 예외', () => {
   expect(annualBenefit(mile, q({ tags: ['마일리지'], monthlySpend: 2_000_000 }))!.rows[0].monthlyValue).toBe(2000 * RULES.mileWon)
 })
 
+test('capGroup: 같은 그룹의 monthlyValue 합이 그룹 한도를 넘으면 비례 축소', () => {
+  const c = card({ benefits: [
+    { tag: '주유', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3, capGroup: 'g' },
+    { tag: '카페·편의점', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3, capGroup: 'g' },
+  ] })
+  const r = annualBenefit(c, q({ tags: ['주유', '카페·편의점'], monthlySpend: 1_000_000 }))!
+  expect(r.monthlyMax).toBe(20000)
+  const oil = r.rows.find((x) => x.tag === '주유')!
+  const cafe = r.rows.find((x) => x.tag === '카페·편의점')!
+  expect(oil.monthlyValue).toBe(10000)
+  expect(cafe.monthlyValue).toBe(10000)
+})
+
+test('capGroup 없으면 그룹 상한 없이 각자 한도까지', () => {
+  const c = card({ benefits: [
+    { tag: '주유', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3 },
+    { tag: '카페·편의점', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3 },
+  ] })
+  const r = annualBenefit(c, q({ tags: ['주유', '카페·편의점'], monthlySpend: 1_000_000 }))!
+  expect(r.monthlyMax).toBe(40000)
+})
+
+test('capGroup이 하나뿐인 줄은 영향 없음', () => {
+  const c = card({ benefits: [
+    { tag: '주유', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3, capGroup: 'g' },
+  ] })
+  const r = annualBenefit(c, q({ tags: ['주유'], monthlySpend: 1_000_000 }))!
+  expect(r.rows[0].monthlyValue).toBe(20000)
+})
+
 test('줄이 하나도 없으면 null', () => {
   const c = card({ benefits: [{ tag: '주유', type: 'discount', rate: 10, monthlyCap: 10000, stars: 2 }] })
   expect(annualBenefit(c, q({ tags: ['병의원·약국'] }))).toBeNull()

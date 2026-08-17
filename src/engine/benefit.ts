@@ -11,6 +11,7 @@ export interface BenefitRow {
   rate: number
   monthlyCap: number | null   // mileage면 마일, 그 밖은 원
   note?: string
+  capGroup?: string
   monthlyValue: number        // 원. 상한 조정 후, 성향 반영 전
   requiredSpend: number | null // 한도를 채우는 데 필요한 월 지출(원). 정액은 null
   viaUniversal: boolean       // 고른 태그에 벤핏이 없어 범용으로 대신 계산한 줄
@@ -32,7 +33,7 @@ function toWon(type: BenefitType, amount: number, rules: Rules): number {
 
 /** 한 벤핏(또는 범용)의 월 최대 혜택과 필요 지출. 스펙 1번. */
 function makeRow(
-  b: { tag: Tag; type: BenefitType; rate: number; monthlyCap: number | null; note?: string },
+  b: { tag: Tag; type: BenefitType; rate: number; monthlyCap: number | null; note?: string; capGroup?: string },
   spend: number,
   viaUniversal: boolean,
   rules: Rules,
@@ -57,7 +58,30 @@ function makeRow(
     monthlyValue = toWon(b.type, b.monthlyCap, rules)
     requiredSpend = b.monthlyCap / r
   }
-  return { tag: b.tag, type: b.type, rate: b.rate, monthlyCap: b.monthlyCap, note: b.note, monthlyValue, requiredSpend, viaUniversal, assumedCap }
+  return { tag: b.tag, type: b.type, rate: b.rate, monthlyCap: b.monthlyCap, note: b.note, capGroup: b.capGroup, monthlyValue, requiredSpend, viaUniversal, assumedCap }
+}
+
+/** 같은 capGroup 줄들의 monthlyValue 합이 그룹 한도(monthlyCap, mileage면 ×mileWon)를 넘으면 비례 축소. requiredSpend는 그대로 둔다. */
+function applyCapGroups(rows: BenefitRow[], rules: Rules): BenefitRow[] {
+  const groups = new Map<string, BenefitRow[]>()
+  for (const r of rows) {
+    if (!r.capGroup) continue
+    const arr = groups.get(r.capGroup) ?? []
+    arr.push(r)
+    groups.set(r.capGroup, arr)
+  }
+  let result = rows
+  for (const [, groupRows] of groups) {
+    if (groupRows.length < 2) continue
+    const limit = toWon(groupRows[0].type, groupRows[0].monthlyCap ?? 0, rules)
+    const sum = groupRows.reduce((s, x) => s + x.monthlyValue, 0)
+    if (sum > limit && sum > 0) {
+      const factor = limit / sum
+      const scaled = new Set(groupRows)
+      result = result.map((x) => (scaled.has(x) ? { ...x, monthlyValue: x.monthlyValue * factor } : x))
+    }
+  }
+  return result
 }
 
 export function annualBenefit(card: Card, q: Query, rules: Rules = RULES): AnnualBenefit | null {
@@ -77,10 +101,13 @@ export function annualBenefit(card: Card, q: Query, rules: Rules = RULES): Annua
   const deduped = hasMileageRow ? rows.filter((x) => !(x.tag === UNIVERSAL_TAG && x.type === 'mileage')) : rows
   if (deduped.length === 0) return null
 
+  // 통합(공유) 월 한도: 같은 capGroup 줄들의 합이 그룹 한도를 넘으면 비례 축소
+  const grouped = applyCapGroups(deduped, rules)
+
   // 총액 기준 상한 (스펙 2번)
-  const R = deduped.reduce((s, x) => s + (x.requiredSpend ?? 0), 0)
+  const R = grouped.reduce((s, x) => s + (x.requiredSpend ?? 0), 0)
   const clampFactor = R > S ? S / R : 1
-  const finalRows = deduped.map((x) => (x.requiredSpend === null ? x : { ...x, monthlyValue: x.monthlyValue * clampFactor }))
+  const finalRows = grouped.map((x) => (x.requiredSpend === null ? x : { ...x, monthlyValue: x.monthlyValue * clampFactor }))
 
   const monthlyMax = finalRows.reduce((s, x) => s + x.monthlyValue, 0)
   const annualGross = monthlyMax * 12
