@@ -13,6 +13,8 @@ export interface Benefit {
   monthlyCap: number | null
   stars: Stars
   note?: string
+  // 같은 카드 안에서 같은 문자열을 가진 혜택들은 월 한도를 공유한다. 각 혜택의 monthlyCap에는 그 공유 한도 금액을 그대로 적는다
+  capGroup?: string
 }
 
 export interface Universal {

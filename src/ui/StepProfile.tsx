@@ -1,4 +1,5 @@
 import type { Persona } from '../data/types'
+import { RULES } from '../engine/rules'
 import { won } from './format'
 
 export interface Profile {
@@ -8,12 +9,13 @@ export interface Profile {
 }
 
 export const PERSONAS: { value: Persona; label: string; desc: string }[] = [
-  { value: 'meticulous', label: '꼼꼼형', desc: '실적·한도 다 따지고 결제 전에 어떤 카드 낼지 생각해요' },
-  { value: 'moderate', label: '적당형', desc: '대충은 알고 쓰지만 매번 계산하진 않아요' },
-  { value: 'carefree', label: '무심형', desc: '한 장 꽂아두고 신경 끄고 싶어요' },
+  { value: 'meticulous', label: '꼼꼼형', desc: '실적·한도 다 따지고 결제 전에 어떤 카드 낼지 생각해요 → 한도를 다 챙긴다고 계산해요' },
+  { value: 'moderate', label: '적당형', desc: '대충은 알고 쓰지만 매번 계산하진 않아요 → 한도의 80%로 계산해요' },
+  { value: 'carefree', label: '무심형', desc: '한 장 꽂아두고 신경 끄고 싶어요 → 한도의 60%로 계산해요' },
 ]
 
 export const FEE_SLIDER = { min: 0, max: 200_000, step: 10_000 } as const
+export const FEE_HINT = '이 금액을 넘는 카드는 안 보여줘요. 결과의 연 혜택은 연회비를 이미 뺀 금액이에요.'
 
 interface Props {
   value: Profile
@@ -50,6 +52,19 @@ export function StepProfile({ value, onChange, onNext }: Props) {
 
       <div className="field">
         <label htmlFor="spend">한 달 카드 사용액</label>
+        <div className="presets">
+          {RULES.spendPresetsMan.map((m) => (
+            <button
+              key={m}
+              type="button"
+              className={`preset ${value.monthlySpendMan === m ? 'is-selected' : ''}`}
+              aria-pressed={value.monthlySpendMan === m}
+              onClick={() => onChange({ ...value, monthlySpendMan: m })}
+            >
+              {m}만
+            </button>
+          ))}
+        </div>
         <div className="input-row">
           <input
             id="spend"
@@ -78,6 +93,7 @@ export function StepProfile({ value, onChange, onNext }: Props) {
           }}
         />
         <div className="slider-value">{value.feeLimit === null ? '상관없음' : won(value.feeLimit)}</div>
+        <p className="field-hint">{FEE_HINT}</p>
       </div>
 
       <button className="primary" disabled={!canNext} onClick={onNext}>다음</button>

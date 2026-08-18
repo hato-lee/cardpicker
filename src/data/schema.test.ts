@@ -92,6 +92,31 @@ test('universal이 있고 모든 가맹점 벤핏도 있으면 통과한다', ()
   expect(validateCards([ok])).toHaveLength(1)
 })
 
+test('capGroup이 같고 monthlyCap도 같으면 통과한다', () => {
+  const ok = {
+    ...good,
+    id: 'cap-group-ok',
+    benefits: [
+      { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3, capGroup: 'shared' },
+      { tag: '카페·편의점', type: 'discount', rate: 5, monthlyCap: 15000, stars: 1, capGroup: 'shared' },
+    ],
+  }
+  expect(validateCards([ok])).toHaveLength(1)
+})
+
+test('capGroup이 같은데 monthlyCap이 다르면 실패한다', () => {
+  const bad = {
+    ...good,
+    id: 'cap-group-bad',
+    benefits: [
+      { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3, capGroup: 'shared' },
+      { tag: '카페·편의점', type: 'discount', rate: 5, monthlyCap: 5000, stars: 1, capGroup: 'shared' },
+    ],
+  }
+  expect(() => validateCards([bad])).toThrow(/cap-group-bad/)
+  expect(() => validateCards([bad])).toThrow(/capGroup 'shared'의 monthlyCap이 서로 다르거나 비어 있음/)
+})
+
 test('벤핏에 같은 태그가 두 번 있으면 실패한다', () => {
   const bad = {
     ...good,

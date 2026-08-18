@@ -12,6 +12,7 @@ const benefitSchema = z.strictObject({
   monthlyCap: z.number().int().min(0).nullable(),
   stars: oneToThree,
   note: z.string().optional(),
+  capGroup: z.string().min(1).optional(),
 })
 
 const cardSchema = z
@@ -52,6 +53,23 @@ const cardSchema = z
         path: ['benefits'],
         message: `중복 태그 — ${[...dupTags].join(', ')}`,
       })
+    }
+    const capsByGroup = new Map<string, Array<number | null>>()
+    for (const b of data.benefits) {
+      if (!b.capGroup) continue
+      const arr = capsByGroup.get(b.capGroup) ?? []
+      arr.push(b.monthlyCap)
+      capsByGroup.set(b.capGroup, arr)
+    }
+    for (const [g, caps] of capsByGroup) {
+      const allSame = caps.every((c) => c !== null && c === caps[0])
+      if (!allSame) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['benefits'],
+          message: `capGroup '${g}'의 monthlyCap이 서로 다르거나 비어 있음 (${data.id})`,
+        })
+      }
     }
   })
 

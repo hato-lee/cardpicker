@@ -23,14 +23,14 @@ test('세 화면을 순서대로 지나 결과가 나온다', async () => {
 test('조건 바꾸기를 누르면 첫 화면으로', async () => {
   render(<App />)
   await goToResults()
-  await userEvent.click(screen.getByRole('button', { name: '조건 바꾸기' }))
+  await userEvent.click(screen.getAllByRole('button', { name: '조건 바꾸기' })[0])
   expect(screen.getByRole('heading', { name: '나에 대해' })).toBeInTheDocument()
 })
 
-test('범용 카드는 고른 태그에 딱 맞는 벤핏이 없어도 추천된다', async () => {
+test('무심형·학원·교육 조합에서도 결과가 나온다', async () => {
   render(<App />)
   await goToResults('무심형', ['학원·교육'])
-  expect(screen.getAllByText(/그 외 1개는 모든 가맹점/).length).toBeGreaterThan(0)
+  expect(screen.getAllByText('연 최대').length).toBeGreaterThan(0)
 })
 
 // '맞는 카드가 없으면 빈 안내' 테스트는 실데이터와 무관하게 AppEmpty.test.tsx에서 cards.json을 비워 검증한다.

@@ -1,4 +1,12 @@
-import { rateText } from './format'
+import { rateText, won } from './format'
+
+test('won', () => {
+  expect(won(0)).toBe('0원')
+  expect(won(5000)).toBe('5,000원')
+  expect(won(10000)).toBe('1만 원')
+  expect(won(13000)).toBe('1.3만 원')
+  expect(won(300000)).toBe('30만 원')
+})
 
 test('rateText 할인/적립', () => {
   expect(rateText('discount', 10)).toBe('10% 할인')

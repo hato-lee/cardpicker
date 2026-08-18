@@ -1,68 +1,38 @@
-import type { Scored } from './recommend'
-import type { BenefitType } from '../data/types'
-import type { Tag } from '../data/tags'
-import { RULES } from './rules'
-import { won } from '../ui/format'
+import type { Persona } from '../data/types'
+import type { AnnualBenefit, BenefitRow } from './benefit'
+import { RULES, type Rules } from './rules'
+import { won, rateText } from '../ui/format'
 
-const UNIVERSAL_TAG = '모든 가맹점'
+export const PERSONA_LABEL: Record<Persona, string> = { meticulous: '꼼꼼형', moderate: '적당형', carefree: '무심형' }
 
-export function reasonLine(s: Scored, pickedCount: number): string {
-  const coveredCount = s.coveredTags.length + s.universalCovers.length
-  const parts: string[] = [`고른 ${pickedCount}개 중 ${coveredCount}개 커버`]
-  for (const tag of s.coveredTags) {
-    const b = s.card.benefits.find((x) => x.tag === tag)
-    if (b) parts.push(`${tag} ${'★'.repeat(b.stars)}`)
-  }
-  // '모든 가맹점'을 직접 골랐으면 위에서 이미 한 줄 나갔으니 또 쓰지 않는다
-  const uni = s.coveredTags.includes(UNIVERSAL_TAG) ? undefined : s.card.benefits.find((x) => x.tag === UNIVERSAL_TAG)
-  if (s.universalCovers.length > 0 && uni) {
-    parts.push(`그 외 ${s.universalCovers.length}개는 ${UNIVERSAL_TAG} ${'★'.repeat(uni.stars)}`)
-  }
-  parts.push(`연회비 ${won(s.card.annualFee)}`)
-  parts.push(s.card.minSpend === 0 ? '실적 없음' : `실적 ${won(s.card.minSpend)}`)
-  return parts.join(' · ')
+/** 받침 있으면 '은', 없으면 '는' (마지막 글자가 한글이 아니면 '는') */
+function eun(s: string): string {
+  const c = s.charCodeAt(s.length - 1)
+  const hasJong = c >= 0xac00 && c <= 0xd7a3 && (c - 0xac00) % 28 !== 0
+  return hasJong ? '은' : '는'
 }
 
-export interface MaxBenefitRow {
-  tag: Tag
-  rate: number
-  type: BenefitType
-  monthlyMax: number | null
-  requiredSpend: number | null
+/** 줄 하나의 연 혜택(성향 반영). 화면 내역·막대에 쓴다. */
+export function rowAnnualValue(row: BenefitRow, persona: Persona, rules: Rules = RULES): number {
+  return Math.round(row.monthlyValue * 12 * rules.personaRealization[persona])
 }
 
-export interface MaxBenefitTable {
-  rows: MaxBenefitRow[]
-  monthlyTotal: number
-  annualTotal: number
-  annualNet: number
-  hasUncapped: boolean
+function tipOf(row: BenefitRow, rules: Rules): string {
+  if (row.viaUniversal) return `그 외 소비는 모든 가맹점 ${rateText(row.type, row.rate)}`
+  if (row.rate === 0) return `${row.tag}: ${row.note ?? '정액 혜택'}`
+  if (row.assumedCap) return `${row.tag}${eun(row.tag)} 한도 정보가 없어 월 ${won(rules.assumedCapWhenUnknown)}으로 계산했어요`
+  if (row.monthlyCap === null) return `${row.tag}${eun(row.tag)} 쓰는 만큼 ${rateText(row.type, row.rate)} — 한도 없음`
+  const cap = row.type === 'mileage' ? `${row.monthlyCap.toLocaleString('ko-KR')}마일` : won(row.monthlyCap)
+  return `${row.tag}에 월 ${won(Math.round(row.requiredSpend!))} 이상 쓰면 한도(${cap})를 꽉 채워요`
 }
 
-export function maxBenefitTable(s: Scored): MaxBenefitTable {
-  const rows: MaxBenefitRow[] = []
-  const addRow = (tag: Tag) => {
-    const b = s.card.benefits.find((x) => x.tag === tag)
-    if (!b) return
-    const monthlyMax = b.monthlyCap
-    const requiredSpend = b.monthlyCap !== null && b.rate > 0 ? Math.round(b.monthlyCap / (b.rate / 100)) : null
-    rows.push({ tag, rate: b.rate, type: b.type, monthlyMax, requiredSpend })
-  }
-  for (const tag of s.coveredTags) addRow(tag)
-  // 범용으로만 커버되는 태그가 있으면 '모든 가맹점' 줄을 한 번 붙인다
-  if (s.universalCovers.length > 0 && !s.coveredTags.includes(UNIVERSAL_TAG)) addRow(UNIVERSAL_TAG)
-  // 마일리지 한도는 '마일' 단위라 원 단위 합계에 넣지 않는다
-  const monthlyTotal = rows
-    .filter((r) => r.type !== 'mileage')
-    .reduce((sum, r) => sum + (r.monthlyMax ?? 0), 0)
-  const annualTotal = monthlyTotal * 12
-  return {
-    rows,
-    monthlyTotal,
-    annualTotal,
-    annualNet: annualTotal - s.card.annualFee,
-    hasUncapped: rows.some((r) => r.monthlyMax === null),
-  }
+/** "이렇게 쓰면 최대" 문장들. 월 혜택 큰 순, 성향별 개수 제한. */
+export function tips(ab: AnnualBenefit, persona: Persona, rules: Rules = RULES): string[] {
+  const sorted = [...ab.rows].sort((a, b) => b.monthlyValue - a.monthlyValue)
+  const n = rules.tipCount[persona]
+  const picked = Number.isFinite(n) ? sorted.slice(0, n) : sorted
+  const lines = picked.map((row) => tipOf(row, rules))
+  return persona === 'carefree' ? lines.map((l) => `이것만 챙기세요: ${l}`) : lines
 }
 
 export function isStale(lastChecked: string, today: Date, staleDays: number = RULES.staleDays): boolean {

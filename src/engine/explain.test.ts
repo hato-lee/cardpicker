@@ -1,121 +1,96 @@
-import { reasonLine, maxBenefitTable, isStale } from './explain'
-import { won } from '../ui/format'
-import type { Scored } from './recommend'
-import type { Card } from '../data/types'
+import { tips, rowAnnualValue, isStale, PERSONA_LABEL } from './explain'
+import { annualBenefit } from './benefit'
+import type { Card, Query } from '../data/types'
 
-const oil: Card = {
-  id: 'oil', name: 'Oil', issuer: 'T', kind: 'credit', annualFee: 10000, minSpend: 300000,
-  benefits: [
-    { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3 },
+const base: Card = {
+  id: 'x', name: 'X', issuer: 'T', kind: 'credit', annualFee: 0, minSpend: 0,
+  benefits: [], universal: null, complexity: 1,
+  officialUrl: 'https://example.com', lastChecked: '2026-08-18', status: 'active',
+}
+const q = (over: Partial<Query> = {}): Query => ({ persona: 'meticulous', monthlySpend: 1_000_000, feeLimit: null, tags: ['주유'], ...over })
+
+const multi: Card = { ...base, benefits: [
+  { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3 },
+  { tag: '카페·편의점', type: 'discount', rate: 5, monthlyCap: 5000, stars: 1 },
+  { tag: '해외 결제', type: 'discount', rate: 2, monthlyCap: null, stars: 1 },
+  { tag: '학원·교육', type: 'discount', rate: 0, monthlyCap: 12000, stars: 2, note: '밀크T 자동이체 시 월 12,000원 정액 할인' },
+] }
+const tags = ['주유', '카페·편의점', '해외 결제', '학원·교육'] as const
+
+test('꼼꼼형: 줄마다 한 문장, 월 혜택 큰 순', () => {
+  const ab = annualBenefit(multi, q({ tags: [...tags], monthlySpend: 400_000 }))!
+  const t = tips(ab, 'meticulous')
+  expect(t).toHaveLength(4)
+  expect(t).toContain('주유에 월 15만 원 이상 쓰면 한도(1.5만 원)를 꽉 채워요')
+  expect(t).toContain('카페·편의점에 월 10만 원 이상 쓰면 한도(5,000원)를 꽉 채워요')
+  expect(t).toContain('해외 결제는 쓰는 만큼 2% 할인 — 한도 없음')
+  expect(t).toContain('학원·교육: 밀크T 자동이체 시 월 12,000원 정액 할인')
+})
+
+test('월 혜택 큰 줄이 먼저', () => {
+  const two: Card = { ...base, benefits: [
     { tag: '카페·편의점', type: 'discount', rate: 5, monthlyCap: 5000, stars: 1 },
-    { tag: '대중교통·택시', type: 'discount', rate: 5, monthlyCap: 5000, stars: 1 },
-  ],
-  universal: null, complexity: 2, officialUrl: 'https://e.com', lastChecked: '2026-08-16', status: 'active',
-}
-const scored: Scored = { card: oil, score: 0, coveredTags: ['주유', '카페·편의점'], universalCovers: [], isUniversal: false }
-
-const uni: Card = {
-  id: 'uni', name: 'Uni', issuer: 'T', kind: 'credit', annualFee: 0, minSpend: 0,
-  benefits: [
-    { tag: '모든 가맹점', type: 'points', rate: 1, monthlyCap: 20000, stars: 2 },
-    { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3 },
-  ],
-  universal: { type: 'points', rate: 1, monthlyCap: 20000 },
-  complexity: 1, officialUrl: 'https://e.com', lastChecked: '2026-08-16', status: 'active',
-}
-
-test('won 포맷', () => {
-  expect(won(0)).toBe('0원')
-  expect(won(5000)).toBe('5,000원')
-  expect(won(10000)).toBe('1만 원')
-  expect(won(13000)).toBe('1.3만 원')
-  expect(won(300000)).toBe('30만 원')
-})
-
-test('reasonLine', () => {
-  expect(reasonLine(scored, 3)).toBe('고른 3개 중 2개 커버 · 주유 ★★★ · 카페·편의점 ★ · 연회비 1만 원 · 실적 30만 원')
-})
-
-test('reasonLine 실적 없음', () => {
-  const s = { ...scored, card: { ...oil, minSpend: 0 } }
-  expect(reasonLine(s, 3)).toMatch(/실적 없음$/)
-})
-
-test('maxBenefitTable', () => {
-  const t = maxBenefitTable(scored)
-  expect(t.rows).toEqual([
-    { tag: '주유', rate: 10, type: 'discount', monthlyMax: 15000, requiredSpend: 150000 },
-    { tag: '카페·편의점', rate: 5, type: 'discount', monthlyMax: 5000, requiredSpend: 100000 },
-  ])
-  expect(t.monthlyTotal).toBe(20000)
-  expect(t.annualTotal).toBe(240000)
-  expect(t.annualNet).toBe(230000)
-  expect(t.hasUncapped).toBe(false)
-})
-
-test('maxBenefitTable 한도 없는 벤핏', () => {
-  const s: Scored = { ...scored, coveredTags: ['마일리지'], card: { ...oil, benefits: [{ tag: '마일리지', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 2 }] } }
-  const t = maxBenefitTable(s)
-  expect(t.rows[0].monthlyMax).toBeNull()
-  expect(t.rows[0].requiredSpend).toBeNull()
-  expect(t.hasUncapped).toBe(true)
-  expect(t.monthlyTotal).toBe(0)
-})
-
-test('reasonLine 범용 커버 — 명시 벤핏이 없는 태그는 모든 가맹점으로 센다', () => {
-  const s: Scored = { card: uni, score: 0, coveredTags: [], universalCovers: ['카페·편의점', '배달·외식'], isUniversal: true }
-  expect(reasonLine(s, 2)).toBe('고른 2개 중 2개 커버 · 그 외 2개는 모든 가맹점 ★★ · 연회비 0원 · 실적 없음')
-})
-
-test('reasonLine 명시 커버 + 범용 커버 섞임', () => {
-  const s: Scored = { card: uni, score: 0, coveredTags: ['주유'], universalCovers: ['카페·편의점'], isUniversal: true }
-  expect(reasonLine(s, 2)).toBe('고른 2개 중 2개 커버 · 주유 ★★★ · 그 외 1개는 모든 가맹점 ★★ · 연회비 0원 · 실적 없음')
-})
-
-test("'모든 가맹점'을 직접 커버했으면 reasonLine에 한 번만 나온다", () => {
-  const s: Scored = { card: uni, score: 0, coveredTags: ['모든 가맹점'], universalCovers: ['배달·외식'], isUniversal: true }
-  const line = reasonLine(s, 2)
-  expect(line).toBe('고른 2개 중 2개 커버 · 모든 가맹점 ★★ · 연회비 0원 · 실적 없음')
-  expect(line.match(/모든 가맹점/g)).toHaveLength(1)
-})
-
-test('maxBenefitTable에 범용 커버가 있으면 모든 가맹점 줄이 붙는다', () => {
-  const s: Scored = { card: uni, score: 0, coveredTags: ['주유'], universalCovers: ['카페·편의점'], isUniversal: true }
-  const t = maxBenefitTable(s)
-  expect(t.rows).toEqual([
-    { tag: '주유', rate: 10, type: 'discount', monthlyMax: 15000, requiredSpend: 150000 },
-    { tag: '모든 가맹점', rate: 1, type: 'points', monthlyMax: 20000, requiredSpend: 2000000 },
-  ])
-  expect(t.monthlyTotal).toBe(35000)
-})
-
-test('모든 가맹점이 이미 커버돼 있으면 줄을 두 번 넣지 않는다', () => {
-  const s: Scored = { card: uni, score: 0, coveredTags: ['모든 가맹점'], universalCovers: ['카페·편의점'], isUniversal: true }
-  const t = maxBenefitTable(s)
-  expect(t.rows.map((r) => r.tag)).toEqual(['모든 가맹점'])
-})
-
-test('마일리지 한도는 마일 단위 — 원 합계에서 뺀다', () => {
-  const card: Card = { ...oil, annualFee: 0, benefits: [
-    { tag: '마일리지', type: 'mileage', rate: 0.1, monthlyCap: 5000, stars: 2 },
     { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3 },
   ] }
-  const s: Scored = { card, score: 0, coveredTags: ['마일리지', '주유'], universalCovers: [], isUniversal: false }
-  const t = maxBenefitTable(s)
-  expect(t.rows[0]).toEqual({ tag: '마일리지', rate: 0.1, type: 'mileage', monthlyMax: 5000, requiredSpend: 5000000 })
-  expect(t.monthlyTotal).toBe(15000)
-  expect(t.annualTotal).toBe(180000)
-  expect(t.annualNet).toBe(180000)
-  expect(t.hasUncapped).toBe(false)
+  const ab = annualBenefit(two, q({ tags: ['카페·편의점', '주유'] }))!
+  expect(tips(ab, 'meticulous')[0]).toBe('주유에 월 15만 원 이상 쓰면 한도(1.5만 원)를 꽉 채워요')
 })
 
-test('isStale', () => {
-  const today = new Date('2026-11-20')
-  expect(isStale('2026-08-16', today)).toBe(true)   // 96일
-  expect(isStale('2026-09-01', today)).toBe(false)  // 80일
+test('적당형은 2개, 무심형은 1개에 접두', () => {
+  const ab = annualBenefit(multi, q({ tags: [...tags] }))!
+  expect(tips(ab, 'moderate')).toHaveLength(2)
+  const c = tips(ab, 'carefree')
+  expect(c).toHaveLength(1)
+  expect(c[0].startsWith('이것만 챙기세요: ')).toBe(true)
 })
 
-test('isStale 날짜 경계 (시각에 무관한 달력일 비교)', () => {
-  expect(isStale('2026-08-16', new Date('2026-11-14T23:59:00'))).toBe(false) // 정확히 90일
-  expect(isStale('2026-08-16', new Date('2026-11-15T00:00:01'))).toBe(true)  // 91일
+test('범용 줄 문구', () => {
+  const uni: Card = { ...base, universal: { type: 'points', rate: 1.2, monthlyCap: null }, benefits: [{ tag: '모든 가맹점', type: 'points', rate: 1.2, monthlyCap: null, stars: 3 }] }
+  const ab = annualBenefit(uni, q({ tags: ['주유'] }))!
+  expect(tips(ab, 'meticulous')).toEqual(['그 외 소비는 모든 가맹점 1.2% 적립'])
+})
+
+test('가정 한도가 걸린 줄의 문구', () => {
+  const c: Card = { ...base, benefits: [{ tag: '온라인 쇼핑', type: 'discount', rate: 10, monthlyCap: null, stars: 2 }] }
+  const ab = annualBenefit(c, q({ tags: ['온라인 쇼핑'], monthlySpend: 500_000 }))!
+  expect(tips(ab, 'meticulous')).toEqual(['온라인 쇼핑은 한도 정보가 없어 월 1만 원으로 계산했어요'])
+})
+
+test('조사 은/는: 받침 있으면 은, 없으면 는 (한글 아니면 는)', () => {
+  const c: Card = { ...base, benefits: [
+    { tag: '온라인 쇼핑', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 2 },
+    { tag: '해외 결제', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 1 },
+    { tag: '통신비·OTT', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 1 },
+  ] }
+  const ab = annualBenefit(c, q({ tags: ['온라인 쇼핑', '해외 결제', '통신비·OTT'], monthlySpend: 500_000 }))!
+  const t = tips(ab, 'meticulous')
+  expect(t).toContain('온라인 쇼핑은 쓰는 만큼 1,000원당 1마일 — 한도 없음')
+  expect(t).toContain('해외 결제는 쓰는 만큼 1,000원당 1마일 — 한도 없음')
+  expect(t).toContain('통신비·OTT는 쓰는 만큼 1,000원당 1마일 — 한도 없음')
+})
+
+test('정액인데 note가 없으면 "정액 혜택"', () => {
+  const c: Card = { ...base, benefits: [{ tag: '해외 결제', type: 'discount', rate: 0, monthlyCap: null, stars: 1 }] }
+  const ab = annualBenefit(c, q({ tags: ['해외 결제'] }))!
+  expect(tips(ab, 'meticulous')).toEqual(['해외 결제: 정액 혜택'])
+})
+
+test('rowAnnualValue = 월 × 12 × 성향 비율', () => {
+  const ab = annualBenefit(multi, q({ tags: ['주유'] }))!
+  expect(rowAnnualValue(ab.rows[0], 'meticulous')).toBe(180000)
+  expect(rowAnnualValue(ab.rows[0], 'moderate')).toBe(144000)
+})
+
+test('PERSONA_LABEL', () => {
+  expect(PERSONA_LABEL.carefree).toBe('무심형')
+})
+
+describe('isStale', () => {
+  test('90일 이내면 false, 넘으면 true', () => {
+    expect(isStale('2026-08-01', new Date('2026-08-20'))).toBe(false)
+    expect(isStale('2026-05-01', new Date('2026-08-20'))).toBe(true)
+  })
+  test('시각과 무관하게 날짜로만 비교', () => {
+    expect(isStale('2026-05-22', new Date('2026-08-20T23:59:00'))).toBe(false)
+  })
 })
