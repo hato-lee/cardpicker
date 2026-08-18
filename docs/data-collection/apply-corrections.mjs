@@ -11,7 +11,7 @@ for (const p of patches) {
   if (p.set) {
     Object.assign(c, p.set); changed++
     // 카드 최상위 선택 필드(mileageBonus, perks, memo)는 null이면 삭제
-    for (const k of ['mileageBonus', 'perks', 'memo']) if (k in p.set && p.set[k] === null) delete c[k]
+    for (const k of ['mileageBonus', 'perks', 'memo', 'pointsProgram', 'pointsEase', 'pointsNote']) if (k in p.set && p.set[k] === null) delete c[k]
   }
   for (const bp of p.benefits ?? []) {
     const i = c.benefits.findIndex((b) => b.tag === bp.tag)

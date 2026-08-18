@@ -132,12 +132,27 @@ test('Results: 무심형 풀어서 보여줄 때만 안내 문구', () => {
   expect(screen.queryByText(RELAXED_NOTE)).toBeNull()
 })
 
-test('포인트 적립이 절반 넘으면 포인트 적립형 배지, 할인형엔 없음', () => {
+test('포인트 적립이 절반 넘으면 포인트 배지(사용 난이도별 문구), 할인형엔 없음', async () => {
   const ptsCard: Card = { ...oil, id: 'pts', benefits: [{ tag: '주유', type: 'points', rate: 10, monthlyCap: 15000, stars: 3 }] }
-  const s: Scored = { card: ptsCard, benefit: annualBenefit(ptsCard, { ...q, tags: ['주유'] })!, coveredTags: ['주유'], universalCovers: [] }
-  const { unmount } = render(<CardResult rank={2} scored={s} persona="carefree" today={today} />)
+  const mk = (over: Partial<Card>): Scored => {
+    const c = { ...ptsCard, ...over }
+    return { card: c, benefit: annualBenefit(c, { ...q, tags: ['주유'] })!, coveredTags: ['주유'], universalCovers: [] }
+  }
+  let r = render(<CardResult rank={2} scored={mk({})} persona="carefree" today={today} />)
   expect(screen.getByText('포인트 적립형')).toBeInTheDocument()
-  unmount()
+  r.unmount()
+  r = render(<CardResult rank={2} scored={mk({ pointsEase: 'cash', pointsProgram: '마이신한포인트', pointsNote: '계좌 입금·결제대금 차감 가능' })} persona="carefree" today={today} />)
+  expect(screen.getByText('포인트 적립 · 현금처럼 써요')).toBeInTheDocument()
+  await userEvent.click(screen.getByRole('button', { name: /자세히 보기/ }))
+  expect(screen.getByText('쌓이는 포인트')).toBeInTheDocument()
+  expect(screen.getByText('마이신한포인트 — 계좌 입금·결제대금 차감 가능')).toBeInTheDocument()
+  r.unmount()
+  r = render(<CardResult rank={2} scored={mk({ pointsEase: 'shop' })} persona="carefree" today={today} />)
+  expect(screen.getByText('포인트 적립 · 써야 혜택')).toBeInTheDocument()
+  r.unmount()
+  r = render(<CardResult rank={2} scored={mk({ pointsEase: 'limited' })} persona="carefree" today={today} />)
+  expect(screen.getByText('포인트 적립 · 쓰는 곳 제한')).toBeInTheDocument()
+  r.unmount()
   render(<CardResult rank={2} scored={scored} persona="carefree" today={today} />)
-  expect(screen.queryByText('포인트 적립형')).toBeNull()
+  expect(screen.queryByText(/포인트 적립/)).toBeNull()
 })

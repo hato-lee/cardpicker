@@ -38,9 +38,14 @@ export interface Recommendation {
 
 const coverCount = (s: Scored) => s.coveredTags.length + s.universalCovers.length
 
-/** 연 혜택의 절반 넘게 포인트 적립이면 '포인트형' — 쌓아뒀다 써야 혜택이 되는 카드 */
+/** 연 혜택의 절반 넘게 포인트 적립이면 '포인트형' */
 export function isPointsHeavy(b: AnnualBenefit, rules: Rules = RULES): boolean {
   return b.pointsShare > rules.pointsHeavyShare
+}
+
+/** 포인트형인데 현금처럼 쓰는 포인트가 아니면(써야 하거나, 쓰는 곳이 정해져 있거나, 모르면) '손 가는 포인트' */
+export function isHardPoints(s: Pick<Scored, 'card' | 'benefit'>, rules: Rules = RULES): boolean {
+  return isPointsHeavy(s.benefit, rules) && s.card.pointsEase !== 'cash'
 }
 
 function byNet(a: Scored, b: Scored): number {
@@ -64,7 +69,7 @@ export function recommendGeneral(cards: Card[], q: Query, rules: Rules = RULES):
   if (q.persona === 'carefree') {
     // 할인·캐시백형 먼저, 포인트형 뒤 (무심형은 포인트를 안 쓰고 흘려보내기 쉬워서)
     const pointsLast = (a: Scored, b: Scored) =>
-      rules.carefreeDiscountFirst ? Number(isPointsHeavy(a.benefit, rules)) - Number(isPointsHeavy(b.benefit, rules)) : 0
+      rules.carefreeDiscountFirst ? Number(isHardPoints(a, rules)) - Number(isHardPoints(b, rules)) : 0
     const order = (a: Scored, b: Scored) => pointsLast(a, b) || byNet(a, b)
     if (rules.carefreeFullCoverOnly) {
       const full = scored.filter((s) => coverCount(s) === q.tags.length)

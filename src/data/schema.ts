@@ -54,6 +54,9 @@ const cardSchema = z
       .optional(),
     perks: z.array(z.string().min(1)).max(6, 'perks는 6줄까지').optional(),
     mileConversion: z.string().min(1).optional(),
+    pointsProgram: z.string().min(1).optional(),
+    pointsEase: z.enum(['cash', 'shop', 'limited'], { message: 'pointsEase는 cash·shop·limited 중 하나' }).optional(),
+    pointsNote: z.string().min(1).optional(),
   })
   .superRefine((data, ctx) => {
     if (data.universal !== null && !data.benefits.some((b) => b.tag === '모든 가맹점')) {

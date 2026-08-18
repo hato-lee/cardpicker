@@ -126,9 +126,14 @@ describe('무심형은 할인형 먼저, 포인트형 뒤', () => {
     expect(isPointsHeavy(rp.benefit)).toBe(true)
     expect(isPointsHeavy(rd.benefit)).toBe(false)
   })
-  test('무심형: 금액이 작아도 할인형이 포인트형보다 앞', () => {
+  test('무심형: 금액이 작아도 할인형이 포인트형보다 앞 (포인트 사용법 모르면 뒤)', () => {
     expect(recommend([pts, disc], q({ persona: 'carefree' })).map((x) => x.card.id)).toEqual(['disc', 'pts'])
     expect(recommend([pts, disc], q({ persona: 'moderate' })).map((x) => x.card.id)).toEqual(['pts', 'disc'])
+  })
+  test('현금처럼 쓰는 포인트(cash)는 무심형에서도 할인형과 같게 금액순', () => {
+    const cashPts = card({ ...pts, id: 'cashPts', pointsEase: 'cash', pointsProgram: '네이버페이 포인트' })
+    const shopPts = card({ ...pts, id: 'shopPts', pointsEase: 'shop', pointsProgram: 'M포인트' })
+    expect(recommend([shopPts, disc, cashPts], q({ persona: 'carefree' })).map((x) => x.card.id)).toEqual(['cashPts', 'disc', 'shopPts'])
   })
   test('무심형 풀어서 보여줄 때도 커버 개수 → 할인형 → 금액 순', () => {
     const cafe = card({ id: 'cafe', benefits: [{ tag: '카페·편의점', type: 'discount', rate: 10, monthlyCap: 50000, stars: 2 }] })

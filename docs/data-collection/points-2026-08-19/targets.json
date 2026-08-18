@@ -1,0 +1,401 @@
+[
+ {
+  "id": "shinhan-cheoeum",
+  "name": "신한카드 처음",
+  "issuer": "신한카드",
+  "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1227020_2207.html",
+  "pointsRows": [
+   "카페·편의점 5% ('오늘도 5%' 버킷(음식·카페·편의점·쇼핑 공통), 1회 1만원 이하 결제, 일 최대 1천P)",
+   "온라인 쇼핑 5% (카페·편의점·배달외식과 동일 '오늘도 5%' 통합 일일한도 공유)",
+   "배달·외식 5% (위와 동일 통합버킷 중 음식 카테고리)",
+   "통신비·OTT 10% (이동통신 자동이체 10%, 월 1회 최대 3만 원 결제분까지 적용)"
+  ]
+ },
+ {
+  "id": "shinhan-point-plan-plus",
+  "name": "신한카드 Point Plan+",
+  "issuer": "신한카드",
+  "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1228407_2207.html",
+  "pointsRows": [
+   "모든 가맹점 0.7% (일상생활비 적립 0.7~3% 차등(신한 SOL페이 결제 시 +0.5%), 해외 1%)",
+   "배달·외식 0% (주말(토·일) 음식점·배달앱에서 건당 2만원 이상 결제 시 1,000P 정액 적립)",
+   "통신비·OTT 5% (이동통신요금 자동납부 2만원당 1,000P(건별 산정, 예: 6.3만원 납부 시 3,000P), 도시가스·전기요금은 통합 영역으로 월 1건만 2만원당 1,000P, OTT 정기결제는 별도로 최대 2,000P 적립)"
+  ]
+ },
+ {
+  "id": "shinhan-globus",
+  "name": "신한카드 Globus",
+  "issuer": "신한카드",
+  "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1221213_2207.html",
+  "pointsRows": [
+   "해외 결제 1.7% (해외 일시불 1.7% 적립(국내 0.7%), 해외이용수수료(국제브랜드사수수료 1%+해외서비스수수료 0.18%=1.18%) 전액 할인으로 사실상 면제)"
+  ]
+ },
+ {
+  "id": "shinhan-the-classic-s",
+  "name": "신한카드 The CLASSIC-S",
+  "issuer": "신한카드",
+  "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/premium/1196402_2205.html",
+  "pointsRows": [
+   "모든 가맹점 1% (실적조건 없이 전 가맹점 1% 적립(월 100만P 한도로 사실상 무제한))"
+  ]
+ },
+ {
+  "id": "kb-gaon",
+  "name": "KB국민 가온카드",
+  "issuer": "KB국민카드",
+  "officialUrl": "https://m.kbcard.com/CXHIACRC0002.cms?mainCC=b&allianceCode=09150",
+  "pointsRows": [
+   "모든 가맹점 0.5% (전월실적 조건 없음. 주말·공휴일 0.3%p 추가적립 별도)",
+   "대중교통·택시 0.8% (기본 0.5% + 대중교통/택시 0.3%p 추가적립)",
+   "통신비·OTT 0.8% (기본 0.5% + 이동통신요금 0.3%p 추가 적립)",
+   "카페·편의점 0.8% (기본 0.5% + 음식/커피 0.3%p 추가적립)"
+  ]
+ },
+ {
+  "id": "kb-goldenlife-olim",
+  "name": "KB국민 골든라이프올림카드",
+  "issuer": "KB국민카드",
+  "officialUrl": "https://m.kbcard.com/CXHIACRC0002.cms?mainCC=b&allianceCode=04451",
+  "pointsRows": [
+   "대중교통·택시 1% (6대 영역 대중교통 1% 적립(우대 시 2%), 영역별 월 이용금액 20만원까지만 적립대상이라 실질 월 적립한도는 2,000원(우대 시 4,000원))",
+   "통신비·OTT 1% (6대 영역 이동통신요금 1% 적립(우대 시 2%), 영역별 월 이용금액 20만원까지만 적립대상이라 실질 월 적립한도는 2,000원(우대 시 4,000원))"
+  ]
+ },
+ {
+  "id": "samsung-taptap-o",
+  "name": "삼성카드 taptap O",
+  "issuer": "삼성카드",
+  "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1483",
+  "pointsRows": [
+   "해외 결제 1.3% (무실적·한도없는 해외결제 적립 1.3%(2024.9 신설))"
+  ]
+ },
+ {
+  "id": "samsung-amex-blue",
+  "name": "삼성카드 American Express Blue",
+  "issuer": "삼성카드",
+  "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1671",
+  "pointsRows": [
+   "해외 결제 5% (해외 온오프라인 결제 5% 멤버십리워즈 적립, 실적조건 없음, 월 3만 포인트 한도)",
+   "배달·외식 7% (편의점·배달앱 결제금액 7% 멤버십리워즈 적립, 전월실적 30만원 이상부터 적용)",
+   "온라인 쇼핑 1.5% (온라인간편결제·프리미엄아울렛·트렌디패션 1.5% 멤버십리워즈 적립, 실적조건 없음, 월 3만 포인트 한도)",
+   "대중교통·택시 5% (대중교통·이동통신 5% 멤버십리워즈 적립, 전월실적 30만원 이상부터 적용)"
+  ]
+ },
+ {
+  "id": "hyundai-m",
+  "name": "현대카드M",
+  "issuer": "현대카드",
+  "officialUrl": "https://www.hyundaicard.com",
+  "pointsRows": [
+   "모든 가맹점 1.5% (국내외 가맹점 1.5% M포인트 적립, 전월실적 50만원 이상)",
+   "온라인 쇼핑 5% (온라인쇼핑몰 5% 추가 M포인트, 전월실적 100만원 이상 조건)",
+   "배달·외식 5% (일반음식점 5% 추가 M포인트, 전월실적 100만원 이상 조건)",
+   "해외 결제 5% (해외가맹점 5% 추가 M포인트, 전월실적 100만원 이상 조건)"
+  ]
+ },
+ {
+  "id": "hana-travelog-check",
+  "name": "하나 트래블로그 체크카드",
+  "issuer": "하나카드",
+  "officialUrl": "https://www.hanacard.co.kr/OPI41000000D.web?CD_PD_SEQ=15414",
+  "pointsRows": [
+   "모든 가맹점 0.3% (국내 가맹점 이용 시 하나머니 적립)"
+  ]
+ },
+ {
+  "id": "nh-ryan-cheese-check",
+  "name": "NH농협카드 라이언 치즈 체크카드",
+  "issuer": "NH농협카드",
+  "officialUrl": "https://card.nonghyup.com/content/html/kakao_Promotion.html",
+  "pointsRows": [
+   "카페·편의점 1% (스타벅스·투썸플레이스·커피빈, CU·GS25 편의점 결제 시 평일 0.5%, 주말 1% NH포인트 적립. 전월실적 20만원 이상, 전체 카테고리 통합 월 3만원 한도)",
+   "대중교통·택시 1.5% (지하철·버스·택시·SRT·KTX 등 1.5% NH포인트 적립. 전월실적 30만원 이상, 전체 카테고리 통합 월 3만원 한도)",
+   "해외 결제 1.5% (해외 일시불 1.5% NH포인트 적립. 전월실적 30만원 이상, 전체 카테고리 통합 월 3만원 한도)",
+   "통신비·OTT 5% (유튜브·넷플릭스 등 구독 결제 5% NH포인트 적립. 전월실적 30만원 이상, 전체 카테고리 통합 월 3만원 한도)",
+   "온라인 쇼핑 1% (G마켓·11번가·쿠팡·티몬·농협몰 결제 시 평일 0.5%, 주말 1% NH포인트 적립. 전월실적 20만원 이상, 전체 카테고리 통합 월 3만원 한도)",
+   "배달·외식 1% (배달의민족·요기요 결제 시 평일 0.5%, 주말 1% NH포인트 적립. 전월실적 20만원 이상, 전체 카테고리 통합 월 3만원 한도)"
+  ]
+ },
+ {
+  "id": "hyundai-zero-edition3-points",
+  "name": "현대카드 ZERO Edition3(포인트형)",
+  "issuer": "현대카드",
+  "officialUrl": "https://card.hyundaicard.com/card/실적조건없이적립할인.hdc",
+  "pointsRows": [
+   "모든 가맹점 1.2% (국내외 전 가맹점 M포인트 적립, 실적조건·한도 없음)"
+  ]
+ },
+ {
+  "id": "hyundai-the-green-edition3",
+  "name": "현대카드 the Green Edition3",
+  "issuer": "현대카드",
+  "officialUrl": "https://www.hyundaicard.com/upload/card/260513_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%B6%81_the%20Green%20ed3.pdf",
+  "pointsRows": [
+   "해외 결제 5% (해외 온오프라인 가맹점 5% M포인트 적립, 전월실적 100만원 이상 시 월 5만 M포인트 한도(초과분은 기본 1.5% 적립))",
+   "모든 가맹점 1.5% (국내외 전 가맹점 기본 M포인트 적립)"
+  ]
+ },
+ {
+  "id": "hyundai-the-pink-edition2",
+  "name": "현대카드 the Pink Edition2",
+  "issuer": "현대카드",
+  "officialUrl": "https://www.hyundaicard.com",
+  "pointsRows": [
+   "온라인 쇼핑 1.5% (프리미엄쇼핑(백화점몰·아울렛 등)에서 전월실적 100만원 이상 시 5% 포인트 적립, 월 5만 포인트 한도(그 미만은 기본 1.5% 적립))",
+   "모든 가맹점 1.5% (국내외 전 가맹점 기본 M포인트 적립)"
+  ]
+ },
+ {
+  "id": "shinhan-deep-dream-check",
+  "name": "신한카드 Deep Dream 체크카드",
+  "issuer": "신한카드",
+  "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/check/1188313_2206.html",
+  "pointsRows": [
+   "모든 가맹점 0.2% (국내외 전 가맹점 기본 0.2% 적립. DREAM영역(카페·편의점/통신비·OTT/해외결제)과 월 통합 적립한도 공유)",
+   "카페·편의점 0.4% (DREAM영역(편의점·할인점·커피) 기본적립 0.2%에 추가 0.4% 적립(합산 0.6%), '모든 가맹점' 항목과 동일한 월 통합 적립한도 공유)",
+   "통신비·OTT 0.4% (DREAM영역(이동통신사) 기본적립 0.2%에 추가 0.4% 적립(합산 0.6%), '모든 가맹점' 항목과 동일한 월 통합 적립한도 공유)",
+   "해외 결제 0.4% (DREAM영역(해외가맹점) 기본적립 0.2%에 추가 0.4% 적립(합산 0.6%), '모든 가맹점' 항목과 동일한 월 통합 적립한도 공유)",
+   "주유 0% (주말(토·일) 주유 시 리터당 40원 적립)"
+  ]
+ },
+ {
+  "id": "kb-coupang-wow",
+  "name": "KB국민 쿠팡 와우카드",
+  "issuer": "KB국민카드",
+  "officialUrl": "https://card.kbcard.com/CRD/DVIEW/HCAMCXPRICAC0076?mainCC=a&cooperationcode=09293",
+  "pointsRows": [
+   "온라인 쇼핑 2% (쿠팡·쿠팡플레이 등 쿠팡 계열 기본 적립(상시). ★등급 산정: 정률 2%는 낮으나 월한도 2만원이 넉넉해 잠정 2등급, 검수 필요. 2026-10-15까지 추가 2%(동일 한도) 프로모션은 이벤트성이라 제외.)",
+   "배달·외식 2% (쿠팡이츠 포함, 쿠팡 계열(쇼핑+이츠+플레이) 합산 월 2만원 한도)",
+   "모든 가맹점 0.2% (쿠팡 계열 외 모든 가맹점 기본 적립(상시값). 2026-10-15까지 편의점 2.2%/그 외 1% 추가 프로모션은 이벤트성이라 제외.)"
+  ]
+ },
+ {
+  "id": "hyundai-naver-edition2",
+  "name": "네이버 현대카드 Edition2",
+  "issuer": "현대카드",
+  "officialUrl": "https://www.hyundaicard.com",
+  "pointsRows": [
+   "온라인 쇼핑 7% (네이버플러스 멤버십 회원이 적립대상 결제 시(네이버페이/네이버쇼핑 등) 네이버페이 포인트 적립. 비회원은 0.7%만 적용.)",
+   "모든 가맹점 0.7% (네이버플러스 적립대상 외 모든 가맹점 기본 적립, 한도 없음.)"
+  ]
+ },
+ {
+  "id": "hyundai-costco-reward-edition2",
+  "name": "코스트코 리워드 현대카드 Edition2",
+  "issuer": "현대카드",
+  "officialUrl": "https://www.hyundaicard.com/costco/m/html/costco_reward_2604_v3.html",
+  "pointsRows": [
+   "온라인 쇼핑 3% (코스트코 온라인몰(costco.co.kr) 한정 3% 적립(오프라인 매장은 2%), 연간 50만 포인트 통합한도(전체 적립 합산))",
+   "모든 가맹점 1% (코스트코 외 모든 가맹점 1% 적립. 연간 50만 포인트 통합한도(코스트코 적립분과 합산).)"
+  ]
+ },
+ {
+  "id": "samsung-starbucks",
+  "name": "스타벅스 삼성카드",
+  "issuer": "삼성카드",
+  "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1870",
+  "pointsRows": [
+   "카페·편의점 0% (스타벅스 매장 결제 시 별 적립, 전월실적 50만원 미만은 3만원당 별 1개, 50만원 이상은 1만원당 별 5개(월 최대 50개). 별의 원화 환산가치가 공시되지 않아 적립률은 별도 표기하지 않음)",
+   "모든 가맹점 0% (스타벅스 매장 외 국내외 모든 가맹점 결제 시 3만원당 별 1개 적립, 월 최대 100개)"
+  ]
+ },
+ {
+  "id": "shinhan-emart",
+  "name": "신한카드 이마트",
+  "issuer": "신한카드",
+  "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1236769_2207.html",
+  "pointsRows": [
+   "모든 가맹점 0.5% (이마트 계열 제외 국내외 가맹점 0.5% 적립, 월 3만 원 한도)"
+  ]
+ },
+ {
+  "id": "shinhan-shinsegae-best-fit",
+  "name": "신한카드 신세계 Best Fit",
+  "issuer": "신한카드",
+  "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1236008_2207.html",
+  "pointsRows": [
+   "모든 가맹점 0.7% (국내 가맹점 이용금액 0.7% 마이신한포인트 적립, 한도 없음.)"
+  ]
+ },
+ {
+  "id": "kb-easy-auto-titanium",
+  "name": "KB국민 Easy auto 티타늄카드",
+  "issuer": "KB국민카드",
+  "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?mainCC=b&allianceCode=09246",
+  "pointsRows": [
+   "주유 0% (주유(SK,GS) 리터당 150점 적립(정액형, %환산 불가))"
+  ]
+ },
+ {
+  "id": "shinhan-the-classic-v",
+  "name": "신한카드 The CLASSIC-V",
+  "issuer": "신한카드",
+  "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/premium/1216601_2205.html",
+  "pointsRows": [
+   "모든 가맹점 1% (전 가맹점 이용금액의 1% 마이신한포인트 적립, 한도 없음)"
+  ]
+ },
+ {
+  "id": "shinhan-the-classic-y",
+  "name": "신한카드 The CLASSIC-Y",
+  "issuer": "신한카드",
+  "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/premium/1187940_2205.html",
+  "pointsRows": [
+   "모든 가맹점 0.7% (전 가맹점 이용금액의 0.7% 마이신한포인트 적립, 한도 없음)",
+   "해외 결제 5% (해외·명품아울렛·면세점·골프 합산 5% 적립, 월 최대 5만 포인트)"
+  ]
+ },
+ {
+  "id": "shinhan-the-classic-neo",
+  "name": "신한카드 The CLASSIC NEO",
+  "issuer": "신한카드",
+  "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/premium/1236160_2205.html",
+  "pointsRows": [
+   "온라인 쇼핑 2% (쿠팡 등 온라인몰 2% 적립. 카페·편의점/배달·외식/병의원·약국/주유와 월 적립한도 통합)",
+   "카페·편의점 2% (편의점 2% 적립, 온라인쇼핑·배달·병의원·주유와 월 적립한도 통합)",
+   "배달·외식 2% (배달앱 2% 적립, 위 항목들과 월 적립한도 통합)",
+   "병의원·약국 2% (병원·약국 2% 적립, 위 항목들과 월 적립한도 통합)",
+   "주유 3% (주유소 3% 적립(백화점·호텔 등과 동일 구간), 위 항목들과 월 적립한도 통합)",
+   "해외 결제 1.5% (해외 모든 가맹점 1.5% 적립, 한도 없음)"
+  ]
+ },
+ {
+  "id": "samsung-the-id-1st",
+  "name": "삼성카드 THE iD. 1st",
+  "issuer": "삼성카드",
+  "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1886",
+  "pointsRows": [
+   "모든 가맹점 1% (국내 모든 가맹점 1% 적립, 한도 없음)",
+   "온라인 쇼핑 1% (무신사 등 온라인 패션몰은 1.5%, 그 외 온라인쇼핑은 1% 적립, 한도 없음)",
+   "해외 결제 3% (해외 가맹점 이용 시 3% 적립, 한도 없음)",
+   "배달·외식 1.5% (음식점 결제 1.5% 적립, 한도 없음)",
+   "카페·편의점 1.5% (카페전문점·편의점 결제 1.5% 적립, 한도 없음)",
+   "병의원·약국 1.5% (병원·약국 결제 1.5% 적립, 한도 없음)"
+  ]
+ },
+ {
+  "id": "samsung-the-id-platinum-point",
+  "name": "삼성카드 THE iD. PLATINUM(포인트)",
+  "issuer": "삼성카드",
+  "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1802",
+  "pointsRows": [
+   "모든 가맹점 1% (국내 가맹점 1% 빅포인트 적립, 한도 없음)",
+   "온라인 쇼핑 1.2% (온라인쇼핑몰·할인점·백화점·배달앱 1.2% 적립, 한도 없음)",
+   "해외 결제 1.5% (해외 가맹점·면세점·항공·여행·공연 1.5% 적립, 한도 없음)"
+  ]
+ },
+ {
+  "id": "hana-jade-classic",
+  "name": "하나카드 JADE Classic",
+  "issuer": "하나카드",
+  "officialUrl": "https://www.hanacard.co.kr/OPI41000000D.web?CD_PD_SEQ=17504",
+  "pointsRows": [
+   "모든 가맹점 1% (국내외 모든 가맹점, 실적 조건 없이 무제한 적립)",
+   "주유 1.2% (전월실적 50만원 이상 시 적용, 해외·쇼핑 등 특별적립과 월 10만 하나머니 통합한도)",
+   "해외 결제 1.5% (항공·여행 포함, 전월실적 50만원 이상 시 적용, 주유·쇼핑과 월 10만 하나머니 통합한도)",
+   "온라인 쇼핑 1.2% (백화점·아울렛 등 쇼핑 영역 포함, 전월실적 50만원 이상 시 적용, 주유·해외와 월 10만 하나머니 통합한도)"
+  ]
+ },
+ {
+  "id": "kb-gaon-platinum-voucher",
+  "name": "KB국민 가온 플래티늄바우처카드",
+  "issuer": "KB국민카드",
+  "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?mainCC=b&allianceCode=09200",
+  "pointsRows": [
+   "모든 가맹점 1% (전월실적 30만원 이상 시 적립, 프리미엄 아울렛·면세점은 1.3%)"
+  ]
+ },
+ {
+  "id": "nh-classy-travel",
+  "name": "NH농협카드 클래시 트래블카드",
+  "issuer": "NH농협카드",
+  "officialUrl": "https://card.nonghyup.com",
+  "pointsRows": [
+   "모든 가맹점 1.2% (전월실적 조건 없음, 세금·공과금·등록금 등 통상 제외 업종도 적립 대상. 해외 결제 적립과 월 10만 포인트 통합 한도 공유)",
+   "해외 결제 3% (해외 이용금액 기본 3% NH포인트 적립. 해외결제수수료(국제브랜드·해외서비스) 면제 포함. 국내 적립과 월 10만 포인트 통합 한도 공유)"
+  ]
+ },
+ {
+  "id": "nh-on-platinum-point",
+  "name": "NH농협카드 ON PLATINUM카드(포인트형)",
+  "issuer": "NH농협카드",
+  "officialUrl": "https://card.nonghyup.com",
+  "pointsRows": [
+   "모든 가맹점 0.8% (전월실적 조건 없음)",
+   "온라인 쇼핑 0.8% (G마켓·11번가·쿠팡·농협몰 등 온라인쇼핑 기본적립, 오프라인쇼핑·여가/커피·구독·편리미엄과 동일한 조건으로 더블적립 제공)",
+   "카페·편의점 0.8% (스타벅스 등 커피전문점 기본적립, 온라인쇼핑 등과 동일한 조건으로 더블적립 제공)",
+   "통신비·OTT 0.8% (넷플릭스·유튜브 프리미엄·밀리의 서재 등 구독 결제 기본적립, 온라인쇼핑 등과 동일한 조건으로 더블적립 제공)",
+   "배달·외식 0.8% (배달의민족 결제 기본적립, 온라인쇼핑 등과 동일한 조건으로 더블적립 제공)"
+  ]
+ },
+ {
+  "id": "lotte-loca-money",
+  "name": "롯데카드 LOCA MONEY",
+  "issuer": "롯데카드",
+  "officialUrl": "https://www.lottecard.co.kr/app/LPCDADB_V100.lc?vtCdKndC=P13561-A13561",
+  "pointsRows": [
+   "모든 가맹점 1% (국내외 전 가맹점 1% 적립(전월실적 조건 없음, 조건 충족 시 최대 2%))"
+  ]
+ },
+ {
+  "id": "bc-baro-green-card",
+  "name": "BC 바로 그린카드(전국)",
+  "issuer": "BC카드",
+  "officialUrl": "https://m.bccard.com/app/mobileweb/CardDetail.do?exec=cardDetail&cardGdsNo=500733",
+  "pointsRows": [
+   "모든 가맹점 0.2% (전 가맹점 에코머니 적립(전월실적이 오를수록 적립률 상승))",
+   "대중교통·택시 10% (버스·지하철 적립(월 1만원 이상 이용 시). KTX·고속버스는 5%(월 2회 한도) 별도)"
+  ]
+ },
+ {
+  "id": "hana-multi-any",
+  "name": "하나카드 MULTI Any",
+  "issuer": "하나카드",
+  "officialUrl": "https://m.hanacard.co.kr/MPACMM101M.web?CD_PD_SEQ=15046",
+  "pointsRows": [
+   "모든 가맹점 0.7% (전월 실적 없이 한도 없이 적립, 간편결제 시 1%)",
+   "배달·외식 3% (배달의민족·요기요 3% 하나머니 적립, 월 5만원 한도(마트·백화점 등 쇼핑과 통합))",
+   "대중교통·택시 4% (버스·지하철 4% 하나머니 적립, 월 5만원 한도(후불교통 이용한도는 별도 월 10만원))"
+  ]
+ },
+ {
+  "id": "hana-oneq",
+  "name": "하나카드 하나원큐카드",
+  "issuer": "하나카드",
+  "officialUrl": "https://www.hanacard.co.kr/OPI41000000D.web?CD_PD_SEQ=12942",
+  "pointsRows": [
+   "모든 가맹점 0.8% (실적 조건·한도 없이 국내 전 가맹점 적립)",
+   "해외 결제 1.8% (해외 전 가맹점 적립, 월 한도 1만 하나머니)"
+  ]
+ },
+ {
+  "id": "nh-zgm-shopping",
+  "name": "NH농협 zgm shopping",
+  "issuer": "NH농협카드",
+  "officialUrl": "https://card.nonghyup.com",
+  "pointsRows": [
+   "온라인 쇼핑 5% (국내 온라인쇼핑 업종 적립)"
+  ]
+ },
+ {
+  "id": "kb-kpass-check",
+  "name": "KB국민 K-패스체크카드",
+  "issuer": "KB국민카드",
+  "officialUrl": "https://card.kbcard.com/CRD/DVIEW/HCAMCXPRICAC0076?mainCC=a&cooperationcode=09322",
+  "pointsRows": [
+   "대중교통·택시 10% (버스·지하철 이용 시 포인트리 적립(택시·시외버스 제외))",
+   "카페·편의점 1% (생활서비스(이동통신요금 자동납부·커피·편의점 등) 결제 시 1% 포인트리 적립, KB Pay로 결제 시 1%p 추가 적립)"
+  ]
+ },
+ {
+  "id": "naverpay-money-hana-check",
+  "name": "네이버페이 머니 하나 체크카드",
+  "issuer": "하나카드",
+  "officialUrl": "https://m.hanacard.co.kr/MKCDCM1030M.web?CD_PD_SEQ=17594",
+  "pointsRows": [
+   "모든 가맹점 1.2% (네이버페이 머니 하나 통장과 연결 시 국내외 모든 가맹점 결제금액의 1.2% 적립(타행 계좌 연결 시 0.6%), 월 최대 1만 포인트, 익월 15일 네이버페이 포인트로 지급)"
+  ]
+ }
+]

@@ -16,6 +16,7 @@
 - 무심형에서 다 커버하는 카드가 0장이면 **자동으로 풀어서** 커버 개수 많은 순 → 연 혜택 순으로 보여주고, 결과 위에 한 줄 안내: "고른 영역을 한 장으로 다 되는 카드가 없어서, 가장 많이 되는 카드부터 보여줘요."
 - 금액: `annualNet = annualGross − annualFee`. 성향 무관. `personaRealization`·`annualRealized`·`carefreeMaxComplexity` 삭제.
 - 무심형은 **할인·캐시백형 먼저, 포인트형 뒤** (`carefreeDiscountFirst`). 포인트형 = 월 혜택 중 포인트 적립 줄 비율(`AnnualBenefit.pointsShare`) > `pointsHeavyShare`(0.5). 이유: 포인트는 쌓아뒀다 써야 혜택이라 무심형은 흘려보내기 쉬움. 포인트형 카드엔 성향 무관하게 "포인트 적립형" 배지.
+- 포인트 사용 난이도 데이터: `Card.pointsProgram`(포인트 이름) · `Card.pointsEase`('cash' 현금처럼 / 'shop' 써야 함 / 'limited' 특정 곳에서만) · `Card.pointsNote`(사용법 한 줄). 무심형 정렬은 `isHardPoints` = 포인트형 && pointsEase !== 'cash' (모르면 뒤로). 배지 문구는 pointsEase별("포인트 적립 · 현금처럼 써요" 등), 자세히 보기에 "쌓이는 포인트: 이름 — 사용법". 조사 브리프 `docs/data-collection/points-2026-08-19/`.
 - 마일리지 트랙에는 복잡도 필터만 (마일 무심하게 쌓는 사람도 있으니 성향을 살짝만 반영).
 - 실적(minSpend) 조건은 성향과 무관하게 기존대로 `monthlySpend ≥ minSpend`만 본다 (한 장으로 쓰면 자동 충족).
 

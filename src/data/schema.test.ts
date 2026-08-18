@@ -210,3 +210,8 @@ test('mileageBonus·perks: 올바르면 통과, 형식이 틀리면 실패', () 
   expect(() => validateCards([{ ...good, mileageBonus: { miles: 1000 } }])).toThrow(/shinhan-deep-oil/)
   expect(() => validateCards([{ ...good, perks: ['a', 'b', 'c', 'd', 'e', 'f', 'g'] }])).toThrow(/6줄/)
 })
+
+test('pointsEase는 cash·shop·limited만 통과한다', () => {
+  expect(validateCards([{ ...good, pointsProgram: '마이신한포인트', pointsEase: 'cash', pointsNote: '계좌 입금 가능' }])).toHaveLength(1)
+  expect(() => validateCards([{ ...good, pointsEase: 'easy' }])).toThrow(/cash·shop·limited/)
+})

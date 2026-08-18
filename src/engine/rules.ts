@@ -12,7 +12,8 @@ export const RULES = {
   personaMaxComplexity: { meticulous: 3, moderate: 2, carefree: 2 },
   // 무심형은 고른 영역을 한 장으로 다 커버하는 카드만 (없으면 자동으로 풀어서 커버 많은 순)
   carefreeFullCoverOnly: true,
-  // 무심형은 포인트형(연 혜택의 절반 넘게 포인트 적립) 카드를 할인·캐시백형 뒤로 보낸다 — 포인트는 써야 혜택이라
+  // 무심형은 포인트형(연 혜택의 절반 넘게 포인트 적립) 카드를 할인·캐시백형 뒤로 보낸다 — 포인트는 써야 혜택이라.
+  // 단 현금처럼 쓰는 포인트(pointsEase 'cash')는 할인형과 같게 본다. pointsEase를 모르면 뒤로.
   carefreeDiscountFirst: true,
   pointsHeavyShare: 0.5,
   // "이렇게 쓰면 최대" 문장 개수 (성향별)

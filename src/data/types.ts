@@ -1,6 +1,7 @@
 import type { Tag } from './tags'
 
 export type Persona = 'meticulous' | 'moderate' | 'carefree'
+export type PointsEase = 'cash' | 'shop' | 'limited'
 export type BenefitType = 'discount' | 'points' | 'mileage'
 export type Stars = 1 | 2 | 3
 export type Complexity = 1 | 2 | 3
@@ -57,6 +58,12 @@ export interface Card {
   perks?: string[]             // 사용자에게 보여줄 부가 혜택 한 줄씩(라운지·바우처·발레파킹 등). 12개 태그 밖 혜택. 계산엔 안 쓴다
   // 포인트 전환형 마일 카드(멤버십 리워즈 → 마일 등). 있으면 화면에 '포인트 전환형' 배지 + 이 문장(환산 기준). 계산엔 안 쓴다
   mileConversion?: string
+  /** 포인트 적립 카드가 쌓아주는 포인트 이름(사용자 표시). 예: 마이신한포인트, M포인트, 네이버페이 포인트 */
+  pointsProgram?: string
+  /** 포인트를 얼마나 쉽게 쓰는지. cash = 계좌 입금·결제대금 차감 등 현금처럼 / shop = 가맹점·몰에서 써야 함(현금 전환 손해 포함) / limited = 특정 브랜드 안에서만 */
+  pointsEase?: PointsEase
+  /** 포인트 사용법 한 줄(사용자 표시). 예: "계좌 입금·결제대금 차감 가능" */
+  pointsNote?: string
 }
 
 export interface Query {

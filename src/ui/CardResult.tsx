@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { isPointsHeavy, type Scored } from '../engine/recommend'
+import type { PointsEase } from '../data/types'
 import type { Persona, Benefit, BenefitType } from '../data/types'
 import { tips, rowAnnualValue, isStale } from '../engine/explain'
 import { RULES } from '../engine/rules'
@@ -33,7 +34,13 @@ export function benefitText(b: Benefit): string {
   return `${b.tag} ${rateText(b.type, b.rate)} · ${capText(b.type, b.monthlyCap)}${tiersText(b)}${b.note ? ` (${b.note})` : ''}`
 }
 
-export const POINTS_BADGE_TITLE = '할인 대신 포인트로 쌓여요. 쌓인 포인트를 써야 혜택이 돼요.'
+export const POINTS_BADGE: Record<PointsEase | 'unknown', string> = {
+  cash: '포인트 적립 · 현금처럼 써요',
+  shop: '포인트 적립 · 써야 혜택',
+  limited: '포인트 적립 · 쓰는 곳 제한',
+  unknown: '포인트 적립형',
+}
+export const POINTS_BADGE_TITLE = '할인 대신 포인트로 쌓여요. 자세히 보기에서 어떤 포인트인지 볼 수 있어요.'
 
 export function CardResult({ rank, scored, persona, today }: Props) {
   const [open, setOpen] = useState(false)
@@ -50,6 +57,10 @@ export function CardResult({ rank, scored, persona, today }: Props) {
   const maxAnnual = Math.max(1, ...shown.map((r) => r.annual))
 
   const tipLines = tips(benefit, persona)
+  const pointsHeavy = isPointsHeavy(benefit)
+  const pointsLine = card.pointsProgram
+    ? `${card.pointsProgram}${card.pointsNote ? ` — ${card.pointsNote}` : ''}`
+    : null
 
   return (
     <article className={`card ${rank === 1 ? 'is-top' : ''}`}>
@@ -59,7 +70,7 @@ export function CardResult({ rank, scored, persona, today }: Props) {
           <h3>
             {card.name}
             {rank === 1 && <span className="top-badge">추천</span>}
-            {isPointsHeavy(benefit) && <span className="conv-badge" title={POINTS_BADGE_TITLE}>포인트 적립형</span>}
+            {pointsHeavy && <span className={`conv-badge ${card.pointsEase === 'cash' ? 'is-easy' : ''}`} title={POINTS_BADGE_TITLE}>{POINTS_BADGE[card.pointsEase ?? 'unknown']}</span>}
           </h3>
           <div className="card-sub">{card.issuer} · {card.kind === 'credit' ? '신용' : '체크'} · 연회비 {won(card.annualFee)} · {card.minSpend === 0 ? '실적 없음' : `전월실적 ${won(card.minSpend)}`}</div>
         </div>
@@ -97,6 +108,12 @@ export function CardResult({ rank, scored, persona, today }: Props) {
           <ul className="tips">
             {tipLines.map((t) => <li key={t}>{t}</li>)}
           </ul>
+          {pointsLine && (
+            <>
+              <div className="detail-title">쌓이는 포인트</div>
+              <p className="points-line">{pointsLine}</p>
+            </>
+          )}
           <div className="detail-title">전체 혜택</div>
           <ul className="benefits">
             {card.benefits.map((b) => <li key={b.tag}>{benefitText(b)}</li>)}
