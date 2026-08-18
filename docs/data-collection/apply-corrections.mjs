@@ -13,7 +13,11 @@ for (const p of patches) {
     const i = c.benefits.findIndex((b) => b.tag === bp.tag)
     if (i < 0) { console.log(`no benefit ${bp.tag} on ${p.id}`); continue }
     if (bp.remove) { c.benefits.splice(i, 1); changed++; continue }
-    if (bp.set) { Object.assign(c.benefits[i], bp.set); changed++ }
+    if (bp.set) {
+      Object.assign(c.benefits[i], bp.set); changed++
+      // set 값이 null인 선택 필드(note, capGroup, tiers)는 삭제로 처리
+      for (const k of ['note', 'capGroup', 'tiers']) if (k in bp.set && bp.set[k] === null) delete c.benefits[i][k]
+    }
   }
   for (const nb of p.addBenefits ?? []) {
     if (c.benefits.some((b) => b.tag === nb.tag)) { console.log(`dup tag ${nb.tag} on ${p.id}, skipped`); continue }
