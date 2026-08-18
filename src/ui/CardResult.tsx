@@ -12,19 +12,24 @@ interface Props {
   today: Date
 }
 
+/** 한도 값 표기 (접두어 없이). 마일리지 한도는 '원'이 아니라 '마일' 단위다. */
+function capValueText(type: BenefitType, cap: number | null): string {
+  if (cap === null) return '한도 없음'
+  if (type === 'mileage') return `${cap.toLocaleString('ko-KR')}마일`
+  return won(cap)
+}
+
 /** 월 한도 표기. 마일리지 한도는 '원'이 아니라 '마일' 단위다. */
 function capText(type: BenefitType, cap: number | null): string {
   if (cap === null) return '한도 없음'
-  if (type === 'mileage') return `월 최대 ${cap.toLocaleString('ko-KR')}마일`
-  return `월 최대 ${won(cap)}`
+  return `월 최대 ${capValueText(type, cap)}`
 }
 
 /** 실적 구간 표기: "(실적 70만 원↑ 3만 원, 100만 원↑ 12% 할인·5만 원)". rate가 기본과 같으면 요율 생략 */
 function tiersText(b: Benefit): string {
   if (!b.tiers || b.tiers.length === 0) return ''
   const parts = b.tiers.map((t, i) => {
-    const cap = t.monthlyCap === null ? '한도 없음'
-      : b.type === 'mileage' ? `${t.monthlyCap.toLocaleString('ko-KR')}마일` : won(t.monthlyCap)
+    const cap = capValueText(b.type, t.monthlyCap)
     const rate = t.rate !== undefined && t.rate !== b.rate ? `${rateText(b.type, t.rate)}·` : ''
     return `${i === 0 ? '실적 ' : ''}${won(t.minSpend)}↑ ${rate}${cap}`
   })
