@@ -1,0 +1,107 @@
+[
+ {
+  "id": "hyundai-the-red-mileage",
+  "name": "현대카드 the Red (항공 마일리지형)",
+  "issuer": "현대카드",
+  "kind": "credit",
+  "officialUrl": "https://www.hyundaicard.com"
+ },
+ {
+  "id": "hyundai-z-play",
+  "name": "현대카드 Z play",
+  "issuer": "현대카드",
+  "kind": "credit",
+  "officialUrl": "https://www.hyundaicard.com"
+ },
+ {
+  "id": "hyundai-m",
+  "name": "현대카드M",
+  "issuer": "현대카드",
+  "kind": "credit",
+  "officialUrl": "https://www.hyundaicard.com"
+ },
+ {
+  "id": "hyundai-the-pink-edition2",
+  "name": "현대카드 the Pink Edition2",
+  "issuer": "현대카드",
+  "kind": "credit",
+  "officialUrl": "https://www.hyundaicard.com"
+ },
+ {
+  "id": "hyundai-naver-edition2",
+  "name": "네이버 현대카드 Edition2",
+  "issuer": "현대카드",
+  "kind": "credit",
+  "officialUrl": "https://www.hyundaicard.com"
+ },
+ {
+  "id": "hyundai-the-purple-mileage",
+  "name": "현대카드 the Purple(마일리지형)",
+  "issuer": "현대카드",
+  "kind": "credit",
+  "officialUrl": "https://www.hyundaicard.com"
+ },
+ {
+  "id": "hana-multi-living",
+  "name": "하나카드 MULTI Living",
+  "issuer": "하나카드",
+  "kind": "credit",
+  "officialUrl": "https://www.hanacard.co.kr"
+ },
+ {
+  "id": "woori-loca-apt-platinum",
+  "name": "카드의정석 APT Platinum",
+  "issuer": "우리카드",
+  "kind": "credit",
+  "officialUrl": "https://www.wooricard.com"
+ },
+ {
+  "id": "nh-classy-travel",
+  "name": "NH농협카드 클래시 트래블카드",
+  "issuer": "NH농협카드",
+  "kind": "credit",
+  "officialUrl": "https://card.nonghyup.com"
+ },
+ {
+  "id": "nh-on-platinum-point",
+  "name": "NH농협카드 ON PLATINUM카드(포인트형)",
+  "issuer": "NH농협카드",
+  "kind": "credit",
+  "officialUrl": "https://card.nonghyup.com"
+ },
+ {
+  "id": "nh-zgm-shopping",
+  "name": "NH농협 zgm shopping",
+  "issuer": "NH농협카드",
+  "kind": "credit",
+  "officialUrl": "https://card.nonghyup.com"
+ },
+ {
+  "id": "nh-on-platinum-skypass",
+  "name": "NH농협카드 ON PLATINUM카드(스카이패스)",
+  "issuer": "NH농협카드",
+  "kind": "credit",
+  "officialUrl": "https://card.nonghyup.com"
+ },
+ {
+  "id": "nh-we-terra-skypass",
+  "name": "NH농협카드 위(Ü) 테라카드(스카이패스)",
+  "issuer": "NH농협카드",
+  "kind": "credit",
+  "officialUrl": "https://card.nonghyup.com"
+ },
+ {
+  "id": "nh-allone-pi",
+  "name": "NH농협카드 NH올원 파이카드",
+  "issuer": "NH농협카드",
+  "kind": "credit",
+  "officialUrl": "https://card.nonghyup.com/"
+ },
+ {
+  "id": "kb-heritage-reserve-skypass",
+  "name": "KB국민 HERITAGE Reserve(스카이패스형)",
+  "issuer": "KB국민카드",
+  "kind": "credit",
+  "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002"
+ }
+]

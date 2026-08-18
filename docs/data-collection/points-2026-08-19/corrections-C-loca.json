@@ -1,0 +1,6 @@
+[
+  { "id": "lotte-loca-money",
+    "set": { "universal": { "type": "points", "rate": 0.5, "monthlyCap": null }, "pointsNote": "결제대금 차감 시 1포인트 = 0.5원 (대출이자 납부만 1:1)" },
+    "benefits": [ { "tag": "모든 가맹점", "set": { "rate": 0.5, "stars": 2, "note": "국내외 전 가맹점 로카코인 1% 적립 — 결제대금 차감 시 0.5원 가치라 0.5%로 계산" } } ],
+    "memoAppend": "가치 반영(2026-08-19): 로카코인 결제대금 차감 1P=0.5원이라 rate를 1→0.5(원 가치 기준)로 조정. 하토님 결정." }
+]
