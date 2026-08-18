@@ -1,5 +1,4 @@
 # 일반 카드 재검수 진행 상태 (2026-08-18)
-- 브리프: VERIFY2-BRIEF.md, 배치 G01~G14(8장씩, 112장).
-- 적용 완료(커밋됨): G01, G02, G04, G05.
-- 미완료(세션 사용 한도로 에이전트 중단, 21:20 KST 이후 재개): G03(신한 3·KB 5), G06(KB 1·삼성 7), G07(삼성 7·현대 1), G08(현대), G09(현대 5·롯데 3), G10~G14(롯데·우리·하나·NH·BC·인터넷은행) 미시작.
-- 재개 방법: 각 배치에 대해 "VERIFY2-BRIEF.md 읽고 batch-GXX.json 검증 → corrections-GXX.json" 에이전트 실행 → `node docs/data-collection/apply-corrections.mjs <file>` → `npx vitest run` 통과 시 커밋·push. corrections-GXX.json이 이미 있으면 파싱 확인 후 적용.
+- 브리프: VERIFY2-BRIEF.md, 배치 G01~G14(8장씩, 112장). **전부 적용·커밋 완료.**
+- 단종 처리: 삼성카드4 V4, 우리 D4@카드의정석, 우리 NU I&U, 우리 ROYAL BLUE POINT, 하나 1Q Daily, 하나 1Q Shopping+.
+- 주요 정정: 삼성(iD ON·taptap DIGITAL 구간, 아멕스 블루 한도 개편, iD SELECT ALL 기본 한도, THE iD 1st 실적·적립 영역, 스타벅스 전 가맹점 별), 현대(Z 시리즈 통합한도 해제, 현대카드M 통합 1만, the Pink·the Green 실적, 현대카드X 구간), KB(학원 카드 3장 구간, K-패스 체크), NH(올원 파이·zgm.play++·ON PLATINUM 포인트형·채움 K-패스), 하나(트래블로그 체크 0.3%, CLUB SK·원더 DAILY 구간, JADE Classic 온라인), 우리(APT Platinum 구간, EVERYDAY CHECK 연회비 0), BC MACAO 주유 구간, IBK 에듀 주유·외식 추가, 경남 K-패스 한도 분리.
