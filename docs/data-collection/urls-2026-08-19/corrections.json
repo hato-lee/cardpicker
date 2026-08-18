@@ -1,0 +1,72 @@
+[
+ {
+  "id": "hyundai-the-red-mileage",
+  "set": { "officialUrl": "https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=TRE6" },
+  "memoAppend": "URL 정정(2026-08-19): 공식 상세 페이지로 교체. cardWcd=TRE6, 페이지 내 대한항공 마일리지(1,500원당 1마일) 문구로 항공 마일리지형 확인."
+ },
+ {
+  "id": "hyundai-z-play",
+  "set": { "officialUrl": "https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=ZOE2" },
+  "memoAppend": "URL 정정(2026-08-19): 공식 상세 페이지로 교체. meta title \"현대카드Z play - 카드 - 현대카드\"로 확인."
+ },
+ {
+  "id": "hyundai-m",
+  "set": { "officialUrl": "https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=ME4" },
+  "memoAppend": "URL 정정(2026-08-19): 공식 상세 페이지로 교체. meta title \"현대카드M - 카드 - 현대카드\"로 확인(cardWcd=M은 구버전 \"현대카드M(구)\"라 제외)."
+ },
+ {
+  "id": "hyundai-the-pink-edition2",
+  "set": { "officialUrl": "https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=TPIE2" },
+  "memoAppend": "URL 정정(2026-08-19): 공식 상세 페이지로 교체. meta title \"the Pink Edition2 - 카드 - 현대카드\"로 확인."
+ },
+ {
+  "id": "hyundai-naver-edition2",
+  "set": { "officialUrl": "https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=NVE2" },
+  "memoAppend": "URL 정정(2026-08-19): 공식 상세 페이지로 교체. meta title \"네이버 현대카드 Edition2 - 카드 - 현대카드\"로 확인."
+ },
+ {
+  "id": "hyundai-the-purple-mileage",
+  "set": { "officialUrl": "https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=TP" },
+  "memoAppend": "URL 정정(2026-08-19): 공식 상세 페이지로 교체. meta title \"the Purple - 카드 - 현대카드\", 본문에 \"이용 금액 1,500원당 1 마일리지 적립\" 문구로 마일리지형 확인."
+ },
+ {
+  "id": "hana-multi-living",
+  "set": { "officialUrl": "https://www.hanacard.co.kr/OPI41000000D.web?CD_PD_SEQ=12900" },
+  "memoAppend": "URL 정정(2026-08-19): 공식 상세 페이지로 교체. 검색결과에 \"MULTI Living 모바일카드신용카드 < 카드안내\" 타이틀 및 마케팅파라미터(ban_nm=MULTI_living)로 CD_PD_SEQ=12900 확인. 사이트가 JS 렌더링이라 페이지 본문 직접 대조는 못함."
+ },
+ {
+  "id": "woori-loca-apt-platinum",
+  "memoAppend": "URL 정정(2026-08-19): 상세 주소 못 찾음 — 우리카드 사이트가 전면 JS 렌더링(cdPrdCd 파라미터별 정적 HTML 동일)이라 curl로 특정 불가. 카드고릴라(544)/뱅크샐러드(CARD003991)로 상품 실재는 확인했으나 공식 도메인 파라미터를 얻지 못함. 우리카드 공식 AI용 정적 카탈로그(pc.wooricard.com/sitemap.xml의 ai-data, 87종)에도 \"카드의정석 APT Platinum\"이 없어 단종되었을 가능성이 높음."
+ },
+ {
+  "id": "nh-classy-travel",
+  "memoAppend": "URL 정정(2026-08-19): 상세 주소 못 찾음 — NH농협카드 사이트(index_cardProd.html)가 전면 JS 렌더링이라 cd_wrs_sqno별 서버 응답이 모두 동일한 빈 쉘이라 curl로 특정 불가. 후보(cd_wrs_sqno=90000385)는 다른 카드 검색에도 중복 노출되어 신뢰 낮아 채택 안함."
+ },
+ {
+  "id": "nh-on-platinum-point",
+  "memoAppend": "URL 정정(2026-08-19): 상세 주소 못 찾음 — NH농협카드 사이트가 전면 JS 렌더링이라 cd_wrs_sqno 특정 불가. 카드고릴라(2131)로 상품 실재만 확인."
+ },
+ {
+  "id": "nh-zgm-shopping",
+  "memoAppend": "URL 정정(2026-08-19): 상세 주소 못 찾음 — NH농협카드 사이트가 전면 JS 렌더링이라 cd_wrs_sqno 특정 불가."
+ },
+ {
+  "id": "nh-on-platinum-skypass",
+  "set": { "officialUrl": "https://card.nonghyup.com/index_cardProd.html?SERVICE_ID=IPCC2021R&NAVIGATE_TYPE=1&cd_wrs_sqno=90000414" },
+  "memoAppend": "URL 정정(2026-08-19): 검색상 \"ON PLATINUM카드(스카이패스)\" 질의에 반복적으로 매칭된 cd_wrs_sqno=90000414 채택(HTTP 200 확인). 단, 사이트가 JS 렌더링이라 페이지 본문으로 직접 대조는 못해 신뢰도는 중간."
+ },
+ {
+  "id": "nh-we-terra-skypass",
+  "memoAppend": "URL 정정(2026-08-19): 상세 주소 못 찾음 — NH농협카드 사이트가 전면 JS 렌더링이라 cd_wrs_sqno 특정 불가. 카드고릴라(565)로 상품 실재만 확인."
+ },
+ {
+  "id": "nh-allone-pi",
+  "set": { "officialUrl": "https://card.nonghyup.com/index_cardProd.html?SERVICE_ID=IPCC2021R&NAVIGATE_TYPE=1&cd_wrs_sqno=90000364" },
+  "memoAppend": "URL 정정(2026-08-19): 검색상 \"NH올원 파이카드\"+\"카드상세\" 질의에 매칭된 cd_wrs_sqno=90000364 채택(HTTP 200 확인). 단, 사이트가 JS 렌더링이라 페이지 본문으로 직접 대조는 못해 신뢰도는 중간."
+ },
+ {
+  "id": "kb-heritage-reserve-skypass",
+  "set": { "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?mainCC=b&allianceCode=09128" },
+  "memoAppend": "URL 정정(2026-08-19): 공식 상세 페이지로 교체. 페이지 title \"[HERITAGE Reserve(스카이패스형)] ...\"로 정확히 확인됨."
+ }
+]
