@@ -6819,7 +6819,7 @@
         "tag": "주유",
         "type": "mileage",
         "rate": 0.067,
-        "monthlyCap": null,
+        "monthlyCap": 2000,
         "capGroup": "a",
         "stars": 1,
         "note": "주유소(LPG·전기차 충전소 포함). 대중교통·택시·해외결제 우대와 월 마일리지 한도 통합",
@@ -6835,7 +6835,7 @@
         "tag": "대중교통·택시",
         "type": "mileage",
         "rate": 0.067,
-        "monthlyCap": null,
+        "monthlyCap": 2000,
         "capGroup": "a",
         "stars": 1,
         "note": "시내버스·지하철·택시. 주유·해외결제 우대와 월 마일리지 한도 통합",
@@ -6851,7 +6851,7 @@
         "tag": "해외 결제",
         "type": "mileage",
         "rate": 0.067,
-        "monthlyCap": null,
+        "monthlyCap": 2000,
         "capGroup": "a",
         "stars": 1,
         "note": "해외 가맹점. 주유·대중교통 우대와 월 마일리지 한도 통합",
@@ -6873,7 +6873,7 @@
     "officialUrl": "https://m.bccard.com/app/mobileweb/CardDetail.do?exec=cardDetail&cardGdsNo=104452",
     "lastChecked": "2026-08-18",
     "status": "active",
-    "memo": "AI 수집(2026-08-18), 검수 전. 출처: BC카드 공식 상세(m.bccard.com, cardGdsNo=104452), 잘 읽힘. 2026년 신규 출시된 'AIR 시리즈'로 기존 '바로 에어 플러스 스카이패스'(이미 있는 카드, 2026-02 신규발급 중단 보도 있음) 후속 상품. 2~3개월 무이자할부는 태그 밖. 미확인: 마일리지 소멸기한, 100만원당 200마일 보너스가 주유·대중교통·해외 통합한도(월 2,000마일)와 정확히 어떻게 배분되는지."
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: BC카드 공식 상세(m.bccard.com, cardGdsNo=104452), 잘 읽힘. 2026년 신규 출시된 'AIR 시리즈'로 기존 '바로 에어 플러스 스카이패스'(이미 있는 카드, 2026-02 신규발급 중단 보도 있음) 후속 상품. 2~3개월 무이자할부는 태그 밖. 미확인: 마일리지 소멸기한, 100만원당 200마일 보너스가 주유·대중교통·해외 통합한도(월 2,000마일)와 정확히 어떻게 배분되는지. 형식보정(2026-08-18): 통합한도 그룹의 기본 monthlyCap을 null→2,000마일로(스키마상 capGroup은 한도 필요, 기본 적립 1,500원당 1마일이 2,000마일에 닿으려면 월 300만 원이라 실질 영향 없음)."
   },
   {
     "id": "bc-baro-air-max",
@@ -6903,7 +6903,7 @@
         "tag": "온라인 쇼핑",
         "type": "mileage",
         "rate": 0.067,
-        "monthlyCap": null,
+        "monthlyCap": 2000,
         "capGroup": "a",
         "stars": 1,
         "note": "쿠팡·컬리 등 온라인몰. 카페·해외결제 우대와 월 마일리지 한도 통합",
@@ -6919,7 +6919,7 @@
         "tag": "카페·편의점",
         "type": "mileage",
         "rate": 0.067,
-        "monthlyCap": null,
+        "monthlyCap": 2000,
         "capGroup": "a",
         "stars": 1,
         "note": "스타벅스·투썸플레이스 등 카페. 온라인쇼핑·해외결제 우대와 월 마일리지 한도 통합",
@@ -6935,7 +6935,7 @@
         "tag": "해외 결제",
         "type": "mileage",
         "rate": 0.067,
-        "monthlyCap": null,
+        "monthlyCap": 2000,
         "capGroup": "a",
         "stars": 1,
         "note": "해외 가맹점. 온라인쇼핑·카페 우대와 월 마일리지 한도 통합",
@@ -6951,7 +6951,7 @@
         "tag": "관리비·공과금",
         "type": "mileage",
         "rate": 0.067,
-        "monthlyCap": null,
+        "monthlyCap": 2000,
         "capGroup": "b",
         "stars": 1,
         "note": "아파트관리비 자동납부",
@@ -6973,6 +6973,6 @@
     "officialUrl": "https://m.bccard.com/app/mobileweb/CardDetail.do?exec=cardDetail&cardGdsNo=104453",
     "lastChecked": "2026-08-18",
     "status": "active",
-    "memo": "AI 수집(2026-08-18), 검수 전. 출처: BC카드 공식 상세(m.bccard.com, cardGdsNo=104453), 잘 읽힘. 2026년 신규 출시된 'AIR 시리즈' 상위 카드. 'MAX 적립#1'에는 다이소·올리브영 등 '라이프쇼핑'도 포함되나 12개 태그에 해당 카테고리가 없어 미반영. 2~3개월 무이자할부는 태그 밖. 미확인: 마일리지 소멸기한, 100만원당 200마일 보너스와 MAX#1 통합한도(월 2,000마일)의 정확한 배분방식."
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: BC카드 공식 상세(m.bccard.com, cardGdsNo=104453), 잘 읽힘. 2026년 신규 출시된 'AIR 시리즈' 상위 카드. 'MAX 적립#1'에는 다이소·올리브영 등 '라이프쇼핑'도 포함되나 12개 태그에 해당 카테고리가 없어 미반영. 2~3개월 무이자할부는 태그 밖. 미확인: 마일리지 소멸기한, 100만원당 200마일 보너스와 MAX#1 통합한도(월 2,000마일)의 정확한 배분방식. 형식보정(2026-08-18): 통합한도 그룹의 기본 monthlyCap을 null→2,000마일로(스키마상 capGroup은 한도 필요, 기본 적립 1,500원당 1마일이 2,000마일에 닿으려면 월 300만 원이라 실질 영향 없음)."
   }
 ]
