@@ -1,0 +1,182 @@
+[
+ {
+  "id": "kb-gaon",
+  "set": {
+   "pointsProgram": "포인트리",
+   "pointsEase": "cash",
+   "pointsNote": "계좌입금·결제대금 차감 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): KB국민카드 포인트리 공식 안내 확인"
+ },
+ {
+  "id": "kb-goldenlife-olim",
+  "set": {
+   "pointsProgram": "포인트리",
+   "pointsEase": "cash",
+   "pointsNote": "계좌입금·결제대금 차감 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): KB국민카드 포인트리 공식 안내 확인"
+ },
+ {
+  "id": "samsung-taptap-o",
+  "set": {
+   "pointsProgram": "빅포인트",
+   "pointsEase": "cash",
+   "pointsNote": "보너스포인트와 합산, 계좌 캐시백 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 삼성카드 taptap O는 빅포인트로 적립, 삼성카드 포인트 캐시백 안내 페이지에서 빅포인트·보너스포인트·멤버십리워즈 합산 캐시백 확인"
+ },
+ {
+  "id": "samsung-amex-blue",
+  "set": {
+   "pointsProgram": "멤버십리워즈",
+   "pointsEase": "cash",
+   "pointsNote": "보너스포인트와 합산, 계좌 캐시백 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): American Express Blue는 멤버십리워즈로 적립되며 별도 교환 없이 보너스포인트·빅포인트와 합산되어 삼성카드 앱에서 계좌 캐시백 가능함을 삼성카드 포인트 캐시백 안내 페이지에서 확인"
+ },
+ {
+  "id": "hana-travelog-check",
+  "set": {
+   "pointsProgram": "하나머니",
+   "pointsEase": "cash",
+   "pointsNote": "계좌입금·결제대금 차감 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 하나카드 하나머니 안내 확인 (국내 결제분은 일반 하나머니로 적립)"
+ },
+ {
+  "id": "nh-ryan-cheese-check",
+  "set": {
+   "pointsProgram": "NH포인트",
+   "pointsEase": "cash",
+   "pointsNote": "계좌입금·카드대금 결제 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): NH농협카드 포인트(채움포인트) 안내 확인, 라이언 치즈 체크카드도 동일 NH포인트로 적립"
+ },
+ {
+  "id": "kb-coupang-wow",
+  "set": {
+   "pointsProgram": "쿠팡캐시",
+   "pointsEase": "limited",
+   "pointsNote": "쿠팡·쿠팡이츠·쿠팡플레이에서만 사용"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): KB 쿠팡 와우카드는 KB포인트리가 아닌 쿠팡캐시로 적립됨을 확인 (뱅크샐러드·나무위키 등 교차 확인)"
+ },
+ {
+  "id": "samsung-starbucks",
+  "set": {
+   "pointsProgram": "스타벅스 별",
+   "pointsEase": "limited",
+   "pointsNote": "스타벅스 앱에서 음료로 교환"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 스타벅스 삼성카드는 삼성카드 포인트가 아닌 스타벅스 별로 적립, 스타벅스 앱 내에서만 사용 가능"
+ },
+ {
+  "id": "kb-easy-auto-titanium",
+  "set": {
+   "pointsProgram": "포인트리",
+   "pointsEase": "cash",
+   "pointsNote": "계좌입금·결제대금 차감 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 리터당 150점은 KB포인트리 단위임을 KB국민카드 공식 페이지에서 확인"
+ },
+ {
+  "id": "samsung-the-id-1st",
+  "set": {
+   "pointsProgram": "빅포인트",
+   "pointsEase": "cash",
+   "pointsNote": "보너스포인트와 합산, 계좌 캐시백 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 삼성카드 THE iD. 1st 공식 카드소개 페이지에서 '빅포인트 적립' 문구 확인"
+ },
+ {
+  "id": "samsung-the-id-platinum-point",
+  "set": {
+   "pointsProgram": "빅포인트",
+   "pointsEase": "cash",
+   "pointsNote": "보너스포인트와 합산, 계좌 캐시백 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 카드명(포인트형)대로 빅포인트 적립 확인, 삼성카드 포인트 캐시백 페이지 참고"
+ },
+ {
+  "id": "hana-jade-classic",
+  "set": {
+   "pointsProgram": "하나머니",
+   "pointsEase": "cash",
+   "pointsNote": "계좌입금·결제대금 차감 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 하나카드 하나머니 안내 확인"
+ },
+ {
+  "id": "kb-gaon-platinum-voucher",
+  "set": {
+   "pointsProgram": "포인트리",
+   "pointsEase": "cash",
+   "pointsNote": "계좌입금·결제대금 차감 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): KB국민카드 포인트리 공식 안내 확인"
+ },
+ {
+  "id": "nh-classy-travel",
+  "set": {
+   "pointsProgram": "NH포인트",
+   "pointsEase": "cash",
+   "pointsNote": "계좌입금·카드대금 결제 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): NH농협카드 포인트(채움포인트) 안내 확인"
+ },
+ {
+  "id": "nh-on-platinum-point",
+  "set": {
+   "pointsProgram": "NH포인트",
+   "pointsEase": "cash",
+   "pointsNote": "계좌입금·카드대금 결제 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 카드명(포인트형)대로 NH포인트 적립, NH농협카드 포인트 안내 페이지 확인"
+ },
+ {
+  "id": "hana-multi-any",
+  "set": {
+   "pointsProgram": "하나머니",
+   "pointsEase": "cash",
+   "pointsNote": "계좌입금·결제대금 차감 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 하나카드 하나머니 안내 확인"
+ },
+ {
+  "id": "hana-oneq",
+  "set": {
+   "pointsProgram": "하나머니",
+   "pointsEase": "cash",
+   "pointsNote": "계좌입금·결제대금 차감 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 하나카드 하나머니 안내 확인"
+ },
+ {
+  "id": "nh-zgm-shopping",
+  "set": {
+   "pointsProgram": "NH포인트",
+   "pointsEase": "cash",
+   "pointsNote": "계좌입금·카드대금 결제 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): NH농협 zgm shopping은 NH포인트로 적립, NH농협카드 포인트 안내 페이지 확인"
+ },
+ {
+  "id": "kb-kpass-check",
+  "set": {
+   "pointsProgram": "포인트리",
+   "pointsEase": "cash",
+   "pointsNote": "계좌입금·결제대금 차감 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): K-패스체크카드도 KB포인트리로 적립됨을 확인"
+ },
+ {
+  "id": "naverpay-money-hana-check",
+  "set": {
+   "pointsProgram": "네이버페이 포인트",
+   "pointsEase": "shop",
+   "pointsNote": "네이버페이 결제에 사용(온·오프라인 가맹점 넓음)"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 네이버페이 포인트로 적립. 포인트→머니 전환·출금은 안 됨(네이버페이 안내), 가맹점 결제에만 사용"
+ }
+]

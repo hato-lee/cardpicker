@@ -1,0 +1,164 @@
+[
+ {
+  "id": "shinhan-cheoeum",
+  "set": {
+   "pointsProgram": "마이신한포인트",
+   "pointsEase": "cash",
+   "pointsNote": "계좌 입금·결제대금 차감 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 신한카드 공식 마이신한포인트 안내(계좌입금·결제대금 차감) 확인"
+ },
+ {
+  "id": "shinhan-point-plan-plus",
+  "set": {
+   "pointsProgram": "마이신한포인트",
+   "pointsEase": "cash",
+   "pointsNote": "계좌 입금·결제대금 차감 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 신한카드 공식 마이신한포인트 안내(계좌입금·결제대금 차감) 확인"
+ },
+ {
+  "id": "shinhan-globus",
+  "set": {
+   "pointsProgram": "마이신한포인트",
+   "pointsEase": "cash",
+   "pointsNote": "계좌 입금·결제대금 차감 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 신한카드 공식 마이신한포인트 안내(계좌입금·결제대금 차감) 확인"
+ },
+ {
+  "id": "shinhan-the-classic-s",
+  "set": {
+   "pointsProgram": "마이신한포인트",
+   "pointsEase": "cash",
+   "pointsNote": "계좌 입금·결제대금 차감 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 신한카드 공식 마이신한포인트 안내(계좌입금·결제대금 차감) 확인"
+ },
+ {
+  "id": "hyundai-m",
+  "set": {
+   "pointsProgram": "M포인트",
+   "pointsEase": "shop",
+   "pointsNote": "M포인트몰·가맹점 사용, 현금전환 1.5:1"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 현대카드 M포인트 사용처·현금전환 비율(1.5P=1원 상당) 확인"
+ },
+ {
+  "id": "hyundai-zero-edition3-points",
+  "set": {
+   "pointsProgram": "M포인트",
+   "pointsEase": "shop",
+   "pointsNote": "M포인트몰·가맹점 사용, 현금전환 1.5:1"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 현대카드 M포인트 사용처·현금전환 비율(1.5P=1원 상당) 확인"
+ },
+ {
+  "id": "hyundai-the-green-edition3",
+  "set": {
+   "pointsProgram": "M포인트",
+   "pointsEase": "shop",
+   "pointsNote": "M포인트몰·가맹점 사용, 현금전환 1.5:1"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 현대카드 M포인트 사용처·현금전환 비율(1.5P=1원 상당) 확인"
+ },
+ {
+  "id": "hyundai-the-pink-edition2",
+  "set": {
+   "pointsProgram": "M포인트",
+   "pointsEase": "shop",
+   "pointsNote": "M포인트몰·가맹점 사용, 현금전환 1.5:1"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 현대카드 M포인트 사용처·현금전환 비율(1.5P=1원 상당) 확인"
+ },
+ {
+  "id": "shinhan-deep-dream-check",
+  "set": {
+   "pointsProgram": "마이신한포인트",
+   "pointsEase": "cash",
+   "pointsNote": "계좌 입금·결제대금 차감 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 체크카드 적립분도 마이신한포인트로 통합, 계좌입금·결제대금 차감 확인"
+ },
+ {
+  "id": "hyundai-naver-edition2",
+  "set": {
+   "pointsProgram": "네이버페이 포인트",
+   "pointsEase": "shop",
+   "pointsNote": "네이버페이 결제에 사용(온·오프라인 가맹점 넓음)"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 이 카드는 전액 네이버페이 포인트로 적립, 계좌출금·머니전환 공식적으로 불가 확인"
+ },
+ {
+  "id": "hyundai-costco-reward-edition2",
+  "set": {
+   "pointsProgram": "코스트코 리워드",
+   "pointsEase": "limited",
+   "pointsNote": "코스트코 매장에서 바우처로 사용"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 연 1회 바우처 전환 후 코스트코 매장 전용 사용 확인"
+ },
+ {
+  "id": "shinhan-emart",
+  "set": {
+   "pointsProgram": "마이신한포인트",
+   "pointsEase": "cash",
+   "pointsNote": "계좌 입금·결제대금 차감 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 신한카드 공식 페이지에서 마이신한포인트 적립 확인(계좌입금·결제대금 차감)"
+ },
+ {
+  "id": "shinhan-shinsegae-best-fit",
+  "set": {
+   "pointsProgram": "마이신한포인트",
+   "pointsEase": "cash",
+   "pointsNote": "계좌 입금·결제대금 차감 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 신세계 특화카드이나 적립은 신세계포인트가 아닌 마이신한포인트로 확인"
+ },
+ {
+  "id": "shinhan-the-classic-v",
+  "set": {
+   "pointsProgram": "마이신한포인트",
+   "pointsEase": "cash",
+   "pointsNote": "계좌 입금·결제대금 차감 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 신한카드 공식 마이신한포인트 안내(계좌입금·결제대금 차감) 확인"
+ },
+ {
+  "id": "shinhan-the-classic-y",
+  "set": {
+   "pointsProgram": "마이신한포인트",
+   "pointsEase": "cash",
+   "pointsNote": "계좌 입금·결제대금 차감 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 신한카드 공식 마이신한포인트 안내(계좌입금·결제대금 차감) 확인"
+ },
+ {
+  "id": "shinhan-the-classic-neo",
+  "set": {
+   "pointsProgram": "마이신한포인트",
+   "pointsEase": "cash",
+   "pointsNote": "계좌 입금·결제대금 차감 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 신한카드 공식 마이신한포인트 안내(계좌입금·결제대금 차감) 확인"
+ },
+ {
+  "id": "lotte-loca-money",
+  "set": {
+   "pointsProgram": "로카코인",
+   "pointsEase": "shop",
+   "pointsNote": "대출이자 납부 1:1, 결제대금은 반값"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): 이 카드는 L.POINT가 아닌 전용 포인트 '로카코인' 적립, 결제대금 차감 시 1P=0.5원(이자납부는 1P=1원) 확인"
+ },
+ {
+  "id": "bc-baro-green-card",
+  "set": {
+   "pointsProgram": "에코머니",
+   "pointsEase": "cash",
+   "pointsNote": "계좌입금·현금전환 가능"
+  },
+  "memoAppend": "포인트 조사(2026-08-19): BC 바로 그린카드는 에코머니 적립, 1:1 현금전환 및 TOP포인트 전환 가능 확인"
+ }
+]
