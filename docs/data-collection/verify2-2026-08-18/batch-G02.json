@@ -1,0 +1,493 @@
+[
+  {
+    "id": "shinhan-edu",
+    "name": "신한카드 Edu",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 20000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "학원·교육",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 15000,
+        "stars": 2,
+        "note": "일반전문학원/학습지/유치원",
+        "tiers": [
+          {
+            "minSpend": 1000000,
+            "rate": 7,
+            "monthlyCap": 30000
+          },
+          {
+            "minSpend": 1500000,
+            "rate": 10,
+            "monthlyCap": 45000
+          }
+        ]
+      },
+      {
+        "tag": "병의원·약국",
+        "type": "discount",
+        "rate": 1,
+        "monthlyCap": 2000,
+        "stars": 1,
+        "note": "병원/약국 이용금액 월 20만원까지만 1% 캐시백 적용(사실상 최대 약 2,000원)"
+      },
+      {
+        "tag": "관리비·공과금",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "아파트관리비 자동이체 정액 월 5천원 캐시백. 단, 당월 학원비(학원/학습지/유치원) 결제가 있어야 적용되는 조건부 혜택"
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1188281_2207.html",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 신한카드 공식 페이지(shinhancard.com). 연회비는 페이지가 자바스크립트 템플릿({{=$data.wlAfe}})이라 실제 숫자가 노출되지 않아 확인 불가 — 유사 신한 캐시백카드 기준 잠정 1만원으로 기재, 검수 시 재확인 필요. 학원비 항목은 이용건수 2건 이상시 추가 캐시백(3~5천원)도 있으나 태그 밖이라 생략. 검증(2026-08-18): 신한카드 공식 페이지(shinhancard.com) 및 뱅크샐러드 대조. 연회비 1만→2만원(국내전용, 해외겸용 2.3만원)으로 수정. 전월실적 50만원, 학원비 구간별 5%(월1.5만)/7%(월3만)/10%(월4.5만), 의료(병원·약국) 1%(월20만원까지, 월한도 약2천원), 아파트관리비 정액 월5천원 캐시백(교육비 결제 조건부)은 모두 기존 값과 일치 확인. 구간이행(2026-08-18): 학원 5/7/10%·1.5만/3만/4.5만원(전월실적 50만/100만/150만원) 공식 페이지 확인, 기본값을 최저 구간(50만원 기준)으로 정리, stars 3→2. 출처: shinhancard.com"
+  },
+  {
+    "id": "shinhan-sol-travel-check",
+    "name": "신한카드 SOL트래블 체크",
+    "issuer": "신한카드",
+    "kind": "check",
+    "annualFee": 0,
+    "minSpend": 300000,
+    "benefits": [
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "국제브랜드수수료 1%·해외서비스수수료 0.2% 면제(전월실적 조건 없음). 해외 ATM 인출수수료($3/건) 면제. 마스터트래블리워드 제휴 캐시백(최대 10%)은 별도 프로그램"
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 3000,
+        "stars": 1,
+        "note": "국내 4대 편의점 5% 할인. 전월(1일~말일) 국내 이용금액 30만원 이상 시 적용, 신규발급 익월까지는 조건 면제"
+      },
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 1,
+        "monthlyCap": 3000,
+        "stars": 1,
+        "note": "국내 대중교통 1% 할인, 전월 국내 30만원 이상 조건. 해외 대중교통 컨택리스 결제 1% 할인(월 3천원 별도한도)은 태그 내 포함하지 않음"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/check/1225714_2206.html",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 신한카드 공식 페이지. 연회비는 페이지에 명시 안됨(체크카드 통상 무료로 추정, 확인 필요). 공항라운지 서비스, 환전우대는 태그 밖. 검증(2026-08-18): 공식 페이지 확인 결과 카페·편의점(4대 편의점 5%/월3천원)·대중교통(국내1%/월3천원)은 기존값과 일치해 변경 없음. 해외결제 수수료 면제는 별도 조건 없이 기본 제공됨을 확인해 note에서 '확인 필요' 문구 제거. 판매상태는 온라인 신청 버튼이 노출돼 판매중으로 확인. 연회비는 페이지에 금액이 별도 표기되지 않아 미확인(체크카드 통상 무료 추정 유지). 출처: shinhancard.com/pconts/html/card/apply/check/1225714_2206.html 구간이행(2026-08-18): 대상 아님: 카페·편의점 5% 할인은 전월 국내 30만원 이상이라는 단일 조건(카드 기본 minSpend와 동일)뿐이며, 그 이상 실적에 따른 추가 구간·한도 상승 없음을 공식 페이지에서 확인. 출처: shinhancard.com"
+  },
+  {
+    "id": "shinhan-deep-dream-check",
+    "name": "신한카드 Deep Dream 체크카드",
+    "issuer": "신한카드",
+    "kind": "check",
+    "annualFee": 0,
+    "minSpend": 200000,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 0.2,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "국내외 전 가맹점 기본 0.2% 적립. DREAM영역(카페·편의점/통신비·OTT/해외결제)과 월 통합 적립한도 공유",
+        "capGroup": "dream",
+        "tiers": [
+          {
+            "minSpend": 400000,
+            "monthlyCap": 15000
+          },
+          {
+            "minSpend": 800000,
+            "monthlyCap": 30000
+          }
+        ]
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "points",
+        "rate": 0.4,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "DREAM영역(편의점·할인점·커피) 기본적립 0.2%에 추가 0.4% 적립(합산 0.6%), '모든 가맹점' 항목과 동일한 월 통합 적립한도 공유",
+        "capGroup": "dream",
+        "tiers": [
+          {
+            "minSpend": 400000,
+            "monthlyCap": 15000
+          },
+          {
+            "minSpend": 800000,
+            "monthlyCap": 30000
+          }
+        ]
+      },
+      {
+        "tag": "통신비·OTT",
+        "type": "points",
+        "rate": 0.4,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "DREAM영역(이동통신사) 기본적립 0.2%에 추가 0.4% 적립(합산 0.6%), '모든 가맹점' 항목과 동일한 월 통합 적립한도 공유",
+        "capGroup": "dream",
+        "tiers": [
+          {
+            "minSpend": 400000,
+            "monthlyCap": 15000
+          },
+          {
+            "minSpend": 800000,
+            "monthlyCap": 30000
+          }
+        ]
+      },
+      {
+        "tag": "해외 결제",
+        "type": "points",
+        "rate": 0.4,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "DREAM영역(해외가맹점) 기본적립 0.2%에 추가 0.4% 적립(합산 0.6%), '모든 가맹점' 항목과 동일한 월 통합 적립한도 공유",
+        "capGroup": "dream",
+        "tiers": [
+          {
+            "minSpend": 400000,
+            "monthlyCap": 15000
+          },
+          {
+            "minSpend": 800000,
+            "monthlyCap": 30000
+          }
+        ]
+      },
+      {
+        "tag": "주유",
+        "type": "points",
+        "rate": 0,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "주말(토·일) 주유 시 리터당 40원 적립"
+      },
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 3000,
+        "stars": 1,
+        "note": "전월실적 20만원 이상 시 택시 이용 월 3·6·9번째 결제 건당 1,000원 할인(월 최대 3,000원)"
+      }
+    ],
+    "universal": {
+      "type": "points",
+      "rate": 0.2,
+      "monthlyCap": 5000,
+      "tiers": [
+        {
+          "minSpend": 400000,
+          "monthlyCap": 15000
+        },
+        {
+          "minSpend": 800000,
+          "monthlyCap": 30000
+        }
+      ]
+    },
+    "complexity": 3,
+    "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/check/1188313_2206.html",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 나무위키 참고(신한카드 공식 상세페이지를 찾지 못함, 공식 확인 필요, 나무위키 상 '현재 판매 중'으로 표기됨). 신한금융그룹 계열 ATM수수료 10회 면제는 태그 밖. 전월실적 구간별 통합 적립한도: 20만~40만원 5천/40만~80만원 1.5만/80만원 이상 3만원. 검증(2026-08-18): 확인 실패 — officialUrl이 홈 도메인만 기재되어 있어 상세 URL을 찾지 못했고, 세션 WebSearch 예산이 소진되었으며 Naver/Google/Bing/DuckDuckGo 검색과 뱅크샐러드·카드고릴라 접근도 모두 차단(캡차/404/빈 페이지)되어 대조 불가. 기존 값 유지. 재검증(2026-08-18): 공식 상세페이지(shinhancard.com/.../1188313_2206.html) 확인 — 모두드림 기본 0.2%, 더해드림(DREAM영역) 0.6%(=기본0.2%+추가0.4%) 구조로 기존 카페·편의점/통신비/해외결제 +0.4% 값 일치 확인. 주유 혜택은 '리터당 20원'이 아니라 '주말 한정 리터당 40원'으로 정정. 택시 3·6·9회차 1,000원 할인도 일치. 판매중(활성) 확인. 한도검증(2026-08-18): 신한카드 공식 상세페이지(1188313_2206.html) WebFetch로 재확인. '더해드림'(DREAM영역 추가적립)은 전월 20만원↑ 이용 시 제공되며 '모든 가맹점' 기본적립과 같은 월 통합 적립한도 내에서 적립됨을 공식 문구로 확인 → 카페·편의점/통신비·OTT/해외 결제 태그와 '모든 가맹점' 태그에 동일 monthlyCap(5000, 최저구간)·capGroup(\"dream\") 부여. 주유(리터당 40원, 주말한정) 월 한도는 공식페이지 미기재로 계속 미확인. 구간이행(2026-08-18): DREAM 통합 적립한도 5천/1.5만/3만원(실적 20만/40만/80만원) → universal.tiers + 모든가맹점·카페편의점·통신비OTT·해외결제(capGroup dream) 전체에 동일 tiers 적용. 기존 메모에서 이미 공식 페이지로 확인된 값을 구조화만 함. 출처: shinhancard.com 노트정리(2026-08-18): 주유: 월 적립한도 미확인. 대중교통·택시: 버스·지하철 별도 혜택 여부 미확인."
+  },
+  {
+    "id": "shinhan-emart",
+    "name": "신한카드 이마트",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 18000,
+    "minSpend": 400000,
+    "benefits": [
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 15,
+        "monthlyCap": 20000,
+        "stars": 3,
+        "note": "SSG.COM 직접 접속 결제분 한정 15% 할인. 스타벅스(카페·편의점)와 통합한도",
+        "capGroup": "shared",
+        "tiers": [
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 50000
+          }
+        ]
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 15,
+        "monthlyCap": 20000,
+        "stars": 3,
+        "note": "스타벅스(사이렌오더 포함) 직접 결제분 한정 15% 할인. 온라인쇼핑(SSG.COM)과 통합한도",
+        "capGroup": "shared",
+        "tiers": [
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 50000
+          }
+        ]
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 0.5,
+        "monthlyCap": 30000,
+        "stars": 2,
+        "note": "이마트 계열 제외 국내외 가맹점 0.5% 적립, 월 3만 원 한도"
+      }
+    ],
+    "universal": {
+      "type": "points",
+      "rate": 0.5,
+      "monthlyCap": 30000
+    },
+    "complexity": 3,
+    "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1236769_2207.html",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 나무위키(신한카드/카드 상품/제휴 문서) 참고 — 신한카드 공식 상세페이지의 정확한 URL(숫자 ID)을 찾지 못해 홈 도메인으로 대체, 공식 확인 필요. 2026-03-26 출시 신상품. 이마트/트레이더스/이마트에브리데이/이마트24/노브랜드/일렉트로마트 15% 할인은 대형마트·전문점이라 12개 태그 밖(브리프 기준)이라 개별 기재하지 않음 — SSG.COM은 온라인쇼핑, 스타벅스는 카페·편의점으로만 반영. 마스터카드 연회비 18,000원, 국내전용 15,000원(낮은 값 사용). 검증(2026-08-18): 확인 실패 — officialUrl이 홈 도메인만 기재되어 있어 상세 URL을 찾지 못했고, 세션 WebSearch 예산이 소진되었으며 Naver/Google/Bing/DuckDuckGo 검색과 뱅크샐러드·카드고릴라 접근도 모두 차단(캡차/404/빈 페이지)되어 대조 불가. 기존 값 유지. 재검증(2026-08-18): 공식 상세페이지(shinhancard.com/.../1236769_2207.html) 및 헤럴드경제 출시 보도자료 교차 확인 — 연회비 국내전용 1.8만원/해외겸용(마스터) 2.1만원으로 정정(기존 1.5만원 오류). 모든가맹점 기본적립 0.5%에 월3만원 한도가 있음을 확인해 monthlyCap 추가(기존 무한도 기재 오류). SSG.COM·스타벅스 통합한도 여부 공식 확인 완료. 구간이행(2026-08-18): SSG.COM·스타벅스 통합한도 40만~100만원 미만 2만원/100만원 이상 5만원(할인율 15%는 구간 무관 동일) 공식 페이지 확인 → 온라인쇼핑·카페편의점(capGroup shared) tiers 추가. 출처: shinhancard.com 노트정리(2026-08-18): 모든 가맹점 한도 3만 원 공식 확인(기존 무한도는 오류)."
+  },
+  {
+    "id": "shinhan-shinsegae-best-fit",
+    "name": "신한카드 신세계 Best Fit",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 300000,
+    "benefits": [
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 2,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "해외 가맹점 이용금액 2% 할인(일시불만 적용, 할부 전환 제외)"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 0.7,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "국내 가맹점 이용금액 0.7% 마이신한포인트 적립, 한도 없음."
+      }
+    ],
+    "universal": {
+      "type": "points",
+      "rate": 0.7,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1236008_2207.html",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 나무위키(신한카드/카드 상품/제휴 문서) 참고 — 공식 상세페이지 주소를 찾지 못해 홈 도메인으로 대체, 공식 확인 필요. 2025-11-13 출시. 신세계백화점 5%·이마트 5% 할인은 백화점·대형마트 특정 가맹점이라 12개 태그 밖이라 미기재(카드 핵심 혜택이 태그 밖이라는 점 유의). 마스터카드 연회비 15,000원, 국내전용 12,000원(낮은 값 사용). 검증(2026-08-18): 확인 실패 — officialUrl이 홈 도메인만 기재되어 있어 상세 URL을 찾지 못했고, 세션 WebSearch 예산이 소진되었으며 Naver/Google/Bing/DuckDuckGo 검색과 뱅크샐러드·카드고릴라 접근도 모두 차단(캡차/404/빈 페이지)되어 대조 불가. 기존 값 유지. 재검증(2026-08-18): 공식 상세페이지(shinhancard.com/.../1236008_2207.html) 확인 — 연회비 국내전용 1.5만원/해외겸용(마스터) 1.8만원(기존 1.2만원 오류), 전월실적 30만원(기존 0원 오류)으로 정정. 공식페이지에 대중교통 할인 언급이 없어 해당 혜택 삭제, 해외결제는 조건 없는 2% 할인로 정정(기존 5%·고액조건은 근거 없음으로 확인), 국내 기본적립 0.7%(모든 가맹점) 누락되어 추가. 신세계백화점 2.5~3%/아카데미 2.7% 할인은 백화점 특정 가맹점이라 12개 태그 밖. 노트정리(2026-08-18): 해외 결제: 기존 '연 1천만원 이상 신세계 구매 시 5%' 조건은 공식페이지에서 확인되지 않아 삭제."
+  },
+  {
+    "id": "shinhan-the-classic-v",
+    "name": "신한카드 The CLASSIC-V",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 197000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 1,
+        "monthlyCap": null,
+        "stars": 3,
+        "note": "전 가맹점 이용금액의 1% 마이신한포인트 적립, 한도 없음"
+      }
+    ],
+    "universal": {
+      "type": "points",
+      "rate": 1,
+      "monthlyCap": null
+    },
+    "complexity": 1,
+    "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/premium/1216601_2205.html",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 신한카드 공식 페이지. 전월 300만원 이상 이용 시 0.3% 추가적립(세부 조건 미반영), 전월 50만원 이상 시 공항 라운지 등은 태그 밖 혜택."
+  },
+  {
+    "id": "shinhan-the-classic-y",
+    "name": "신한카드 The CLASSIC-Y",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 100000,
+    "minSpend": 300000,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 0.7,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "전 가맹점 이용금액의 0.7% 마이신한포인트 적립, 한도 없음"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "points",
+        "rate": 5,
+        "monthlyCap": 50000,
+        "stars": 2,
+        "note": "해외·명품아울렛·면세점·골프 합산 5% 적립, 월 최대 5만 포인트"
+      }
+    ],
+    "universal": {
+      "type": "points",
+      "rate": 0.7,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/premium/1187940_2205.html",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 신한카드 공식 페이지. 검증(2026-08-18): 신한카드 공식 페이지 재대조, 전가맹점 0.7%·해외/아울렛/면세점/골프 합산 5%(월 5만 포인트 한도)·연회비 10만원(UPI 브랜드 기준 최저가, VISA/MASTER는 10만5천원)·전월실적 30만원 확인, 변경 없음. 구간이행(2026-08-18): 대상 아님: 해외·명품아울렛·면세점·골프 합산 5%/월 5만 포인트는 실적 구간과 무관한 고정 혜택(카드 기본 minSpend 30만원 조건 외 추가 구간 없음), 공식 페이지 확인. 출처: shinhancard.com"
+  },
+  {
+    "id": "shinhan-the-classic-neo",
+    "name": "신한카드 The CLASSIC NEO",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 117000,
+    "minSpend": 400000,
+    "benefits": [
+      {
+        "tag": "온라인 쇼핑",
+        "type": "points",
+        "rate": 2,
+        "monthlyCap": 30000,
+        "capGroup": "a",
+        "stars": 1,
+        "note": "쿠팡 등 온라인몰 2% 적립. 카페·편의점/배달·외식/병의원·약국/주유와 월 적립한도 통합",
+        "tiers": [
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 60000
+          },
+          {
+            "minSpend": 1800000,
+            "monthlyCap": 100000
+          }
+        ]
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "points",
+        "rate": 2,
+        "monthlyCap": 30000,
+        "capGroup": "a",
+        "stars": 1,
+        "note": "편의점 2% 적립, 온라인쇼핑·배달·병의원·주유와 월 적립한도 통합",
+        "tiers": [
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 60000
+          },
+          {
+            "minSpend": 1800000,
+            "monthlyCap": 100000
+          }
+        ]
+      },
+      {
+        "tag": "배달·외식",
+        "type": "points",
+        "rate": 2,
+        "monthlyCap": 30000,
+        "capGroup": "a",
+        "stars": 1,
+        "note": "배달앱 2% 적립, 위 항목들과 월 적립한도 통합",
+        "tiers": [
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 60000
+          },
+          {
+            "minSpend": 1800000,
+            "monthlyCap": 100000
+          }
+        ]
+      },
+      {
+        "tag": "병의원·약국",
+        "type": "points",
+        "rate": 2,
+        "monthlyCap": 30000,
+        "capGroup": "a",
+        "stars": 1,
+        "note": "병원·약국 2% 적립, 위 항목들과 월 적립한도 통합",
+        "tiers": [
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 60000
+          },
+          {
+            "minSpend": 1800000,
+            "monthlyCap": 100000
+          }
+        ]
+      },
+      {
+        "tag": "주유",
+        "type": "points",
+        "rate": 3,
+        "monthlyCap": 30000,
+        "capGroup": "a",
+        "stars": 2,
+        "note": "주유소 3% 적립(백화점·호텔 등과 동일 구간), 위 항목들과 월 적립한도 통합",
+        "tiers": [
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 60000
+          },
+          {
+            "minSpend": 1800000,
+            "monthlyCap": 100000
+          }
+        ]
+      },
+      {
+        "tag": "해외 결제",
+        "type": "points",
+        "rate": 1.5,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "해외 모든 가맹점 1.5% 적립, 한도 없음"
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/premium/1236160_2205.html",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 신한카드 공식 페이지 + 신한카드 공식 블로그(shinhancardblog.com, 실적구간·통합한도 상세). 친환경매장·드럭스토어 5% 등은 태그 밖 또는 미반영. 검증(2026-08-18): 신한카드 공식 페이지(shinhancard.com) 및 언론보도(서울경제 등 2025-11) 대조. 연회비 11.7만원(국내전용)·전월실적 구간(40만/100만/180만원)·온라인쇼핑·편의점·배달·병의원 각 2%, 주유 3%, 통합한도(3만/6만/10만P), 해외 1.5%(한도없음) 모두 기존 값과 일치. 초대전용·자산조건 관련 언급이 어디에도 없어 일반 신청 가능한 프리미엄카드로 확인, 판매중(2025년 하반기 출시 신상품). 구간이행(2026-08-18): 통합 적립한도 3만/6만/10만P(실적 40만/100만/180만원) → 온라인쇼핑·카페편의점·배달외식·병의원약국·주유(capGroup a) 전체에 동일 tiers 적용. 기존 메모에서 이미 공식+언론 교차 확인된 값을 구조화만 함. 출처: shinhancard.com"
+  }
+]

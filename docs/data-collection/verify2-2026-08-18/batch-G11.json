@@ -1,0 +1,386 @@
+[
+  {
+    "id": "woori-nu-iu",
+    "name": "우리카드 NU I&U",
+    "issuer": "우리카드",
+    "kind": "credit",
+    "annualFee": 12000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "discount",
+        "rate": 0.7,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "국내 가맹점 0.7~1.0% 청구할인(실적 구간별 차등), 해외겸용이나 국내 기준 적립"
+      },
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 7000,
+        "stars": 2,
+        "note": "S-OIL·현대오일뱅크 리터당 60~100원 청구할인, 매출건당 대상금액 최대 10만원, 통합 월 7,000원 한도. 전월 국내가맹점 30만원 이상 실적 필요"
+      }
+    ],
+    "universal": {
+      "type": "discount",
+      "rate": 0.7,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://m.wooricard.com/dcmw/yh1/crd/crd01/M1CRD101S02.do?recomNo=102245",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 및 검색요약 참고, 공식 확인 필요(공식 페이지가 JS 렌더링이라 세부 수치 미확인). 대중교통·커피전문점 할인(전월실적 30만원 이상시 적용, 정확한 태그·수치 확인 필요)은 이번 수집에서 제외. 검증(2026-08-16): 공식 모바일 페이지(m.wooricard.com) 접속했으나 개별 카드 상세정보가 노출되지 않음(내비게이션/공통 안내만 표시, JS 렌더링 추정), 검색예산도 소진되어 재검증 못함. 기존 값(연회비 12,000원, 0.7~1.0% 할인, 주유 한도 7,000원 등) 그대로 유지, 확인 필요 상태 지속. 구간이행(2026-08-18): 대상 아님 — 모든 가맹점 0.7%→1% 상향은 전월실적 구간이 아니라 매출 건당 100만원 이상 결제 시 적용되는 건당 기준(이베이스매뉴얼 thisthatbase.com 확인). 실적 구간 tiers 대상 제외. 노트정리(2026-08-18): 모든 가맹점: 실적 구간별 차등 조건 상세 미확인."
+  },
+  {
+    "id": "woori-loca-apt-platinum",
+    "name": "카드의정석 APT Platinum",
+    "issuer": "우리카드",
+    "kind": "credit",
+    "annualFee": 29000,
+    "minSpend": 400000,
+    "benefits": [
+      {
+        "tag": "관리비·공과금",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 15000,
+        "stars": 2,
+        "note": "아파트관리비 청구할인은 전월실적 구간제(40~80만원:5천원, 80~120만원:1만원, 120만원이상:1.5만원). 도시가스는 건당 5만원 이상 자동납부 시 월1회 3천원 청구할인."
+      },
+      {
+        "tag": "학원·교육",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "오프라인 학원 10% 청구할인",
+        "tiers": [
+          {
+            "minSpend": 800000,
+            "monthlyCap": 7000
+          },
+          {
+            "minSpend": 1200000,
+            "monthlyCap": 10000
+          }
+        ]
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://www.wooricard.com",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: BC카드 모바일 상세페이지(m.bccard.com, 우리카드 발급 카드) 참고 — 우리카드 공식 홈페이지에서 정확한 상세페이지를 찾지 못해 홈 URL로 대체. 전월실적, 학원 할인 월한도, 정확한 판매중 여부 확인 필요. 검증(2026-08-18): 확인 실패 — 공식 페이지(wooricard.com)가 JS 렌더링이라 상세 콘텐츠 미로드, WebSearch는 세션 한도 소진으로 사용 불가, Bing/Google/DuckDuckGo를 WebFetch로 대신 시도했으나 무관한 캐시 결과·차단·CAPTCHA로 뱅크샐러드·카드고릴라 대조 불가. 재검증(2026-08-18): 뱅크샐러드(CARD003991)·이베이스매뉴얼(thisthatbase.com) 대조. 관리비 monthlyCap 1.5만원(구간별 최대값)은 기존과 일치해 유지, minSpend는 혜택 시작 구간인 0→40만원으로 수정. 학원 월한도 미확인 상태였던 것을 구간별 최대값 1만원으로 채움. 도시가스 3천원 확인. 구간이행(2026-08-18): 학원 10% 청구할인, 전월실적 40만~80만원 미만 5천원/80만~120만원 미만 7천원/120만원 이상 1만원 한도 확인(이베이스매뉴얼 thisthatbase.com 대조, 카드 minSpend 40만원과 일치). 기본값을 최저 구간(5천원)으로 내리고 상위 구간 tiers 추가, 한도 기준 stars 2→1로 재계산."
+  },
+  {
+    "id": "woori-royal-blue-point",
+    "name": "우리카드 ROYAL BLUE POINT",
+    "issuer": "우리카드",
+    "kind": "credit",
+    "annualFee": 300000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 1,
+        "monthlyCap": null,
+        "stars": 3,
+        "note": "일반가맹점 기준 모아포인트 적립, 백화점·면세점 등 지정 가맹점은 1.5~2%"
+      },
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "휘발유 리터당 60원 청구할인(정액 할인, % 환산 불가)"
+      }
+    ],
+    "universal": {
+      "type": "points",
+      "rate": 1,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://www.wooricard.com",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 우리카드 페이지가 JS 렌더링이라 정확한 상세페이지 URL을 찾지 못해 홈 도메인으로 대체, 뱅크샐러드·우리카드 통합검색·유사상품(ROYAL BLUE M) 페이지 참고. 모아포인트 1% 무제한 적립은 같은 시리즈 ROYAL BLUE M 상품 페이지 기준('월 한도 제한 없음')으로 유추, 공식 확인 필요. 프리미엄 기프트(신세계상품권 20만원 등, 초년도 50만원/차년도 500만원 이상 이용시), Priority Pass 라운지, 신라면세점 할인은 태그 밖. 구간이행(2026-08-18): 대상 아님 — 모아포인트 1%(일반)~1.5%(지정가맹점)~2%(백화점·면세점) 차등은 가맹점 구분 기준이며 전월실적 구간 근거를 찾지 못함(뱅크샐러드 CARD003918, 카드고릴라, WebSearch 다회 확인). 실적 구간 tiers 없음."
+  },
+  {
+    "id": "woori-shopping-plus",
+    "name": "우리카드 카드의정석 SHOPPING+",
+    "issuer": "우리카드",
+    "kind": "credit",
+    "annualFee": 10000,
+    "minSpend": 300000,
+    "benefits": [
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 4000,
+        "stars": 1,
+        "note": "전월실적 30만원 이상 기준 월 4천원(70만원 이상 8천원, 120만원 이상 1만6천원). 삼성페이·네이버페이·카카오페이·PAYCO 5% 추가할인도 동일 한도 공유"
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "스타벅스·폴바셋, 건당 1천원 한도, 월 5천원 한도"
+      },
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 3600,
+        "stars": 1,
+        "note": "4대 주유소 주말 주유 리터당 60원 청구할인(정액), 월 한도 약 3,600원"
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://pc.wooricard.com/dcpc/yh1/crd/crd01/H1CRD201S00.do",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 뱅크샐러드+나무위키 참고, 공식 확인 필요. officialUrl은 카드의정석 목록 페이지(정확한 상세 URL 미확인). 오프라인쇼핑(백화점·대형마트) 10% 할인은 태그 밖(마트)이라 미기재. 검증(2026-08-18): 뱅크샐러드 등 참고(공식 페이지 JS 렌더링으로 직접 확인 실패). 연회비 1만원(국내전용)·전월실적 30만원·온라인쇼핑 10%·스타벅스/폴바셋 10%·주유 리터당 60원 모두 기존 값과 일치. 미확인: 온라인쇼핑 월한도의 정확한 구간값(4천/8천/1만6천원)은 재확인하지 못해 기존 값을 유지함."
+  },
+  {
+    "id": "woori-everyday-check",
+    "name": "우리카드 카드의정석 EVERYDAY CHECK",
+    "issuer": "우리카드",
+    "kind": "check",
+    "annualFee": 12000,
+    "minSpend": 300000,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "discount",
+        "rate": 0.2,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "국내외 가맹점 기본 0.2% 청구할인, 실적·한도 없음"
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 1,
+        "monthlyCap": 6000,
+        "stars": 2,
+        "note": "스타벅스·폴바셋·투썸플레이스·매머드커피, 전월실적 30만원 이상 시 월 6천원 한도"
+      },
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 1,
+        "monthlyCap": 6000,
+        "stars": 2,
+        "note": "버스·지하철·택시, 전월실적 30만원 이상 시 월 6천원 한도"
+      },
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 1,
+        "monthlyCap": 6000,
+        "stars": 2,
+        "note": "SK주유소, 전월실적 30만원 이상 시 월 6천원 한도"
+      }
+    ],
+    "universal": {
+      "type": "discount",
+      "rate": 0.2,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://pc.wooricard.com/dcpc/yh1/crd/crd01/H1CRD201S00.do",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요. 체크카드로는 이례적인 연회비(1.2만원)로 보고되어 공식 확인 권장. officialUrl은 카드의정석 목록 페이지(정확한 상세 URL 미확인). 이마트·롯데마트 등 쇼핑 1% 적립은 태그 밖(마트)이라 미기재. 구간이행(2026-08-18): 대상 아님 — 카페·편의점/대중교통·택시/주유 모두 전월실적 30만원 이상 단일 조건(1%, 건당 3천원/월 6천원 한도)이며 다단계 구간 없음 확인(뱅크샐러드 CARD004376, oceansabyss.com 대조). 3개 태그 모두 변경 없음."
+  },
+  {
+    "id": "woori-jeongseok-ohacheck",
+    "name": "우리카드 카드의정석 오하CHECK",
+    "issuer": "우리카드",
+    "kind": "check",
+    "annualFee": 0,
+    "minSpend": 200000,
+    "benefits": [
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 1000,
+        "stars": 1,
+        "note": "쿠팡·무신사·지그재그 결제 시 5% 캐시백"
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 1000,
+        "stars": 1,
+        "note": "스타벅스 결제 시 5% 캐시백"
+      },
+      {
+        "tag": "배달·외식",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 1000,
+        "stars": 1,
+        "note": "배달의민족·쿠팡이츠 등 결제 시 5% 캐시백"
+      },
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 1000,
+        "stars": 1,
+        "note": "시내버스·지하철 결제 시 5% 캐시백"
+      },
+      {
+        "tag": "통신비·OTT",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 1000,
+        "stars": 1,
+        "note": "통신비 자동납부 결제 시 5% 캐시백(월 한도 1천원). 넷플릭스·멜론 등 스트리밍 결제 5% 캐시백(월 한도 1천원 별도)도 있음"
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://m.wooricard.com/dcmw/yh1/crd/crd01/M1CRD101S02.do?recomNo=102716",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 혜택창고(benefitshub.co.kr) 참고, 우리카드 공식 페이지는 상세 수치가 노출되지 않음(공식 확인 필요). 항목별 캐시백은 건당 기준 월 1천원 한도이며, 카드 전체 통합한도는 전월실적 20만원 시 월 1만원·50만원 시 2만원·70만원 시 3만원. 공연티켓 5% 캐시백은 태그 밖이라 미기재."
+  },
+  {
+    "id": "hana-1q-daily",
+    "name": "하나카드 하나멤버스 1Q 카드 Daily",
+    "issuer": "하나카드",
+    "kind": "credit",
+    "annualFee": 8000,
+    "minSpend": 300000,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 0.5,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "일반가맹점 기본 적립 0.5%"
+      },
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "G마켓·옥션·11번가 등 10개 가맹점 합산 10만 원마다 5,000 하나머니, 월 최대 1만 원"
+      },
+      {
+        "tag": "통신비·OTT",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "통신요금 자동이체+대중교통+택시+전기·도시가스 자동이체 합산 10만 원마다 정액 5,000 하나머니, 월 최대 1만 원(대중교통·택시와 통합 한도)"
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 4000,
+        "stars": 1,
+        "note": "스타벅스·커피빈 한정 정액 4,000원 청구할인"
+      },
+      {
+        "tag": "관리비·공과금",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "아파트관리비 자동이체 시 정액 5,000 하나머니(통신비 항목과 별도 한도)"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "해외가맹점 이용 시 정액 5,000 하나머니 적립"
+      }
+    ],
+    "universal": {
+      "type": "points",
+      "rate": 0.5,
+      "monthlyCap": null
+    },
+    "complexity": 3,
+    "officialUrl": "https://www.hanacard.co.kr",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요 (하나카드 공식 상세페이지는 대부분 JS 렌더링으로 읽히지 않음). 전월실적 30만원 미만 시에도 최초 등록월 유예 있음. 검증(2026-08-18): 확인 실패 — 공식 페이지(hanacard.co.kr)가 프레임/JS 렌더링이라 '1Q Daily' 상세페이지를 찾지 못함, WebSearch는 세션 한도(200/200) 소진으로 사용 불가, Bing/Google/DuckDuckGo를 WebFetch로 대신 시도했으나 무관한 캐시 결과·차단·CAPTCHA로 뱅크샐러드·카드고릴라 대조 불가. 재검증(2026-08-18): 뱅크샐러드(CARD002829)·BC카드 공식 페이지(m.bccard.com, cardGdsNo=250711) 대조 — 연회비 국내전용 8,000원 일치. 온라인쇼핑·통신비 정액적립이 '10만원마다 5천원, 월 최대 1만원' 구조임을 확인해 두 항목 monthlyCap을 5,000→10,000으로 수정, stars는 기준상 여전히 2. 카페(4천원)·관리비(5천원)·해외결제(5천원)는 기존 값과 일치. officialUrl은 정확한 상세페이지를 찾지 못해 기존 값(hanacard.co.kr 메인) 유지. 출처: 뱅크샐러드, m.bccard.com 노트정리(2026-08-18): 모든 가맹점: 월 한도 미확인. 통신비·OTT: 출처(BC 공식 페이지 확인) 제외, OTT 포함 여부 미확인. 해외 결제: 적용 조건 미확인. 노트정리(2026-08-18): 온라인 한도 BC 공식 페이지 확인."
+  },
+  {
+    "id": "hana-multi-living",
+    "name": "하나카드 MULTI Living",
+    "issuer": "하나카드",
+    "kind": "credit",
+    "annualFee": 12000,
+    "minSpend": 400000,
+    "benefits": [
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "G마켓/옥션/11번가/위메프/인터파크/SSG 등 청구할인",
+        "tiers": [
+          {
+            "minSpend": 700000,
+            "rate": 10,
+            "monthlyCap": 15000
+          }
+        ]
+      },
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "SK에너지/GS칼텍스/S-OIL/현대오일뱅크 청구할인",
+        "tiers": [
+          {
+            "minSpend": 700000,
+            "rate": 10,
+            "monthlyCap": 15000
+          }
+        ]
+      },
+      {
+        "tag": "통신비·OTT",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "이동통신 요금 자동이체 5% 청구할인, 월 한도 5천 원. 전기·도시가스 요금도 5% 별도"
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://www.hanacard.co.kr",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요 (하나카드 공식 상세페이지는 대부분 JS 렌더링으로 읽히지 않음). 마트/백화점 5~10% 할인, 간편결제(하나원큐페이/삼성페이/네이버페이 등) 1% 할인은 태그 밖. 한도검증(2026-08-18): 하나카드 공식 상세페이지는 JS 렌더링으로 직접 확인 불가, m.hanacard.co.kr 모바일 페이지 및 뱅크샐러드(banksalad.com/product/cards/CARD000030) 요약 참고. 온라인쇼핑/주유 월 한도 40만원 구간 1만원(70만원 구간 1.5만원)으로 두 출처 대체로 일치. 통신비 월 한도 5천원은 검색 요약 기준(모바일 페이지 추출값은 1%/5만원으로 상충되어 신뢰도 낮아 채택 안 함). 공식 페이지 직접 대조는 아직 미확인. 보정(2026-08-18): 최저 실적구간(40만↑) 기준으로 요율 10→5로 통일(70만↑ 10%는 note). 통신비 OTT 포함 여부·공과금 중복 여부는 미확인(note에서 제거). 구간이행(2026-08-18): 온라인쇼핑·주유 각각 5%/1만원(40만원↑) → 10%/1.5만원(70만원↑) 구간 확인, tiers 반영·note 정리. 출처: 하나카드 공식 페이지 JS 렌더링으로 직접 확인 실패, 뱅크샐러드·검색 요약 참고(두 출처 대체로 일치, 기존 memo 근거 유지)."
+  }
+]

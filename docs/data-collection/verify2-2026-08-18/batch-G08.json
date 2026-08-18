@@ -1,0 +1,431 @@
+[
+  {
+    "id": "hyundai-z-work-edition2",
+    "name": "현대카드 Z work Edition2",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 20000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 6000,
+        "stars": 2,
+        "note": "커피전문점·편의점 10% 청구할인(도서 포함 전 영역 통합, 1일1회 본인+가족카드 합산)",
+        "capGroup": "main",
+        "tiers": [
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 10000
+          }
+        ]
+      },
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 6000,
+        "stars": 2,
+        "note": "대중교통·택시 10% 청구할인",
+        "capGroup": "main",
+        "tiers": [
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 10000
+          }
+        ]
+      },
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 6000,
+        "stars": 2,
+        "note": "온라인쇼핑몰 10% 청구할인",
+        "capGroup": "main",
+        "tiers": [
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 10000
+          }
+        ]
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://www.hyundaicard.com/upload/card/%EA%B0%80%EC%9D%B4%EB%93%9C%EB%B6%81_Z%20work%20Ed2_260330.pdf",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요. 도서 10% 할인은 12개 태그 밖이라 미포함. 한도검증(2026-08-18): 통합 월 할인한도 실적 50만↑ 6천원/100만↑ 1만원 확인(도서 포함 전 영역 통합, 1일1회 본인+가족카드 합산). 출처: ajd.co.kr, benefitshub.co.kr(뱅크샐러드 교차확인). 미확인: 없음 구간이행(2026-08-18): capGroup main 3개 태그 통합 월한도 6천원(실적50만)→1만원(100만) tiers 추가, 기본값은 최저구간(50만) 유지. 출처: ajd.co.kr(뱅크샐러드 교차확인, 기존 검증 메모 재확인)."
+  },
+  {
+    "id": "hyundai-z-family-edition2",
+    "name": "현대카드 Z family Edition2",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 20000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 6000,
+        "stars": 2,
+        "note": "온라인쇼핑몰 10% 청구할인",
+        "capGroup": "main",
+        "tiers": [
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 10000
+          }
+        ]
+      },
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 6000,
+        "stars": 2,
+        "note": "주유소 10% 청구할인",
+        "capGroup": "main",
+        "tiers": [
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 10000
+          }
+        ]
+      },
+      {
+        "tag": "병의원·약국",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 6000,
+        "stars": 2,
+        "note": "병의원·약국 10% 청구할인",
+        "capGroup": "main",
+        "tiers": [
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 10000
+          }
+        ]
+      },
+      {
+        "tag": "학원·교육",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 6000,
+        "stars": 2,
+        "note": "학원 10% 청구할인",
+        "capGroup": "main",
+        "tiers": [
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 10000
+          }
+        ]
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://www.hyundaicard.com/upload/card/Z%20family%20Edition2%20%EC%83%81%ED%92%88%20%EA%B0%80%EC%9D%B4%EB%93%9C%EB%B6%81.pdf",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요. 생활요금 정기결제 10% 할인 존재하나 아파트관리비·전기·도시가스 포함 여부가 출처마다 상이(포함/제외 혼재)해 관리비·공과금 태그는 넣지 않음 - 공식 확인 필요. 한도검증(2026-08-18): 통합 월 할인한도 실적 50만↑ 6천원/100만↑ 1만원 확인(생활요금 영역도 같은 통합한도에 포함되나 태그 미기재는 기존 판단 유지). 출처: ajd.co.kr(뱅크샐러드 교차확인). 미확인: 없음 구간이행(2026-08-18): capGroup main 4개 태그 통합 월한도 6천원(실적50만)→1만원(100만) tiers 추가, 기본값은 최저구간(50만) 유지. 출처: ajd.co.kr(뱅크샐러드 교차확인, 기존 검증 메모 재확인)."
+  },
+  {
+    "id": "hyundai-z-play",
+    "name": "현대카드 Z play",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 20000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 6000,
+        "stars": 2,
+        "note": "온라인쇼핑몰 10% 청구할인",
+        "capGroup": "main",
+        "tiers": [
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 10000
+          }
+        ]
+      },
+      {
+        "tag": "배달·외식",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 6000,
+        "stars": 2,
+        "note": "음식점 10% 청구할인",
+        "capGroup": "main",
+        "tiers": [
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 10000
+          }
+        ]
+      },
+      {
+        "tag": "통신비·OTT",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 6000,
+        "stars": 2,
+        "note": "디지털콘텐츠(OTT·음악스트리밍 등) 10% 청구할인",
+        "capGroup": "main",
+        "tiers": [
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 10000
+          }
+        ]
+      },
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 6000,
+        "stars": 2,
+        "note": "해외가맹점 10% 청구할인",
+        "capGroup": "main",
+        "tiers": [
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 10000
+          }
+        ]
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://www.hyundaicard.com",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요. 공식 상세페이지 URL 못 찾아 홈 도메인 사용. 영화 10% 할인은 12개 태그 밖이라 미포함. 한도검증(2026-08-18): 통합 월 할인한도 실적 50만↑ 6천원/100만↑ 1만원 확인(영화 10% 할인도 같은 통합한도에 포함되나 12개 태그 밖이라 미기재). 출처: ajd.co.kr(뱅크샐러드 교차확인). 미확인: 없음 구간이행(2026-08-18): capGroup main 4개 태그 통합 월한도 6천원(실적50만)→1만원(100만) tiers 추가, 기본값은 최저구간(50만) 유지. 출처: ajd.co.kr(뱅크샐러드 교차확인, 기존 검증 메모 재확인)."
+  },
+  {
+    "id": "hyundai-m",
+    "name": "현대카드M",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 30000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 1.5,
+        "monthlyCap": null,
+        "stars": 3,
+        "note": "국내외 가맹점 1.5% M포인트 적립, 전월실적 50만원 이상"
+      },
+      {
+        "tag": "온라인 쇼핑",
+        "type": "points",
+        "rate": 5,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "온라인쇼핑몰 5% 추가 M포인트, 전월실적 100만원 이상 조건"
+      },
+      {
+        "tag": "배달·외식",
+        "type": "points",
+        "rate": 5,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "일반음식점 5% 추가 M포인트, 전월실적 100만원 이상 조건"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "points",
+        "rate": 5,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "해외가맹점 5% 추가 M포인트, 전월실적 100만원 이상 조건"
+      }
+    ],
+    "universal": {
+      "type": "points",
+      "rate": 1.5,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://www.hyundaicard.com",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요. 공식 상세페이지 URL 못 찾아 홈 도메인 사용. M 긴급적립(최대 50만원 선지급) 등은 태그 밖. 검증(2026-08-16): 현대카드 공식 홈(hyundaicard.com) 접속 시 \"접속이 원활하지 않습니다\" 오류로 상세 재확인 불가, 검색예산도 소진되어 재검증 못함. 기존 뱅크샐러드 출처 값(연회비 30,000원, 전가맹점 1.5% M포인트, 온라인/외식/해외 5%) 그대로 유지, 확인 필요 상태 지속."
+  },
+  {
+    "id": "hyundai-x",
+    "name": "현대카드X",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 50000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "discount",
+        "rate": 1,
+        "monthlyCap": null,
+        "stars": 3,
+        "note": "국내외 가맹점 1% 청구할인, 전월실적 50만 원 이상. 연간 최대 10만 원 캐시백(누적 500만 원당 2만 원)"
+      }
+    ],
+    "universal": {
+      "type": "discount",
+      "rate": 1,
+      "monthlyCap": null
+    },
+    "complexity": 1,
+    "officialUrl": "https://card.hyundaicard.com/card/어디서나적립할인.hdc",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요. 공식 상세페이지 URL 못 찾아 홈 도메인 사용. 연간 최대 10만원 캐시백(누적 500만원당 2만원), 인천공항 라운지 무료는 태그 밖. 검증(2026-08-18): 현대카드 공식 매거진(card.hyundaicard.com/card/어디서나적립할인.hdc) 대조. 연회비 5만원·할인율 1% 확인, 전월실적은 0원이 아닌 50만원으로 확인되어 수정. 출처: 현대카드 공식(card.hyundaicard.com) 구간이행(2026-08-18): 대상 아님: 연간 누적 캐시백(실적 500만원당 2만원, 연 최대 10만원)은 전월실적 구간이 아닌 연간 누적 한도라 제외. 노트정리(2026-08-18): 모든 가맹점: 인천공항 라운지 무료 혜택은 태그 범위 밖이라 note에서 제외."
+  },
+  {
+    "id": "hyundai-h",
+    "name": "현대카드 H",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 400000,
+    "benefits": [
+      {
+        "tag": "학원·교육",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "학원/유치원 10% 청구할인. 병의원·약국과 통합한도",
+        "capGroup": "shared",
+        "tiers": [
+          {
+            "minSpend": 800000,
+            "monthlyCap": 20000
+          },
+          {
+            "minSpend": 1200000,
+            "monthlyCap": 35000
+          }
+        ]
+      },
+      {
+        "tag": "병의원·약국",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "병원/약국 10% 청구할인. 학원·교육과 통합한도",
+        "capGroup": "shared",
+        "tiers": [
+          {
+            "minSpend": 800000,
+            "monthlyCap": 20000
+          },
+          {
+            "minSpend": 1200000,
+            "monthlyCap": 35000
+          }
+        ]
+      },
+      {
+        "tag": "관리비·공과금",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "아파트관리비/도시가스 5% 청구할인(통신비와 통합 영역, 개별 항목별 월 최대 5천원)",
+        "tiers": [
+          {
+            "minSpend": 800000,
+            "monthlyCap": 10000
+          },
+          {
+            "minSpend": 1200000,
+            "monthlyCap": 15000
+          }
+        ]
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://card.hyundaicard.com/card/알파벳카드.hdc",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 현대카드 매거진(card.hyundaicard.com) 아티클 참고 — 현대카드 상품 상세페이지는 자바스크립트 렌더링이라 직접 확인 불가, 정확한 상세페이지 URL과 학원/병원 통합한도 여부 확인 필요. 검증(2026-08-18): 현대카드 공식 매거진(card.hyundaicard.com/card/알파벳카드.hdc, 학원비 할인 카드 아티클) 대조. 연회비 1.5만원, 전월실적 40만원, 교육·병원 10% 청구할인 확인. 기존에 '확인 필요'였던 학원·병원 통합한도 여부는 통합으로 공식 확인됨(노트만 수정, 월 한도 수치는 기존 유지). 관리비·공과금(통신비 통합) 5%도 공식 아티클과 부합. 출처: 현대카드 공식(card.hyundaicard.com) [검토 필요: 통합 한도인데 cap 불일치] 구간이행(2026-08-18): 학원·병원(capGroup shared) 통합한도 1만/2만/3.5만원, 관리비·공과금(통신비 통합) 5천/1만/1.5만원(실적 40만/80만/120만 3구간) tiers 추가, 기본값은 최저구간(40만) 유지. 출처: 현대카드 공식 매거진(card.hyundaicard.com) 검색 결과 재확인."
+  },
+  {
+    "id": "hyundai-zero-edition3-points",
+    "name": "현대카드 ZERO Edition3(포인트형)",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 1.2,
+        "monthlyCap": null,
+        "stars": 3,
+        "note": "국내외 전 가맹점 M포인트 적립, 실적조건·한도 없음"
+      }
+    ],
+    "universal": {
+      "type": "points",
+      "rate": 1.2,
+      "monthlyCap": null
+    },
+    "complexity": 1,
+    "officialUrl": "https://card.hyundaicard.com/card/실적조건없이적립할인.hdc",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요. 연회비 15,000원이나 100% 캐시백 제공(뱅크샐러드 표기)으로 실질 무료라는 설명 있음, 확인 필요. M포인트 유효기간 60개월. 기존 수집된 'ZERO Edition3(할인형)'과 다른 포인트형 버전. 검증(2026-08-18): 현대카드 공식 매거진(card.hyundaicard.com/card/실적조건없이적립할인.hdc) 대조. 연회비 1.5만원(100%캐시백), 국내외 가맹점 1.2% M포인트 적립, 전월실적 없음, 한도 없음 모두 기존 값과 일치해 변경 없음. 출처: 현대카드 공식(card.hyundaicard.com)"
+  },
+  {
+    "id": "hyundai-the-green-edition3",
+    "name": "현대카드 the Green Edition3",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 150000,
+    "minSpend": 1000000,
+    "benefits": [
+      {
+        "tag": "해외 결제",
+        "type": "points",
+        "rate": 5,
+        "monthlyCap": 50000,
+        "stars": 2,
+        "note": "해외 온오프라인 가맹점 5% M포인트 적립, 전월실적 100만원 이상 시 월 5만 M포인트 한도(초과분은 기본 1.5% 적립)"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 1.5,
+        "monthlyCap": null,
+        "stars": 3,
+        "note": "국내외 전 가맹점 기본 M포인트 적립"
+      }
+    ],
+    "universal": {
+      "type": "points",
+      "rate": 1.5,
+      "monthlyCap": null
+    },
+    "complexity": 3,
+    "officialUrl": "https://www.hyundaicard.com",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요. 국내 항공사/여행사/특급호텔/면세점 5% 적립은 마일리지가 아닌 M포인트라 마일리지 태그 미적용, 태그 밖으로 메모. 연회비 100% 캐시백 제공 여부(뱅크샐러드 표기) 확인 필요. 브리프의 '연회비 15만, 마일리지 아님' 조건에 부합. 한도검증(2026-08-18): 해외결제 5% M포인트 적립 월 한도 5만 M포인트(전월실적 100만원 이상, 초과 시 기본 1.5%) 확인. 출처: visualbank.io(뱅크샐러드 교차확인). 미확인: 없음 구간이행(2026-08-18): 대상 아님: 해외결제 5% M포인트는 전월실적 100만원 단일 기준(카드 minSpend와 동일)이며 그 이상 추가 상위구간 확인 안 됨. 출처: card-gorilla.com, hyundaicard.com 가이드북 검색."
+  }
+]

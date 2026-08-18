@@ -1,0 +1,280 @@
+[
+  {
+    "id": "kb-goldenlife-olim",
+    "name": "KB국민 골든라이프올림카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 9000,
+    "minSpend": 300000,
+    "benefits": [
+      {
+        "tag": "병의원·약국",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "병원/약국 5% 청구할인, 일 한도 1만원",
+        "tiers": [
+          {
+            "minSpend": 600000,
+            "monthlyCap": 20000
+          }
+        ]
+      },
+      {
+        "tag": "대중교통·택시",
+        "type": "points",
+        "rate": 1,
+        "monthlyCap": 2000,
+        "stars": 1,
+        "note": "6대 영역 대중교통 1% 적립(우대 시 2%), 영역별 월 이용금액 20만원까지만 적립대상이라 실질 월 적립한도는 2,000원(우대 시 4,000원)"
+      },
+      {
+        "tag": "통신비·OTT",
+        "type": "points",
+        "rate": 1,
+        "monthlyCap": 2000,
+        "stars": 1,
+        "note": "6대 영역 이동통신요금 1% 적립(우대 시 2%), 영역별 월 이용금액 20만원까지만 적립대상이라 실질 월 적립한도는 2,000원(우대 시 4,000원)"
+      },
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "주유 리터당 60원 할인, 전월실적 30만 원 이상"
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://m.kbcard.com/CXHIACRC0002.cms?mainCC=b&allianceCode=04451",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 공식 페이지(m.kbcard.com). 국내전용 모바일 연회비 9,000원 기준(플라스틱 15,000원, VISA 모바일 14,000원/플라스틱 20,000원). 골프/건강관리/여행/쇼핑 등 6대 영역 중 대중교통·이동통신만 태그에 반영, 나머지는 12개 태그 밖이라 memo로만 남김. 대형마트(이마트/롯데마트/홈플러스) 5% 할인(월 한도 5천~1만원)도 태그 밖. 검증(2026-08-18): m.kbcard.com 공식 페이지 대조. 연회비(모바일 9,000원), 전월실적 30만원(1구간)/60만원(2구간), 병의원·약국 5% 월한도 1만원(1구간)/일한도 1만원, 대중교통·통신비 1~2% 적립(영역별 월 20만원 이용금액 한도이며 포인트 자체 한도 아님) 확인, 주유 리터당 60원 할인 확인(월 한도 미기재). 모두 기존값과 일치해 변경 없음. 한도검증(2026-08-18): 공식 페이지(m.kbcard.com)에서 6대 영역은 영역별(개별) 월 20만원 이용금액까지만 적립대상임을 확인, 적립률 1%를 곱해 실질 월 적립한도 2,000원(우대 2% 적용 시 4,000원)으로 환산 기재. 통합한도 아님(영역별 개별). 출처: m.kbcard.com. 미확인: 없음 구간이행(2026-08-18): 병의원·약국 5% 청구할인, 1구간(전월실적 30만원) 월한도 1만원/2구간(60만원) 월한도 2만원 — 기존 note(공식페이지 확인 완료된 값)를 tiers로 구조화. 기본값은 이미 최저구간(1만원) 기준이라 변경 없음. 출처: m.kbcard.com(기존 검증). 노트정리(2026-08-18): 주유: 월 할인 한도 미확인."
+  },
+  {
+    "id": "kb-need-edu",
+    "name": "KB NEED Edu카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 25000,
+    "minSpend": 400000,
+    "benefits": [
+      {
+        "tag": "학원·교육",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "학원업종 5% 할인/캐시백. 모바일단독 연회비 1.9만원으로 더 저렴.",
+        "tiers": [
+          {
+            "minSpend": 800000,
+            "monthlyCap": 20000
+          },
+          {
+            "minSpend": 1600000,
+            "monthlyCap": 30000
+          }
+        ]
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?mainCC=b&allianceCode=09790",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: KB국민카드 공식 모바일 페이지(m.kbcard.com). 학원업종 할인율(%)이 이미지/표 형태로 되어있어 텍스트 추출 실패 — 정확한 %와 전월실적 구간 기준금액 확인 필요. 검증(2026-08-18): 공식 페이지(m.kbcard.com) 재확인. 학원업종 할인율이 이미지/표 형태라 텍스트로는 안 나와 뱅크샐러드에서 5% 확인해 반영. monthlyCap을 최저구간 값(1만원)으로 수정(기존 3만원은 최고구간 값이었음). 미확인: 전월실적 구간의 정확한 기준금액(원). 구간이행(2026-08-18): 학원 5% 할인, 40만원(월1만)/80만원(월2만)/160만원(월3만) 구간을 tiers로 구조화. 카드 minSpend를 0→40만원(최저구간 기준)으로 수정. 출처: m.kbcard.com 페이지 제목 + banksalad.com(CARD004562) 교차확인."
+  },
+  {
+    "id": "kb-coupang-wow",
+    "name": "KB국민 쿠팡 와우카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 20000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "온라인 쇼핑",
+        "type": "points",
+        "rate": 2,
+        "monthlyCap": 20000,
+        "stars": 2,
+        "note": "쿠팡·쿠팡플레이 등 쿠팡 계열 기본 적립(상시). ★등급 산정: 정률 2%는 낮으나 월한도 2만원이 넉넉해 잠정 2등급, 검수 필요. 2026-10-15까지 추가 2%(동일 한도) 프로모션은 이벤트성이라 제외."
+      },
+      {
+        "tag": "배달·외식",
+        "type": "points",
+        "rate": 2,
+        "monthlyCap": 20000,
+        "stars": 2,
+        "note": "쿠팡이츠 포함, 쿠팡 계열(쇼핑+이츠+플레이) 합산 월 2만원 한도"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 0.2,
+        "monthlyCap": 2000,
+        "stars": 1,
+        "note": "쿠팡 계열 외 모든 가맹점 기본 적립(상시값). 2026-10-15까지 편의점 2.2%/그 외 1% 추가 프로모션은 이벤트성이라 제외."
+      }
+    ],
+    "universal": {
+      "type": "points",
+      "rate": 0.2,
+      "monthlyCap": 2000
+    },
+    "complexity": 2,
+    "officialUrl": "https://card.kbcard.com/CRD/DVIEW/HCAMCXPRICAC0076?mainCC=a&cooperationcode=09293",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 나무위키(쿠팡 와우 카드 문서) 참고 — KB국민카드 공식 상세페이지의 정확한 URL(allianceCode)을 찾지 못해 홈 도메인으로 대체, 공식 확인 필요. 2023년 10월 출시, 발급사가 기존 현대카드에서 KB국민카드로 이관된 카드. 연회비는 국내전용/비자 공통 2만원으로 파악(비접촉 결제 등 브랜드별 차이 확인 필요). 검증(2026-08-18): 확인 실패 — officialUrl이 카드사 홈페이지로만 연결되고 상세페이지를 찾지 못함(kbcard.com 메뉴·검색에 쿠팡/와우 카드 링크 없음). WebSearch 세션 한도 소진으로 추가 검색 불가, card-gorilla.com·banksalad.com에서도 정확한 URL 확인 못함. 기존값(나무위키 출처) 유지. 재검증(2026-08-18): 신용카드 공식 상세페이지 확인(card.kbcard.com, cooperationcode=09293) — officialUrl을 홈 도메인에서 이 주소로 교체. 연회비 2만원, 쿠팡/쿠팡이츠/쿠팡플레이 2%·월2만원, 그 외 모든 가맹점 0.2%·월2천원 모두 기존값과 일치 확인. 노트정리(2026-08-18): 배달·외식: 온라인쇼핑 항목과 통합 한도 여부 미확인."
+  },
+  {
+    "id": "kb-need-autoslim",
+    "name": "KB국민 NEED AutoSlim카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 14000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "주유/충전 5% 청구할인, 월 최대 1만원"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?mainCC=b&allianceCode=09792",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: KB국민카드 공식 모바일 페이지(m.kbcard.com). 전월 실적 정확한 금액 확인 필요(페이지에 반복 노출된 '20만원' 표기는 카드와 무관한 공용 이벤트 배너로 판단되어 채택하지 않음). 모바일단독카드 연회비는 1만4천원으로 더 낮음. 검증(2026-08-18): m.kbcard.com 공식 페이지 대조. 연회비 국내카드 20,000원/모바일단독 14,000원 확인 — 최저값 기준 14,000원으로 수정(기존 20,000원). 주유/충전 월 한도 1만원 확인. 미확인: 정확한 할인율(%) — 페이지엔 '최대 1만원'만 표기, 기존 5% 값 유지. 전월실적 정확한 금액도 미기재로 기존값 유지. 구간이행(2026-08-18): 대상 아님/미확인 — 주유 5%, 월한도 1만원만 확인되고 실적 구간별 차등 정보는 공식페이지(m.kbcard.com)+검색(카드고릴라 포함)으로 못 찾음. 미확인: 주유 구간별 기준금액·할인율. 노트정리(2026-08-18): 주유: 오토슬림할부 최대 2만원·자동차보험 2만원 청구할인은 별도 태그라 미기재."
+  },
+  {
+    "id": "kb-easy-auto-titanium",
+    "name": "KB국민 Easy auto 티타늄카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 30000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "주유",
+        "type": "points",
+        "rate": 0,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "주유(SK,GS) 리터당 150점 적립(정액형, %환산 불가)"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?mainCC=b&allianceCode=09246",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: KB국민카드 공식 모바일 페이지. 브리프의 'KB국민 이지오토'로 추정되는 카드(정식명 Easy auto 티타늄카드). 전월실적·월 한도 확인 필요. 노트정리(2026-08-18): 주유: 원화가치·월 적립한도 미확인. 정비·주차·세차 5% 적립, 자동차보험 1만점 적립은 별도 태그라 미기재."
+  },
+  {
+    "id": "kb-tmap",
+    "name": "TMAP KB국민카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 400000,
+    "benefits": [
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "주유·식음료 5% 청구할인, 월 한도 5천원"
+      },
+      {
+        "tag": "통신비·OTT",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "OTT(넷플릭스 등) 정기결제 10% 청구할인, 월 한도 5천원"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?mainCC=b&allianceCode=09389",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: KB국민카드 공식 모바일 페이지. 통신비·OTT 태그에 해당하는 OTT 10% 할인도 있으나 이번 수집 범위(주유/학원) 밖이라 memo만 기재. 검증(2026-08-18): m.kbcard.com 공식 페이지 대조. 연회비 15,000원, 주유·식음료 5% 할인율 일치. 미확인: 전월실적 정확한 금액과 월 할인한도(페이지에 숫자 미기재, '월 잔여한도 이월 안됨'만 확인) — 기존값(전월실적 0원/한도없음) 유지. 재검증(2026-08-18): 뱅크샐러드(CARD004242) 확인. 전월실적 40만원, 주유 5% 할인 월한도 5천원 확인해 반영. 통합할인한도(티맵+주유+OTT+식음료 합산 월 최대 3.5만원)는 참고용, 태그 범위 밖 항목(티맵 최대50%, OTT10%)은 note에만 기재. OTT 10%는 통신비·OTT 태그에 해당해 추가. 구간이행(2026-08-18): 대상 아님 — 주유 5%(월한도 5천원)는 전월실적 40만원 단일 기준만 있고 구간별 차등 없음(공식페이지+뱅크샐러드 CARD004242 확인). 노트정리(2026-08-18): 주유: 출처 표기(뱅크샐러드) 삭제, 티맵 결제 할인(한도 1.5만원 포함 최대 50%)은 별도 태그라 미기재. 통신비·OTT: 출처 표기(뱅크샐러드) 삭제."
+  },
+  {
+    "id": "kb-sk-energy-loveyou",
+    "name": "SK에너지 러브유 KB국민카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 7000,
+    "minSpend": 300000,
+    "benefits": [
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "SK에너지 주유소 리터당 100원 현장할인(휘발유·경유·등유, LPG 제외), 전월실적 30만원 이상(신규발급 후 60일은 실적 무관), 할인 적용은 일 30만원·월 30만원 이용금액까지"
+      },
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 4000,
+        "stars": 1,
+        "note": "버스·지하철 10% 청구할인, 월 4,000원 한도"
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?mainCC=b&allianceCode=02245",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: KB국민카드 공식 모바일 페이지. 브리프가 언급한 SK 정유사 제휴 주유카드. 리터당 할인의 원화 월 한도는 명시되어 있지 않아 확인 필요. 검증(2026-08-18): 공식페이지(m.kbcard.com) 확인. 연회비 7,000원·전월실적 30만원·주유 리터당 100원 할인 기존 값과 일치. 기존에 '태그 밖'으로 뺐던 대중교통 10%(월 4천원)는 대중교통·택시 태그에 해당해 추가함(★1, 한도가 낮아 3~7%/5천~1.5만원 기준 미달). 노트정리(2026-08-18): 주유: 원화 할인한도 자체는 미기재. 스피드메이트 엔진오일 무료교환·대중교통 10%(월 4천원)는 별도 태그라 미기재."
+  },
+  {
+    "id": "kb-e1-lpg",
+    "name": "E1 LPG KB국민카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "E1 LPG 충전소 리터당 100원 청구할인(신규가입 후 무실적이어도 월 1만 원까지)",
+        "tiers": [
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 20000
+          },
+          {
+            "minSpend": 2000000,
+            "monthlyCap": 50000
+          }
+        ]
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002?mainCC=b&allianceCode=04459",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: KB국민카드 공식 모바일 페이지. LPG 충전 특화 카드(브리프의 '충전 특화' 카테고리 해당). 노트정리(2026-08-18): 주유: 골프장·쇼핑몰·외식 10% 할인은 별도 태그라 미기재. 구간이행(2026-08-18): 기존 note의 실적별 한도(50만↑ 1만/100만↑ 2만/200만↑ 5만)를 tiers로 구조화. 골프장·쇼핑몰·외식 10%는 태그 밖."
+  }
+]
