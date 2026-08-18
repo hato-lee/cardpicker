@@ -26,6 +26,8 @@ interface Props {
 export function StepProfile({ value, onChange, onNext }: Props) {
   const sliderValue = value.feeLimit ?? FEE_SLIDER.max
   const canNext = value.persona !== null && value.monthlySpendMan !== '' && value.monthlySpendMan > 0
+  const current = value.monthlySpendMan === '' ? 0 : value.monthlySpendMan
+  const bump = (d: number) => onChange({ ...value, monthlySpendMan: Math.max(0, current + d) })
 
   return (
     <section className="step">
@@ -66,6 +68,7 @@ export function StepProfile({ value, onChange, onNext }: Props) {
           ))}
         </div>
         <div className="input-row">
+          <button type="button" className="step-btn" aria-label={`${RULES.spendStepMan}만 원 빼기`} disabled={current - RULES.spendStepMan < 0} onClick={() => bump(-RULES.spendStepMan)}>−{RULES.spendStepMan}</button>
           <input
             id="spend"
             type="number"
@@ -75,6 +78,7 @@ export function StepProfile({ value, onChange, onNext }: Props) {
             onChange={(e) => onChange({ ...value, monthlySpendMan: e.target.value === '' ? '' : Number(e.target.value) })}
           />
           <span>만 원</span>
+          <button type="button" className="step-btn" aria-label={`${RULES.spendStepMan}만 원 더하기`} onClick={() => bump(RULES.spendStepMan)}>+{RULES.spendStepMan}</button>
         </div>
       </div>
 

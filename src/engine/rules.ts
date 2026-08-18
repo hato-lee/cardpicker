@@ -14,7 +14,8 @@ export const RULES = {
   // "이렇게 쓰면 최대" 문장 개수 (성향별)
   tipCount: { meticulous: Infinity, moderate: 2, carefree: 1 },
   // 한 달 사용액 빠른 선택 버튼 (만 원)
-  spendPresetsMan: [30, 50, 100, 150],
+  spendPresetsMan: [30, 50, 100, 200],
+  spendStepMan: 10,
   // 결과 카드의 내역 줄 최대 개수 (넘으면 "외 N개")
   breakdownMaxRows: 3,
   // 월 한도 정보가 없는 영역 혜택(할인/적립)은 이 금액까지만 계산. 범용·마일리지는 예외

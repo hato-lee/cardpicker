@@ -20,8 +20,8 @@ test('사용액 빠른 선택 버튼을 누르면 입력칸에 들어간다', as
   render(<Harness />)
   await userEvent.click(screen.getByRole('button', { name: '50만' }))
   expect(screen.getByLabelText(/한 달 카드 사용액/)).toHaveValue(50)
-  await userEvent.click(screen.getByRole('button', { name: '150만' }))
-  expect(screen.getByLabelText(/한 달 카드 사용액/)).toHaveValue(150)
+  await userEvent.click(screen.getByRole('button', { name: '200만' }))
+  expect(screen.getByLabelText(/한 달 카드 사용액/)).toHaveValue(200)
 })
 
 test('연회비 힌트 문구', () => {
@@ -48,4 +48,20 @@ test('연회비 슬라이더 끝은 상관없음', () => {
   expect(screen.getByText('3만 원')).toBeInTheDocument()
   fireEvent.change(slider, { target: { value: '200000' } })
   expect(screen.getByText('상관없음')).toBeInTheDocument()
+})
+
+test('+10/−10 버튼으로 사용액을 미세 조정한다', async () => {
+  render(<Harness />)
+  const input = screen.getByLabelText(/한 달 카드 사용액/)
+  const plus = screen.getByRole('button', { name: '10만 원 더하기' })
+  const minus = screen.getByRole('button', { name: '10만 원 빼기' })
+  expect(minus).toBeDisabled() // 비어 있으면(0) 더 못 뺌
+  await userEvent.click(screen.getByRole('button', { name: '50만' }))
+  await userEvent.click(plus)
+  await userEvent.click(plus)
+  expect(input).toHaveValue(70)
+  await userEvent.click(minus)
+  expect(input).toHaveValue(60)
+  // 빠른 선택 버튼 하이라이트는 정확히 그 값일 때만
+  expect(screen.getByRole('button', { name: '50만' })).toHaveAttribute('aria-pressed', 'false')
 })
