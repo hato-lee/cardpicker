@@ -44,7 +44,7 @@ export interface Card {
   complexity: Complexity
   officialUrl: string
   lastChecked: string     // YYYY-MM-DD
-  status: 'active' | 'discontinued'
+  status: 'active' | 'discontinued' | 'excluded'  // excluded = 판매 중이지만 추천에서 뺀 카드(사유는 memo에)
   memo?: string
 }
 

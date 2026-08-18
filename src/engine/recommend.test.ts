@@ -33,6 +33,9 @@ describe('걸러내기', () => {
   test('단종 카드는 빠진다', () => {
     expect(recommend([card({ ...oilCard, id: 'd', status: 'discontinued' })], q())).toHaveLength(0)
   })
+  test('추천 제외(excluded) 카드도 빠진다', () => {
+    expect(recommend([card({ ...oilCard, id: 'e', status: 'excluded' })], q())).toHaveLength(0)
+  })
   test('연회비 허용치 초과는 빠진다', () => {
     expect(recommend([card({ ...oilCard, id: 'f', annualFee: 50000 })], q({ feeLimit: 30000 }))).toHaveLength(0)
   })

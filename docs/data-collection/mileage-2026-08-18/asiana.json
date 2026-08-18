@@ -1,0 +1,13 @@
+[
+ {"id":"woori-jeongseok-premium-mileage-asiana","set":{"status":"excluded","lastChecked":"2026-08-18"},
+  "memoAppend":" 추천제외(2026-08-18): 아시아나클럽 전용 마일 카드. 아시아나항공이 2026-12-17 대한항공으로 통합 예정이고 카드 적립 마일은 1:0.82 전환안(공정위 미확정)이라 새 카드로 권하지 않기로 함. 통합 조건이 바뀌면 status를 active로 되돌리면 됨(데이터는 유지)."},
+ {"id":"shinhan-the-best-plus","set":{"lastChecked":"2026-08-18",
+   "universal":{"type":"mileage","rate":0.067,"monthlyCap":null,"tiers":[{"minSpend":2000000,"rate":0.15,"monthlyCap":null}]}},
+  "benefits":[{"tag":"마일리지","set":{"rate":0.067,"tiers":[{"minSpend":2000000,"rate":0.15,"monthlyCap":null}],
+    "note":"대한항공 스카이패스 기준(발급 시 아시아나클럽 택1도 가능). 국내·해외 1,500원당 1마일, 월 200만 원 이상 쓰면 국내 1,000원당 1.5마일·해외 3마일. 적립 한도 없음"}}],
+  "addBenefits":[{"tag":"모든 가맹점","type":"mileage","rate":0.067,"monthlyCap":null,"stars":1,"tiers":[{"minSpend":2000000,"rate":0.15,"monthlyCap":null}],"note":"전 가맹점 기본 적립(위 마일리지 항목과 동일)"}],
+  "memoAppend":" 대표값변경(2026-08-18): 아시아나 통합 이슈로 대표값을 아시아나 기준(1,000원당 1마일)에서 스카이패스 기준(1,500원당 1마일, 200만↑ 1.5마일)으로 변경. 전 가맹점 기본 적립이라 universal·'모든 가맹점' 추가."},
+ {"id":"shinhan-air-one","set":{"lastChecked":"2026-08-18","universal":{"type":"mileage","rate":0.1,"monthlyCap":null}},
+  "addBenefits":[{"tag":"모든 가맹점","type":"mileage","rate":0.1,"monthlyCap":null,"stars":2,"note":"전 가맹점 기본 적립(위 마일리지 항목과 동일)"}],
+  "memoAppend":" 구조보완(2026-08-18): 국내 전 가맹점 1,000원당 1마일 기본 적립이라 universal·'모든 가맹점' 추가."}
+]

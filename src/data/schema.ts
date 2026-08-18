@@ -43,7 +43,7 @@ const cardSchema = z
     complexity: oneToThree,
     officialUrl: z.url({ protocol: /^https$/, error: 'officialUrl은 https:// 로 시작해야 합니다' }),
     lastChecked: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'YYYY-MM-DD 형식이어야 합니다'),
-    status: z.enum(['active', 'discontinued']),
+    status: z.enum(['active', 'discontinued', 'excluded']),
     memo: z.string().optional(),
   })
   .superRefine((data, ctx) => {
