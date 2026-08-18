@@ -26,8 +26,13 @@ export function MileResult({ rank, scored, monthlySpend, today }: Props) {
   const stale = isStale(card.lastChecked, today)
   const bonusNote = bonusMiles > 0
     ? `연간 보너스 ${bonusMiles.toLocaleString('ko-KR')}마일 포함`
-    : firstYearBonus && card.mileageBonus ? `첫해엔 보너스 ${card.mileageBonus.miles.toLocaleString('ko-KR')}마일 별도` : ''
+    : firstYearBonus && card.mileageBonus ? `첫해엔 보너스 ${card.mileageBonus.miles.toLocaleString('ko-KR')}마일 별도`
+    : card.mileageBonus ? `연간 보너스 ${card.mileageBonus.miles.toLocaleString('ko-KR')}마일은 연 ${won(card.mileageBonus.minAnnualSpend)} 이상 써야 받아요` : ''
   const sub = [`연회비 ${won(card.annualFee)}`, feePerMileText(card.annualFee, feePerMile), `월 ${won(monthlySpend)}을 전부 이 카드로 쓸 때`, bonusNote].filter(Boolean)
+  // 접힌 상태에서도 부가 혜택 첫 줄은 보여준다 (프리미엄 비교의 핵심)
+  const perkPeek = card.perks && card.perks.length > 0
+    ? `${card.perks[0]}${card.perks.length > 1 ? ` 외 ${card.perks.length - 1}개` : ''}`
+    : ''
 
   return (
     <article className={`card ${rank === 1 ? 'is-top' : ''}`}>
@@ -48,6 +53,8 @@ export function MileResult({ rank, scored, monthlySpend, today }: Props) {
         <div className="annual-value">약 {annualMiles.toLocaleString('ko-KR')}마일</div>
         <div className="annual-sub">{sub.join(' · ')}</div>
       </div>
+
+      {perkPeek && <p className="perk-peek">✦ {perkPeek}</p>}
 
       <button type="button" className="link-btn" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
         {open ? '접기 ▲' : '자세히 보기 ▼'}

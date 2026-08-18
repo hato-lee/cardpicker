@@ -55,8 +55,8 @@ export function scoreMileage(card: Card, q: Query): MileScored | null {
   return { card, rate: t.rate, monthlyCap: t.monthlyCap, nextTier: t.nextTier, monthlyMiles, baseAnnualMiles, bonusMiles, firstYearBonus, annualMiles, feePerMile, extras }
 }
 
-/** 연 마일 큰 순 → 연회비 낮은 순 → 실적 낮은 순. 성향은 쓰지 않는다. */
-export function recommendMileage(cards: Card[], q: Query, rules: Rules = RULES): MileScored[] {
+/** 후보 전부를 연 마일 큰 순 → 연회비 낮은 순 → 실적 낮은 순으로. 성향은 쓰지 않는다. */
+function rankMileage(cards: Card[], q: Query): MileScored[] {
   const out: MileScored[] = []
   for (const card of cards) {
     if (card.status !== 'active') continue
@@ -65,9 +65,29 @@ export function recommendMileage(cards: Card[], q: Query, rules: Rules = RULES):
     const s = scoreMileage(card, q)
     if (s) out.push(s)
   }
-  return out
-    .sort((a, b) => b.annualMiles - a.annualMiles || a.card.annualFee - b.card.annualFee || a.card.minSpend - b.card.minSpend)
-    .slice(0, rules.topN)
+  return out.sort((a, b) => b.annualMiles - a.annualMiles || a.card.annualFee - b.card.annualFee || a.card.minSpend - b.card.minSpend)
+}
+
+export function recommendMileage(cards: Card[], q: Query, rules: Rules = RULES): MileScored[] {
+  return rankMileage(cards, q).slice(0, rules.topN)
+}
+
+export type MileageGroups =
+  | { grouped: false; all: MileScored[] }
+  | { grouped: true; regular: MileScored[]; premium: MileScored[] }
+
+/**
+ * 연회비 한도가 프리미엄 기준(RULES.mileagePremiumFee) 미만이면 한 줄(topN),
+ * 그 이상이거나 상관없음이면 일반(기준 미만)·프리미엄(기준 이상) 각 mileageGroupTopN장.
+ */
+export function mileageGroups(cards: Card[], q: Query, rules: Rules = RULES): MileageGroups {
+  const ranked = rankMileage(cards, q)
+  if (q.feeLimit !== null && q.feeLimit < rules.mileagePremiumFee) return { grouped: false, all: ranked.slice(0, rules.topN) }
+  return {
+    grouped: true,
+    regular: ranked.filter((r) => r.card.annualFee < rules.mileagePremiumFee).slice(0, rules.mileageGroupTopN),
+    premium: ranked.filter((r) => r.card.annualFee >= rules.mileagePremiumFee).slice(0, rules.mileageGroupTopN),
+  }
 }
 
 /** "이렇게 쓰면 최대" 한 줄 (마일 단위). */

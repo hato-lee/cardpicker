@@ -1,6 +1,7 @@
 import type { Query } from '../data/types'
 import type { Scored } from '../engine/recommend'
-import { isMileageQuery, type MileScored } from '../engine/mileage'
+import { isMileageQuery, type MileageGroups } from '../engine/mileage'
+import { RULES } from '../engine/rules'
 import { MileResult } from './MileResult'
 import { PERSONA_LABEL } from '../engine/explain'
 import { CardResult } from './CardResult'
@@ -10,12 +11,12 @@ import { won } from './format'
 interface Props {
   query: Query
   results: Scored[]
-  mileResults?: MileScored[]
+  mileResults?: MileageGroups
   onEdit: () => void
   today: Date
 }
 
-export function Results({ query, results, mileResults = [], onEdit, today }: Props) {
+export function Results({ query, results, mileResults = { grouped: false, all: [] }, onEdit, today }: Props) {
   const mileage = isMileageQuery(query)
   const chips = [
     ...(mileage ? [] : [PERSONA_LABEL[query.persona]]),  // 마일리지 트랙은 성향을 안 쓴다
@@ -32,16 +33,19 @@ export function Results({ query, results, mileResults = [], onEdit, today }: Pro
           </ul>
           <button type="button" className="link-btn" onClick={onEdit}>조건 바꾸기</button>
         </div>
-        <h2>{mileResults.length > 0 ? `당신에게 맞는 마일리지 카드 TOP ${mileResults.length}` : '당신에게 맞는 마일리지 카드'}</h2>
-        {mileResults.length === 0 ? (
-          <div className="empty">
-            <p>조건에 맞는 마일리지 카드를 못 찾았어요.</p>
-            <p className="hint">연회비 허용치를 올려보세요.</p>
-          </div>
+        {mileResults.grouped ? (
+          <MileGroups groups={mileResults} monthlySpend={query.monthlySpend} today={today} />
         ) : (
-          mileResults.map((s, i) => (
-            <MileResult key={s.card.id} rank={i + 1} scored={s} monthlySpend={query.monthlySpend} today={today} />
-          ))
+          <>
+            <h2>{mileResults.all.length > 0 ? `당신에게 맞는 마일리지 카드 TOP ${mileResults.all.length}` : '당신에게 맞는 마일리지 카드'}</h2>
+            {mileResults.all.length === 0 ? (
+              <MileEmpty />
+            ) : (
+              mileResults.all.map((s, i) => (
+                <MileResult key={s.card.id} rank={i + 1} scored={s} monthlySpend={query.monthlySpend} today={today} />
+              ))
+            )}
+          </>
         )}
         <button type="button" className="secondary" onClick={onEdit}>조건 바꾸기</button>
       </section>
@@ -74,5 +78,43 @@ export function Results({ query, results, mileResults = [], onEdit, today }: Pro
         </p>
       )}
     </section>
+  )
+}
+
+function MileEmpty() {
+  return (
+    <div className="empty">
+      <p>조건에 맞는 마일리지 카드를 못 찾았어요.</p>
+      <p className="hint">연회비 허용치를 올려보세요.</p>
+    </div>
+  )
+}
+
+/** 일반(연회비 기준 미만) / 프리미엄(기준 이상) 두 묶음. 빈 묶음은 숨긴다. */
+function MileGroups({ groups, monthlySpend, today }: { groups: Extract<MileageGroups, { grouped: true }>; monthlySpend: number; today: Date }) {
+  const fee = won(RULES.mileagePremiumFee)
+  if (groups.regular.length === 0 && groups.premium.length === 0) {
+    return (<><h2>당신에게 맞는 마일리지 카드</h2><MileEmpty /></>)
+  }
+  return (
+    <>
+      <h2>당신에게 맞는 마일리지 카드</h2>
+      {groups.regular.length > 0 && (
+        <section className="mile-group" aria-label={`연회비 ${fee} 미만`}>
+          <h3 className="group-title">연회비 {fee} 미만 <span className="group-sub">가성비로 고른다면</span></h3>
+          {groups.regular.map((s, i) => (
+            <MileResult key={s.card.id} rank={i + 1} scored={s} monthlySpend={monthlySpend} today={today} />
+          ))}
+        </section>
+      )}
+      {groups.premium.length > 0 && (
+        <section className="mile-group" aria-label={`프리미엄(연회비 ${fee} 이상)`}>
+          <h3 className="group-title">프리미엄 · 연회비 {fee} 이상 <span className="group-sub">보너스 마일·라운지까지 본다면</span></h3>
+          {groups.premium.map((s, i) => (
+            <MileResult key={s.card.id} rank={i + 1} scored={s} monthlySpend={monthlySpend} today={today} />
+          ))}
+        </section>
+      )}
+    </>
   )
 }

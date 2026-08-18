@@ -6,7 +6,7 @@ import type { Tag } from '../data/tags'
 import { recommend, type Scored } from '../engine/recommend'
 import { StepProfile, type Profile } from './StepProfile'
 import { StepTags } from './StepTags'
-import { isMileageQuery, recommendMileage, type MileScored } from '../engine/mileage'
+import { isMileageQuery, mileageGroups, type MileageGroups } from '../engine/mileage'
 import { Results } from './Results'
 
 // cards.json이 깨져도 흰 화면 대신 안내를 보여준다
@@ -28,7 +28,7 @@ export default function App() {
   const [tags, setTags] = useState<Tag[]>([])
   const [query, setQuery] = useState<Query | null>(null)
   const [results, setResults] = useState<Scored[]>([])
-  const [mileResults, setMileResults] = useState<MileScored[]>([])
+  const [mileResults, setMileResults] = useState<MileageGroups>({ grouped: false, all: [] })
 
   const submit = () => {
     if (profile.persona === null || profile.monthlySpendMan === '') return
@@ -40,8 +40,8 @@ export default function App() {
     }
     setQuery(q)
     // '마일리지'만 골랐으면 마일리지 전용 트랙(마일 단위·성향 무시), 아니면 기존 연 혜택 계산
-    if (isMileageQuery(q)) { setMileResults(recommendMileage(CARDS, q)); setResults([]) }
-    else { setResults(recommend(CARDS, q)); setMileResults([]) }
+    if (isMileageQuery(q)) { setMileResults(mileageGroups(CARDS, q)); setResults([]) }
+    else { setResults(recommend(CARDS, q)); setMileResults({ grouped: false, all: [] }) }
     setStep(3)
   }
 

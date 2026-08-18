@@ -136,3 +136,35 @@ describe('bonusText', () => {
     expect(bonusText({ miles: 5000, minAnnualSpend: 12_000_000 })).toBe('연간 보너스 5,000마일 — 연 1200만 원 이상 쓸 때')
   })
 })
+
+describe('mileageGroups: 일반/프리미엄 조건부 묶음', () => {
+  const cheap = (id: string, fee: number) => card({ id, annualFee: fee, benefits: [{ tag: '마일리지', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 2 }] })
+  const pool = [cheap('c1', 20000), cheap('c2', 39000), cheap('c3', 45000), cheap('c4', 47000), cheap('p1', 120000), cheap('p2', 300000), cheap('p3', 800000), cheap('p4', 1000000)]
+  test('연회비 한도가 프리미엄 기준 미만이면 한 줄(topN)', async () => {
+    const { mileageGroups } = await import('./mileage')
+    const g = mileageGroups(pool, q({ feeLimit: 50000 }))
+    expect(g.grouped).toBe(false)
+    if (!g.grouped) expect(g.all.map((r) => r.card.id)).toEqual(['c1', 'c2', 'c3', 'c4'])
+  })
+  test('한도 상관없음이면 일반 3장 + 프리미엄 3장', async () => {
+    const { mileageGroups } = await import('./mileage')
+    const g = mileageGroups(pool, q({ feeLimit: null }))
+    expect(g.grouped).toBe(true)
+    if (g.grouped) {
+      expect(g.regular.map((r) => r.card.id)).toEqual(['c1', 'c2', 'c3'])
+      expect(g.premium.map((r) => r.card.id)).toEqual(['p1', 'p2', 'p3'])
+    }
+  })
+  test('한도가 프리미엄 기준 이상이면 묶고, 프리미엄 묶음은 한도 안에서만', async () => {
+    const { mileageGroups } = await import('./mileage')
+    const g = mileageGroups(pool, q({ feeLimit: 300000 }))
+    expect(g.grouped).toBe(true)
+    if (g.grouped) expect(g.premium.map((r) => r.card.id)).toEqual(['p1', 'p2'])
+  })
+  test('한 묶음이 비어도 grouped (화면에서 그 묶음만 숨김)', async () => {
+    const { mileageGroups } = await import('./mileage')
+    const g = mileageGroups([cheap('c1', 20000)], q({ feeLimit: null }))
+    expect(g.grouped).toBe(true)
+    if (g.grouped) expect(g.premium).toEqual([])
+  })
+})

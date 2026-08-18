@@ -47,6 +47,10 @@ export function recommendMileage(cards: Card[], q: Query, rules = RULES): MileSc
 
 - `Card.mileConversion?: string` (2026-08-18): 포인트 전환형(아멕스 멤버십 리워즈 등). 있으면 카드 이름 옆 '포인트 전환형' 배지 + 상세에 환산 기준 문장. 계산엔 안 쓴다(rate가 이미 전환 후 마일).
 
+## 일반/프리미엄 묶음 (2026-08-18 추가)
+연회비 한도가 `RULES.mileagePremiumFee`(10만 원) 이상이거나 '상관없음'이면 결과를 **일반(연회비 10만 원 미만) TOP 3 / 프리미엄(10만 원 이상) TOP 3**으로 나눈다(`mileageGroups`, `RULES.mileageGroupTopN`). 한도가 10만 원 미만이면 지금처럼 한 줄 TOP 5. 빈 묶음은 숨긴다. 이유: 마일 수만으로 줄 세우면 보너스 큰 고가 카드가 상위를 채워 가성비 카드가 묻히고, 급이 다른 카드끼리 비교하게 된다.
+- 접힌 카드에도 부가 혜택 첫 줄(`✦ … 외 N개`)을 보여준다(프리미엄 비교의 핵심). 보너스 조건을 못 채우면 밑줄에 "연간 보너스 N마일은 연 X 이상 써야 받아요".
+
 ## 데이터
 `mileageBonus`·`perks`·`mileConversion` 추가(위). 나머지 형식 변경 없음. 마일리지 카드 추가 수집(프리미엄·포인트→마일 전환형)은 `docs/data-collection/mileage-2026-08-18/COLLECT-BRIEF.md`.
 후속 후보: 프리미엄 부가서비스(라운지·바우처)를 보여주려면 사용자용 필드(`perks?: string`)가 필요 — 이번엔 memo에만.

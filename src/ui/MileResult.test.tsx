@@ -34,7 +34,7 @@ test('연 마일·마일당 비용·덤 줄이 보인다', async () => {
 })
 
 test('Results 마일리지 모드: 성향 칩 없음, 빈 결과 문구', () => {
-  render(<Results query={q} results={[]} mileResults={[]} onEdit={() => {}} today={today} />)
+  render(<Results query={q} results={[]} mileResults={{ grouped: false, all: [] }} onEdit={() => {}} today={today} />)
   expect(screen.queryByText('적당형')).toBeNull()
   expect(screen.getByText('월 100만 원')).toBeInTheDocument()
   expect(screen.getByText('조건에 맞는 마일리지 카드를 못 찾았어요.')).toBeInTheDocument()
@@ -73,4 +73,23 @@ test('포인트 전환형 카드는 배지와 환산 기준이 보인다', async
 test('직접 적립 카드에는 배지가 없다', () => {
   render(<MileResult rank={1} scored={scoreMileage(base, q)!} monthlySpend={q.monthlySpend} today={today} />)
   expect(screen.queryByText('포인트 전환형')).toBeNull()
+})
+
+test('Results 묶음 모드: 일반/프리미엄 제목, 접힌 카드에도 부가혜택 첫 줄과 보너스 미충족 안내', () => {
+  const cheap: Card = { ...base, id: 'c', name: '싼카드', annualFee: 20000 }
+  const premium: Card = { ...base, id: 'p', name: '비싼카드', annualFee: 800000,
+    mileageBonus: { miles: 30000, minAnnualSpend: 36_000_000 }, perks: ['라운지 무제한', '쿠폰 4장'] }
+  const groups = { grouped: true as const, regular: [scoreMileage(cheap, q)!], premium: [scoreMileage(premium, q)!] }
+  render(<Results query={{ ...q, feeLimit: null }} results={[]} mileResults={groups} onEdit={() => {}} today={today} />)
+  expect(screen.getByRole('heading', { name: /연회비 10만 원 미만/ })).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: /프리미엄 · 연회비 10만 원 이상/ })).toBeInTheDocument()
+  expect(screen.getByText('✦ 라운지 무제한 외 1개')).toBeInTheDocument()
+  expect(screen.getByText(/연간 보너스 30,000마일은 연 3600만 원 이상 써야 받아요/)).toBeInTheDocument()
+})
+
+test('Results 묶음 모드: 프리미엄이 비면 그 묶음은 숨긴다', () => {
+  const cheap: Card = { ...base, id: 'c', annualFee: 20000 }
+  const groups = { grouped: true as const, regular: [scoreMileage(cheap, q)!], premium: [] }
+  render(<Results query={{ ...q, feeLimit: null }} results={[]} mileResults={groups} onEdit={() => {}} today={today} />)
+  expect(screen.queryByRole('heading', { name: /프리미엄/ })).toBeNull()
 })
