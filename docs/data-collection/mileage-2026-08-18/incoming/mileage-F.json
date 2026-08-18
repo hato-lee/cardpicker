@@ -1,0 +1,192 @@
+[
+  {
+    "id": "hyundai-amex-green",
+    "name": "현대 아메리칸 익스프레스 그린카드 Edition2",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 150000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.044,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "포인트 전환형(멤버십 리워즈 MR). 1,500원당 1MR 기본적립, 대한항공 스카이패스 전환 1.5MR=1마일 기준 환산. 기본적립 한도 없음"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "mileage",
+        "rate": 0.133,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "해외 가맹점 1,500원당 3MR(스카이패스 환산), 전월 실적 충족 시에만 적용",
+        "tiers": [
+          {
+            "minSpend": 500000,
+            "rate": 0.133,
+            "monthlyCap": null
+          }
+        ]
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.044,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "전 가맹점 기본 적립(위 마일리지 항목과 동일)"
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.044,
+      "monthlyCap": null
+    },
+    "complexity": 3,
+    "officialUrl": "https://www.americanexpress.com/ko-kr/network/credit-cards/hyundai/green-card.html",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "mileageBonus": {
+      "miles": 6667,
+      "minAnnualSpend": 12000000,
+      "firstYearMinSpend": 1000000
+    },
+    "perks": [
+      "국내 공항 라운지 연 2회(전월 50만원 이상)",
+      "호텔·공항 발레파킹 월 2회(전월 50만원 이상)",
+      "공항 리무진·커피·북스토어 할인 연 12회(전월 50만원 이상)",
+      "Be My Guest 호텔 다이닝·아웃백 할인 연 최대 6만원(전월 50만원 이상)",
+      "전년 600만원 이상 이용 시 5,000MR(약 3,333마일) 보너스"
+    ],
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: American Express Korea 공식 페이지(현대카드 발급, hyundaicard.com은 자바스크립트 렌더링이라 참고 불가). 국내 독점 발급사인 현대카드가 판매하는 아멕스 프로프라이어터리 카드로, 기존 existing-ids의 '현대카드 the Green Edition3'(Hyundai Originals, M포인트형)와는 이름·상품이 다른 별도 카드임. MR→마일 환산은 대한항공 스카이패스 기준(1.5MR=1마일, 아시아마일즈 등은 1MR=1마일로 더 유리함). 연간 스페셜은 전년 600만원 이상 5,000MR / 1,200만원 이상 10,000MR 2단계이며 위 마일리지 보너스는 상위 구간 기준. 미확인: 특별적립(해외 등) 카테고리의 월 적립 한도 여부(일부 자료에 월 한도 언급 있었으나 정확한 수치를 찾지 못함)."
+  },
+  {
+    "id": "hyundai-amex-gold",
+    "name": "현대 아메리칸 익스프레스 골드카드 Edition2",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 300000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "포인트 전환형(멤버십 리워즈 MR). 1,000원당 1MR 기본적립, 대한항공 스카이패스 전환 1.5MR=1마일 기준 환산. 기본적립 한도 없음"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "mileage",
+        "rate": 0.133,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "해외 가맹점·국내특급호텔 1,000원당 2MR(스카이패스 환산), 전월 실적 충족 시에만 적용",
+        "tiers": [
+          {
+            "minSpend": 500000,
+            "rate": 0.133,
+            "monthlyCap": null
+          }
+        ]
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "전 가맹점 기본 적립(위 마일리지 항목과 동일)"
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.067,
+      "monthlyCap": null
+    },
+    "complexity": 3,
+    "officialUrl": "https://www.americanexpress.com/ko-kr/network/credit-cards/hyundai/gold-card.html",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "mileageBonus": {
+      "miles": 20000,
+      "minAnnualSpend": 24000000,
+      "firstYearMinSpend": 1000000
+    },
+    "perks": [
+      "국내 공항 라운지 연 10회(전월 50만원 이상)",
+      "호텔·공항 발레파킹 월 5회(전월 50만원 이상)",
+      "The Hotel Collection 2박 이상 예약 시 100달러 크레딧·객실 업그레이드",
+      "공항 리무진·커피·북스토어 할인 연 12회(전월 50만원 이상)",
+      "Be My Guest 호텔 다이닝·아웃백 할인 연 최대 9만원(전월 50만원 이상)"
+    ],
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: American Express Korea 공식 페이지(현대카드 발급, hyundaicard.com은 자바스크립트 렌더링이라 참고 불가). 골프연습장·면세점 3MR(1,000원당, 전월 50만원 이상)은 12개 태그 밖이라 memo 처리만: 스카이패스 환산 시 1,000원당 2마일 상당. MR→마일 환산은 대한항공 스카이패스 기준(1.5MR=1마일). 미확인: 특별적립 카테고리의 월 적립 한도 여부."
+  },
+  {
+    "id": "hyundai-amex-platinum",
+    "name": "현대 아메리칸 익스프레스 더 플래티넘카드 Edition2",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 1000000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "포인트 전환형(멤버십 리워즈 MR). 1,000원당 1.5MR 기본적립, 대한항공 스카이패스 전환 1.5MR=1마일 기준 환산(=1,000원당 1마일). 기본적립 한도 없음"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "mileage",
+        "rate": 0.2,
+        "monthlyCap": null,
+        "stars": 3,
+        "note": "해외 가맹점·국내특급호텔 1,000원당 3MR(스카이패스 환산), 전월 실적 충족 시에만 적용",
+        "tiers": [
+          {
+            "minSpend": 500000,
+            "rate": 0.2,
+            "monthlyCap": null
+          }
+        ]
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "전 가맹점 기본 적립(위 마일리지 항목과 동일)"
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.1,
+      "monthlyCap": null
+    },
+    "complexity": 3,
+    "officialUrl": "https://www.americanexpress.com/ko-kr/network/credit-cards/hyundai/platinum-card.html",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "mileageBonus": {
+      "miles": 66667,
+      "minAnnualSpend": 36000000,
+      "firstYearMinSpend": 1000000
+    },
+    "perks": [
+      "Fine Hotels+Resorts 전 세계 1,100개 특급 호텔 조식·크레딧·객실 업그레이드",
+      "The Hotel Collection 2박 이상 예약 시 100달러 크레딧·객실 업그레이드",
+      "국내 공항 라운지 연 10회",
+      "호텔·공항 발레파킹 연 60회",
+      "공항 리무진·커피·북스토어 할인 연 12회",
+      "Be My Guest 호텔 다이닝·아웃백 할인 연 최대 9만원"
+    ],
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: American Express Korea 공식 페이지(현대카드 발급, hyundaicard.com은 자바스크립트 렌더링이라 참고 불가). 골프연습장·면세점 4.5MR(1,000원당, 전월 50만원 이상)은 12개 태그 밖이라 memo 처리만: 스카이패스 환산 시 1,000원당 3마일 상당. MR→마일 환산은 대한항공 스카이패스 기준(1.5MR=1마일). 미확인: 특별적립 카테고리의 월 적립 한도 여부."
+  }
+]
