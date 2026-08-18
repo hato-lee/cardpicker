@@ -116,8 +116,15 @@ const cardSchema = z
         ctx.addIssue({ code: 'custom', path: ['benefits'], message: `capGroup '${g}'의 tiers(minSpend·monthlyCap)가 서로 다릅니다 (${data.id})` })
       }
     }
-    // universal.tiers ↔ 모든 가맹점 벤핏 tiers
-    if (data.universal?.tiers) {
+    // capGroup: tiers의 monthlyCap은 null일 수 없다 (applyCapGroups가 null을 0으로 취급해 그룹 전체를 0으로 만든다)
+    for (const b of data.benefits) {
+      if (!b.capGroup || !b.tiers) continue
+      if (b.tiers.some((t) => t.monthlyCap === null)) {
+        ctx.addIssue({ code: 'custom', path: ['benefits'], message: `capGroup '${b.capGroup}'의 tiers monthlyCap은 비어 있을 수 없습니다 (${data.id})` })
+      }
+    }
+    // universal.tiers ↔ 모든 가맹점 벤핏 tiers (양방향: 한쪽만 있어도 실패)
+    if (data.universal) {
       const uniB = data.benefits.find((b) => b.tag === '모든 가맹점')
       if (uniB && tierKey(uniB.tiers) !== tierKey(data.universal.tiers)) {
         ctx.addIssue({ code: 'custom', path: ['universal', 'tiers'], message: `universal의 tiers와 '모든 가맹점' 벤핏의 tiers(minSpend·monthlyCap)가 다릅니다 (${data.id})` })

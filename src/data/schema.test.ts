@@ -179,11 +179,26 @@ test('capGroup: tiers의 rate가 달라도 minSpend/monthlyCap이 같으면 통�
   expect(validateCards([ok])).toHaveLength(1)
 })
 
+test('capGroup: tiers의 monthlyCap이 null이면 실패', () => {
+  const bad = { ...tiered, benefits: [
+    { tag: '주유', type: 'discount', rate: 10, monthlyCap: 5000, stars: 2, capGroup: 'g', tiers: [{ minSpend: 700000, monthlyCap: null }] },
+    { tag: '통신비·OTT', type: 'discount', rate: 5, monthlyCap: 5000, stars: 2, capGroup: 'g', tiers: [{ minSpend: 700000, monthlyCap: null }] },
+  ] }
+  expect(() => validateCards([bad])).toThrow(/capGroup 'g'.*monthlyCap/)
+})
+
 test('universal.tiers는 모든 가맹점 벤핏의 tiers와 열이 같아야 한다', () => {
   const uni = { ...good, minSpend: 200000,
     universal: { type: 'points', rate: 0.2, monthlyCap: 5000, tiers: [{ minSpend: 400000, monthlyCap: 15000 }] },
     benefits: [{ tag: '모든 가맹점', type: 'points', rate: 0.2, monthlyCap: 5000, stars: 1, tiers: [{ minSpend: 400000, monthlyCap: 15000 }] }] }
   expect(validateCards([uni])).toHaveLength(1)
   const bad = { ...uni, benefits: [{ ...uni.benefits[0], tiers: [{ minSpend: 400000, monthlyCap: 30000 }] }] }
+  expect(() => validateCards([bad])).toThrow(/universal.*tiers/)
+})
+
+test('universal에 tiers가 없는데 모든 가맹점 벤핏에 tiers가 있으면 실패한다', () => {
+  const bad = { ...good, id: 'universal-missing-tiers', minSpend: 200000,
+    universal: { type: 'points', rate: 0.2, monthlyCap: 5000 },
+    benefits: [{ tag: '모든 가맹점', type: 'points', rate: 0.2, monthlyCap: 5000, stars: 1, tiers: [{ minSpend: 400000, monthlyCap: 15000 }] }] }
   expect(() => validateCards([bad])).toThrow(/universal.*tiers/)
 })
