@@ -1,0 +1,284 @@
+[
+  {
+    "id": "shinhan-the-classic-plus",
+    "name": "신한카드 The CLASSIC+",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 120000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "대한항공 스카이패스(발급 시 아시아나클럽 선택도 가능, 아시아나는 1,000원당 1마일), 1,500원당 1마일. 전월 200만원 이상 이용 시 당월 50% 추가적립.",
+        "tiers": [
+          {
+            "minSpend": 2000000,
+            "rate": 0.101,
+            "monthlyCap": null
+          }
+        ]
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "전 가맹점 대한항공 스카이패스 마일리지 적립(마일리지 벤핏과 동일). 전월 200만원 이상 이용 시 당월 50% 추가적립.",
+        "tiers": [
+          {
+            "minSpend": 2000000,
+            "rate": 0.101,
+            "monthlyCap": null
+          }
+        ]
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.067,
+      "monthlyCap": null,
+      "tiers": [
+        {
+          "minSpend": 2000000,
+          "rate": 0.101,
+          "monthlyCap": null
+        }
+      ]
+    },
+    "complexity": 2,
+    "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/premium/1187949_2205.html",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "perks": [
+      "연 1회 Gift Option(호텔 숙박권·레스토랑·LG전자·신세계상품권·포인트 중 택1)",
+      "Priority Pass 라운지(아멕스 플래티늄 발급 한정, 전세계 약 1,200개)",
+      "제주국제공항 면세점 8% 할인",
+      "GS칼텍스 리터당 40원 할인(월 40만원 한도)",
+      "스타벅스 3천원 할인(7천원 이상 결제, 월1회·연6회)"
+    ],
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 공식 shinhancard.com The CLASSIC+ 상품페이지 및 대한항공 마일리지전환 안내페이지(The PREMIER/The BEST/The CLASSIC+ 스카이패스 카드 공통 안내). 아멕스 브랜드(해외겸용, 연회비 125,000원)로도 발급 가능. 미확인: 정확한 월/연 마일 적립한도, Gift Option 지급조건이 연차별로 다른지 여부."
+  },
+  {
+    "id": "kb-bev-v-skypass",
+    "name": "KB국민 BeV V카드(스카이패스형)",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 295000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.08,
+        "monthlyCap": 30000,
+        "stars": 2,
+        "note": "대한항공 스카이패스. 평일(월~목) 1,500원당 1.2마일(커피·편의점·자동납부는 1.5마일), 주말(금~일) 1,500원당 1.5마일(골프장·호텔·면세점은 3마일). 표시값은 평일 기본 기준."
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.08,
+        "monthlyCap": 30000,
+        "stars": 2,
+        "note": "전 가맹점 대한항공 스카이패스 마일리지 적립(평일 기본 기준, 마일리지 벤핏과 동일)."
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.08,
+      "monthlyCap": 30000
+    },
+    "complexity": 3,
+    "officialUrl": "https://m.kbcard.com/c/09306",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "perks": [
+      "연 1회 택1 바우처(호텔 객실 할인권 25만원·호텔 뷔페 25만원·롯데백화점 상품권 22만원·KB포인트리 22만점)",
+      "국내공항 라운지 연 3회, 해외 60여개 공항 라운지 연 6회",
+      "인천공항·국내호텔 발레파킹 월 10회",
+      "국내 골프장 최대 40% 할인",
+      "특급호텔 20곳 F&B 10% 할인"
+    ],
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: m.kbcard.com 공식페이지(상품 개요), 세부 적립률·월한도는 뱅크샐러드·benefitshub.co.kr 참고(공식 상세표 미확인). 연회비는 K-WORLD/UPI 기준 최저값이며 Mastercard는 300,000원. 미확인: 월 3만마일 한도의 공식 출처, 전월실적 조건, 연 1회 보너스 마일 여부."
+  },
+  {
+    "id": "kb-heritage-reserve-skypass",
+    "name": "KB국민 HERITAGE Reserve(스카이패스형)",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 800000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "대한항공 스카이패스, 국내 1,000원당 1마일. 해외 이용은 1,000원당 2마일(해외 결제 벤핏 참고). 전월실적 조건 없음."
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "전 가맹점 국내 기준 1,000원당 1마일(마일리지 벤핏과 동일)."
+      },
+      {
+        "tag": "해외 결제",
+        "type": "mileage",
+        "rate": 0.2,
+        "monthlyCap": null,
+        "stars": 3,
+        "note": "해외 이용 1,000원당 2마일(국내 대비 2배)."
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.1,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://m.kbcard.com/CRD/DVIEW/MCAMCXHIACRC0002",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "perks": [
+      "전세계 공항라운지 1,200여개(본인+동반 2인 합산 연 9회)",
+      "인천공항 발레파킹(월 5회·연 12회)",
+      "국내호텔 발레파킹(월 10회·연 24회)",
+      "골프 부킹대행 연 2회",
+      "국내 특급호텔 식음 5~40% 할인",
+      "스파 할인"
+    ],
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 공식 m.kbcard.com 페이지 및 파이낸셜투데이 등 언론보도(HERITAGE Reserve·Exclusive 출시). 아멕스 브랜드로 발급되며 포인트형도 별도로 존재(본 항목은 스카이패스형만). HERITAGE Exclusive는 자격심사·초대제로 별도 판단하여 이번 수집에서 제외함. 미확인: 월/연 마일 적립한도, 연 1회 보너스 마일 여부, 정확한 전월실적 조건."
+  },
+  {
+    "id": "hana-club-primus-skypass",
+    "name": "하나카드 CLUB Primus Skypass 카드",
+    "issuer": "하나카드",
+    "kind": "credit",
+    "annualFee": 100000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "대한항공 스카이패스, 1,500원당 1~5마일(면세점·해외 등 우대 업종은 최대 5마일까지 차등 적립). 갱신 발급 시 연회비 5만원."
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "전 가맹점 기준 1,500원당 1마일(마일리지 벤핏과 동일, 우대업종은 최대 5마일)."
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.067,
+      "monthlyCap": null
+    },
+    "complexity": 3,
+    "officialUrl": "https://www.hanacard.co.kr/OPI41000000D.web?schID=pcd&CD_PD_SEQ=9727",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "perks": [
+      "Free Package 연 1회(전년도 실적 600만원 이상, 항공권·면세점 상품권·주유권·라운지카드 중 택1)",
+      "Priority Pass 라운지 5회",
+      "특급호텔 식음 10% 할인",
+      "택시요금 10% 청구할인",
+      "H패션몰 20% 쿠폰"
+    ],
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 공식 hanacard.co.kr 상품페이지(연회비 구조, Free Package 조건). 업종별 1~5마일 배율 세부 기준은 moneytrap.co.kr·뱅크샐러드 참고(공식 배율표 미확인, 일부 출처 간 연회비 표기 상충 있었으나 공식페이지는 국내·해외겸용 모두 10만원으로 확인). 미확인: 업종별 정확한 마일 배율 구간, 월 적립한도, 기본 전월실적 조건."
+  },
+  {
+    "id": "nh-on-platinum-skypass",
+    "name": "NH농협카드 ON PLATINUM카드(스카이패스)",
+    "issuer": "NH농협카드",
+    "kind": "credit",
+    "annualFee": 128000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "대한항공 스카이패스, 국내외 1,500원당 1마일(한도 없음). 분기실적 100만~150만원 750마일, 150만원 이상 1,500마일 분기 보너스 별도 지급."
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "국내외 전 가맹점 1,500원당 1마일(마일리지 벤핏과 동일, 한도 없음)."
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.067,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://card.nonghyup.com",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "perks": [
+      "전세계 공항라운지 무료 이용"
+    ],
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 카드고릴라·뱅크샐러드·뉴스토마토 참고(card.nonghyup.com 상세페이지가 JS 렌더링이라 접근 실패, 정확한 상세페이지 URL 못 찾아 홈 도메인만 기재). 이미 DB에 있는 'NH농협카드 ON PLATINUM카드(포인트형)'과 달리 이 카드는 스카이패스 마일리지 직접 적립형이며 별도 상품임. 발레파킹 서비스는 제공되지 않는 것으로 확인됨. 미확인: 정확한 월/연 마일 한도, 라운지 이용조건(횟수)."
+  },
+  {
+    "id": "nh-we-terra-skypass",
+    "name": "NH농협카드 위(Ü) 테라카드(스카이패스)",
+    "issuer": "NH농협카드",
+    "kind": "credit",
+    "annualFee": 530000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "대한항공 스카이패스, 국내 1,500원당 1마일(주말·해외·특별가맹점은 최대 2~3마일). 정확한 구간·조건은 출처마다 다소 차이가 있어 공식 확인 필요."
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "전 가맹점 국내 기준 1,500원당 1마일(마일리지 벤핏과 동일)."
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.067,
+      "monthlyCap": null
+    },
+    "complexity": 3,
+    "officialUrl": "https://card.nonghyup.com",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "perks": [
+      "연 1회 프리미엄 바우처(호텔·외식권 등 33만원 상당)",
+      "전세계 스타벅스 월 1회 4천원 할인",
+      "전세계 공항라운지 연 20회(동반 1인)"
+    ],
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 카드고릴라·토스 카드라운지(두 곳 모두 현재 판매 상품으로 등재)·뉴스보도(2020년 출시) 참고, card.nonghyup.com 상세페이지는 JS 렌더링이라 접근 실패해 홈 도메인만 기재. 초년도 서비스 개시 조건: 연회비 납부 및 카드 이용 50만원 이상(2차년도부터는 전년 500만원 이상). 미확인: 정확한 마일 적립 구간표(국내/해외/주말 배율), 전월실적조건, 월/연 적립한도, 신청 자격조건(소득기준 등)."
+  }
+]
