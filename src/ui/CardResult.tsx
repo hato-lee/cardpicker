@@ -29,7 +29,7 @@ function tiersText(b: Benefit): string {
   return ` (${parts.join(', ')})`
 }
 
-function benefitText(b: Benefit): string {
+export function benefitText(b: Benefit): string {
   return `${b.tag} ${rateText(b.type, b.rate)} · ${capText(b.type, b.monthlyCap)}${tiersText(b)}${b.note ? ` (${b.note})` : ''}`
 }
 

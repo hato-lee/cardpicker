@@ -13,7 +13,7 @@ const skipped = []
 let added = 0
 
 for (const f of files) {
-  const p = path.join(dir, f)
+  const p = fs.existsSync(f) ? f : path.join(dir, f)  // 경로를 그대로 줘도 되고, 파일명만 주면 batch4 폴더에서 찾는다
   if (!fs.existsSync(p)) { console.log(`MISSING ${f}`); continue }
   let arr
   try { arr = JSON.parse(fs.readFileSync(p, 'utf8')) } catch (e) { console.log(`BAD JSON ${f}: ${e.message}`); continue }

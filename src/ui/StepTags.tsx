@@ -2,6 +2,8 @@ import { TAGS, type Tag } from '../data/tags'
 
 export const TAG_WARN_FROM = 4
 export const TAG_WARN_TEXT = '많이 고를수록 한도 합이 커져서 조건 많은 카드가 위로 와요. 2~3개가 딱 좋아요.'
+export const MILEAGE_HINT = '항공 마일리지는 따로 추천해요. 다른 혜택과는 같이 고를 수 없어요.'
+const MILEAGE: Tag = '마일리지'
 
 interface Props {
   value: Tag[]
@@ -11,8 +13,13 @@ interface Props {
 }
 
 export function StepTags({ value, onChange, onBack, onSubmit }: Props) {
-  const toggle = (t: Tag) =>
-    onChange(value.includes(t) ? value.filter((x) => x !== t) : [...value, t])
+  // '마일리지'는 배타적: 켜면 다른 태그를 다 끄고, 다른 태그를 켜면 마일리지를 끈다 (마일리지 전용 트랙)
+  const toggle = (t: Tag) => {
+    if (value.includes(t)) return onChange(value.filter((x) => x !== t))
+    if (t === MILEAGE) return onChange([MILEAGE])
+    onChange([...value.filter((x) => x !== MILEAGE), t])
+  }
+  const mileageMode = value.includes(MILEAGE)
 
   return (
     <section className="step">
@@ -31,6 +38,7 @@ export function StepTags({ value, onChange, onBack, onSubmit }: Props) {
           </button>
         ))}
       </div>
+      {mileageMode && <p className="hint">{MILEAGE_HINT}</p>}
       {value.length >= TAG_WARN_FROM && <p className="warn">{TAG_WARN_TEXT}</p>}
       <div className="button-row">
         <button type="button" className="secondary" onClick={onBack}>이전</button>

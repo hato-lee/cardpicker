@@ -1,5 +1,7 @@
 import type { Query } from '../data/types'
 import type { Scored } from '../engine/recommend'
+import { isMileageQuery, type MileScored } from '../engine/mileage'
+import { MileResult } from './MileResult'
 import { PERSONA_LABEL } from '../engine/explain'
 import { CardResult } from './CardResult'
 import { REPORT_FORM_URL } from './config'
@@ -8,17 +10,43 @@ import { won } from './format'
 interface Props {
   query: Query
   results: Scored[]
+  mileResults?: MileScored[]
   onEdit: () => void
   today: Date
 }
 
-export function Results({ query, results, onEdit, today }: Props) {
+export function Results({ query, results, mileResults = [], onEdit, today }: Props) {
+  const mileage = isMileageQuery(query)
   const chips = [
-    PERSONA_LABEL[query.persona],
+    ...(mileage ? [] : [PERSONA_LABEL[query.persona]]),  // 마일리지 트랙은 성향을 안 쓴다
     `월 ${won(query.monthlySpend)}`,
     query.feeLimit === null ? '연회비 상관없음' : `연회비 ${won(query.feeLimit)}까지`,
     ...query.tags,
   ]
+  if (mileage) {
+    return (
+      <section className="step">
+        <div className="summary">
+          <ul className="chips" aria-label="내 조건">
+            {chips.map((c) => <li key={c} className="chip">{c}</li>)}
+          </ul>
+          <button type="button" className="link-btn" onClick={onEdit}>조건 바꾸기</button>
+        </div>
+        <h2>{mileResults.length > 0 ? `당신에게 맞는 마일리지 카드 TOP ${mileResults.length}` : '당신에게 맞는 마일리지 카드'}</h2>
+        {mileResults.length === 0 ? (
+          <div className="empty">
+            <p>조건에 맞는 마일리지 카드를 못 찾았어요.</p>
+            <p className="hint">연회비 허용치를 올려보세요.</p>
+          </div>
+        ) : (
+          mileResults.map((s, i) => (
+            <MileResult key={s.card.id} rank={i + 1} scored={s} monthlySpend={query.monthlySpend} today={today} />
+          ))
+        )}
+        <button type="button" className="secondary" onClick={onEdit}>조건 바꾸기</button>
+      </section>
+    )
+  }
   return (
     <section className="step">
       <div className="summary">

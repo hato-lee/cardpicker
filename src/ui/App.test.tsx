@@ -42,3 +42,13 @@ test('제보 폼 주소가 자리표시자면 링크를 숨긴다', async () => 
   await goToResults()
   expect(screen.queryByRole('link', { name: /제보하기/ })).toBeNull()
 })
+
+test('마일리지만 고르면 마일리지 트랙: 마일 단위 결과, 성향 칩 없음', async () => {
+  render(<App />)
+  await goToResults('적당형', ['마일리지'])
+  expect(screen.getByRole('heading', { name: /맞는 마일리지 카드 TOP \d/ })).toBeInTheDocument()
+  expect(screen.getAllByText('연 예상').length).toBeGreaterThan(0)
+  expect(screen.getAllByText(/약 [\d,]+마일/).length).toBeGreaterThan(0)
+  expect(screen.queryByText('연 최대')).toBeNull()
+  expect(screen.queryByText('적당형')).toBeNull()
+})

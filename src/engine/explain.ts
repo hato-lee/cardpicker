@@ -38,7 +38,7 @@ function mainTip(row: BenefitRow, rules: Rules): string {
  * "(월 사용액 70만 원부터는 한도 3만 원)" — 요율도 다르면 "… 12% 할인·한도 3만 원".
  * 지금 줄도 다음 구간도 한도가 없으면 "한도 없음"을 반복하지 않고 요율만 적는다.
  */
-function nextTierText(row: BenefitRow, next: Tier): string {
+export function nextTierText(row: Pick<BenefitRow, 'type' | 'rate' | 'monthlyCap'>, next: Tier): string {
   const rateDiffers = next.rate !== undefined && next.rate !== row.rate
   const capChanges = !(next.monthlyCap === null && row.monthlyCap === null)
   const capText = next.monthlyCap === null ? '한도 없음' : `한도 ${capValueText(row.type, next.monthlyCap)}`

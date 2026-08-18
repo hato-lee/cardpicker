@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useState } from 'react'
-import { StepTags, TAG_WARN_TEXT } from './StepTags'
+import { StepTags, TAG_WARN_TEXT, MILEAGE_HINT } from './StepTags'
 import type { Tag } from '../data/tags'
 
 function Harness({ onSubmit = () => {} }: { onSubmit?: () => void }) {
@@ -32,8 +32,27 @@ test('다시 누르면 해제된다', async () => {
 
 test('4개째부터 안내 문구가 뜬다', async () => {
   render(<Harness />)
-  for (const t of ['주유', '마일리지', '해외 결제']) await userEvent.click(screen.getByRole('button', { name: t }))
+  for (const t of ['주유', '카페·편의점', '해외 결제']) await userEvent.click(screen.getByRole('button', { name: t }))
   expect(screen.queryByText(TAG_WARN_TEXT)).not.toBeInTheDocument()
   await userEvent.click(screen.getByRole('button', { name: '온라인 쇼핑' }))
   expect(screen.getByText(TAG_WARN_TEXT)).toBeInTheDocument()
+})
+
+describe('마일리지는 다른 태그와 섞을 수 없다', () => {
+  test('마일리지를 누르면 다른 태그가 해제되고 힌트가 뜬다', async () => {
+    render(<Harness />)
+    await userEvent.click(screen.getByRole('button', { name: '주유' }))
+    await userEvent.click(screen.getByRole('button', { name: '마일리지' }))
+    expect(screen.getByRole('button', { name: '주유' })).toHaveAttribute('aria-pressed', 'false')
+    expect(screen.getByRole('button', { name: '마일리지' })).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.getByText(MILEAGE_HINT)).toBeInTheDocument()
+  })
+  test('마일리지가 켜진 상태에서 다른 태그를 누르면 마일리지가 해제된다', async () => {
+    render(<Harness />)
+    await userEvent.click(screen.getByRole('button', { name: '마일리지' }))
+    await userEvent.click(screen.getByRole('button', { name: '주유' }))
+    expect(screen.getByRole('button', { name: '마일리지' })).toHaveAttribute('aria-pressed', 'false')
+    expect(screen.getByRole('button', { name: '주유' })).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.queryByText(MILEAGE_HINT)).not.toBeInTheDocument()
+  })
 })
