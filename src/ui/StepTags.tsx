@@ -2,7 +2,7 @@ import { TAGS, type Tag } from '../data/tags'
 
 export const TAG_WARN_FROM = 4
 export const TAG_WARN_TEXT = '많이 고를수록 한도 합이 커져서 조건 많은 카드가 위로 와요. 2~3개가 딱 좋아요.'
-export const MILEAGE_HINT = '항공 마일리지는 따로 추천해요. 다른 혜택과는 같이 고를 수 없어요.'
+export const MILEAGE_HINT = '항공 마일리지는 따로 추천해요. 다른 혜택은 마일리지를 끄면 고를 수 있어요.'
 const MILEAGE: Tag = '마일리지'
 
 interface Props {
@@ -32,6 +32,7 @@ export function StepTags({ value, onChange, onBack, onSubmit }: Props) {
             type="button"
             className={`tag ${value.includes(t) ? 'is-selected' : ''}`}
             aria-pressed={value.includes(t)}
+            disabled={mileageMode && t !== MILEAGE}
             onClick={() => toggle(t)}
           >
             {t}

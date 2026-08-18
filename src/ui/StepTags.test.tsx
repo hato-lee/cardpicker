@@ -47,12 +47,13 @@ describe('마일리지는 다른 태그와 섞을 수 없다', () => {
     expect(screen.getByRole('button', { name: '마일리지' })).toHaveAttribute('aria-pressed', 'true')
     expect(screen.getByText(MILEAGE_HINT)).toBeInTheDocument()
   })
-  test('마일리지가 켜진 상태에서 다른 태그를 누르면 마일리지가 해제된다', async () => {
+  test('마일리지가 켜진 동안 다른 태그 버튼은 잠긴다(비활성), 마일리지를 끄면 풀린다', async () => {
     render(<Harness />)
     await userEvent.click(screen.getByRole('button', { name: '마일리지' }))
-    await userEvent.click(screen.getByRole('button', { name: '주유' }))
-    expect(screen.getByRole('button', { name: '마일리지' })).toHaveAttribute('aria-pressed', 'false')
-    expect(screen.getByRole('button', { name: '주유' })).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.getByRole('button', { name: '주유' })).toBeDisabled()
+    expect(screen.getByRole('button', { name: '마일리지' })).toBeEnabled()
+    await userEvent.click(screen.getByRole('button', { name: '마일리지' }))
+    expect(screen.getByRole('button', { name: '주유' })).toBeEnabled()
     expect(screen.queryByText(MILEAGE_HINT)).not.toBeInTheDocument()
   })
 })

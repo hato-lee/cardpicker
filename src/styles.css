@@ -29,6 +29,7 @@ button.secondary { width: 100%; padding: 12px; font-size: 15px; background: #fff
 .tag-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 12px; }
 .tag { padding: 12px 8px; font-size: 15px; background: #fff; border: 1px solid #dfe3e8; border-radius: 10px; cursor: pointer; }
 .tag.is-selected { background: #2563eb; color: #fff; border-color: #2563eb; }
+.tag:disabled { opacity: 0.4; cursor: not-allowed; }
 .warn { color: #d33; font-size: 12px; margin: 0 0 16px; }
 
 .card { background: #fff; border: 1px solid #dfe3e8; border-radius: 12px; padding: 16px; margin-bottom: 12px; }
