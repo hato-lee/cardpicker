@@ -1,0 +1,94 @@
+[
+  {
+    "id": "woori-every-mile-skypass",
+    "name": "우리카드 카드의정석 EVERY MILE SKYPASS",
+    "issuer": "우리카드",
+    "kind": "credit",
+    "annualFee": 39000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "국내 1,000원당 1마일, 해외 1,000원당 최대 2마일. 전월실적 조건 없이 적립"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "해외이용수수료 면제"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://pc.wooricard.com/dcpc/yh1/crd/crd01/H1CRD101S02.do?cdPrdCd=835314",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요(공식 페이지가 JS 렌더링이라 세부 수치 미확인). 전월실적 50만원 이상시 국내 공항라운지 연2회 무료이용(동반1인)은 태그 밖. 검증(2026-08-18): 확인 실패 — 공식 상세페이지(pc.wooricard.com, cdPrdCd=835314)가 JS 렌더링이라 미로드, WebSearch는 세션 한도 소진으로 사용 불가, Bing/Google/DuckDuckGo를 WebFetch로 대신 시도했으나 무관한 캐시 결과·차단·CAPTCHA로 뱅크샐러드·카드고릴라 대조 불가. 재검증(2026-08-18): 뱅크샐러드(CARD004241)·핀포인트뉴스 대조. 연회비 3.9만원, 전월실적 조건 없음, 국내 1,000원당 1마일, 해외 1,000원당 최대 2마일, 해외이용수수료 면제 모두 기존 값과 일치, 변경 없음. 마일리지 연간 적립한도는 출처에서 확인 안 됨: 미확인. 구간이행(2026-08-18): 대상 아님 — 마일리지 적립(국내 1,000원당 1마일/해외 1,000원당 2마일)은 전월실적 조건 없이 정액 적립, 실적 구간 없음(뱅크샐러드 CARD004241, benefitshub 확인). 연간 적립한도는 기존대로 미확인 유지. 노트정리(2026-08-18): 마일리지: 연간 적립 한도 미확인."
+  },
+  {
+    "id": "woori-jeongseok-premium-mileage-asiana",
+    "name": "우리카드 카드의 정석 프리미엄 마일리지(아시아나)",
+    "issuer": "우리카드",
+    "kind": "credit",
+    "annualFee": 135000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.15,
+        "monthlyCap": null,
+        "stars": 3,
+        "note": "아시아나항공 마일리지 1,000원당 1.5마일 적립"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://pc.wooricard.com/dcpc/yh2/bcd/bcd01/cdadv/H2BCD201S02.do",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 우리카드 공식 페이지(상세 상품페이지 접근 실패, 프리미엄 카드 목록 페이지로 대체) + BC카드·카드고릴라 참고, 공식 상세 수치 재확인 필요. 가족카드 연회비 3만원은 본인카드 아님. 검증(2026-08-18): 확인 실패 — 공식 페이지(wooricard.com, 프리미엄 카드 목록 페이지)에 개별 카드 상세 수치 없음, WebSearch는 세션 한도 소진으로 사용 불가, Bing/Google/DuckDuckGo를 WebFetch로 대신 시도했으나 무관한 캐시 결과·차단·CAPTCHA로 뱅크샐러드·카드고릴라 대조 불가. 재검증(2026-08-18): BC카드 공식 상세(m.bccard.com, cardGdsNo=835327) 재대조. 연회비 13.5만원, 마일리지 1,000원당 1.5마일 일치해 '국내 기준 추정' 문구 삭제하고 확정 표현으로 수정. 전월실적·월/연 적립한도는 여전히 확인 안 됨: 미확인, 값 변경 없음. 노트정리(2026-08-18): 마일리지: 해외 적립률·전월실적 조건·월/연 적립한도 미확인."
+  },
+  {
+    "id": "hana-travelog-skypass",
+    "name": "하나카드 트래블로그 SKYPASS 신용카드",
+    "issuer": "하나카드",
+    "kind": "credit",
+    "annualFee": 48000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "전 가맹점 1,500원당 1마일 적립(대한항공 스카이패스). 할부/상품권/공과금/보험료 등 일부 제외"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "전 가맹점 1,500원당 1마일 적립(대한항공 스카이패스). 할부/상품권/공과금/보험료 등 일부 제외"
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.067,
+      "monthlyCap": null
+    },
+    "complexity": 1,
+    "officialUrl": "https://m.hanacard.co.kr/MKCDCM1030M.web?CD_PD_SEQ=17960",
+    "lastChecked": "2026-08-16",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 공식 페이지(모바일). 해외 이용 시 별도 수수료 면제 없음(트래블로그 체크카드와 다름, ATM $3 또는 1% 중 큰 금액·환전수수료 1.2% 부과). 전월실적 조건 명시 안 됨, 확인 필요. 검증(2026-08-16): 공식 페이지(m.hanacard.co.kr) 재확인, 연회비 48,000원(국내/해외 동일) 일치. STAR_GUIDE 기준 1,500원당1마일(=0.067)은 '1,000원당 1마일 안팎'에 못 미쳐 stars 2→1로 하향 정정."
+  }
+]

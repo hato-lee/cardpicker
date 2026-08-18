@@ -1,0 +1,48 @@
+[
+  {
+    "id": "hyundai-the-red-mileage",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 마일리지재검수(2026-08-18): 뱅크샐러드(CARD004325, 현재 판매 중인 '현대카드 the Red (항공 마일리지형)' 상세)와 나무위키(발급중단 이력) 교차 확인. 연회비 300,000원·1,500원당1마일(0.067) 기존 값과 일치, 변경 없음. the Red Edition5·Stripe 마일리지형은 2024-09-25부로 완전 단종, 현재 판매분은 후속 Edition(Edition6 추정)으로 CARD004325와 동일 연회비. 미확인: 전월실적(일부 2차 자료는 전월/당월 50만원 언급하나 현재 상품 기준으로 확정 못함, 기존 값 0 유지), 월 한도(Edition5 자료는 '한도없음'이나 현재 상품 명시 자료 없어 null 유지)."
+  },
+  {
+    "id": "hyundai-koreanair-060",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 마일리지재검수(2026-08-18): 공식 officialUrl(hyundaicard.com/koreanair/m/html/hub_kal1.html)이 이번엔 텍스트로 정상 파싱됨 — 연회비 6만원, 전월실적 50만원, 국내 1,000원당1마일, 해외·대한항공 직판 항공권 1,000원당2마일, 연1회 1,000마일 보너스 모두 기존 값과 일치. 뱅크샐러드(CARD004617)·카드고릴라(신청 URL, 최신 가이드북 PDF 'Ed2' 표기 존재) 교차 확인 결과 단종 언급 없이 현재 판매 중. 변경 없음."
+  },
+  {
+    "id": "lotte-loca-platinum-mileage",
+    "set": {
+      "lastChecked": "2026-08-18",
+      "universal": {
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "tiers": [{ "minSpend": 1500000, "rate": 0.1, "monthlyCap": null }]
+      }
+    },
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "set": {
+          "rate": 0.067,
+          "monthlyCap": null,
+          "stars": 1,
+          "note": "대한항공 스카이패스. 기본(150만원 미만) 1,500원당 1마일, 150만원 이상 1,000원당 1마일. 공식 페이지 '한도 제한없이 적립'",
+          "tiers": [{ "minSpend": 1500000, "rate": 0.1, "monthlyCap": null }]
+        }
+      }
+    ],
+    "addBenefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "전 가맹점 기본 적립(위 마일리지 항목과 동일)",
+        "tiers": [{ "minSpend": 1500000, "rate": 0.1, "monthlyCap": null }]
+      }
+    ],
+    "memoAppend": " 마일리지재검수(2026-08-18): 공식 페이지(lottecard.co.kr, LPCDXAA_V001.lc) 재확인 — 연회비 10만원, 기본 150만원 미만 1,500원당1마일·150만원 이상 1,000원당1마일, '한도 제한없이 적립' 문구로 월 한도 없음 확인. 기존 데이터에 tiers·universal이 빠져 있고 '모든 가맹점' 벤핏 자체가 누락돼 있어 구조화 및 addBenefits로 보완. SKYPASS는 대한항공 마일리지로 note에 명시. 영업정지(2026-08-01~09-15, 9/16 신규발급 재개, 뉴스1·한경 등 보도로 재확인)는 회사 전체 제재이며 카드 단종은 아니므로 status active 유지."
+  }
+]

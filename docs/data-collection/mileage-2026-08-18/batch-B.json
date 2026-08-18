@@ -1,0 +1,164 @@
+[
+  {
+    "id": "shinhan-air-one",
+    "name": "신한카드 Air One",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 49000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "국내 1천원당 대한항공 1마일 기본적립(전월실적 50만원 이상시), 기본적립 월 한도 없음"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "mileage",
+        "rate": 0.2,
+        "monthlyCap": 2000,
+        "stars": 3,
+        "note": "해외 일시불 시 기본1마일+추가1마일=1천원당 2마일. 추가분 월 2천마일 한도. 항공/면세·신라면세점 온라인도 동일 추가적립 별도 한도"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1187901_2207.html",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 공식 페이지(적립조건·마일리지율)+검색 스니펫(연회비 국내49,000/해외51,000원, 공식 페이지 연회비는 템플릿 변수라 재확인 필요). 검증(2026-08-16): 공식 페이지(shinhancard.com) 재확인, 국내 1,000원당1마일 기본적립 + 항공/면세 업종 추가1마일(월2천마일 한도), 해외도 동일 구조(기본1마일+추가1마일, 추가분 월2천마일 한도) 확인되어 기재값과 일치. 연회비는 페이지가 템플릿 변수라 여전히 확인 못함(검색 스니펫 값 유지). 구간이행(2026-08-18): 대상 아님: 마일리지는 전월실적 50만원 이상 단일 조건(카드 minSpend와 동일)만 있고 구간별 차등 없음, 공식 페이지 확인. 출처: shinhancard.com"
+  },
+  {
+    "id": "shinhan-the-best-plus",
+    "name": "신한카드 The BEST+",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 295000,
+    "minSpend": 300000,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "발급 시 대한항공 스카이패스 또는 아시아나클럽 중 택1(동시적립 불가). 아시아나 기준 국내·해외 1,000원당 1마일, 월 200만 원 이상 쓰면 해외는 1,000원당 3마일. 대한항공 선택 시 1,500원당 1마일(200만 원 이상 국내 1.5마일·해외 3마일). 월/연 적립한도 없음",
+        "tiers": [
+          {
+            "minSpend": 2000000,
+            "rate": 0.15,
+            "monthlyCap": null
+          }
+        ]
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/premium/1188285_2205.html",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 신한카드 공식 페이지. 프리미엄 카드(연회비 29.5만~30만원). 대한항공/아시아나 선택형이라 rate는 아시아나 기본(또는 대한항공 특별)을 대표값으로 사용, note에 전체 매트릭스 기재. 공항라운지·골프 등은 태그 밖. 구간이행(2026-08-18): 마일리지(아시아나 대표값 기준) 기본 0.1%(1,000원당1마일) → 월 200만원 이상 시 국내 0.15%(1.5마일)로 상승, 해외 특별(3마일)은 대표값 미포함이라 note에만 기재. 공식 페이지 확인. stars 공식(rate<3%·한도없음)에 따라 2→1로 재조정. 출처: shinhancard.com"
+  },
+  {
+    "id": "samsung-mileage-platinum",
+    "name": "삼성카드 & MILEAGE PLATINUM (스카이패스)",
+    "issuer": "삼성카드",
+    "kind": "credit",
+    "annualFee": 47000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "국내외 전 가맹점 1,000원당 스카이패스 1마일 기본적립(대한항공), 실적조건·한도 없음. 백화점/주유/커피/편의점/택시(국내형·해외형 중 택1)는 1,000원당 2마일 추가적립, 추가분 월 2,000마일 한도"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "전 가맹점 기본 마일리지 적립(위 마일리지 항목과 동일 혜택)"
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.1,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1452",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 공식페이지(연회비)+뱅크샐러드/나무위키 참고, 적립률·한도 공식 재확인 필요. 인천공항 라운지 무료이용(전월실적 30만원 필요)은 태그 밖. 검증(2026-08-18): 공식페이지(code=AAP1452) 로딩, 연회비 '해외 기준 49,000원' 정확히 일치 확인, 활성상태 확인. 마일리지 적립률·한도 수치는 페이지 미노출 및 WebSearch 세션 예산 소진으로 미확인, 기존 값 유지. 재검증(2026-08-18): 뱅크샐러드로 연회비가 국내전용 47,000원(해외겸용 AMEX 49,000원)임을 확인, 브리프 기준(국내전용 우선)에 따라 47,000원으로 수정. 기본 1,000원당 1마일(전 가맹점, 실적조건 없음), 백화점/주유/커피/편의점/택시 중 국내형·해외형 택1 옵션 1,000원당 2마일 추가적립(월 2,000마일 한도)은 기존 값과 일치 확인. 출처: samsungcard.com(AAP1452), banksalad.com/product/cards/CARD000081"
+  },
+  {
+    "id": "samsung-the1-sfc-skypass",
+    "name": "삼성카드 THE 1 SFC (스카이패스)",
+    "issuer": "삼성카드",
+    "kind": "credit",
+    "annualFee": 245000,
+    "minSpend": 300000,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "모든 가맹점 1,000원당 스카이패스 1마일 기본 적립, 한도 없음"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "위와 동일한 전 가맹점 기본 마일리지 적립"
+      },
+      {
+        "tag": "주유",
+        "type": "mileage",
+        "rate": 0.2,
+        "monthlyCap": 2000,
+        "capGroup": "bonus",
+        "stars": 3,
+        "note": "특별 가맹점(백화점·주유·카페·편의점·택시) 1,000원당 추가 1마일(총 2마일), 월 통합 2,000마일 한도"
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "mileage",
+        "rate": 0.2,
+        "monthlyCap": 2000,
+        "capGroup": "bonus",
+        "stars": 3,
+        "note": "특별 가맹점 이용 시 1,000원당 추가 1마일(총 2마일), 주유·택시 등과 월 2,000마일 통합한도"
+      },
+      {
+        "tag": "대중교통·택시",
+        "type": "mileage",
+        "rate": 0.2,
+        "monthlyCap": 2000,
+        "capGroup": "bonus",
+        "stars": 3,
+        "note": "택시 이용 시 1,000원당 추가 1마일(총 2마일), 주유·카페 등과 월 2,000마일 통합한도"
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.1,
+      "monthlyCap": null
+    },
+    "complexity": 3,
+    "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1450",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 삼성카드 공식 페이지(자바스크립트라 세부수치 일부 미확인) + 뱅크샐러드 THE 1 SFC(CARD002895, 연회비 245,000/250,000원, 적립률·한도). 공항라운지·발렛파킹 등은 태그 밖."
+  }
+]
