@@ -54,7 +54,7 @@ Universal.tiers?: Tier[]    // 같은 형식
 ## 테스트
 - 스키마: tiers 오름차순 위반·카드 minSpend 이하·capGroup 불일치·universal/모든 가맹점 불일치 → 한국어 에러.
 - 엔진: S가 구간 사이/경계(같음)/최상위 위/기본 이하일 때 rate·cap·nextTier; capGroup+tiers 그룹 한도가 구간에 따라 커지는지; universal tiers.
-- 설명: nextTier 문구(한도만/요율도), viaUniversal엔 안 붙음.
+- 설명: nextTier 문구(한도만/요율도/요율만·한도 없음 생략), 범용 줄에도 붙음, 정액·가정 한도 줄엔 안 붙음.
 - UI: 전체 혜택 줄에 구간 표기, tiers 없으면 기존 문자열 그대로.
 
 ## 범위 밖
