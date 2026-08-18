@@ -1,4 +1,4 @@
-import { recommend, recommendGeneral, coveredTagsOf, universalCoversOf } from './recommend'
+import { recommend, recommendGeneral, coveredTagsOf, universalCoversOf, isPointsHeavy } from './recommend'
 import { RULES } from './rules'
 import type { Card, Query } from '../data/types'
 
@@ -114,5 +114,29 @@ describe('정렬', () => {
   test('상위 topN만', () => {
     const many = Array.from({ length: 8 }, (_, i) => card({ id: `c${i}`, benefits: [{ tag: '주유', type: 'discount', rate: 10, monthlyCap: 1000 * (i + 1), stars: 1 }] }))
     expect(recommend(many, q())).toHaveLength(RULES.topN)
+  })
+})
+
+describe('무심형은 할인형 먼저, 포인트형 뒤', () => {
+  const disc = card({ id: 'disc', benefits: [{ tag: '주유', type: 'discount', rate: 10, monthlyCap: 10000, stars: 2 }] })
+  const pts = card({ id: 'pts', benefits: [{ tag: '주유', type: 'points', rate: 10, monthlyCap: 30000, stars: 3 }] })
+  test('isPointsHeavy: 금액의 절반 넘게 포인트면 포인트형', () => {
+    const rp = recommend([pts], q())[0]
+    const rd = recommend([disc], q())[0]
+    expect(isPointsHeavy(rp.benefit)).toBe(true)
+    expect(isPointsHeavy(rd.benefit)).toBe(false)
+  })
+  test('무심형: 금액이 작아도 할인형이 포인트형보다 앞', () => {
+    expect(recommend([pts, disc], q({ persona: 'carefree' })).map((x) => x.card.id)).toEqual(['disc', 'pts'])
+    expect(recommend([pts, disc], q({ persona: 'moderate' })).map((x) => x.card.id)).toEqual(['pts', 'disc'])
+  })
+  test('무심형 풀어서 보여줄 때도 커버 개수 → 할인형 → 금액 순', () => {
+    const cafe = card({ id: 'cafe', benefits: [{ tag: '카페·편의점', type: 'discount', rate: 10, monthlyCap: 50000, stars: 2 }] })
+    const twoPts = card({ id: 'twoPts', benefits: [
+      { tag: '주유', type: 'points', rate: 5, monthlyCap: 1000, stars: 1 },
+      { tag: '카페·편의점', type: 'points', rate: 5, monthlyCap: 1000, stars: 1 }] })
+    const r = recommendGeneral([cafe, twoPts], q({ persona: 'carefree', tags: ['주유', '카페·편의점', '대중교통·택시'] }))
+    expect(r.relaxed).toBe(true)
+    expect(r.items.map((x) => x.card.id)).toEqual(['twoPts', 'cafe'])
   })
 })

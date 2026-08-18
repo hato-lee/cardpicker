@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import type { Scored } from '../engine/recommend'
+import { isPointsHeavy, type Scored } from '../engine/recommend'
 import type { Persona, Benefit, BenefitType } from '../data/types'
 import { tips, rowAnnualValue, isStale } from '../engine/explain'
 import { RULES } from '../engine/rules'
@@ -33,6 +33,8 @@ export function benefitText(b: Benefit): string {
   return `${b.tag} ${rateText(b.type, b.rate)} · ${capText(b.type, b.monthlyCap)}${tiersText(b)}${b.note ? ` (${b.note})` : ''}`
 }
 
+export const POINTS_BADGE_TITLE = '할인 대신 포인트로 쌓여요. 쌓인 포인트를 써야 혜택이 돼요.'
+
 export function CardResult({ rank, scored, persona, today }: Props) {
   const [open, setOpen] = useState(false)
   const { card, benefit } = scored
@@ -54,7 +56,11 @@ export function CardResult({ rank, scored, persona, today }: Props) {
       <header className="card-head">
         <span className="rank" aria-label={`${rank}위`}>{rank}</span>
         <div className="card-title">
-          <h3>{card.name}{rank === 1 && <span className="top-badge">추천</span>}</h3>
+          <h3>
+            {card.name}
+            {rank === 1 && <span className="top-badge">추천</span>}
+            {isPointsHeavy(benefit) && <span className="conv-badge" title={POINTS_BADGE_TITLE}>포인트 적립형</span>}
+          </h3>
           <div className="card-sub">{card.issuer} · {card.kind === 'credit' ? '신용' : '체크'} · 연회비 {won(card.annualFee)} · {card.minSpend === 0 ? '실적 없음' : `전월실적 ${won(card.minSpend)}`}</div>
         </div>
       </header>

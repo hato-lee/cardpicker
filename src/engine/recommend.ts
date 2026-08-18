@@ -38,6 +38,11 @@ export interface Recommendation {
 
 const coverCount = (s: Scored) => s.coveredTags.length + s.universalCovers.length
 
+/** 연 혜택의 절반 넘게 포인트 적립이면 '포인트형' — 쌓아뒀다 써야 혜택이 되는 카드 */
+export function isPointsHeavy(b: AnnualBenefit, rules: Rules = RULES): boolean {
+  return b.pointsShare > rules.pointsHeavyShare
+}
+
 function byNet(a: Scored, b: Scored): number {
   return b.benefit.annualNet - a.benefit.annualNet ||
     a.card.annualFee - b.card.annualFee ||
@@ -56,10 +61,17 @@ export function recommendGeneral(cards: Card[], q: Query, rules: Rules = RULES):
     if (benefit === null) continue
     scored.push({ card, benefit, coveredTags: coveredTagsOf(card, q.tags), universalCovers: universalCoversOf(card, q.tags, rules) })
   }
-  if (q.persona === 'carefree' && rules.carefreeFullCoverOnly) {
-    const full = scored.filter((s) => coverCount(s) === q.tags.length)
-    if (full.length > 0) return { items: full.sort(byNet).slice(0, rules.topN), relaxed: false }
-    return { items: scored.sort((a, b) => coverCount(b) - coverCount(a) || byNet(a, b)).slice(0, rules.topN), relaxed: true }
+  if (q.persona === 'carefree') {
+    // 할인·캐시백형 먼저, 포인트형 뒤 (무심형은 포인트를 안 쓰고 흘려보내기 쉬워서)
+    const pointsLast = (a: Scored, b: Scored) =>
+      rules.carefreeDiscountFirst ? Number(isPointsHeavy(a.benefit, rules)) - Number(isPointsHeavy(b.benefit, rules)) : 0
+    const order = (a: Scored, b: Scored) => pointsLast(a, b) || byNet(a, b)
+    if (rules.carefreeFullCoverOnly) {
+      const full = scored.filter((s) => coverCount(s) === q.tags.length)
+      if (full.length > 0) return { items: full.sort(order).slice(0, rules.topN), relaxed: false }
+      return { items: scored.sort((a, b) => coverCount(b) - coverCount(a) || order(a, b)).slice(0, rules.topN), relaxed: true }
+    }
+    return { items: scored.sort(order).slice(0, rules.topN), relaxed: false }
   }
   return { items: scored.sort(byNet).slice(0, rules.topN), relaxed: false }
 }

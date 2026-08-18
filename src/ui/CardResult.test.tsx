@@ -131,3 +131,13 @@ test('Results: 무심형 풀어서 보여줄 때만 안내 문구', () => {
   render(<Results query={cq} results={[scored]} relaxed={false} onEdit={() => {}} today={today} />)
   expect(screen.queryByText(RELAXED_NOTE)).toBeNull()
 })
+
+test('포인트 적립이 절반 넘으면 포인트 적립형 배지, 할인형엔 없음', () => {
+  const ptsCard: Card = { ...oil, id: 'pts', benefits: [{ tag: '주유', type: 'points', rate: 10, monthlyCap: 15000, stars: 3 }] }
+  const s: Scored = { card: ptsCard, benefit: annualBenefit(ptsCard, { ...q, tags: ['주유'] })!, coveredTags: ['주유'], universalCovers: [] }
+  const { unmount } = render(<CardResult rank={2} scored={s} persona="carefree" today={today} />)
+  expect(screen.getByText('포인트 적립형')).toBeInTheDocument()
+  unmount()
+  render(<CardResult rank={2} scored={scored} persona="carefree" today={today} />)
+  expect(screen.queryByText('포인트 적립형')).toBeNull()
+})

@@ -25,6 +25,7 @@ export interface AnnualBenefit {
   annualGross: number
   annualNet: number
   clampFactor: number
+  pointsShare: number   // 월 혜택 중 포인트 적립 줄이 차지하는 비율(0~1). 포인트형 표시·무심형 정렬용
 }
 
 function toWon(type: BenefitType, amount: number, rules: Rules): number {
@@ -141,5 +142,7 @@ export function annualBenefit(card: Card, q: Query, rules: Rules = RULES): Annua
   const monthlyMax = finalRows.reduce((s, x) => s + x.monthlyValue, 0)
   const annualGross = monthlyMax * 12
   const annualNet = Math.round(annualGross - card.annualFee)
-  return { rows: finalRows, monthlyMax, annualGross, annualNet, clampFactor }
+  const pointsValue = finalRows.filter((x) => x.type === 'points').reduce((s, x) => s + x.monthlyValue, 0)
+  const pointsShare = monthlyMax > 0 ? pointsValue / monthlyMax : 0
+  return { rows: finalRows, monthlyMax, annualGross, annualNet, clampFactor, pointsShare }
 }
