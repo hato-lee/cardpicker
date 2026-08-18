@@ -29,7 +29,7 @@
 ### 3. 합계
 - `monthlyMax = Σ 줄.월혜택` (상한 조정 후)
 - `annualGross = monthlyMax × 12`
-- `annualRealized = annualGross × RULES.personaRealization[persona]` — 꼼꼼 1.0 / 적당 0.8 / 무심 0.6
+- ~~`annualRealized = annualGross × RULES.personaRealization[persona]`~~ → 2026-08-19 폐지, `annualNet = annualGross − annualFee`. 성향은 후보 필터로만 작동 (`2026-08-19-persona-filter-design.md`)
 - `annualNet = round(annualRealized − annualFee)` ← **정렬 기준이자 화면의 큰 숫자**
 
 ### 4. 후보 필터 (기존 유지)
