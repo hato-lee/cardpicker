@@ -154,3 +154,30 @@ test('줄이 하나도 없으면 null', () => {
   const c = card({ benefits: [{ tag: '주유', type: 'discount', rate: 10, monthlyCap: 10000, stars: 2 }] })
   expect(annualBenefit(c, q({ tags: ['병의원·약국'] }))).toBeNull()
 })
+
+describe('마일리지는 마일리지 태그를 골랐을 때만', () => {
+  const mileCard = card({
+    universal: { type: 'mileage', rate: 0.1, monthlyCap: null },
+    benefits: [
+      { tag: '마일리지', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 2 },
+      { tag: '모든 가맹점', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 2 },
+      { tag: '주유', type: 'discount', rate: 5, monthlyCap: 5000, stars: 1 },
+    ],
+  })
+  test('모든 가맹점만 골랐으면 마일 적립은 세지 않아 후보에서 빠진다', () => {
+    expect(annualBenefit(mileCard, q({ tags: ['모든 가맹점'] }))).toBeNull()
+  })
+  test('마일리지를 골랐으면 센다', () => {
+    const r = annualBenefit(mileCard, q({ tags: ['마일리지'], monthlySpend: 1_000_000 }))!
+    expect(r.rows.map((x) => x.tag)).toEqual(['마일리지'])
+    expect(r.rows[0].monthlyValue).toBe(1000 * RULES.mileWon)
+  })
+  test('마일리지 안 골랐어도 다른 할인 혜택은 그대로', () => {
+    const r = annualBenefit(mileCard, q({ tags: ['주유', '카페·편의점'] }))!
+    expect(r.rows.map((x) => x.tag)).toEqual(['주유'])  // 범용(마일)로는 카페·편의점을 커버하지 않는다
+  })
+  test('규칙을 끄면 예전처럼 범용 마일로 커버한다', () => {
+    const r = annualBenefit(mileCard, q({ tags: ['모든 가맹점'] }), { ...RULES, mileageOnlyWhenPicked: false })!
+    expect(r.rows).toHaveLength(1)
+  })
+})

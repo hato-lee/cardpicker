@@ -88,13 +88,16 @@ export function annualBenefit(card: Card, q: Query, rules: Rules = RULES): Annua
   const S = q.monthlySpend
   const rows: BenefitRow[] = []
   let uncovered = false
+  // '마일리지'를 안 골랐으면 마일 적립 혜택은 세지 않는다 (RULES.mileageOnlyWhenPicked)
+  const skipMileage = rules.mileageOnlyWhenPicked && !q.tags.includes(MILEAGE_TAG)
   for (const tag of q.tags) {
     const b: Benefit | undefined = card.benefits.find((x) => x.tag === tag)
-    if (b) rows.push(makeRow(b, S, false, rules))
+    if (b && !(skipMileage && b.type === 'mileage')) rows.push(makeRow(b, S, false, rules))
     else uncovered = true
   }
-  if (uncovered && card.universal !== null && !q.tags.includes(UNIVERSAL_TAG)) {
-    rows.push(makeRow({ tag: UNIVERSAL_TAG, ...card.universal }, S, true, rules))
+  const universalUsable = card.universal !== null && !(skipMileage && card.universal.type === 'mileage')
+  if (uncovered && universalUsable && !q.tags.includes(UNIVERSAL_TAG)) {
+    rows.push(makeRow({ tag: UNIVERSAL_TAG, ...card.universal! }, S, true, rules))
   }
   // 전 가맹점 마일리지 카드: '마일리지'와 '모든 가맹점'이 같은 적립이면 하나만
   const hasMileageRow = rows.some((x) => x.tag === MILEAGE_TAG && x.type === 'mileage')

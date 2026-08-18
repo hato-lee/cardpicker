@@ -62,7 +62,8 @@ test('조사 은/는: 받침 있으면 은, 없으면 는 (한글 아니면 는)
     { tag: '해외 결제', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 1 },
     { tag: '통신비·OTT', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 1 },
   ] }
-  const ab = annualBenefit(c, q({ tags: ['온라인 쇼핑', '해외 결제', '통신비·OTT'], monthlySpend: 500_000 }))!
+  // 마일 적립은 '마일리지'를 골랐을 때만 세므로 태그에 넣어둔다
+  const ab = annualBenefit(c, q({ tags: ['마일리지', '온라인 쇼핑', '해외 결제', '통신비·OTT'], monthlySpend: 500_000 }))!
   const t = tips(ab, 'meticulous')
   expect(t).toContain('온라인 쇼핑은 쓰는 만큼 1,000원당 1마일 — 한도 없음')
   expect(t).toContain('해외 결제는 쓰는 만큼 1,000원당 1마일 — 한도 없음')

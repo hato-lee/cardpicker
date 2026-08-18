@@ -19,6 +19,8 @@ export const RULES = {
   breakdownMaxRows: 3,
   // 월 한도 정보가 없는 영역 혜택(할인/적립)은 이 금액까지만 계산. 범용·마일리지는 예외
   assumedCapWhenUnknown: 10_000,
+  // '마일리지' 태그를 안 골랐으면 마일 적립 혜택은 계산에서 뺀다 (마일을 안 쓰는 사람에게 마일 카드를 올리지 않기 위해)
+  mileageOnlyWhenPicked: true,
 }
 
 export type Rules = typeof RULES
