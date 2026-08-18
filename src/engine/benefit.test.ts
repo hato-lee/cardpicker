@@ -181,3 +181,70 @@ describe('마일리지는 마일리지 태그를 골랐을 때만', () => {
     expect(r.rows).toHaveLength(1)
   })
 })
+
+describe('실적 구간(tiers)', () => {
+  const tiered = card({ minSpend: 300_000, benefits: [
+    { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3,
+      tiers: [{ minSpend: 700_000, monthlyCap: 30000 }, { minSpend: 1_000_000, rate: 12, monthlyCap: 50000 }] },
+  ] })
+
+  test('S가 첫 구간 아래면 기본값, nextTier는 첫 구간', () => {
+    const r = annualBenefit(tiered, q({ monthlySpend: 500_000 }))!
+    expect(r.rows[0].rate).toBe(10)
+    expect(r.rows[0].monthlyCap).toBe(15000)
+    expect(r.rows[0].monthlyValue).toBe(15000)
+    expect(r.rows[0].nextTier).toEqual({ minSpend: 700_000, monthlyCap: 30000 })
+  })
+
+  test('S가 구간 경계와 같으면 그 구간', () => {
+    const r = annualBenefit(tiered, q({ monthlySpend: 700_000 }))!
+    expect(r.rows[0].monthlyCap).toBe(30000)
+    expect(r.rows[0].rate).toBe(10) // rate 생략 → 기본 rate
+    expect(r.rows[0].monthlyValue).toBe(30000)
+    expect(r.rows[0].requiredSpend).toBe(300_000)
+    expect(r.rows[0].nextTier).toEqual({ minSpend: 1_000_000, rate: 12, monthlyCap: 50000 })
+  })
+
+  test('S가 최상위 구간 위면 최상위, nextTier 없음', () => {
+    const r = annualBenefit(tiered, q({ monthlySpend: 2_000_000 }))!
+    expect(r.rows[0].rate).toBe(12)
+    expect(r.rows[0].monthlyCap).toBe(50000)
+    expect(r.rows[0].nextTier).toBeUndefined()
+  })
+
+  test('tiers 없는 벤핏은 nextTier 없음', () => {
+    const c = card({ benefits: [{ tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3 }] })
+    expect(annualBenefit(c, q())!.rows[0].nextTier).toBeUndefined()
+  })
+
+  test('구간에서 한도가 풀리면(null) 한도 없는 정률로 계산', () => {
+    const c = card({ minSpend: 0, benefits: [
+      { tag: '해외 결제', type: 'discount', rate: 2, monthlyCap: 10000, stars: 1, tiers: [{ minSpend: 1_000_000, monthlyCap: null }] },
+    ] })
+    const r = annualBenefit(c, q({ tags: ['해외 결제'], monthlySpend: 1_000_000 }))!
+    // 영역 줄, cap null → 가정 한도 1만 (spend×2% = 2만 > 1만)
+    expect(r.rows[0].monthlyCap).toBeNull()
+    expect(r.rows[0].monthlyValue).toBe(RULES.assumedCapWhenUnknown)
+    expect(r.rows[0].assumedCap).toBe(true)
+  })
+
+  test('capGroup + tiers: 그룹 한도가 구간 따라 커진다', () => {
+    const c = card({ minSpend: 400_000, benefits: [
+      { tag: '주유', type: 'discount', rate: 2.5, monthlyCap: 5000, stars: 1, capGroup: 'main', tiers: [{ minSpend: 700_000, monthlyCap: 10000 }] },
+      { tag: '통신비·OTT', type: 'discount', rate: 2.5, monthlyCap: 5000, stars: 1, capGroup: 'main', tiers: [{ minSpend: 700_000, monthlyCap: 10000 }] },
+    ] })
+    const low = annualBenefit(c, q({ tags: ['주유', '통신비·OTT'], monthlySpend: 500_000 }))!
+    expect(low.monthlyMax).toBeCloseTo(5000, 5)   // 그룹 한도 5천 (총액 상한: 필요지출 40만 ≤ 50만이라 그대로)
+    const high = annualBenefit(c, q({ tags: ['주유', '통신비·OTT'], monthlySpend: 1_000_000 }))!
+    expect(high.monthlyMax).toBeCloseTo(10000, 5) // 그룹 한도 1만
+  })
+
+  test('범용 줄도 universal.tiers를 따른다', () => {
+    const c = card({ minSpend: 200_000,
+      universal: { type: 'points', rate: 0.2, monthlyCap: 5000, tiers: [{ minSpend: 400_000, monthlyCap: 15000 }] },
+      benefits: [{ tag: '모든 가맹점', type: 'points', rate: 0.2, monthlyCap: 5000, stars: 1, tiers: [{ minSpend: 400_000, monthlyCap: 15000 }] }] })
+    const r = annualBenefit(c, q({ tags: ['주유'], monthlySpend: 400_000 }))!
+    expect(r.rows[0].viaUniversal).toBe(true)
+    expect(r.rows[0].monthlyCap).toBe(15000)
+  })
+})

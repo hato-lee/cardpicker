@@ -1,4 +1,4 @@
-import type { Card, Query, Benefit, BenefitType } from '../data/types'
+import type { Card, Query, Benefit, BenefitType, Tier } from '../data/types'
 import type { Tag } from '../data/tags'
 import { RULES, type Rules } from './rules'
 
@@ -16,6 +16,7 @@ export interface BenefitRow {
   requiredSpend: number | null // 한도를 채우는 데 필요한 월 지출(원). 정액은 null
   viaUniversal: boolean       // 고른 태그에 벤핏이 없어 범용으로 대신 계산한 줄
   assumedCap: boolean         // 한도 정보가 없어 가정 한도(RULES.assumedCapWhenUnknown)로 계산했는지
+  nextTier?: Tier   // 적용 구간 바로 위 구간(있으면). 설명 문구용
 }
 
 export interface AnnualBenefit {
@@ -31,21 +32,40 @@ function toWon(type: BenefitType, amount: number, rules: Rules): number {
   return type === 'mileage' ? amount * rules.mileWon : amount
 }
 
+/** 사용액 S에 맞는 실적 구간을 고른다. tiers 중 minSpend ≤ S인 마지막 구간, 없으면 기본값. */
+export function resolveTier(
+  b: { rate: number; monthlyCap: number | null; tiers?: Tier[] },
+  spend: number,
+): { rate: number; monthlyCap: number | null; nextTier?: Tier } {
+  const tiers = b.tiers ?? []
+  let idx = -1
+  for (let i = 0; i < tiers.length; i++) if (tiers[i].minSpend <= spend) idx = i
+  const applied = idx >= 0 ? tiers[idx] : undefined
+  return {
+    rate: applied?.rate ?? b.rate,
+    monthlyCap: applied ? applied.monthlyCap : b.monthlyCap,
+    nextTier: tiers[idx + 1],
+  }
+}
+
 /** 한 벤핏(또는 범용)의 월 최대 혜택과 필요 지출. 스펙 1번. */
 function makeRow(
-  b: { tag: Tag; type: BenefitType; rate: number; monthlyCap: number | null; note?: string; capGroup?: string },
+  b: { tag: Tag; type: BenefitType; rate: number; monthlyCap: number | null; note?: string; capGroup?: string; tiers?: Tier[] },
   spend: number,
   viaUniversal: boolean,
   rules: Rules,
 ): BenefitRow {
-  const r = b.rate / 100
+  const t = resolveTier(b, spend)
+  const rate = t.rate
+  const cap = t.monthlyCap
+  const r = rate / 100
   let monthlyValue: number
   let requiredSpend: number | null
   let assumedCap = false
-  if (b.rate === 0) {
-    monthlyValue = toWon(b.type, b.monthlyCap ?? 0, rules)
+  if (rate === 0) {
+    monthlyValue = toWon(b.type, cap ?? 0, rules)
     requiredSpend = null
-  } else if (b.monthlyCap === null) {
+  } else if (cap === null) {
     if (!viaUniversal && b.tag !== UNIVERSAL_TAG && b.type !== 'mileage') {
       monthlyValue = Math.min(spend * r, rules.assumedCapWhenUnknown)
       requiredSpend = Math.min(spend, rules.assumedCapWhenUnknown / r)
@@ -55,10 +75,10 @@ function makeRow(
       requiredSpend = spend
     }
   } else {
-    monthlyValue = toWon(b.type, b.monthlyCap, rules)
-    requiredSpend = b.monthlyCap / r
+    monthlyValue = toWon(b.type, cap, rules)
+    requiredSpend = cap / r
   }
-  return { tag: b.tag, type: b.type, rate: b.rate, monthlyCap: b.monthlyCap, note: b.note, capGroup: b.capGroup, monthlyValue, requiredSpend, viaUniversal, assumedCap }
+  return { tag: b.tag, type: b.type, rate, monthlyCap: cap, note: b.note, capGroup: b.capGroup, monthlyValue, requiredSpend, viaUniversal, assumedCap, nextTier: t.nextTier }
 }
 
 /** 같은 capGroup 줄들의 monthlyValue 합이 그룹 한도(monthlyCap, mileage면 ×mileWon)를 넘으면 비례 축소. requiredSpend는 그대로 둔다. */
