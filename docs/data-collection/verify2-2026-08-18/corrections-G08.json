@@ -1,0 +1,68 @@
+[
+  {
+    "id": "hyundai-z-work-edition2",
+    "set": { "lastChecked": "2026-08-18" },
+    "benefits": [
+      { "tag": "카페·편의점", "set": { "capGroup": null, "note": "커피전문점·편의점 10% 청구할인(각각 1일 1회, 가족카드 합산)" } },
+      { "tag": "대중교통·택시", "set": { "capGroup": null } },
+      { "tag": "온라인 쇼핑", "set": { "capGroup": null } }
+    ],
+    "memoAppend": " 재검수(2026-08-18): 현대카드 공식 가이드북 PDF(hyundaicard.com/upload/card, Z work Edition2, 2026년1월 기준) 원문 대조. 연회비 2만원·전월실적·할인율·한도 수치는 기존 값과 일치하나, 월 6천원(실적50만)/1만원(실적100만) 한도가 5개 영역(온라인쇼핑몰·편의점·커피전문점·대중교통·도서) 각각 독립 적용됨을 확인해 카페·편의점·대중교통·택시·온라인쇼핑 3개 태그를 하나로 묶던 capGroup(공유한도)을 삭제. 도서 10%는 태그 밖 유지. 출처: 현대카드 공식 가이드북 PDF."
+  },
+  {
+    "id": "hyundai-z-family-edition2",
+    "set": { "lastChecked": "2026-08-18" },
+    "benefits": [
+      { "tag": "온라인 쇼핑", "set": { "capGroup": null } },
+      { "tag": "주유", "set": { "capGroup": null } },
+      { "tag": "병의원·약국", "set": { "capGroup": null } },
+      { "tag": "학원·교육", "set": { "capGroup": null } }
+    ],
+    "addBenefits": [
+      { "tag": "통신비·OTT", "type": "discount", "rate": 10, "monthlyCap": 6000, "stars": 2, "note": "이동통신요금(SKT·KT·LGU+) 정기결제 10% 청구할인", "capGroup": "life", "tiers": [{ "minSpend": 1000000, "monthlyCap": 10000 }] },
+      { "tag": "관리비·공과금", "type": "discount", "rate": 10, "monthlyCap": 6000, "stars": 2, "note": "아파트 관리비·도시가스요금 정기결제 10% 청구할인", "capGroup": "life", "tiers": [{ "minSpend": 1000000, "monthlyCap": 10000 }] }
+    ],
+    "memoAppend": " 재검수(2026-08-18): 현대카드 공식 가이드북 PDF(hyundaicard.com/upload/card, Z family Edition2) 원문 대조. 온라인쇼핑몰·주유·병원약국·학원 4개 영역은 각각 독립 6천원(실적50만)/1만원(실적100만) 한도로 확인돼 기존 capGroup(공유한도) 삭제. 생활요금 정기결제(이동통신·아파트관리비·도시가스) 10% 청구할인(통합 6천/1만원 한도)이 공식 확인돼 통신비·OTT·관리비·공과금 태그로 추가(두 태그 capGroup 공유). 출처: 현대카드 공식 가이드북 PDF."
+  },
+  {
+    "id": "hyundai-z-play",
+    "set": { "lastChecked": "2026-08-18" },
+    "benefits": [
+      { "tag": "온라인 쇼핑", "set": { "capGroup": null } },
+      { "tag": "배달·외식", "set": { "capGroup": null } },
+      { "tag": "통신비·OTT", "set": { "capGroup": null } },
+      { "tag": "해외 결제", "set": { "capGroup": null } }
+    ],
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 공식 상품설명 API 대조, 판매중(단종 아님) 확인. 연회비 2만원·전월실적 구간(50만↑6천원/100만↑1만원)·온라인쇼핑·일반음식점·해외가맹점·디지털구독 4개 혜택 일치. 같은 Z 시리즈인 work/family Edition2 공식 가이드북에서 확인된 '영역별 독립 한도' 원칙을 Z play에도 동일 적용해 4개 태그를 묶던 capGroup(공유한도) 삭제. 영화 10%는 태그 밖 유지. officialUrl은 정확한 상세페이지를 찾지 못해 기존 홈 도메인 유지. 출처: 카드고릴라 API(공식 상품설명 인용), Z 시리즈 공식 가이드북 교차확인."
+  },
+  {
+    "id": "hyundai-m",
+    "set": { "lastChecked": "2026-08-18" },
+    "benefits": [
+      { "tag": "온라인 쇼핑", "set": { "capGroup": "extra5" } },
+      { "tag": "배달·외식", "set": { "capGroup": "extra5" } },
+      { "tag": "해외 결제", "set": { "capGroup": "extra5" } }
+    ],
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 공식 상품설명 API 원문 대조(\"대상점 통합해 월 1만 M포인트 적립 한도\"). 온라인몰·일반음식점·해외가맹점 5% 추가적립이 각 태그 독립 1만원이 아닌 3개 영역 통합 월 1만 M포인트 한도임을 확인해 capGroup 공유로 수정. 연회비 3만원·기본 1.5%(실적50만↑)·추가 5%(실적100만↑) 값은 기존과 일치. 출처: 카드고릴라 API(공식 상품설명 인용)."
+  },
+  {
+    "id": "hyundai-x",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 공식 상품설명 API와 대조. 연회비 5만원·1% 청구할인·연간누적 500만원당 2만원(연최대10만원) 캐시백·할인 한도없음 모두 기존 값과 일치. API 자체 요약에 '전월실적 최소요건 없음' 표기가 있었으나 추가 웹검색으로 1% 할인 자체는 전월실적 50만원 조건이 맞음을 재확인, 기존 minSpend(50만원) 유지. 출처: 카드고릴라 API, 추가 웹검색 교차확인."
+  },
+  {
+    "id": "hyundai-h",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 공식 상품설명 API로 학원·병원 통합한도(실적40만원 1만원/80만원 2만원/120만원 3.5만원)와 관리비·공과금(통신비 통합, 실적40만원 5천원/80만원 1만원/120만원 1.5만원) 구간을 재확인, 기존 저장값과 정확히 일치해 변경 없음. 이전 메모의 한도 불일치 우려는 해소됨. 출처: 카드고릴라 API(공식 상품설명 인용)."
+  },
+  {
+    "id": "hyundai-zero-edition3-points",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 현대카드 공식 가이드북 PDF(hyundaicard.com/upload/card, ZERO Edition3 포인트형, 2026년2월 기준) 원문 대조. \"실적·한도 제한 없이 국내외 가맹점 이용 금액의 1.2% M포인트 적립\" 확인, 연회비 1.5만원·전월실적 없음·한도 없음 모두 기존 값과 일치해 변경 없음. 출처: 현대카드 공식 가이드북 PDF."
+  },
+  {
+    "id": "hyundai-the-green-edition3",
+    "set": { "minSpend": 500000, "officialUrl": "https://www.hyundaicard.com/upload/card/260513_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%B6%81_the%20Green%20ed3.pdf", "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 현대카드 공식 가이드북 PDF(the Green Edition3, 2026년5월 기준) 원문 대조. 기본혜택(전월실적 50만원 이상 시 국내외 1.5% M포인트, 한도없음)과 추가혜택(전월실적 100만원 이상 시 여행·해외 영역 5%, 영역별 월 5만 M포인트 한도)을 확인해 카드 minSpend를 100만→50만원으로 수정(해외결제 태그는 100만원 조건을 note에 별도 명시 중). 연회비 15만원·해외결제 5%·월5만원 한도는 기존과 일치. 여행영역(국내항공사·여행사·특급호텔·면세점) 5% M포인트는 마일리지 아니며 태그 밖 유지. officialUrl을 홈페이지에서 공식 가이드북 PDF로 교체. 출처: 현대카드 공식 가이드북 PDF."
+  }
+]
