@@ -92,3 +92,41 @@ kb-woongjin-thinkbig | KB국민 웅진씽크빅 카드
 kb-milkt | KB국민 밀크T 카드
 kb-visang-onlyone | KB국민 비상온리원 카드
 kb-you-with | KB국민 YOU With 카드
+shinhan-the-classic-v | 신한카드 The CLASSIC-V
+shinhan-the-classic-y | 신한카드 The CLASSIC-Y
+shinhan-the-classic-neo | 신한카드 The CLASSIC NEO
+samsung-the1-sfc-skypass | 삼성카드 THE 1 SFC (스카이패스)
+samsung-the-id-1st | 삼성카드 THE iD. 1st
+samsung-the-id-platinum-point | 삼성카드 THE iD. PLATINUM(포인트)
+hana-jade-classic | 하나카드 JADE Classic
+lotte-loca-platinum-discount | 롯데카드 LOCA PLATINUM 할인형
+woori-royal-blue-point | 우리카드 ROYAL BLUE POINT
+kb-gaon-platinum-voucher | KB국민 가온 플래티늄바우처카드
+nh-classy-travel | NH농협카드 클래시 트래블카드
+nh-on-platinum-point | NH농협카드 ON PLATINUM카드(포인트형)
+lotte-loca-money | 롯데카드 LOCA MONEY
+lotte-digiroca-auto | 롯데카드 디지로카 Auto
+lotte-loca-lite | 롯데카드 LOCA Lite
+lotte-digiroca-london | 롯데카드 디지로카 London
+bc-baro-onoff | BC 바로 On&Off
+bc-baro-air-plus-skypass | BC 바로 에어 플러스 스카이패스
+bc-baro-macao | BC 바로 MACAO
+bc-baro-green-card | BC 바로 그린카드(전국)
+hana-multi-any | 하나카드 MULTI Any
+hana-oneq | 하나카드 하나원큐카드
+hana-wonder-daily | 하나카드 원더카드(원더 DAILY)
+hana-1q-shopping-plus | 하나카드 1Q Shopping+
+woori-shopping-plus | 우리카드 카드의정석 SHOPPING+
+woori-every-1 | 우리카드 카드의정석 EVERY 1
+woori-everyday-check | 우리카드 카드의정석 EVERYDAY CHECK
+nh-chaeum-kpass-check | NH농협카드 채움 K-패스카드(체크)
+nh-zgm-shopping | NH농협 zgm shopping
+shinhan-kpass-check | 신한카드 K-패스 체크카드
+shinhan-kpass | 신한카드 K-패스
+kb-kpass-check | KB국민 K-패스체크카드
+kb-kpass | KB국민 K-패스카드
+kb-nori2-kbpay | KB국민 노리2 체크카드(KB Pay)
+woori-jeongseok-ohacheck | 우리카드 카드의정석 오하CHECK
+hyundai-musinsa | 무신사 현대카드
+naverpay-money-hana-check | 네이버페이 머니 하나 체크카드
+shinhan-deep-on-platinum-plus | 신한카드 Deep On Platinum+

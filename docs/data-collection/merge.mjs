@@ -2,7 +2,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-const dir = process.cwd() + '/docs/data-collection/incoming'
+const dir = '/Users/hato/Projects/cardpicker/docs/data-collection/incoming/batch4'
 const target = process.cwd() + '/src/data/cards.json'
 const files = process.argv.slice(2)
 

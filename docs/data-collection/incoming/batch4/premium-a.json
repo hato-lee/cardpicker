@@ -1,0 +1,118 @@
+[
+  {
+    "id": "shinhan-the-classic-v",
+    "name": "신한카드 The CLASSIC-V",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 197000,
+    "minSpend": 0,
+    "benefits": [
+      { "tag": "모든 가맹점", "type": "points", "rate": 1, "monthlyCap": null, "stars": 3, "note": "전 가맹점 이용금액의 1% 마이신한포인트 적립, 한도 없음" }
+    ],
+    "universal": { "type": "points", "rate": 1, "monthlyCap": null },
+    "complexity": 1,
+    "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/premium/1216601_2205.html",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 신한카드 공식 페이지. 전월 300만원 이상 이용 시 0.3% 추가적립(세부 조건 미반영), 전월 50만원 이상 시 공항 라운지 등은 태그 밖 혜택."
+  },
+  {
+    "id": "shinhan-the-classic-y",
+    "name": "신한카드 The CLASSIC-Y",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 100000,
+    "minSpend": 300000,
+    "benefits": [
+      { "tag": "모든 가맹점", "type": "points", "rate": 0.7, "monthlyCap": null, "stars": 2, "note": "전 가맹점 이용금액의 0.7% 마이신한포인트 적립, 한도 없음" },
+      { "tag": "해외 결제", "type": "points", "rate": 5, "monthlyCap": 50000, "stars": 2, "note": "해외·명품아울렛·면세점·골프 합산 5% 적립, 월 최대 5만 포인트" }
+    ],
+    "universal": { "type": "points", "rate": 0.7, "monthlyCap": null },
+    "complexity": 2,
+    "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/premium/1187940_2205.html",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 신한카드 공식 페이지."
+  },
+  {
+    "id": "shinhan-the-classic-neo",
+    "name": "신한카드 The CLASSIC NEO",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 117000,
+    "minSpend": 400000,
+    "benefits": [
+      { "tag": "온라인 쇼핑", "type": "points", "rate": 2, "monthlyCap": 30000, "capGroup": "a", "stars": 1, "note": "쿠팡 등 온라인몰 2% 적립. 전월실적 구간별 통합한도 3만~10만 포인트(40만~100만원:3만, 100만~180만원:6만, 180만원 이상:10만)" },
+      { "tag": "카페·편의점", "type": "points", "rate": 2, "monthlyCap": 30000, "capGroup": "a", "stars": 1, "note": "편의점 2% 적립, 온라인쇼핑·배달·병의원과 월 적립한도 통합" },
+      { "tag": "배달·외식", "type": "points", "rate": 2, "monthlyCap": 30000, "capGroup": "a", "stars": 1, "note": "배달앱 2% 적립, 위 항목들과 월 적립한도 통합" },
+      { "tag": "병의원·약국", "type": "points", "rate": 2, "monthlyCap": 30000, "capGroup": "a", "stars": 1, "note": "병원·약국 2% 적립, 위 항목들과 월 적립한도 통합" },
+      { "tag": "주유", "type": "points", "rate": 3, "monthlyCap": 30000, "capGroup": "a", "stars": 2, "note": "주유소 3% 적립(백화점·호텔 등과 동일 구간), 위 항목들과 월 적립한도 통합" },
+      { "tag": "해외 결제", "type": "points", "rate": 1.5, "monthlyCap": null, "stars": 1, "note": "해외 모든 가맹점 1.5% 적립, 한도 없음" }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/premium/1236160_2205.html",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 신한카드 공식 페이지 + 신한카드 공식 블로그(shinhancardblog.com, 실적구간·통합한도 상세). 친환경매장·드럭스토어 5% 등은 태그 밖 또는 미반영."
+  },
+  {
+    "id": "samsung-the1-sfc-skypass",
+    "name": "삼성카드 THE 1 SFC (스카이패스)",
+    "issuer": "삼성카드",
+    "kind": "credit",
+    "annualFee": 245000,
+    "minSpend": 300000,
+    "benefits": [
+      { "tag": "마일리지", "type": "mileage", "rate": 0.1, "monthlyCap": null, "stars": 2, "note": "모든 가맹점 1,000원당 스카이패스 1마일 기본 적립, 한도 없음" },
+      { "tag": "모든 가맹점", "type": "mileage", "rate": 0.1, "monthlyCap": null, "stars": 2, "note": "위와 동일한 전 가맹점 기본 마일리지 적립" },
+      { "tag": "주유", "type": "mileage", "rate": 0.2, "monthlyCap": 2000, "capGroup": "bonus", "stars": 3, "note": "특별 가맹점(백화점·주유·카페·편의점·택시) 1,000원당 추가 1마일(총 2마일), 월 통합 2,000마일 한도" },
+      { "tag": "카페·편의점", "type": "mileage", "rate": 0.2, "monthlyCap": 2000, "capGroup": "bonus", "stars": 3, "note": "특별 가맹점 이용 시 1,000원당 추가 1마일(총 2마일), 주유·택시 등과 월 2,000마일 통합한도" },
+      { "tag": "대중교통·택시", "type": "mileage", "rate": 0.2, "monthlyCap": 2000, "capGroup": "bonus", "stars": 3, "note": "택시 이용 시 1,000원당 추가 1마일(총 2마일), 주유·카페 등과 월 2,000마일 통합한도" }
+    ],
+    "universal": { "type": "mileage", "rate": 0.1, "monthlyCap": null },
+    "complexity": 3,
+    "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1450",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 삼성카드 공식 페이지(자바스크립트라 세부수치 일부 미확인) + 뱅크샐러드 THE 1 SFC(CARD002895, 연회비 245,000/250,000원, 적립률·한도). 공항라운지·발렛파킹 등은 태그 밖."
+  },
+  {
+    "id": "samsung-the-id-1st",
+    "name": "삼성카드 THE iD. 1st",
+    "issuer": "삼성카드",
+    "kind": "credit",
+    "annualFee": 150000,
+    "minSpend": 0,
+    "benefits": [
+      { "tag": "모든 가맹점", "type": "points", "rate": 1, "monthlyCap": null, "stars": 3, "note": "국내 모든 가맹점 1% 적립, 한도 없음" },
+      { "tag": "온라인 쇼핑", "type": "points", "rate": 1.5, "monthlyCap": null, "stars": 1, "note": "일상·쇼핑·여가 업종(온라인쇼핑몰 등) 1.5% 적립, 한도 없음" },
+      { "tag": "해외 결제", "type": "points", "rate": 3, "monthlyCap": null, "stars": 2, "note": "해외 가맹점 이용 시 3% 적립, 한도 없음" }
+    ],
+    "universal": { "type": "points", "rate": 1, "monthlyCap": null },
+    "complexity": 2,
+    "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1886",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 2025년 11월 출시. 출처: 언론기사(한국일보 등)·카드고릴라 요약(공식 페이지는 자바스크립트라 적립률 수치 직접 확인 불가, 전월실적 조건 미확인). 5대 프리미엄 영역 연 최대 15만원 할인 기프트, 공항라운지 연3회(동반1인 포함)는 태그 밖."
+  },
+  {
+    "id": "samsung-the-id-platinum-point",
+    "name": "삼성카드 THE iD. PLATINUM(포인트)",
+    "issuer": "삼성카드",
+    "kind": "credit",
+    "annualFee": 215000,
+    "minSpend": 500000,
+    "benefits": [
+      { "tag": "모든 가맹점", "type": "points", "rate": 1, "monthlyCap": null, "stars": 3, "note": "국내 가맹점 1% 빅포인트 적립, 한도 없음" },
+      { "tag": "온라인 쇼핑", "type": "points", "rate": 1.2, "monthlyCap": null, "stars": 1, "note": "온라인쇼핑몰·할인점·백화점·배달앱 1.2% 적립, 한도 없음" },
+      { "tag": "해외 결제", "type": "points", "rate": 1.5, "monthlyCap": null, "stars": 1, "note": "해외 가맹점·면세점·항공·여행·공연 1.5% 적립, 한도 없음" }
+    ],
+    "universal": { "type": "points", "rate": 1, "monthlyCap": null },
+    "complexity": 2,
+    "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1802",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 웹검색 요약(ajd.co.kr 등 카드정보 사이트, 공식 페이지는 자바스크립트라 적립률 수치 직접 확인 불가). 공항라운지 연6회 등은 태그 밖."
+  }
+]
