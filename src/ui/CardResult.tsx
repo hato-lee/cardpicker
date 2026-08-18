@@ -3,7 +3,7 @@ import type { Scored } from '../engine/recommend'
 import type { Persona, Benefit, BenefitType } from '../data/types'
 import { tips, rowAnnualValue, isStale, PERSONA_LABEL } from '../engine/explain'
 import { RULES } from '../engine/rules'
-import { won, rateText } from './format'
+import { won, rateText, capValueText } from './format'
 
 interface Props {
   rank: number
@@ -15,12 +15,22 @@ interface Props {
 /** 월 한도 표기. 마일리지 한도는 '원'이 아니라 '마일' 단위다. */
 function capText(type: BenefitType, cap: number | null): string {
   if (cap === null) return '한도 없음'
-  if (type === 'mileage') return `월 최대 ${cap.toLocaleString('ko-KR')}마일`
-  return `월 최대 ${won(cap)}`
+  return `월 최대 ${capValueText(type, cap)}`
+}
+
+/** 실적 구간 표기: "(실적 70만 원↑ 3만 원, 100만 원↑ 12% 할인·5만 원)". rate가 기본과 같으면 요율 생략 */
+function tiersText(b: Benefit): string {
+  if (!b.tiers || b.tiers.length === 0) return ''
+  const parts = b.tiers.map((t, i) => {
+    const cap = capValueText(b.type, t.monthlyCap)
+    const rate = t.rate !== undefined && t.rate !== b.rate ? `${rateText(b.type, t.rate)}·` : ''
+    return `${i === 0 ? '실적 ' : ''}${won(t.minSpend)}↑ ${rate}${cap}`
+  })
+  return ` (${parts.join(', ')})`
 }
 
 function benefitText(b: Benefit): string {
-  return `${b.tag} ${rateText(b.type, b.rate)} · ${capText(b.type, b.monthlyCap)}${b.note ? ` (${b.note})` : ''}`
+  return `${b.tag} ${rateText(b.type, b.rate)} · ${capText(b.type, b.monthlyCap)}${tiersText(b)}${b.note ? ` (${b.note})` : ''}`
 }
 
 export function CardResult({ rank, scored, persona, today }: Props) {

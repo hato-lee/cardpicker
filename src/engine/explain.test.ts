@@ -95,3 +95,41 @@ describe('isStale', () => {
     expect(isStale('2026-05-22', new Date('2026-08-20T23:59:00'))).toBe(false)
   })
 })
+
+describe('다음 구간 안내', () => {
+  const tiered: Card = { ...base, minSpend: 300_000, benefits: [
+    { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3,
+      tiers: [{ minSpend: 700_000, monthlyCap: 30000 }, { minSpend: 1_000_000, rate: 12, monthlyCap: 50000 }] },
+  ] }
+
+  test('한도만 다르면 "(월 사용액 …부터는 한도 …)"', () => {
+    const ab = annualBenefit(tiered, q({ monthlySpend: 500_000 }))!
+    expect(tips(ab, 'meticulous')[0]).toBe('주유에 월 15만 원 이상 쓰면 한도(1.5만 원)를 꽉 채워요 (월 사용액 70만 원부터는 한도 3만 원)')
+  })
+
+  test('요율도 다르면 요율·한도', () => {
+    const ab = annualBenefit(tiered, q({ monthlySpend: 700_000 }))!
+    expect(tips(ab, 'meticulous')[0]).toBe('주유에 월 30만 원 이상 쓰면 한도(3만 원)를 꽉 채워요 (월 사용액 100만 원부터는 12% 할인·한도 5만 원)')
+  })
+
+  test('최상위 구간이면 괄호 없음', () => {
+    const ab = annualBenefit(tiered, q({ monthlySpend: 1_000_000 }))!
+    expect(tips(ab, 'meticulous')[0]).toBe('주유에 월 41.7만 원 이상 쓰면 한도(5만 원)를 꽉 채워요')
+  })
+
+  test('다음 구간에서 한도가 풀리면 "한도 없음"', () => {
+    const c: Card = { ...base, minSpend: 0, benefits: [
+      { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3, tiers: [{ minSpend: 1_000_000, monthlyCap: null }] },
+    ] }
+    const ab = annualBenefit(c, q({ monthlySpend: 500_000 }))!
+    expect(tips(ab, 'meticulous')[0]).toBe('주유에 월 15만 원 이상 쓰면 한도(1.5만 원)를 꽉 채워요 (월 사용액 100만 원부터는 한도 없음)')
+  })
+
+  test('범용 줄에는 안 붙는다', () => {
+    const c: Card = { ...base, minSpend: 0,
+      universal: { type: 'points', rate: 1, monthlyCap: 10000, tiers: [{ minSpend: 1_000_000, monthlyCap: 30000 }] },
+      benefits: [{ tag: '모든 가맹점', type: 'points', rate: 1, monthlyCap: 10000, stars: 3, tiers: [{ minSpend: 1_000_000, monthlyCap: 30000 }] }] }
+    const ab = annualBenefit(c, q({ tags: ['주유'], monthlySpend: 500_000 }))!
+    expect(tips(ab, 'meticulous')[0]).toBe('그 외 소비는 모든 가맹점 1% 적립')
+  })
+})
