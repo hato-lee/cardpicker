@@ -15,6 +15,7 @@
 1. **판매 중인가?** 단종·신규발급 중단이면 `status`를 `"discontinued"`로. (확실할 때만.)
 2. `annualFee` (원, 정수; 브랜드별로 다르면 가장 낮은 값, 국내전용 우선), `minSpend` (전월실적 원, 없으면 0).
 3. `benefits` 각 항목: `rate`(%), `monthlyCap`(월 한도 원 — 마일리지는 마일), `note`, `capGroup`(선택, 한도를 공유하는 혜택들엔 같은 문자열, 예: "shared"). 값이 바뀌면 `stars`도 아래 기준으로 다시 매겨라.
+- **실적 구간이 있으면 `tiers`로 적어라.** 기본 rate/monthlyCap은 카드 minSpend부터 적용되는 **최저 구간** 값. 그 위 구간은 `"tiers": [{ "minSpend": 700000, "monthlyCap": 30000 }, { "minSpend": 1000000, "rate": 12, "monthlyCap": 50000 }]` 처럼 minSpend 오름차순으로(카드 minSpend보다 커야 함). rate는 기본과 다를 때만. 통합 한도(capGroup) 혜택들은 tiers의 minSpend·monthlyCap이 서로 같아야 한다. `universal`에 구간이 있으면 universal.tiers와 '모든 가맹점' 벤핏의 tiers를 같게. note에는 구간을 다시 나열하지 마라(화면이 구조적으로 보여준다).
 4. `universal` (전 가맹점 적립/할인 있으면 {type, rate, monthlyCap}, 없으면 null). universal이 있으면 benefits에 `모든 가맹점` 항목이 반드시 있어야 하고 둘의 rate/cap이 같아야 한다.
 5. 12개 태그 안에서 **빠진 큰 혜택**(예: 통신비 자동이체 할인이 있는데 없음)이 있으면 addBenefits로 추가. 태그 밖 혜택(영화·백화점·라운지 등)은 memo에만.
 6. `officialUrl`이 카드사 공식 도메인의 https 상세 페이지인지. 더 정확한 공식 상세 주소를 찾으면 set으로 교체(뱅크샐러드·카드고릴라 주소 금지).
