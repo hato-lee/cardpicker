@@ -1,0 +1,151 @@
+[
+  {
+    "id": "hyundai-koreanair-120",
+    "name": "현대카드 대한항공카드 120 (Edition2)",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 120000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "국내 가맹점 1,000원당 1마일 적립, 전월실적 50만 원 이상. 대한항공 직판 항공권은 1,000원당 2마일(연 2만 마일 한도, 초과분은 1마일)"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "전 가맹점 기본 1,000원당 1마일 적립, 적립 한도 없음"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "mileage",
+        "rate": 0.2,
+        "monthlyCap": 4000,
+        "stars": 3,
+        "note": "해외 가맹점 1,000원당 2마일, 월 4천 마일 한도(초과분은 1마일로 적립)"
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.1,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://www.hyundaicard.com/upload/card/T_AZW-20250204-1347-63_%EB%8C%80%ED%95%9C%ED%95%AD%EA%B3%B5%EC%B9%B4%EB%93%9C%20Ed2_120_V1_%EA%B3%B5%EC%8B%9C%EC%8B%A4%EC%9A%A9.pdf",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 현대카드 공식 가이드북 PDF(hyundaicard.com/upload/card, 2025년 1월 기준), 대한항공 뉴스룸(news.koreanair.com, 2024-07-03 Edition2 출시 기사) 교차 확인. 연회비 12만 원(기본 3만+제휴 9만), 가족카드 3만 원. 발레파킹·항공권 할인쿠폰은 perks 참고. 라운지 혜택은 없음(300부터 제공).",
+    "mileageBonus": { "miles": 6000, "minAnnualSpend": 12000000, "firstYearMinSpend": 1000000 },
+    "perks": [
+      "대한항공 직판 국제선 항공권 5만 원 할인 쿠폰 연 1장",
+      "인천공항·국내 특급호텔(그랜드 워커힐 서울 등) 발레파킹 월 2회(전월실적 50만 원 이상)"
+    ]
+  },
+  {
+    "id": "hyundai-koreanair-300",
+    "name": "현대카드 대한항공카드 300 (Edition2)",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 300000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "국내 가맹점 1,000원당 1마일 적립, 전월실적 50만 원 이상. 대한항공 직판 항공권은 1,000원당 3마일(연 3만 마일 한도, 초과분은 1마일)"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "전 가맹점 기본 1,000원당 1마일 적립, 적립 한도 없음"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "mileage",
+        "rate": 0.3,
+        "monthlyCap": 6000,
+        "stars": 3,
+        "note": "해외 가맹점 1,000원당 3마일, 월 6천 마일 한도(초과분은 1마일로 적립)"
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.1,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://www.hyundaicard.com/upload/card/T_AZW-20250204-1347-63_%EB%8C%80%ED%95%9C%ED%95%AD%EA%B3%B5%EC%B9%B4%EB%93%9C%20Ed2_300_V1_%EA%B3%B5%EC%8B%9C%EC%8B%A4%EC%9A%A9.pdf",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 현대카드 공식 가이드북 PDF(hyundaicard.com/upload/card, 2025년 1월 기준), 대한항공 뉴스룸(news.koreanair.com, 2024-07-03 Edition2 출시 기사) 교차 확인. 연회비 30만 원(기본 10만+제휴 20만), 가족카드 10만 원. 국내 특급호텔(반얀트리 클럽앤스파 서울·그랜드 워커힐 서울 등)·백화점(오프라인)·골프장 이용 시 1,000원당 3마일 추가 적립(월 6천 마일 한도, 해외 결제와 별도 풀)은 태그 밖 혜택이라 memo에만 기재. 메탈 카드 플레이트는 유료 옵션(발급 수수료 10만 원)이라 perks에서 제외.",
+    "mileageBonus": { "miles": 10000, "minAnnualSpend": 24000000, "firstYearMinSpend": 1000000 },
+    "perks": [
+      "전 세계 공항 라운지 연 10회(전월실적 50만 원 이상)",
+      "대한항공 직판 국제선 항공권 5만 원 할인 쿠폰 연 2장",
+      "인천공항·국내 특급호텔 발레파킹 월 10회(전월실적 50만 원 이상)"
+    ]
+  },
+  {
+    "id": "hyundai-koreanair-the-first-edition2",
+    "name": "현대카드 대한항공카드 the First Edition2",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 800000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "국내 가맹점 1,000원당 1마일 적립, 전월실적 50만 원 이상. 대한항공 직판 항공권은 1,000원당 5마일(연 5만 마일 한도)"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "전 가맹점 기본 1,000원당 1마일 적립, 적립 한도 없음"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "mileage",
+        "rate": 0.3,
+        "monthlyCap": 6000,
+        "stars": 3,
+        "note": "해외 가맹점 1,000원당 3마일, 월 6천 마일 한도(초과분은 1마일로 적립)"
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.1,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://www.hyundaicard.com/upload/card/T_AZW-20260320-1106-30_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%B6%81_%EB%8C%80%ED%95%9C%ED%95%AD%EA%B3%B5_Ed2_the%20First_V1.pdf",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 현대카드 공식 가이드북 PDF(hyundaicard.com/upload/card), 현대카드 영문 상품페이지(MOCAR_KALE2T4), 대한항공 뉴스룸(news.koreanair.com, 2024-07-03 Edition2 출시 기사), 토스 카드라운지 교차 확인. 연회비 80만 원(기본 20만+제휴 60만), 가족카드 20만 원. 국내 특급호텔·백화점(오프라인)·골프장 이용 시 1,000원당 3마일 추가 적립(월 6천 마일 한도, 해외 결제와 별도 풀)은 태그 밖 혜택이라 memo에만 기재.",
+    "mileageBonus": { "miles": 30000, "minAnnualSpend": 36000000, "firstYearMinSpend": 1000000 },
+    "perks": [
+      "전 세계 공항 라운지 무제한 이용(전월실적 50만 원 이상)",
+      "대한항공 직판 국제선 항공권 5만 원 할인 쿠폰 연 4장",
+      "인천공항·국내 특급호텔 발레파킹 월 10회(전월실적 50만 원 이상)"
+    ]
+  }
+]

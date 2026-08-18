@@ -1,0 +1,425 @@
+[
+  {
+    "id": "hyundai-the-red-mileage",
+    "name": "현대카드 the Red (항공 마일리지형)",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 300000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "국내외 가맹점 1,500원당 1마일"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.067,
+      "monthlyCap": null
+    },
+    "complexity": 1,
+    "officialUrl": "https://www.hyundaicard.com",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 공식 페이지 안 읽혀 뱅크샐러드 참고 → 사용자 확인 필요. 바우처·라운지는 태그 밖. 마일리지재검수(2026-08-18): 뱅크샐러드(CARD004325, 현재 판매 중인 '현대카드 the Red (항공 마일리지형)' 상세)와 나무위키(발급중단 이력) 교차 확인. 연회비 300,000원·1,500원당1마일(0.067) 기존 값과 일치, 변경 없음. the Red Edition5·Stripe 마일리지형은 2024-09-25부로 완전 단종, 현재 판매분은 후속 Edition(Edition6 추정)으로 CARD004325와 동일 연회비. 미확인: 전월실적(일부 2차 자료는 전월/당월 50만원 언급하나 현재 상품 기준으로 확정 못함, 기존 값 0 유지), 월 한도(Edition5 자료는 '한도없음'이나 현재 상품 명시 자료 없어 null 유지)."
+  },
+  {
+    "id": "hyundai-koreanair-060",
+    "name": "현대카드 대한항공카드 060",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 60000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "국내 가맹점 1,000원당 1마일, 전월실적 50만원 이상. 연 1회 1,000마일 보너스"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "전 가맹점 기본 1,000원당 1마일 적립"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "mileage",
+        "rate": 0.2,
+        "monthlyCap": null,
+        "stars": 3,
+        "note": "해외가맹점·항공권 1,000원당 2마일"
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.1,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://www.hyundaicard.com/koreanair/m/html/hub_kal1.html",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요. 대한항공 직판 국제선 항공권 5만원 할인쿠폰(연 1장)은 태그 밖. 검증(2026-08-18): 확인 실패 — 공식 officialUrl은 PDF(가이드북)인데 WebFetch가 텍스트로 파싱하지 못함(바이너리로만 저장됨), hyundaicard.com은 JS 렌더링, card.hyundaicard.com 매거진에도 미등재, WebSearch는 세션 전체 한도 소진으로 사용 불가, 뱅크샐러드·카드고릴라·검색엔진 페이지도 WebFetch로 유의미한 정보 확보 불가. 기존 값(연회비 6만원, 전월실적 50만원, 국내 1,000원당1마일, 해외 1,000원당2마일) 미확인 상태로 유지. 재검증(2026-08-18): 공식 페이지(hyundaicard.com/koreanair/m/html/hub_kal1.html)와 뱅크샐러드(CARD004617) 교차 확인 — 연회비 6만원, 전월실적 50만원, 국내 1,000원당1마일·해외/항공권 1,000원당2마일·연1회 1,000마일 보너스 모두 기존 값과 일치. 변경 없음. 마일리지재검수(2026-08-18): 공식 officialUrl(hyundaicard.com/koreanair/m/html/hub_kal1.html)이 이번엔 텍스트로 정상 파싱됨 — 연회비 6만원, 전월실적 50만원, 국내 1,000원당1마일, 해외·대한항공 직판 항공권 1,000원당2마일, 연1회 1,000마일 보너스 모두 기존 값과 일치. 뱅크샐러드(CARD004617)·카드고릴라(신청 URL, 최신 가이드북 PDF 'Ed2' 표기 존재) 교차 확인 결과 단종 언급 없이 현재 판매 중. 변경 없음."
+  },
+  {
+    "id": "woori-every-mile-skypass",
+    "name": "우리카드 카드의정석 EVERY MILE SKYPASS",
+    "issuer": "우리카드",
+    "kind": "credit",
+    "annualFee": 39000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "국내 1,000원당 1마일, 해외 1,000원당 최대 2마일. 전월실적 조건 없이 적립"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "mileage",
+        "rate": 0.2,
+        "monthlyCap": 1000,
+        "stars": 3,
+        "note": "대한항공 스카이패스. 국내 기본 1,000원당 1마일 + 해외 추가 1,000원당 1마일(합산 2마일), 추가분 월 1,000마일 한도(본인+가족카드 합산). 해외이용수수료 면제"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "전 가맹점 기본 적립(위 마일리지 항목과 동일)"
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.1,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://pc.wooricard.com/dcpc/yh1/crd/crd01/H1CRD101S02.do?cdPrdCd=835314",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집, 검수 전. 출처: 뱅크샐러드 참고, 공식 확인 필요(공식 페이지가 JS 렌더링이라 세부 수치 미확인). 전월실적 50만원 이상시 국내 공항라운지 연2회 무료이용(동반1인)은 태그 밖. 검증(2026-08-18): 확인 실패 — 공식 상세페이지(pc.wooricard.com, cdPrdCd=835314)가 JS 렌더링이라 미로드, WebSearch는 세션 한도 소진으로 사용 불가, Bing/Google/DuckDuckGo를 WebFetch로 대신 시도했으나 무관한 캐시 결과·차단·CAPTCHA로 뱅크샐러드·카드고릴라 대조 불가. 재검증(2026-08-18): 뱅크샐러드(CARD004241)·핀포인트뉴스 대조. 연회비 3.9만원, 전월실적 조건 없음, 국내 1,000원당 1마일, 해외 1,000원당 최대 2마일, 해외이용수수료 면제 모두 기존 값과 일치, 변경 없음. 마일리지 연간 적립한도는 출처에서 확인 안 됨: 미확인. 구간이행(2026-08-18): 대상 아님 — 마일리지 적립(국내 1,000원당 1마일/해외 1,000원당 2마일)은 전월실적 조건 없이 정액 적립, 실적 구간 없음(뱅크샐러드 CARD004241, benefitshub 확인). 연간 적립한도는 기존대로 미확인 유지. 노트정리(2026-08-18): 마일리지: 연간 적립 한도 미확인. 마일리지재검수(2026-08-18): 처음부터 재확인. 뱅크샐러드(CARD004241)·benefitshub·핀포인트뉴스/머니투데이 스니펫 대조. 연회비 3.9만원·전월실적 없음·국내 1,000원당1마일·해외 1,000원당 최대2마일은 기존값과 일치. 신규 확인: 해외 추가 1마일 구간에 월 1,000마일 한도(본인+가족카드 합산) 존재 — '해외 결제' 태그를 수수료면제(rate0)에서 마일리지 결합형(rate0.2, monthlyCap1000)으로 정정. universal·'모든 가맹점' 벤핏이 누락돼 있어 추가. 미확인: 마일리지 연간 적립 한도(공식 페이지 JS 렌더링으로 미확인 지속). 노트정리(2026-08-18): 해외 결제 출처 뱅크샐러드 CARD004241, benefitshub·핀포인트뉴스 참고."
+  },
+  {
+    "id": "hyundai-the-purple-mileage",
+    "name": "현대카드 the Purple(마일리지형)",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 1000000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "대한항공 스카이패스 마일리지형, 1,000원당 1마일 적립. 전월실적 50만원 이상 시 적립"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "대한항공 스카이패스 마일리지형, 1,000원당 1마일 적립. 전월실적 50만원 이상 시 적립"
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.1,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://www.hyundaicard.com",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 나무위키·뱅크샐러드·머니트랩 참고(공식 페이지는 JS 렌더링이라 상세 확인 어려움). M포인트형(1.5% 적립)도 선택 가능하나 이 항목은 마일리지형 기준. 이전 버전인 the Purple Edition2/osée는 신규발급 중단, 연회비가 100만원으로 변경된 현재 상품 기준. 공항라운지(Priority Pass 등), 발레파킹, 여행·쇼핑 바우처 등 프리미엄 서비스 제공(세부 조건 미확인). 미확인: 마일리지 월/연 적립 한도. 마일리지재검수(2026-08-18): 연회비 100만원(기본 30만+제휴 70만) 확인. 현재 판매 중인 the Purple(2024-09-25 출시, 구 osée 후속)은 마일리지형이 대한항공 단독(아시아나 선택 불가 — osée 시절과 다름) 확인해 note 수정, rate 0.1은 정확. 미확인: 월/연 적립 한도, 전월실적 50만원 조건 공식 확인. 출처: 나무위키 현대카드/카드 상품, 검색 스니펫(카드고릴라·머니트랩)."
+  },
+  {
+    "id": "woori-jeongseok-premium-mileage-koreanair",
+    "name": "우리카드 카드의 정석 프리미엄 마일리지(대한항공)",
+    "issuer": "우리카드",
+    "kind": "credit",
+    "annualFee": 135000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "대한항공 스카이패스. 전 가맹점 1,000원당 1마일 적립"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "전 가맹점 1,000원당 1마일 적립, 위 마일리지 항목과 동일"
+      },
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "주유소 리터당 60원 청구할인"
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.1,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://pc.wooricard.com/dcpc/yh2/bcd/bcd01/cdadv/H2BCD201S02.do",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: BC카드 공식 상세(m.bccard.com, cardGdsNo=835314) — 연회비(마스터/비자 135,000원, 가족카드 3만원), 대한항공 1,000원당 1마일 기본 적립, 주유 리터당 60원 할인 확인. 우리카드 공식 페이지는 JS 렌더링으로 개별 상품 상세 미확인, 프리미엄카드 목록 URL로 대체. 이미 있는 '카드의 정석 프리미엄 마일리지(아시아나)'의 대한항공 버전. 프리미엄 기프트 서비스, 후불교통카드 등은 태그 밖. 미확인: 전월실적 조건, 월/연 마일리지 한도, 주유 할인 한도."
+  },
+  {
+    "id": "woori-royal-blue-mileage-skypass",
+    "name": "우리카드 ROYAL BLUE MILEAGE (SKYPASS)",
+    "issuer": "우리카드",
+    "kind": "credit",
+    "annualFee": 330000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "대한항공/아시아나 선택형(대한항공 기준). 전 가맹점 1,000원당 1마일, 영화·문화 1,000원당 2마일 우대"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "전 가맹점 1,000원당 1마일 적립, 위 마일리지 항목과 동일"
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.1,
+      "monthlyCap": null
+    },
+    "complexity": 3,
+    "officialUrl": "https://pc.wooricard.com/dcpc/yh2/bcd/bcd01/cdadv/H2BCD201S02.do",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 뱅크샐러드(CARD003919) 참고, 우리카드 공식 페이지(m.wooricard.com)는 JS 렌더링으로 상세 수치 미확인 — memo에 명시. 연회비 33만원(BC/VISA). 기존 'ROYAL BLUE POINT'와 별개 상품으로 대한항공·아시아나 선택형 마일리지 적립. Priority Pass 라운지 연 5회, 프리미엄 기프트(아시아 동반자 왕복항공권/호텔외식통합이용권 25만원/백화점상품권 20만원 중 택1, 연회비 완납·초년도 실적 50만원 조건), 국내외 호텔 2박1박 무료 등은 태그 밖. 미확인: 월/연 마일리지 한도, 영화·문화 우대의 정확한 적용범위, 상시 전월실적 조건 여부."
+  },
+  {
+    "id": "bc-baro-air-master",
+    "name": "BC 바로 에어 마스터",
+    "issuer": "BC카드",
+    "kind": "credit",
+    "annualFee": 29000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "대한항공 스카이패스. 전 가맹점 1,500원당 1마일 기본 적립(실적조건 없음). 카드사용액 100만원당 200마일 보너스 별도 적립(전월실적 50만원 이상)"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "전 가맹점 1,500원당 1마일 기본 적립, 위 마일리지 항목과 동일"
+      },
+      {
+        "tag": "주유",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": 2000,
+        "capGroup": "a",
+        "stars": 1,
+        "note": "주유소(LPG·전기차 충전소 포함). 대중교통·택시·해외결제 우대와 월 마일리지 한도 통합",
+        "tiers": [
+          {
+            "minSpend": 500000,
+            "rate": 0.133,
+            "monthlyCap": 2000
+          }
+        ]
+      },
+      {
+        "tag": "대중교통·택시",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": 2000,
+        "capGroup": "a",
+        "stars": 1,
+        "note": "시내버스·지하철·택시. 주유·해외결제 우대와 월 마일리지 한도 통합",
+        "tiers": [
+          {
+            "minSpend": 500000,
+            "rate": 0.133,
+            "monthlyCap": 2000
+          }
+        ]
+      },
+      {
+        "tag": "해외 결제",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": 2000,
+        "capGroup": "a",
+        "stars": 1,
+        "note": "해외 가맹점. 주유·대중교통 우대와 월 마일리지 한도 통합",
+        "tiers": [
+          {
+            "minSpend": 500000,
+            "rate": 0.133,
+            "monthlyCap": 2000
+          }
+        ]
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.067,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://m.bccard.com/app/mobileweb/CardDetail.do?exec=cardDetail&cardGdsNo=104452",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: BC카드 공식 상세(m.bccard.com, cardGdsNo=104452), 잘 읽힘. 2026년 신규 출시된 'AIR 시리즈'로 기존 '바로 에어 플러스 스카이패스'(이미 있는 카드, 2026-02 신규발급 중단 보도 있음) 후속 상품. 2~3개월 무이자할부는 태그 밖. 미확인: 마일리지 소멸기한, 100만원당 200마일 보너스가 주유·대중교통·해외 통합한도(월 2,000마일)와 정확히 어떻게 배분되는지. 형식보정(2026-08-18): 통합한도 그룹의 기본 monthlyCap을 null→2,000마일로(스키마상 capGroup은 한도 필요, 기본 적립 1,500원당 1마일이 2,000마일에 닿으려면 월 300만 원이라 실질 영향 없음)."
+  },
+  {
+    "id": "bc-baro-air-max",
+    "name": "BC 바로 에어 맥스",
+    "issuer": "BC카드",
+    "kind": "credit",
+    "annualFee": 43000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "대한항공 스카이패스. 전 가맹점 1,500원당 1마일 기본 적립(실적조건 없음). 카드사용액 100만원당 200마일 보너스 별도 적립(전월실적 50만원 이상)"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "전 가맹점 1,500원당 1마일 기본 적립, 위 마일리지 항목과 동일"
+      },
+      {
+        "tag": "온라인 쇼핑",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": 2000,
+        "capGroup": "a",
+        "stars": 1,
+        "note": "쿠팡·컬리 등 온라인몰. 카페·해외결제 우대와 월 마일리지 한도 통합",
+        "tiers": [
+          {
+            "minSpend": 500000,
+            "rate": 0.133,
+            "monthlyCap": 2000
+          }
+        ]
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": 2000,
+        "capGroup": "a",
+        "stars": 1,
+        "note": "스타벅스·투썸플레이스 등 카페. 온라인쇼핑·해외결제 우대와 월 마일리지 한도 통합",
+        "tiers": [
+          {
+            "minSpend": 500000,
+            "rate": 0.133,
+            "monthlyCap": 2000
+          }
+        ]
+      },
+      {
+        "tag": "해외 결제",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": 2000,
+        "capGroup": "a",
+        "stars": 1,
+        "note": "해외 가맹점. 온라인쇼핑·카페 우대와 월 마일리지 한도 통합",
+        "tiers": [
+          {
+            "minSpend": 500000,
+            "rate": 0.133,
+            "monthlyCap": 2000
+          }
+        ]
+      },
+      {
+        "tag": "관리비·공과금",
+        "type": "mileage",
+        "rate": 0.067,
+        "monthlyCap": 2000,
+        "capGroup": "b",
+        "stars": 1,
+        "note": "아파트관리비 자동납부",
+        "tiers": [
+          {
+            "minSpend": 500000,
+            "rate": 0.133,
+            "monthlyCap": 500
+          }
+        ]
+      }
+    ],
+    "universal": {
+      "type": "mileage",
+      "rate": 0.067,
+      "monthlyCap": null
+    },
+    "complexity": 3,
+    "officialUrl": "https://m.bccard.com/app/mobileweb/CardDetail.do?exec=cardDetail&cardGdsNo=104453",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: BC카드 공식 상세(m.bccard.com, cardGdsNo=104453), 잘 읽힘. 2026년 신규 출시된 'AIR 시리즈' 상위 카드. 'MAX 적립#1'에는 다이소·올리브영 등 '라이프쇼핑'도 포함되나 12개 태그에 해당 카테고리가 없어 미반영. 2~3개월 무이자할부는 태그 밖. 미확인: 마일리지 소멸기한, 100만원당 200마일 보너스와 MAX#1 통합한도(월 2,000마일)의 정확한 배분방식. 형식보정(2026-08-18): 통합한도 그룹의 기본 monthlyCap을 null→2,000마일로(스키마상 capGroup은 한도 필요, 기본 적립 1,500원당 1마일이 2,000마일에 닿으려면 월 300만 원이라 실질 영향 없음)."
+  }
+]
