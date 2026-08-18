@@ -1,0 +1,82 @@
+[
+  {
+    "id": "woori-nu-iu",
+    "set": { "status": "discontinued", "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 API(idx 2403, is_discon:true) 및 검색(전자신문 2023.7.26 등, 우리카드 자체망 전환으로 BC망 카드 정리)으로 2023년 8월 31일부로 신규발급 중단 확인, 단종 처리. 출처: api.card-gorilla.com, etnews.com"
+  },
+  {
+    "id": "woori-loca-apt-platinum",
+    "set": { "lastChecked": "2026-08-18" },
+    "benefits": [
+      {
+        "tag": "관리비·공과금",
+        "set": {
+          "monthlyCap": 5000,
+          "stars": 1,
+          "note": "아파트관리비 청구할인, 도시가스 자동납부 시 월 3천원 별도 할인",
+          "tiers": [
+            { "minSpend": 800000, "monthlyCap": 10000 },
+            { "minSpend": 1200000, "monthlyCap": 15000 }
+          ]
+        }
+      }
+    ],
+    "addBenefits": [
+      {
+        "tag": "통신비·OTT",
+        "type": "discount",
+        "rate": 30,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "넷플릭스·유튜브 프리미엄 정기결제 30% 청구할인"
+      }
+    ],
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라(idx 544)·이베이스매뉴얼(thisthatbase.com) 대조. 연회비·전월실적 기존 값과 일치. 관리비 한도가 구간제(40만원↑5천/80만원↑1만/120만원↑1.5만원)임을 확인해 tiers로 이행(기본값 5천원, stars 2→1). 넷플릭스·유튜브 프리미엄 30% 청구할인을 통신비·OTT에 추가. 미확인: OTT 할인 월 한도(원화 기준). 출처: 카드고릴라, thisthatbase.com"
+  },
+  {
+    "id": "woori-royal-blue-point",
+    "set": { "status": "discontinued", "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 API(idx 1741, is_discon:true) 및 검색(나무위키, 우리카드 자체망 전환으로 BC망 카드 단종 진행)으로 신규발급 중단 확인, 단종 처리. 출처: api.card-gorilla.com"
+  },
+  {
+    "id": "woori-shopping-plus",
+    "set": {
+      "officialUrl": "https://m.wooricard.com/dcmw/yh1/crd/crd01/M1CRD101S02.do?recomNo=102492",
+      "lastChecked": "2026-08-18"
+    },
+    "benefits": [
+      {
+        "tag": "온라인 쇼핑",
+        "set": {
+          "monthlyCap": 4000,
+          "note": "온라인 쇼핑 10% 청구할인, 삼성페이·네이버페이·카카오페이·PAYCO 5% 추가할인 동일 한도 공유",
+          "tiers": [
+            { "minSpend": 700000, "monthlyCap": 8000 },
+            { "minSpend": 1200000, "monthlyCap": 16000 }
+          ]
+        }
+      }
+    ],
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라(idx 2687, is_discon:false)로 연회비(국내전용 1만원)·전월실적·혜택 항목 기존 값과 일치 확인, officialUrl을 정확한 상세페이지로 교체. 온라인쇼핑 실적구간(70만/120만원)을 note 대신 tiers로 이행(구간 금액 자체는 재확인 못하고 기존 근거 유지). 미확인: 온라인쇼핑 구간별 정확한 한도, 주유 월 한도(약 3,600원). 출처: 카드고릴라"
+  },
+  {
+    "id": "woori-everyday-check",
+    "set": { "annualFee": 0, "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 API(idx 2742, annual_fee_basic 국내전용/해외겸용 모두 '없음', is_discon:false)와 참고사이트(sungu4rd.com, '연회비 무료')로 연회비 12,000원이 오류였음을 확인해 0원으로 수정. 모든 가맹점 0.2%, 카페·대중교통·주유 1%(월 6천원) 구조는 대체로 일치. 미확인: 카페 한도가 전월실적 60만원↑ 시 상향되는지(뱅크샐러드 6천~1만원, 참고사이트 3천→6천으로 자료 상충되어 미반영). 출처: 카드고릴라, sungu4rd.com"
+  },
+  {
+    "id": "woori-jeongseok-ohacheck",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 API(idx 2570, is_discon:false)로 연회비 0원·전월실적 20만원·항목별 5%(건당 1만원 상한)·구간별 통합한도(20만원↑1만/50만원↑2만/70만원↑3만원) 기존 값과 일치 확인. 값 변경 없음. 출처: 카드고릴라"
+  },
+  {
+    "id": "hana-1q-daily",
+    "set": { "status": "discontinued", "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 API(idx 234, is_discon:true) 및 검색(하나카드 2024.1.1 발표, 2024.3.13부로 1Q Daily 등 신규·추가·재발급 중단)으로 단종 확인. 연회비 8,000원(국내전용)·전월실적 30만원은 기존 값과 일치. 출처: api.card-gorilla.com, 녹색경제신문"
+  },
+  {
+    "id": "hana-multi-living",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 API(idx 711, is_discon:false, 연회비 12,000원)·검색(hanacard.co.kr, benefitshub.co.kr)으로 연회비·전월실적·온라인쇼핑·주유 실적구간(40만원↑5%/1만원, 70만원↑10%/1.5만원)이 기존 값과 정확히 일치함을 확인. 값 변경 없음. 미확인: 카페·주차 5% 할인 존재 여부(카드고릴라에 언급 있으나 뱅크샐러드 등에서 확인 안 됨, 반영 안 함), 통신비 자동이체 정확한 조건. 출처: 카드고릴라, hanacard.co.kr"
+  }
+]
