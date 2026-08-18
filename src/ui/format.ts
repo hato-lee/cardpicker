@@ -14,12 +14,19 @@ export function capValueText(type: 'discount' | 'points' | 'mileage', cap: numbe
   return won(cap)
 }
 
-/** 혜택 요율 표기. 할인/적립은 "10% 할인", 마일리지는 "1,000원당 N마일" (N = rate * 10, 소수 둘째자리에서 반올림, 뒤 0 생략) */
+/**
+ * 혜택 요율 표기. 할인/적립은 "10% 할인", 마일리지는 "1,000원당 N마일" (N = rate * 10).
+ * N이 0.5마일 단위로 안 떨어지면(예: 0.067 → 0.67마일) 카드사 표기대로 "1,500원당 1마일"로 (원 단위는 100원으로 반올림).
+ */
 export function rateText(type: 'discount' | 'points' | 'mileage', rate: number): string {
   // rate 0 = 정액 할인(리터당 ○원)·수수료 면제 등 %로 표현 안 되는 혜택. 세부는 note에.
   if (rate === 0) return '정액·특별 혜택'
   if (type === 'mileage') {
     const miles = Math.round(rate * 10 * 100) / 100
+    if (miles * 2 !== Math.round(miles * 2)) {
+      const wonPerMile = Math.round(100 / rate / 100) * 100
+      return `${wonPerMile.toLocaleString('ko-KR')}원당 1마일`
+    }
     return `1,000원당 ${miles}마일`
   }
   const label = type === 'discount' ? '할인' : '적립'

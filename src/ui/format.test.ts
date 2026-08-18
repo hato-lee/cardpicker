@@ -14,7 +14,9 @@ test('rateText 할인/적립', () => {
 })
 
 test('rateText 마일리지', () => {
-  expect(rateText('mileage', 0.067)).toBe('1,000원당 0.67마일')
+  expect(rateText('mileage', 0.067)).toBe('1,500원당 1마일')  // 0.5마일 단위로 안 떨어지면 'N원당 1마일'로
+  expect(rateText('mileage', 0.05)).toBe('1,000원당 0.5마일')
+  expect(rateText('mileage', 0.033)).toBe('3,000원당 1마일')
   expect(rateText('mileage', 0.1)).toBe('1,000원당 1마일')
   expect(rateText('mileage', 0.15)).toBe('1,000원당 1.5마일')
 })

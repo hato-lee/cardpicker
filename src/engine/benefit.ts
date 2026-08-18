@@ -104,18 +104,25 @@ function applyCapGroups(rows: BenefitRow[], rules: Rules): BenefitRow[] {
   return result
 }
 
+/** 범용(universal)이 이 태그를 대신 채울 수 있는가. '마일리지'는 마일리지형 범용만 (RULES.mileageTagOnlyByMileage) */
+export function universalCanCover(card: Card, tag: Tag, rules: Rules = RULES): boolean {
+  if (card.universal === null) return false
+  if (rules.mileageTagOnlyByMileage && tag === MILEAGE_TAG) return card.universal.type === 'mileage'
+  return true
+}
+
 export function annualBenefit(card: Card, q: Query, rules: Rules = RULES): AnnualBenefit | null {
   const S = q.monthlySpend
   const rows: BenefitRow[] = []
   let uncovered = false
   // '마일리지'를 안 골랐으면 마일 적립 혜택은 세지 않는다 (RULES.mileageOnlyWhenPicked)
   const skipMileage = rules.mileageOnlyWhenPicked && !q.tags.includes(MILEAGE_TAG)
+  const universalUsable = card.universal !== null && !(skipMileage && card.universal.type === 'mileage')
   for (const tag of q.tags) {
     const b: Benefit | undefined = card.benefits.find((x) => x.tag === tag)
     if (b && !(skipMileage && b.type === 'mileage')) rows.push(makeRow(b, S, false, rules))
-    else uncovered = true
+    else if (universalCanCover(card, tag, rules)) uncovered = true
   }
-  const universalUsable = card.universal !== null && !(skipMileage && card.universal.type === 'mileage')
   if (uncovered && universalUsable && !q.tags.includes(UNIVERSAL_TAG)) {
     rows.push(makeRow({ tag: UNIVERSAL_TAG, ...card.universal! }, S, true, rules))
   }

@@ -1,7 +1,7 @@
 import type { Card, Query } from '../data/types'
 import type { Tag } from '../data/tags'
 import { RULES, type Rules } from './rules'
-import { annualBenefit, type AnnualBenefit } from './benefit'
+import { annualBenefit, universalCanCover, type AnnualBenefit } from './benefit'
 
 export interface Scored {
   card: Card
@@ -16,10 +16,10 @@ export function coveredTagsOf(card: Card, tags: Tag[]): Tag[] {
   return tags.filter((t) => card.benefits.some((b) => b.tag === t))
 }
 
-export function universalCoversOf(card: Card, tags: Tag[]): Tag[] {
+export function universalCoversOf(card: Card, tags: Tag[], rules: Rules = RULES): Tag[] {
   if (card.universal === null) return []
   const covered = coveredTagsOf(card, tags)
-  return tags.filter((t) => !covered.includes(t))
+  return tags.filter((t) => !covered.includes(t) && universalCanCover(card, t, rules))
 }
 
 function passesFilters(card: Card, q: Query, rules: Rules): boolean {
@@ -37,7 +37,7 @@ export function recommend(cards: Card[], q: Query, rules: Rules = RULES): Scored
     if (!passesFilters(card, q, rules)) continue
     const benefit = annualBenefit(card, q, rules)
     if (benefit === null) continue
-    scored.push({ card, benefit, coveredTags: coveredTagsOf(card, q.tags), universalCovers: universalCoversOf(card, q.tags) })
+    scored.push({ card, benefit, coveredTags: coveredTagsOf(card, q.tags), universalCovers: universalCoversOf(card, q.tags, rules) })
   }
   return scored
     .sort((a, b) =>

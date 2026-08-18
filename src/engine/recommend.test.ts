@@ -22,6 +22,11 @@ describe('coveredTagsOf / universalCoversOf', () => {
     expect(universalCoversOf(universalCard, ['주유', '모든 가맹점'])).toEqual(['주유'])
     expect(universalCoversOf(oilCard, ['카페·편의점'])).toEqual([])
   })
+  test("포인트/할인 범용은 '마일리지'를 커버하지 않는다, 마일리지형 범용은 커버", () => {
+    expect(universalCoversOf(universalCard, ['마일리지', '카페·편의점'])).toEqual(['카페·편의점'])
+    const mileUni = card({ universal: { type: 'mileage', rate: 0.1, monthlyCap: null }, benefits: [{ tag: '모든 가맹점', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 2 }] })
+    expect(universalCoversOf(mileUni, ['마일리지'])).toEqual(['마일리지'])
+  })
 })
 
 describe('걸러내기', () => {

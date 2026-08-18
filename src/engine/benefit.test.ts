@@ -248,3 +248,31 @@ describe('실적 구간(tiers)', () => {
     expect(r.rows[0].monthlyCap).toBe(15000)
   })
 })
+
+describe("'마일리지'는 마일 적립만 채울 수 있다 (mileageTagOnlyByMileage)", () => {
+  const pointsCard = card({
+    universal: { type: 'points', rate: 1.2, monthlyCap: null },
+    benefits: [{ tag: '모든 가맹점', type: 'points', rate: 1.2, monthlyCap: null, stars: 3 }],
+  })
+  test('마일리지만 골랐으면 포인트/할인 범용 카드는 후보에서 빠진다', () => {
+    expect(annualBenefit(pointsCard, q({ tags: ['마일리지'] }))).toBeNull()
+  })
+  test('마일리지 + 다른 태그면 그 태그를 위해 범용 줄은 그대로 생긴다', () => {
+    const r = annualBenefit(pointsCard, q({ tags: ['마일리지', '카페·편의점'], monthlySpend: 500_000 }))!
+    expect(r.rows.map((x) => x.tag)).toEqual(['모든 가맹점'])
+    expect(r.rows[0].monthlyValue).toBe(6000)
+  })
+  test('마일리지형 범용은 마일리지 태그를 채운다 (벤핏에 마일리지 항목이 없어도)', () => {
+    const c = card({
+      universal: { type: 'mileage', rate: 0.1, monthlyCap: null },
+      benefits: [{ tag: '모든 가맹점', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 2 }],
+    })
+    const r = annualBenefit(c, q({ tags: ['마일리지'], monthlySpend: 1_000_000 }))!
+    expect(r.rows).toHaveLength(1)
+    expect(r.rows[0].monthlyValue).toBe(1000 * RULES.mileWon)
+  })
+  test('규칙을 끄면 예전처럼 포인트 범용이 마일리지를 대신한다', () => {
+    const r = annualBenefit(pointsCard, q({ tags: ['마일리지'] }), { ...RULES, mileageTagOnlyByMileage: false })!
+    expect(r.rows).toHaveLength(1)
+  })
+})

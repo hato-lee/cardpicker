@@ -21,6 +21,8 @@ export const RULES = {
   assumedCapWhenUnknown: 10_000,
   // '마일리지' 태그를 안 골랐으면 마일 적립 혜택은 계산에서 뺀다 (마일을 안 쓰는 사람에게 마일 카드를 올리지 않기 위해)
   mileageOnlyWhenPicked: true,
+  // 반대 방향: '마일리지' 태그는 마일 적립(마일리지 벤핏 또는 마일리지형 범용)만 채울 수 있다. 포인트/할인 범용은 마일 대신이 못 된다 (마일을 원하는 사람에게 포인트 카드가 1위로 뜨지 않게)
+  mileageTagOnlyByMileage: true,
 }
 
 export type Rules = typeof RULES
