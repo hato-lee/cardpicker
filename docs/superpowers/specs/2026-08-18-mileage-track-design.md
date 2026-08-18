@@ -39,8 +39,14 @@ export function recommendMileage(cards: Card[], q: Query, rules = RULES): MileSc
 ## RULES
 변경 없음(`mileWon`은 일반 트랙에서 마일 카드가 섞일 일이 없어져 사실상 안 쓰이지만 남겨둔다).
 
+## 연간 보너스 마일·프리미엄 혜택 (2026-08-18 추가)
+프리미엄 마일 카드는 기본 적립률이 다 비슷해(1,000원당 1마일) 마일 수로만 줄 세우면 늘 밑으로 간다. 진짜 차이는 **연간 보너스 마일**(예: 대한항공카드 the First Edition2 — 연 1회 3만 마일, 첫해 누적 100만 원↑, 이후 전년 3,600만 원↑)과 **부가 혜택**(라운지·바우처)이다.
+- `Card.mileageBonus?: { miles, minAnnualSpend, firstYearMinSpend? }`. 엔진: `S×12 ≥ minAnnualSpend`면 `bonusMiles = miles`를 `annualMiles`에 더해 순위에 반영(2차년도 기준 = 오래 쓰는 기준). 첫해 조건만 되면 `firstYearBonus = true`로 안내만("첫해엔 보너스 30,000마일 별도").
+- `Card.perks?: string[]`(최대 6줄): 사용자용 부가 혜택. 계산엔 안 쓰고 상세의 "프리미엄 혜택"에 그대로 보여준다. memo(내부용)와 다르다.
+- 화면: 큰 숫자는 보너스 포함 합계, 밑줄에 "연간 보너스 N마일 포함". 상세 "이렇게 쓰면 최대"에 `연간 보너스 30,000마일 — 첫해는 누적 100만 원, 이후엔 연 3600만 원 이상 쓸 때` 한 줄.
+
 ## 데이터
-형식 변경 없음. 마일리지 카드 추가 수집(프리미엄·포인트→마일 전환형)은 `docs/data-collection/mileage-2026-08-18/COLLECT-BRIEF.md`.
+`mileageBonus`·`perks` 추가(위). 나머지 형식 변경 없음. 마일리지 카드 추가 수집(프리미엄·포인트→마일 전환형)은 `docs/data-collection/mileage-2026-08-18/COLLECT-BRIEF.md`.
 후속 후보: 프리미엄 부가서비스(라운지·바우처)를 보여주려면 사용자용 필드(`perks?: string`)가 필요 — 이번엔 memo에만.
 
 ## 테스트

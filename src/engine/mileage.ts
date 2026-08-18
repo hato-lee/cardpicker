@@ -1,4 +1,4 @@
-import type { Card, Query, Benefit, Tier } from '../data/types'
+import type { Card, Query, Benefit, Tier, MileageBonus } from '../data/types'
 import { RULES, type Rules } from './rules'
 import { resolveTier } from './benefit'
 import { nextTierText } from './explain'
@@ -14,7 +14,10 @@ export interface MileScored {
   monthlyCap: number | null
   nextTier?: Tier
   monthlyMiles: number
-  annualMiles: number
+  baseAnnualMiles: number   // 적립만 ×12
+  bonusMiles: number        // 연간 보너스(2차년도 조건 충족 시), 아니면 0
+  firstYearBonus: boolean   // 첫해 조건은 충족하는지 (안내용, 순위엔 안 씀)
+  annualMiles: number       // baseAnnualMiles + bonusMiles. 순위 기준
   feePerMile: number | null
   extras: Benefit[]
 }
@@ -41,10 +44,15 @@ export function scoreMileage(card: Card, q: Query): MileScored | null {
   const t = resolveTier(earn, S)
   const raw = (S * t.rate) / 100
   const monthlyMiles = t.monthlyCap === null ? raw : Math.min(raw, t.monthlyCap)
-  const annualMiles = Math.round(monthlyMiles * 12)
+  const baseAnnualMiles = Math.round(monthlyMiles * 12)
+  const annualSpend = S * 12
+  const bonus = card.mileageBonus
+  const bonusMiles = bonus && annualSpend >= bonus.minAnnualSpend ? bonus.miles : 0
+  const firstYearBonus = !!bonus && annualSpend >= (bonus.firstYearMinSpend ?? bonus.minAnnualSpend)
+  const annualMiles = baseAnnualMiles + bonusMiles
   const feePerMile = annualMiles > 0 ? card.annualFee / annualMiles : null
   const extras = card.benefits.filter((b) => b.tag !== MILEAGE_TAG && b.tag !== UNIVERSAL_TAG)
-  return { card, rate: t.rate, monthlyCap: t.monthlyCap, nextTier: t.nextTier, monthlyMiles, annualMiles, feePerMile, extras }
+  return { card, rate: t.rate, monthlyCap: t.monthlyCap, nextTier: t.nextTier, monthlyMiles, baseAnnualMiles, bonusMiles, firstYearBonus, annualMiles, feePerMile, extras }
 }
 
 /** 연 마일 큰 순 → 연회비 낮은 순 → 실적 낮은 순. 성향은 쓰지 않는다. */
@@ -69,4 +77,13 @@ export function mileageTip(r: MileScored): string {
     : `월 ${won(Math.round(r.monthlyCap / (r.rate / 100)))} 이상 쓰면 한도(${capValueText('mileage', r.monthlyCap)})를 꽉 채워요`
   const hint = r.nextTier ? nextTierText({ type: 'mileage', rate: r.rate, monthlyCap: r.monthlyCap }, r.nextTier) : ''
   return hint ? `${main} ${hint}` : main
+}
+
+/** "연간 보너스 30,000마일 — 첫해는 누적 100만 원, 이후엔 연 3,600만 원 이상 쓸 때" */
+export function bonusText(b: MileageBonus): string {
+  const head = `연간 보너스 ${b.miles.toLocaleString('ko-KR')}마일 — `
+  if (b.minAnnualSpend === 0 && b.firstYearMinSpend === undefined) return head + '매년'
+  const later = `연 ${won(b.minAnnualSpend)} 이상 쓸 때`
+  if (b.firstYearMinSpend === undefined) return head + later
+  return head + `첫해는 누적 ${won(b.firstYearMinSpend)}, 이후엔 ${later}`
 }

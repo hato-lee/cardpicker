@@ -98,3 +98,41 @@ describe('mileageTip', () => {
     expect(mileageTip(recommendMileage([c], q())[0])).toBe('쓰는 만큼 1,500원당 1마일 — 한도 없음 (월 사용액 150만 원부터는 1,000원당 1마일)')
   })
 })
+
+describe('연간 보너스 마일 (mileageBonus)', () => {
+  const bonusCard = card({
+    id: 'first', annualFee: 800000,
+    benefits: [{ tag: '마일리지', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 2 }],
+    mileageBonus: { miles: 30000, minAnnualSpend: 36_000_000, firstYearMinSpend: 1_000_000 },
+  })
+  test('연 이용액이 조건 이상이면 보너스를 연 마일에 더한다', () => {
+    const [r] = recommendMileage([bonusCard], q({ monthlySpend: 3_000_000 }))
+    expect(r.baseAnnualMiles).toBe(36000)
+    expect(r.bonusMiles).toBe(30000)
+    expect(r.annualMiles).toBe(66000)
+  })
+  test('조건 미달이면 보너스 0 (첫해 조건은 순위에 안 쓴다)', () => {
+    const [r] = recommendMileage([bonusCard], q({ monthlySpend: 1_000_000 }))
+    expect(r.bonusMiles).toBe(0)
+    expect(r.annualMiles).toBe(12000)
+    expect(r.firstYearBonus).toBe(true)  // 첫해 조건(누적 100만)은 충족 → 안내용
+  })
+  test('보너스 덕에 순위가 올라간다', () => {
+    const got = recommendMileage([mile1, bonusCard], q({ monthlySpend: 3_000_000 }))
+    expect(got[0].card.id).toBe('first')
+  })
+  test('보너스 없는 카드는 0·false', () => {
+    const [r] = recommendMileage([mile1], q())
+    expect(r.bonusMiles).toBe(0)
+    expect(r.firstYearBonus).toBe(false)
+  })
+})
+
+describe('bonusText', () => {
+  test('첫해·이후 조건을 한 줄로', async () => {
+    const { bonusText } = await import('./mileage')
+    expect(bonusText({ miles: 30000, minAnnualSpend: 36_000_000, firstYearMinSpend: 1_000_000 })).toBe('연간 보너스 30,000마일 — 첫해는 누적 100만 원, 이후엔 연 3600만 원 이상 쓸 때')
+    expect(bonusText({ miles: 1000, minAnnualSpend: 0 })).toBe('연간 보너스 1,000마일 — 매년')
+    expect(bonusText({ miles: 5000, minAnnualSpend: 12_000_000 })).toBe('연간 보너스 5,000마일 — 연 1200만 원 이상 쓸 때')
+  })
+})

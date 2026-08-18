@@ -32,6 +32,13 @@ export interface Universal {
   tiers?: Tier[]
 }
 
+// 연간 보너스 마일 (연 1회). 첫해는 firstYearMinSpend(누적), 2차년도부터는 전년도 이용액 minAnnualSpend 이상일 때
+export interface MileageBonus {
+  miles: number
+  minAnnualSpend: number      // 연 이용액(원). 순위 계산은 이 조건(2차년도 이후 기준)으로
+  firstYearMinSpend?: number  // 첫해 누적 이용액(원). 없으면 첫해도 minAnnualSpend
+}
+
 export interface Card {
   id: string
   name: string
@@ -46,6 +53,8 @@ export interface Card {
   lastChecked: string     // YYYY-MM-DD
   status: 'active' | 'discontinued' | 'excluded'  // excluded = 판매 중이지만 추천에서 뺀 카드(사유는 memo에)
   memo?: string
+  mileageBonus?: MileageBonus  // 마일리지 트랙에서만 쓴다
+  perks?: string[]             // 사용자에게 보여줄 부가 혜택 한 줄씩(라운지·바우처·발레파킹 등). 12개 태그 밖 혜택. 계산엔 안 쓴다
 }
 
 export interface Query {

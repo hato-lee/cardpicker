@@ -202,3 +202,11 @@ test('universal에 tiers가 없는데 모든 가맹점 벤핏에 tiers가 있으
     benefits: [{ tag: '모든 가맹점', type: 'points', rate: 0.2, monthlyCap: 5000, stars: 1, tiers: [{ minSpend: 400000, monthlyCap: 15000 }] }] }
   expect(() => validateCards([bad])).toThrow(/universal.*tiers/)
 })
+
+test('mileageBonus·perks: 올바르면 통과, 형식이 틀리면 실패', () => {
+  const ok = { ...good, mileageBonus: { miles: 30000, minAnnualSpend: 36_000_000, firstYearMinSpend: 1_000_000 }, perks: ['전 세계 공항 라운지 무제한', '항공권 할인 쿠폰 연 4장'] }
+  expect(validateCards([ok])).toHaveLength(1)
+  expect(() => validateCards([{ ...good, mileageBonus: { miles: 0, minAnnualSpend: 0 } }])).toThrow(/shinhan-deep-oil/)
+  expect(() => validateCards([{ ...good, mileageBonus: { miles: 1000 } }])).toThrow(/shinhan-deep-oil/)
+  expect(() => validateCards([{ ...good, perks: ['a', 'b', 'c', 'd', 'e', 'f', 'g'] }])).toThrow(/6줄/)
+})

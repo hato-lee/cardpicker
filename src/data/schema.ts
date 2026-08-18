@@ -45,6 +45,14 @@ const cardSchema = z
     lastChecked: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'YYYY-MM-DD 형식이어야 합니다'),
     status: z.enum(['active', 'discontinued', 'excluded']),
     memo: z.string().optional(),
+    mileageBonus: z
+      .strictObject({
+        miles: z.number().int().min(1),
+        minAnnualSpend: z.number().int().min(0),
+        firstYearMinSpend: z.number().int().min(0).optional(),
+      })
+      .optional(),
+    perks: z.array(z.string().min(1)).max(6, 'perks는 6줄까지').optional(),
   })
   .superRefine((data, ctx) => {
     if (data.universal !== null && !data.benefits.some((b) => b.tag === '모든 가맹점')) {

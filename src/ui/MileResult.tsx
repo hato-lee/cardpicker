@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import type { MileScored } from '../engine/mileage'
-import { mileageTip } from '../engine/mileage'
+import { mileageTip, bonusText } from '../engine/mileage'
 import { isStale } from '../engine/explain'
 import { won } from './format'
 import { benefitText } from './CardResult'
@@ -22,9 +22,12 @@ export function feePerMileText(fee: number, feePerMile: number | null): string {
 
 export function MileResult({ rank, scored, monthlySpend, today }: Props) {
   const [open, setOpen] = useState(false)
-  const { card, annualMiles, feePerMile, extras } = scored
+  const { card, annualMiles, bonusMiles, firstYearBonus, feePerMile, extras } = scored
   const stale = isStale(card.lastChecked, today)
-  const sub = [`연회비 ${won(card.annualFee)}`, feePerMileText(card.annualFee, feePerMile), `월 ${won(monthlySpend)}을 전부 이 카드로 쓸 때`].filter(Boolean)
+  const bonusNote = bonusMiles > 0
+    ? `연간 보너스 ${bonusMiles.toLocaleString('ko-KR')}마일 포함`
+    : firstYearBonus && card.mileageBonus ? `첫해엔 보너스 ${card.mileageBonus.miles.toLocaleString('ko-KR')}마일 별도` : ''
+  const sub = [`연회비 ${won(card.annualFee)}`, feePerMileText(card.annualFee, feePerMile), `월 ${won(monthlySpend)}을 전부 이 카드로 쓸 때`, bonusNote].filter(Boolean)
 
   return (
     <article className={`card ${rank === 1 ? 'is-top' : ''}`}>
@@ -48,7 +51,18 @@ export function MileResult({ rank, scored, monthlySpend, today }: Props) {
       {open && (
         <div className="detail">
           <div className="detail-title">이렇게 쓰면 최대</div>
-          <ul className="tips"><li>{mileageTip(scored)}</li></ul>
+          <ul className="tips">
+            <li>{mileageTip(scored)}</li>
+            {card.mileageBonus && <li>{bonusText(card.mileageBonus)}</li>}
+          </ul>
+          {card.perks && card.perks.length > 0 && (
+            <>
+              <div className="detail-title">프리미엄 혜택</div>
+              <ul className="tips">
+                {card.perks.map((p) => <li key={p}>{p}</li>)}
+              </ul>
+            </>
+          )}
           {extras.length > 0 && (
             <>
               <div className="detail-title">덤으로</div>
