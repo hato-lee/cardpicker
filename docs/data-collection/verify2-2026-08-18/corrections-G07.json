@@ -1,0 +1,98 @@
+[
+  {
+    "id": "samsung-id-all",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 주유·통신비·관리비 2.5%(전월실적 40만↑ 5,000원·70만↑ 10,000원)와 모든 가맹점 0.5%가 기존 값과 일치함을 확인, iD SELECT ALL(code=AAP1875)은 완전히 다른 별개 카드라 혼동 없음. 변경 없음. 출처: ajd.co.kr 웹검색 요약."
+  },
+  {
+    "id": "samsung-id-move",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 대중교통·택시/통신비 10%(40만↑ 5,000원·80만↑ 12,000원), 카페·편의점 10%(40만↑ 3,000원·80만↑ 6,000원), 해외결제 1.5%(월 결제 50만원까지, 최대 7,500원) 모두 기존 값과 일치 확인. 변경 없음. 출처: ajd.co.kr 웹검색 요약."
+  },
+  {
+    "id": "samsung-id-pet",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 동물병원·반려동물쇼핑몰 30%(월 최대 5만원), 온라인 간편결제 5%(월 최대 1만원), 통신비 10%, 카페·편의점 정액할인, 연회비 15,000원 모두 기존 값과 일치 확인. 변경 없음. 출처: benefitshub.co.kr 웹검색 요약."
+  },
+  {
+    "id": "samsung-card4-v4",
+    "set": { "status": "discontinued", "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 삼성카드4 V4는 2024년 3월경 사전고지 없이 신규 발급이 중단된 것으로 다수 출처(이용자 커뮤니티, 카드정보 사이트)에서 확인돼 status를 discontinued로 변경. 출처: m.ppomppu.co.kr, ajd.co.kr, lcnews.co.kr 웹검색 요약."
+  },
+  {
+    "id": "samsung-starbucks",
+    "set": {
+      "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1870",
+      "lastChecked": "2026-08-18"
+    },
+    "benefits": [
+      {
+        "tag": "카페·편의점",
+        "set": {
+          "note": "스타벅스 매장 결제 시 별 적립, 전월실적 50만원 미만은 3만원당 별 1개, 50만원 이상은 1만원당 별 5개(월 최대 50개). 별의 원화 환산가치가 공시되지 않아 적립률은 별도 표기하지 않음"
+        }
+      }
+    ],
+    "addBenefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 0,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "스타벅스 매장 외 국내외 모든 가맹점 결제 시 3만원당 별 1개 적립, 월 최대 100개"
+      }
+    ],
+    "memoAppend": " 재검수(2026-08-18): officialUrl을 정확한 상세페이지(code=AAP1870)로 교체. 스타벅스 매장 외 국내외 전 가맹점 3만원당 별 1개(월 최대 100개) 적립 라인이 통째로 누락돼 있어 모든 가맹점 태그로 추가, 매장 적립 라인은 월 한도(50개) 문구만 보완. universal은 별 적립 가치를 원화로 환산할 수 없어 미설정 유지. 출처: card-gorilla API(idx 2897) 원문, 웹검색 요약."
+  },
+  {
+    "id": "samsung-the-id-1st",
+    "set": { "minSpend": 500000, "complexity": 3, "lastChecked": "2026-08-18" },
+    "benefits": [
+      {
+        "tag": "온라인 쇼핑",
+        "set": {
+          "rate": 1,
+          "note": "무신사 등 온라인 패션몰은 1.5%, 그 외 온라인쇼핑은 1% 적립, 한도 없음"
+        }
+      }
+    ],
+    "addBenefits": [
+      {
+        "tag": "배달·외식",
+        "type": "points",
+        "rate": 1.5,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "음식점 결제 1.5% 적립, 한도 없음"
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "points",
+        "rate": 1.5,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "카페전문점·편의점 결제 1.5% 적립, 한도 없음"
+      },
+      {
+        "tag": "병의원·약국",
+        "type": "points",
+        "rate": 1.5,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "병원·약국 결제 1.5% 적립, 한도 없음"
+      }
+    ],
+    "memoAppend": " 재검수(2026-08-18): 전월실적이 0으로 잘못 기재돼 있었으나 적립·라운지 모두 전월실적 50만원 이상 조건(발급월+1개월은 예외)이라 수정. 온라인쇼핑 1.5%는 무신사 등 온라인 패션몰에만 적용되고 그 외 온라인쇼핑은 1%라 rate 조정. 음식점·카페전문점/편의점·병원약국 1.5% 적립 라인이 누락돼 있어 추가, complexity 2→3. 출처: card-gorilla API(idx 2915) 원문."
+  },
+  {
+    "id": "samsung-the-id-platinum-point",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 연회비 215,000원(국내전용), 전월실적 50만원, 모든 가맹점 1%·온라인쇼핑(온라인몰·할인점·백화점·배달앱) 1.2%·해외결제(면세점·항공·여행·공연) 1.5% 모두 기존 값과 일치 확인. 변경 없음. 출처: card-gorilla API(idx 2460) 원문."
+  },
+  {
+    "id": "hyundai-zero-edition3-discount",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 연회비 15,000원(전 브랜드 동일), 전월실적 없음, 국내외 가맹점 0.8% 청구할인(한도 없음) 기존 값과 일치 확인. 변경 없음. 출처: 웹검색 요약(banksalad, ajd.co.kr, 토스 카드라운지)."
+  }
+]

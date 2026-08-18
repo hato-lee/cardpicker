@@ -1,0 +1,71 @@
+[
+  {
+    "id": "hyundai-the-pink-edition2",
+    "set": { "minSpend": 500000, "lastChecked": "2026-08-18" },
+    "benefits": [
+      {
+        "tag": "온라인 쇼핑",
+        "set": {
+          "rate": 1.5,
+          "monthlyCap": null,
+          "stars": 1,
+          "note": "프리미엄쇼핑(백화점몰·아울렛 등)에서 전월실적 100만원 이상 시 5% 포인트 적립, 월 5만 포인트 한도(그 미만은 기본 1.5% 적립)",
+          "tiers": [{ "minSpend": 1000000, "rate": 5, "monthlyCap": 50000 }]
+        }
+      }
+    ],
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 공식 API(api.card-gorilla.com/v1/cards/2752) 대조. 기본 1.5% 적립은 전월실적 50만원부터 적용되고 프리미엄쇼핑 5%(월5만P)는 100만원 이상부터 별도 적용됨을 확인해 minSpend를 100만→50만원으로 정정, 온라인 쇼핑 혜택을 기본1.5%+상위구간 tiers 구조로 수정. 연회비 15만원 일치. 출처: 카드고릴라 API."
+  },
+  {
+    "id": "hyundai-x-edition2",
+    "set": {
+      "universal": {
+        "type": "discount",
+        "rate": 0.5,
+        "monthlyCap": null,
+        "tiers": [{ "minSpend": 1000000, "rate": 1, "monthlyCap": null }]
+      },
+      "lastChecked": "2026-08-18"
+    },
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "set": {
+          "note": "국내외 전 가맹점 기본 할인, 전월 100만원 이상 시 1%로 상향",
+          "tiers": [{ "minSpend": 1000000, "rate": 1, "monthlyCap": null }]
+        }
+      }
+    ],
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 공식 API(api.card-gorilla.com/v1/cards/411) 대조. 모든 가맹점 할인이 전월실적 50만원 0.5%→100만원 이상 1%로 상향되는 구간이 있음을 확인해 tiers 추가. 연회비 1.5만원·전월실적 50만원 일치. 분기별 시즌스페셜 로테이션 혜택은 태그 고정이 어려워 기존대로 미반영. 출처: 카드고릴라 API."
+  },
+  {
+    "id": "hyundai-naver-edition2",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 공식 API(api.card-gorilla.com/v1/cards/2794) 대조. 연회비 2만원, 전월실적 50만원, 네이버플러스 회원 온라인쇼핑 7%(월2만P), 그 외 모든 가맹점 0.7% 무한도 모두 기존 값과 일치, 변경 없음. 출처: 카드고릴라 API."
+  },
+  {
+    "id": "hyundai-costco-reward-edition2",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 공식 API(api.card-gorilla.com/v1/cards/2640) 대조. 연회비 2만원, 전월실적 50만원, 코스트코 온라인 3%/매장 2%, 그 외 1%, 연 50만포인트 통합한도 모두 기존 값과 일치, 변경 없음. 출처: 카드고릴라 API."
+  },
+  {
+    "id": "hyundai-musinsa",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 공식 API(api.card-gorilla.com/v1/cards/733) 대조, is_discon:false로 판매중 확인. 연회비 1만원, 전월실적 30만원, 무신사·솔드아웃 5%(월3만원한도) 모두 일치, 변경 없음. 미확인: 무신사가 2025년말 삼성카드와도 제휴카드를 출시했다는 보도가 있어 현대카드 무신사 카드의 발급 지속 여부는 주시 필요. 출처: 카드고릴라 API."
+  },
+  {
+    "id": "lotte-loca-365",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 공식 페이지(lottecard.co.kr) 재대조. 연회비 2만원, 전월실적 50만원, 관리비·공과금 각 5천원(합산 1만원), 통신 이동통신 5천원+스트리밍 1,500원(월1회), 대중교통 5천원(지하철·버스만 해당, 택시 제외), 학원 학습지 5천원, 배달 5천원 전 항목 일치, 변경 없음."
+  },
+  {
+    "id": "lotte-loca-classic",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 공식 페이지(lottecard.co.kr) 재대조. 연회비 2만원, 전월 150만원 이상 1.0%/미만 0.5%, 월 한도 없음, 국세·지방세·공과금 등 제외 조건 모두 일치, 변경 없음."
+  },
+  {
+    "id": "lotte-loca-for-auto",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 공식 페이지(m.lottecard.co.kr) 재대조. 연회비 2만원, 전월실적 150만원, 주유 리터당 100원(월 이용액 30만원까지), 편의점 5%(월5천원), 배달 5%(월5천원) 모두 일치, 변경 없음. 미확인: 주유 할인 자체의 원화 기준 월 한도는 공식에 미공개."
+  }
+]

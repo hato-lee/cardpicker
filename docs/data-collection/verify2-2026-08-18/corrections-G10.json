@@ -1,0 +1,42 @@
+[
+  {
+    "id": "lotte-loca-for-health",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 공식 페이지(m.lottecard.co.kr) 재대조. 연회비 2만원, 전월실적 150만원, 병의원·약국 10%(건당 2만원 이상, 월 한도 2만원) 모두 일치, 변경 없음. 미확인: LOCA CLASSIC 동시발급 필수 여부(공식 페이지엔 별도 안내 없음, 세트 구성 선택사항으로 추정)."
+  },
+  {
+    "id": "lotte-loca-platinum-discount",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 공식 페이지(m.lottecard.co.kr) 재대조. 연회비 10만원, 모든 가맹점 기본 0.5%(한도없음)·전월실적 150만원 이상 1.0% 구간 모두 일치, 변경 없음."
+  },
+  {
+    "id": "lotte-loca-money",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 공식 페이지(lottecard.co.kr) 재대조. 연회비 2만원, 전월실적 없음, 기본 1% 적립(한도없음), 카드대출(단기/장기) 평잔 300만원 이상 시 2% 상향 조건 모두 일치, 변경 없음."
+  },
+  {
+    "id": "lotte-digiroca-auto",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 공식 페이지(lottecard.co.kr) 재대조. 연회비 3만원, 전월실적 50만원, 주유 50만~100만원 리터당 100원(월 3만원 한도)/100만원 이상 리터당 150원(월 5만원 한도) 구간 모두 일치, 변경 없음. 출시일 2024-06-14 확인."
+  },
+  {
+    "id": "lotte-loca-lite",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 공식 페이지(lottecard.co.kr) 재대조. 연회비 1,000원(국내전용), 전월실적·한도 없이 모든 가맹점 0.7% 결제일 할인 일치, 변경 없음."
+  },
+  {
+    "id": "lotte-digiroca-london",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 공식 페이지(lottecard.co.kr) 재대조. 연회비 2만원, 전월실적·한도 없이 모든 가맹점 0.7% 캐시백 일치, 변경 없음. 즉시결제·위클리결제 시 1% 상향은 실적 구간이 아니라 결제수단 조건이라 tiers로 반영하지 않음(태그 밖 참고)."
+  },
+  {
+    "id": "woori-every-discount",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 공식 페이지(m.wooricard.com) 및 WebSearch(fntimes.com·ajd.co.kr) 재대조. 연회비 12,000원, 모든 가맹점 0.8%(실적·한도없음), 온라인 간편결제 전월실적 40만원 이상 2%(월 1만원)/80만원 이상(월 2만원) 모두 일치, 변경 없음."
+  },
+  {
+    "id": "woori-d4-jeongseok",
+    "set": { "status": "discontinued", "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 API(api.card-gorilla.com:8080/v1/cards/88) 재대조 결과 is_discon: true로 단종 확인. 토스 카드라운지 확인 결과 후속 상품 D4카드의정석Ⅱ(연회비 12,000원, 카페 55%/편의점 11%/대중교통 33% 동일 구조지만 별도 상품)로 대체된 것으로 보임. 출처: 카드고릴라, 토스 카드라운지(card-lounge.toss.im/card/1957), 뱅크샐러드(CARD004139)."
+  }
+]
