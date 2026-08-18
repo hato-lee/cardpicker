@@ -5,6 +5,13 @@ import type { Card } from './types'
 const benefitType = z.enum(['discount', 'points', 'mileage'])
 const oneToThree = z.union([z.literal(1), z.literal(2), z.literal(3)], { error: '1~3 중 하나여야 합니다' })
 
+const tierSchema = z.strictObject({
+  minSpend: z.number().int().min(0),
+  rate: z.number().min(0).optional(),
+  monthlyCap: z.number().int().min(0).nullable(),
+})
+const tiersSchema = z.array(tierSchema).optional()
+
 const benefitSchema = z.strictObject({
   tag: z.enum([...TAGS]),
   type: benefitType,
@@ -13,6 +20,7 @@ const benefitSchema = z.strictObject({
   stars: oneToThree,
   note: z.string().optional(),
   capGroup: z.string().min(1).optional(),
+  tiers: tiersSchema,
 })
 
 const cardSchema = z
@@ -25,7 +33,12 @@ const cardSchema = z
     minSpend: z.number().int().min(0),
     benefits: z.array(benefitSchema),
     universal: z
-      .strictObject({ type: benefitType, rate: z.number().min(0), monthlyCap: z.number().int().min(0).nullable() })
+      .strictObject({
+        type: benefitType,
+        rate: z.number().min(0),
+        monthlyCap: z.number().int().min(0).nullable(),
+        tiers: tiersSchema,
+      })
       .nullable(),
     complexity: oneToThree,
     officialUrl: z.url({ protocol: /^https$/, error: 'officialUrl은 https:// 로 시작해야 합니다' }),
@@ -69,6 +82,45 @@ const cardSchema = z
           path: ['benefits'],
           message: `capGroup '${g}'의 monthlyCap이 서로 다르거나 비어 있음 (${data.id})`,
         })
+      }
+    }
+    // tiers: 오름차순 + 카드 minSpend 초과
+    const allTierOwners: Array<{ where: string; tiers?: { minSpend: number; monthlyCap: number | null }[] }> = [
+      ...data.benefits.map((b) => ({ where: `benefits.${b.tag}`, tiers: b.tiers })),
+      ...(data.universal ? [{ where: 'universal', tiers: data.universal.tiers }] : []),
+    ]
+    for (const { where, tiers } of allTierOwners) {
+      if (!tiers) continue
+      for (let i = 0; i < tiers.length; i++) {
+        if (tiers[i].minSpend <= data.minSpend) {
+          ctx.addIssue({ code: 'custom', path: [where, 'tiers'], message: `tiers의 minSpend는 카드 minSpend(${data.minSpend})보다 커야 합니다 (${data.id})` })
+          break
+        }
+        if (i > 0 && tiers[i].minSpend <= tiers[i - 1].minSpend) {
+          ctx.addIssue({ code: 'custom', path: [where, 'tiers'], message: `tiers의 minSpend는 엄격히 오름차순이어야 합니다 (${data.id})` })
+          break
+        }
+      }
+    }
+    // capGroup: tiers의 (minSpend, monthlyCap) 열이 같아야 한다
+    const tierKey = (t?: { minSpend: number; monthlyCap: number | null }[]) => JSON.stringify((t ?? []).map((x) => [x.minSpend, x.monthlyCap]))
+    const tiersByGroup = new Map<string, string[]>()
+    for (const b of data.benefits) {
+      if (!b.capGroup) continue
+      const arr = tiersByGroup.get(b.capGroup) ?? []
+      arr.push(tierKey(b.tiers))
+      tiersByGroup.set(b.capGroup, arr)
+    }
+    for (const [g, keys] of tiersByGroup) {
+      if (!keys.every((k) => k === keys[0])) {
+        ctx.addIssue({ code: 'custom', path: ['benefits'], message: `capGroup '${g}'의 tiers(minSpend·monthlyCap)가 서로 다릅니다 (${data.id})` })
+      }
+    }
+    // universal.tiers ↔ 모든 가맹점 벤핏 tiers
+    if (data.universal?.tiers) {
+      const uniB = data.benefits.find((b) => b.tag === '모든 가맹점')
+      if (uniB && tierKey(uniB.tiers) !== tierKey(data.universal.tiers)) {
+        ctx.addIssue({ code: 'custom', path: ['universal', 'tiers'], message: `universal의 tiers와 '모든 가맹점' 벤핏의 tiers(minSpend·monthlyCap)가 다릅니다 (${data.id})` })
       }
     }
   })
