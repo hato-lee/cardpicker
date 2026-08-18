@@ -1,0 +1,65 @@
+[
+  {
+    "id": "hana-travelog-check",
+    "set": {
+      "lastChecked": "2026-08-18",
+      "universal": { "type": "points", "rate": 0.3, "monthlyCap": null }
+    },
+    "addBenefits": [
+      { "tag": "모든 가맹점", "type": "points", "rate": 0.3, "monthlyCap": null, "stars": 1, "note": "국내 가맹점 이용 시 하나머니 적립" }
+    ],
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 상품API·뱅크샐러드 대조 — 연회비 0원(발급수수료 2천원, 첫달 1만원 이상 이용 시 환급)·전월실적 0·해외 가맹점/ATM 수수료 면제 기존 값 일치, 단종 아님. 빠져 있던 국내 가맹점 0.3% 하나머니 적립(모든 가맹점) 추가. 미확인: 월 한도. 출처: 카드고릴라 API, banksalad.com"
+  },
+  {
+    "id": "hana-club-sk",
+    "set": { "lastChecked": "2026-08-18" },
+    "benefits": [
+      { "tag": "통신비·OTT", "set": { "note": "SK텔레콤 통신요금 자동이체 정액 할인", "tiers": [{ "minSpend": 700000, "monthlyCap": 3000 }, { "minSpend": 1000000, "monthlyCap": 6000 }] } }
+    ],
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 API·공식페이지(hanacard.co.kr) 대조 — 연회비(6천원 최저)·전월실적(40만원)·주유 구간(40~70만 5%/1.5만원, 70만원↑ 8%/2.2만원) 기존 값 일치. 통신비 정액할인 구간(40~70만 2천, 70~100만 3천, 100만원↑ 6천, 일반요금제 최저값 기준)을 note 나열 대신 tiers로 이행. 단종 아님. 출처: 카드고릴라 API, hanacard.co.kr"
+  },
+  {
+    "id": "hana-jade-classic",
+    "set": { "lastChecked": "2026-08-18" },
+    "addBenefits": [
+      { "tag": "온라인 쇼핑", "type": "points", "rate": 1.2, "monthlyCap": 100000, "capGroup": "a", "stars": 1, "note": "백화점·아울렛 등 쇼핑 영역 포함, 전월실적 50만원 이상 시 적용, 주유·해외와 월 10만 하나머니 통합한도" }
+    ],
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 API·토스 카드라운지 대조 — 연회비 11.5만원·전월실적 50만원·주유 1.2%·해외 1.5%(월 10만 하나머니 통합한도) 기존 값 일치, 단종 아님. 같은 통합한도를 공유하는 온라인쇼핑(백화점·아울렛 등) 1.2% 혜택이 누락돼 있어 추가. 출처: 카드고릴라 API, card-lounge.toss.im"
+  },
+  {
+    "id": "hana-multi-any",
+    "set": { "lastChecked": "2026-08-18" },
+    "benefits": [
+      { "tag": "배달·외식", "set": { "capGroup": null, "note": "배달의민족·요기요 3% 하나머니 적립, 월 5만원 한도(마트·백화점 등 쇼핑과 통합)" } },
+      { "tag": "대중교통·택시", "set": { "capGroup": null, "note": "버스·지하철 4% 하나머니 적립, 월 5만원 한도(후불교통 이용한도는 별도 월 10만원)" } }
+    ],
+    "memoAppend": " 재검수(2026-08-18): 하나카드 공식 모바일카드 페이지(CD_PD_SEQ=15046)·뱅크샐러드 대조 — 기본 0.7%·배달 3%·대중교통 4%, 각 월 5만원 한도인 기존 값 일치. 다만 배달 5만원 한도는 대중교통이 아니라 마트·쇼핑 영역과 공유되고 대중교통은 독립된 별도 5만원 한도임을 확인해 capGroup 삭제. 단종 아님. 출처: m.hanacard.co.kr, banksalad.com"
+  },
+  {
+    "id": "hana-oneq",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 API·검색 결과 대조 — 연회비 1.5만원·전월실적 0·국내 0.8%(한도 없음)·해외 1.8%(월 1만 하나머니 한도) 기존 값 모두 일치, 단종 아님. 출처: 카드고릴라 API, banksalad.com"
+  },
+  {
+    "id": "hana-wonder-daily",
+    "set": { "lastChecked": "2026-08-18" },
+    "benefits": [
+      { "tag": "배달·외식", "set": { "note": "배달의민족·요기요·쿠팡이츠 10% 청구할인", "tiers": [{ "minSpend": 800000, "monthlyCap": 6000 }, { "minSpend": 1200000, "monthlyCap": 10000 }] } },
+      { "tag": "카페·편의점", "set": { "note": "CU·GS25·세븐일레븐·이마트24 10% 청구할인", "tiers": [{ "minSpend": 800000, "monthlyCap": 8000 }, { "minSpend": 1200000, "monthlyCap": 12000 }] } },
+      { "tag": "통신비·OTT", "set": { "note": "넷플릭스·디즈니플러스·Wavve·유튜브프리미엄 40% 청구할인", "tiers": [{ "minSpend": 800000, "monthlyCap": 12000 }, { "minSpend": 1200000, "monthlyCap": 15000 }] } },
+      { "tag": "대중교통·택시", "set": { "note": "버스·지하철, 카카오T 등 택시 10% 청구할인", "tiers": [{ "minSpend": 800000, "monthlyCap": 6000 }, { "minSpend": 1200000, "monthlyCap": 10000 }] } },
+      { "tag": "온라인 쇼핑", "set": { "note": "컬리·SSG.COM·롯데ON·더현대닷컴 10% 청구할인", "tiers": [{ "minSpend": 800000, "monthlyCap": 6000 }, { "minSpend": 1200000, "monthlyCap": 10000 }] } }
+    ],
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 API·하나카드 공식페이지·검색 결과 대조 — 5개 태그 모두 전월실적 40만~80만/80만~120만/120만원 이상 3단계 구간별 한도 차등을 확인, note에 나열하던 구간을 tiers로 이행. 배달·대중교통·온라인쇼핑은 4천/6천/1만원, 카페·편의점은 4천/8천/1.2만원, 통신비는 8천/1.2만/1.5만원 구조. 단종 아님. 출처: 카드고릴라 API, m.hanacard.co.kr, banksalad.com"
+  },
+  {
+    "id": "hana-1q-shopping-plus",
+    "set": { "status": "discontinued", "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 API에서 단종 확인(is_discon:true). 2021년 신규발급 중단 후 2023년 완전 단종된 상품이라는 검색 결과와도 일치. 출처: 카드고릴라 API, 검색 결과(나무위키 등)"
+  },
+  {
+    "id": "naverpay-money-hana-check",
+    "set": { "lastChecked": "2026-08-18" },
+    "memoAppend": " 재검수(2026-08-18): 카드고릴라 API 대조 — 연회비 0원·전월실적 25만원·국내외 모든 가맹점 1.2% 네이버페이포인트 적립(월 최대 1만 포인트) 기존 값 모두 일치, 단종 아님. 출처: 카드고릴라 API"
+  }
+]
