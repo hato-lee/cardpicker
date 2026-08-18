@@ -18,21 +18,33 @@ export function rowAnnualValue(row: BenefitRow, persona: Persona, rules: Rules =
 }
 
 function tipOf(row: BenefitRow, rules: Rules): string {
+  const main = mainTip(row, rules)
+  // 정액·가정 한도 줄에는 다음 구간 안내를 붙이지 않는다
+  const canHint = row.rate !== 0 && !row.assumedCap
+  const hint = canHint && row.nextTier ? nextTierText(row, row.nextTier) : ''
+  return hint ? `${main} ${hint}` : main
+}
+
+function mainTip(row: BenefitRow, rules: Rules): string {
   if (row.viaUniversal) return `그 외 소비는 모든 가맹점 ${rateText(row.type, row.rate)}`
   if (row.rate === 0) return `${row.tag}: ${row.note ?? '정액 혜택'}`
   if (row.assumedCap) return `${row.tag}${eun(row.tag)} 한도 정보가 없어 월 ${won(rules.assumedCapWhenUnknown)}으로 계산했어요`
   if (row.monthlyCap === null) return `${row.tag}${eun(row.tag)} 쓰는 만큼 ${rateText(row.type, row.rate)} — 한도 없음`
   const cap = capValueText(row.type, row.monthlyCap)
-  const main = `${row.tag}에 월 ${won(Math.round(row.requiredSpend!))} 이상 쓰면 한도(${cap})를 꽉 채워요`
-  return row.nextTier ? `${main} ${nextTierText(row, row.nextTier)}` : main
+  return `${row.tag}에 월 ${won(Math.round(row.requiredSpend!))} 이상 쓰면 한도(${cap})를 꽉 채워요`
 }
 
-/** "(월 사용액 70만 원부터는 한도 3만 원)" — 요율도 다르면 "… 12% 할인·한도 3만 원" */
+/**
+ * "(월 사용액 70만 원부터는 한도 3만 원)" — 요율도 다르면 "… 12% 할인·한도 3만 원".
+ * 지금 줄도 다음 구간도 한도가 없으면 "한도 없음"을 반복하지 않고 요율만 적는다.
+ */
 function nextTierText(row: BenefitRow, next: Tier): string {
-  const capText = next.monthlyCap === null ? '한도 없음' : `한도 ${capValueText(row.type, next.monthlyCap)}`
   const rateDiffers = next.rate !== undefined && next.rate !== row.rate
-  const body = rateDiffers ? `${rateText(row.type, next.rate!)}·${capText}` : capText
-  return `(월 사용액 ${won(next.minSpend)}부터는 ${body})`
+  const capChanges = !(next.monthlyCap === null && row.monthlyCap === null)
+  const capText = next.monthlyCap === null ? '한도 없음' : `한도 ${capValueText(row.type, next.monthlyCap)}`
+  const parts = [rateDiffers ? rateText(row.type, next.rate!) : '', capChanges ? capText : ''].filter(Boolean)
+  if (parts.length === 0) return ''
+  return `(월 사용액 ${won(next.minSpend)}부터는 ${parts.join('·')})`
 }
 
 /** "이렇게 쓰면 최대" 문장들. 월 혜택 큰 순, 성향별 개수 제한. */

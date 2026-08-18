@@ -125,11 +125,45 @@ describe('다음 구간 안내', () => {
     expect(tips(ab, 'meticulous')[0]).toBe('주유에 월 15만 원 이상 쓰면 한도(1.5만 원)를 꽉 채워요 (월 사용액 100만 원부터는 한도 없음)')
   })
 
-  test('범용 줄에는 안 붙는다', () => {
+  test('범용 줄에도 붙는다 (한도 구간)', () => {
     const c: Card = { ...base, minSpend: 0,
       universal: { type: 'points', rate: 1, monthlyCap: 10000, tiers: [{ minSpend: 1_000_000, monthlyCap: 30000 }] },
       benefits: [{ tag: '모든 가맹점', type: 'points', rate: 1, monthlyCap: 10000, stars: 3, tiers: [{ minSpend: 1_000_000, monthlyCap: 30000 }] }] }
     const ab = annualBenefit(c, q({ tags: ['주유'], monthlySpend: 500_000 }))!
-    expect(tips(ab, 'meticulous')[0]).toBe('그 외 소비는 모든 가맹점 1% 적립')
+    expect(tips(ab, 'meticulous')[0]).toBe('그 외 소비는 모든 가맹점 1% 적립 (월 사용액 100만 원부터는 한도 3만 원)')
+  })
+})
+
+describe('요율만 오르는 구간 안내', () => {
+  test('한도 없는 정률 줄: 다음 구간 요율만 안내(한도 없음 반복 안 함)', () => {
+    const c: Card = { ...base, minSpend: 0, benefits: [
+      { tag: '온라인 쇼핑', type: 'points', rate: 0.8, monthlyCap: null, stars: 1, tiers: [{ minSpend: 500_000, rate: 1.6, monthlyCap: null }] },
+    ] }
+    const ab = annualBenefit(c, q({ tags: ['온라인 쇼핑'], monthlySpend: 300_000 }))!
+    expect(tips(ab, 'meticulous')[0]).toBe('온라인 쇼핑은 쓰는 만큼 0.8% 적립 — 한도 없음 (월 사용액 50만 원부터는 1.6% 적립)')
+  })
+
+  test('한도 없는 정률 줄: 다음 구간에 한도가 생기면 요율·한도', () => {
+    const c: Card = { ...base, minSpend: 0, benefits: [
+      { tag: '해외 결제', type: 'discount', rate: 1, monthlyCap: null, stars: 1, tiers: [{ minSpend: 1_000_000, rate: 2, monthlyCap: 20000 }] },
+    ] }
+    const ab = annualBenefit(c, q({ tags: ['해외 결제'], monthlySpend: 300_000 }))!
+    expect(tips(ab, 'meticulous')[0]).toBe('해외 결제는 쓰는 만큼 1% 할인 — 한도 없음 (월 사용액 100만 원부터는 2% 할인·한도 2만 원)')
+  })
+
+  test('범용 줄에도 다음 구간이 있으면 안내', () => {
+    const c: Card = { ...base, minSpend: 0,
+      universal: { type: 'points', rate: 0.2, monthlyCap: null, tiers: [{ minSpend: 500_000, rate: 0.4, monthlyCap: null }] },
+      benefits: [{ tag: '모든 가맹점', type: 'points', rate: 0.2, monthlyCap: null, stars: 1, tiers: [{ minSpend: 500_000, rate: 0.4, monthlyCap: null }] }] }
+    const ab = annualBenefit(c, q({ tags: ['주유'], monthlySpend: 300_000 }))!
+    expect(tips(ab, 'meticulous')[0]).toBe('그 외 소비는 모든 가맹점 0.2% 적립 (월 사용액 50만 원부터는 0.4% 적립)')
+  })
+
+  test('최상위 구간이면 괄호 없음(한도 없는 줄)', () => {
+    const c: Card = { ...base, minSpend: 0, benefits: [
+      { tag: '온라인 쇼핑', type: 'points', rate: 0.8, monthlyCap: null, stars: 1, tiers: [{ minSpend: 500_000, rate: 1.6, monthlyCap: null }] },
+    ] }
+    const ab = annualBenefit(c, q({ tags: ['온라인 쇼핑'], monthlySpend: 600_000 }))! // 60만×1.6% = 9,600 < 가정 한도 1만
+    expect(tips(ab, 'meticulous')[0]).toBe('온라인 쇼핑은 쓰는 만큼 1.6% 적립 — 한도 없음')
   })
 })
