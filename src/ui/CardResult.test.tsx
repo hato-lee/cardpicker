@@ -109,3 +109,15 @@ test('전체 혜택 줄에 실적 구간이 붙는다', async () => {
   expect(screen.getByText('주유 10% 할인 · 월 최대 1.5만 원 (실적 70만 원↑ 3만 원, 100만 원↑ 12% 할인·5만 원) (정유사 1곳 선택)')).toBeInTheDocument()
   expect(screen.getByText('카페·편의점 5% 할인 · 월 최대 5,000원')).toBeInTheDocument()
 })
+
+test('전체 혜택 줄: 마일리지 구간의 monthlyCap이 null이면 한도 없음으로 표기된다', async () => {
+  const mileageCard: Card = { ...oil, benefits: [
+    { tag: '마일리지', type: 'mileage', rate: 0.1, monthlyCap: 1000, stars: 3,
+      tiers: [{ minSpend: 2000000, rate: 0.15, monthlyCap: null }] },
+  ] }
+  const mq: Query = { ...q, tags: ['마일리지'] }
+  const s: Scored = { card: mileageCard, benefit: annualBenefit(mileageCard, mq)!, coveredTags: ['마일리지'], universalCovers: [] }
+  render(<CardResult rank={2} scored={s} persona="moderate" today={today} />)
+  await userEvent.click(screen.getByRole('button', { name: /자세히 보기/ }))
+  expect(screen.getByText('마일리지 1,000원당 1마일 · 월 최대 1,000마일 (실적 200만 원↑ 1,000원당 1.5마일·한도 없음)')).toBeInTheDocument()
+})

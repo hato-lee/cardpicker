@@ -1,4 +1,4 @@
-import { rateText, won } from './format'
+import { capValueText, rateText, won } from './format'
 
 test('won', () => {
   expect(won(0)).toBe('0원')
@@ -22,4 +22,10 @@ test('rateText 마일리지', () => {
 test('rateText: rate 0은 정액·특별 혜택으로 표기', () => {
   expect(rateText('discount', 0)).toBe('정액·특별 혜택')
   expect(rateText('mileage', 0)).toBe('정액·특별 혜택')
+})
+
+test('capValueText', () => {
+  expect(capValueText('discount', null)).toBe('한도 없음')
+  expect(capValueText('mileage', 1000)).toBe('1,000마일')
+  expect(capValueText('points', 5000)).toBe('5,000원')
 })

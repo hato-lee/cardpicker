@@ -7,6 +7,13 @@ export function won(n: number): string {
   return `${s}만 원`
 }
 
+/** 한도 값 표기 (접두어 없이). 마일리지 한도는 '원'이 아니라 '마일' 단위다. */
+export function capValueText(type: 'discount' | 'points' | 'mileage', cap: number | null): string {
+  if (cap === null) return '한도 없음'
+  if (type === 'mileage') return `${cap.toLocaleString('ko-KR')}마일`
+  return won(cap)
+}
+
 /** 혜택 요율 표기. 할인/적립은 "10% 할인", 마일리지는 "1,000원당 N마일" (N = rate * 10, 소수 둘째자리에서 반올림, 뒤 0 생략) */
 export function rateText(type: 'discount' | 'points' | 'mileage', rate: number): string {
   // rate 0 = 정액 할인(리터당 ○원)·수수료 면제 등 %로 표현 안 되는 혜택. 세부는 note에.

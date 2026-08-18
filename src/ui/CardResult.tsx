@@ -3,20 +3,13 @@ import type { Scored } from '../engine/recommend'
 import type { Persona, Benefit, BenefitType } from '../data/types'
 import { tips, rowAnnualValue, isStale, PERSONA_LABEL } from '../engine/explain'
 import { RULES } from '../engine/rules'
-import { won, rateText } from './format'
+import { won, rateText, capValueText } from './format'
 
 interface Props {
   rank: number
   scored: Scored
   persona: Persona
   today: Date
-}
-
-/** 한도 값 표기 (접두어 없이). 마일리지 한도는 '원'이 아니라 '마일' 단위다. */
-function capValueText(type: BenefitType, cap: number | null): string {
-  if (cap === null) return '한도 없음'
-  if (type === 'mileage') return `${cap.toLocaleString('ko-KR')}마일`
-  return won(cap)
 }
 
 /** 월 한도 표기. 마일리지 한도는 '원'이 아니라 '마일' 단위다. */

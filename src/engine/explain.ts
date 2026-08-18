@@ -1,7 +1,7 @@
 import type { Persona, Tier } from '../data/types'
 import type { AnnualBenefit, BenefitRow } from './benefit'
 import { RULES, type Rules } from './rules'
-import { won, rateText } from '../ui/format'
+import { won, rateText, capValueText } from '../ui/format'
 
 export const PERSONA_LABEL: Record<Persona, string> = { meticulous: '꼼꼼형', moderate: '적당형', carefree: '무심형' }
 
@@ -22,15 +22,14 @@ function tipOf(row: BenefitRow, rules: Rules): string {
   if (row.rate === 0) return `${row.tag}: ${row.note ?? '정액 혜택'}`
   if (row.assumedCap) return `${row.tag}${eun(row.tag)} 한도 정보가 없어 월 ${won(rules.assumedCapWhenUnknown)}으로 계산했어요`
   if (row.monthlyCap === null) return `${row.tag}${eun(row.tag)} 쓰는 만큼 ${rateText(row.type, row.rate)} — 한도 없음`
-  const cap = row.type === 'mileage' ? `${row.monthlyCap.toLocaleString('ko-KR')}마일` : won(row.monthlyCap)
+  const cap = capValueText(row.type, row.monthlyCap)
   const main = `${row.tag}에 월 ${won(Math.round(row.requiredSpend!))} 이상 쓰면 한도(${cap})를 꽉 채워요`
   return row.nextTier ? `${main} ${nextTierText(row, row.nextTier)}` : main
 }
 
 /** "(월 사용액 70만 원부터는 한도 3만 원)" — 요율도 다르면 "… 12% 할인·한도 3만 원" */
 function nextTierText(row: BenefitRow, next: Tier): string {
-  const capText = next.monthlyCap === null ? '한도 없음'
-    : `한도 ${row.type === 'mileage' ? `${next.monthlyCap.toLocaleString('ko-KR')}마일` : won(next.monthlyCap)}`
+  const capText = next.monthlyCap === null ? '한도 없음' : `한도 ${capValueText(row.type, next.monthlyCap)}`
   const rateDiffers = next.rate !== undefined && next.rate !== row.rate
   const body = rateDiffers ? `${rateText(row.type, next.rate!)}·${capText}` : capText
   return `(월 사용액 ${won(next.minSpend)}부터는 ${body})`
