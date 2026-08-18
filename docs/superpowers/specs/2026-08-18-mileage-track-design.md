@@ -45,8 +45,10 @@ export function recommendMileage(cards: Card[], q: Query, rules = RULES): MileSc
 - `Card.perks?: string[]`(최대 6줄): 사용자용 부가 혜택. 계산엔 안 쓰고 상세의 "프리미엄 혜택"에 그대로 보여준다. memo(내부용)와 다르다.
 - 화면: 큰 숫자는 보너스 포함 합계, 밑줄에 "연간 보너스 N마일 포함". 상세 "이렇게 쓰면 최대"에 `연간 보너스 30,000마일 — 첫해는 누적 100만 원, 이후엔 연 3600만 원 이상 쓸 때` 한 줄.
 
+- `Card.mileConversion?: string` (2026-08-18): 포인트 전환형(아멕스 멤버십 리워즈 등). 있으면 카드 이름 옆 '포인트 전환형' 배지 + 상세에 환산 기준 문장. 계산엔 안 쓴다(rate가 이미 전환 후 마일).
+
 ## 데이터
-`mileageBonus`·`perks` 추가(위). 나머지 형식 변경 없음. 마일리지 카드 추가 수집(프리미엄·포인트→마일 전환형)은 `docs/data-collection/mileage-2026-08-18/COLLECT-BRIEF.md`.
+`mileageBonus`·`perks`·`mileConversion` 추가(위). 나머지 형식 변경 없음. 마일리지 카드 추가 수집(프리미엄·포인트→마일 전환형)은 `docs/data-collection/mileage-2026-08-18/COLLECT-BRIEF.md`.
 후속 후보: 프리미엄 부가서비스(라운지·바우처)를 보여주려면 사용자용 필드(`perks?: string`)가 필요 — 이번엔 memo에만.
 
 ## 테스트

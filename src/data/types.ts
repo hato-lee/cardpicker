@@ -55,6 +55,8 @@ export interface Card {
   memo?: string
   mileageBonus?: MileageBonus  // 마일리지 트랙에서만 쓴다
   perks?: string[]             // 사용자에게 보여줄 부가 혜택 한 줄씩(라운지·바우처·발레파킹 등). 12개 태그 밖 혜택. 계산엔 안 쓴다
+  // 포인트 전환형 마일 카드(멤버십 리워즈 → 마일 등). 있으면 화면에 '포인트 전환형' 배지 + 이 문장(환산 기준). 계산엔 안 쓴다
+  mileConversion?: string
 }
 
 export interface Query {

@@ -62,3 +62,15 @@ test('보너스 조건 미달이지만 첫해 조건은 되면 안내만', () =>
   expect(screen.getByText('약 12,000마일')).toBeInTheDocument()
   expect(screen.getByText(/첫해엔 보너스 30,000마일 별도/)).toBeInTheDocument()
 })
+
+test('포인트 전환형 카드는 배지와 환산 기준이 보인다', async () => {
+  const amex: Card = { ...base, id: 'amex', name: '아멕스', mileConversion: '멤버십 리워즈 포인트를 스카이패스 마일로 1.5:1 전환한 값이에요' }
+  render(<MileResult rank={2} scored={scoreMileage(amex, q)!} monthlySpend={q.monthlySpend} today={today} />)
+  expect(screen.getByText('포인트 전환형')).toBeInTheDocument()
+  await userEvent.click(screen.getByRole('button', { name: /자세히 보기/ }))
+  expect(screen.getByText('멤버십 리워즈 포인트를 스카이패스 마일로 1.5:1 전환한 값이에요')).toBeInTheDocument()
+})
+test('직접 적립 카드에는 배지가 없다', () => {
+  render(<MileResult rank={1} scored={scoreMileage(base, q)!} monthlySpend={q.monthlySpend} today={today} />)
+  expect(screen.queryByText('포인트 전환형')).toBeNull()
+})

@@ -34,7 +34,11 @@ export function MileResult({ rank, scored, monthlySpend, today }: Props) {
       <header className="card-head">
         <span className="rank" aria-label={`${rank}위`}>{rank}</span>
         <div className="card-title">
-          <h3>{card.name}{rank === 1 && <span className="top-badge">추천</span>}</h3>
+          <h3>
+            {card.name}
+            {rank === 1 && <span className="top-badge">추천</span>}
+            {card.mileConversion && <span className="conv-badge">포인트 전환형</span>}
+          </h3>
           <div className="card-sub">{card.issuer} · {card.kind === 'credit' ? '신용' : '체크'} · 연회비 {won(card.annualFee)} · {card.minSpend === 0 ? '실적 없음' : `전월실적 ${won(card.minSpend)}`}</div>
         </div>
       </header>
@@ -54,6 +58,7 @@ export function MileResult({ rank, scored, monthlySpend, today }: Props) {
           <ul className="tips">
             <li>{mileageTip(scored)}</li>
             {card.mileageBonus && <li>{bonusText(card.mileageBonus)}</li>}
+            {card.mileConversion && <li>{card.mileConversion}</li>}
           </ul>
           {card.perks && card.perks.length > 0 && (
             <>

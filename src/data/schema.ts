@@ -53,6 +53,7 @@ const cardSchema = z
       })
       .optional(),
     perks: z.array(z.string().min(1)).max(6, 'perks는 6줄까지').optional(),
+    mileConversion: z.string().min(1).optional(),
   })
   .superRefine((data, ctx) => {
     if (data.universal !== null && !data.benefits.some((b) => b.tag === '모든 가맹점')) {
