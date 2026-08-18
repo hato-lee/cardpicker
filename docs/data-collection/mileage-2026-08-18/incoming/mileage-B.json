@@ -1,0 +1,146 @@
+[
+  {
+    "id": "samsung-special-mileage-skypass",
+    "name": "삼성카드 스페셜마일리지 (스카이패스)",
+    "issuer": "삼성카드",
+    "kind": "credit",
+    "annualFee": 97000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "대한항공 스카이패스 마일리지, 모든 가맹점 1,000원당 1마일 기본적립(이마트·홈플러스·롯데마트 등 마트, 주유 등 생활 영역은 1,000원당 2마일 추가적립)"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "대한항공 스카이패스 마일리지, 모든 가맹점 1,000원당 1마일 기본적립(이마트·홈플러스·롯데마트 등 마트, 주유 등 생활 영역은 1,000원당 2마일 추가적립)"
+      }
+    ],
+    "universal": { "type": "mileage", "rate": 0.1, "monthlyCap": null },
+    "complexity": 2,
+    "officialUrl": "https://www.samsungcard.com/personal/card/cardfinder/UHPPCA0102M0.jsp?code=AAP1484",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 삼성카드 공식페이지(code=AAP1484)로 연회비 확인(국내전용 97,000원/AMEX 99,000원), 세부 적립 구조는 뱅크샐러드(CARD003156)·카드고릴라 콘텐츠 참고(공식 페이지는 상세 수치가 접혀 있음). 마트·생활 영역 2마일 추가적립의 정확한 카테고리 목록과 월 적립 한도는 미확인. 아웃백스테이크하우스 외식 할인, 아멕스 플래티넘 엘리트 등급 서비스, 인천공항 라운지 등은 태그 밖이라 memo로만 남김(상세 조건 미확인)."
+  },
+  {
+    "id": "samsung-shinsegae-the-mileage",
+    "name": "신세계 더 마일리지 삼성카드 (스카이패스)",
+    "issuer": "삼성카드",
+    "kind": "credit",
+    "annualFee": 45000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "대한항공 스카이패스 마일리지, 모든 가맹점 1,000원당 1마일 기본적립(신세계백화점·신세계면세점은 1,000원당 1마일 추가적립)"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "대한항공 스카이패스 마일리지, 모든 가맹점 1,000원당 1마일 기본적립(신세계백화점·신세계면세점은 1,000원당 1마일 추가적립)"
+      }
+    ],
+    "universal": { "type": "mileage", "rate": 0.1, "monthlyCap": null },
+    "complexity": 1,
+    "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1771",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 삼성카드 공식페이지(code=AAP1771, 연회비 45,000원 확인), 세부 적립률은 검색 스니펫·뱅크샐러드 참고(공식 페이지 상세 수치 접힘). 신세계백화점·면세점 추가 1마일은 12개 태그(백화점 없음) 밖이라 benefits에 별도 반영하지 않음. 월 적립 한도, 전월실적 조건은 미확인."
+  },
+  {
+    "id": "hana-skypass-amex-platinum",
+    "name": "하나 스카이패스 아멕스 플래티늄 카드",
+    "issuer": "하나카드",
+    "kind": "credit",
+    "annualFee": 45000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "대한항공 스카이패스 마일리지, 국내 모든 가맹점 1,000원당 1마일 기본적립(전월실적 조건 없음)"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "대한항공 스카이패스 마일리지, 국내 모든 가맹점 1,000원당 1마일 기본적립(전월실적 조건 없음)"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "mileage",
+        "rate": 0.2,
+        "monthlyCap": null,
+        "stars": 3,
+        "note": "전월실적 50만원 이상 시 해외 1,000원당 2마일(미달 시 1,000원당 1마일), 최초 카드사용등록월과 다음달은 실적 무관 적용"
+      }
+    ],
+    "universal": { "type": "mileage", "rate": 0.1, "monthlyCap": null },
+    "complexity": 2,
+    "officialUrl": "https://www.hanacard.co.kr/OPI42000000D.web?_frame=no&CD_PD_SEQ=17415",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 하나카드 공식페이지 JS라 뱅크샐러드(CARD004256)·나무위키·아멕스코리아 페이지 종합. 인천공항 라운지 월1회/연2회(전월실적 50만원 이상, 최초 사용등록월+익월은 실적 무관), 아멕스 셀렉트·BAP 다이닝 혜택 등은 태그 밖. 월 마일리지 적립 한도는 공식 확인하지 못함(미확인, 여러 참고자료는 '한도 없음'으로 서술하나 공식 문구로 재확인 필요)."
+  },
+  {
+    "id": "hana-clubh-amex-reserve",
+    "name": "하나 CLUB H 아메리칸 익스프레스 리저브 카드",
+    "issuer": "하나카드",
+    "kind": "credit",
+    "annualFee": 150000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "마일리지",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "대한항공 스카이패스 마일리지, 국내 모든 가맹점 1,000원당 1마일 기본적립"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "mileage",
+        "rate": 0.1,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "대한항공 스카이패스 마일리지, 국내 모든 가맹점 1,000원당 1마일 기본적립"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "mileage",
+        "rate": 0.2,
+        "monthlyCap": null,
+        "stars": 3,
+        "note": "전월실적 50만원 이상 시 해외 1,000원당 2마일, 최초 카드사용등록월과 다음달은 실적 무관 적용"
+      }
+    ],
+    "universal": { "type": "mileage", "rate": 0.1, "monthlyCap": null },
+    "complexity": 2,
+    "officialUrl": "https://m.hanacard.co.kr/MKCDCM1010M.web?CD_PD_SEQ=17428",
+    "lastChecked": "2026-08-18",
+    "status": "active",
+    "memo": "AI 수집(2026-08-18), 검수 전. 출처: 하나카드 공식페이지 JS라 뱅크샐러드(CARD004257)·아멕스코리아·보도자료 종합. 하나카드 최초 메탈카드, 인천공항 라운지 무료입장 월2회/연4회(동반자 1인 포함), 호텔·레스토랑 할인, 공항리무진·철도 편도 무료 등은 태그 밖. 월 마일리지 적립 한도는 공식 확인하지 못함(미확인)."
+  }
+]
