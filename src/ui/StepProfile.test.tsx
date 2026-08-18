@@ -11,9 +11,9 @@ function Harness({ onNext = () => {} }: { onNext?: () => void }) {
 test('성향 3개와 설명이 보인다', () => {
   render(<Harness />)
   expect(screen.getByText('꼼꼼형')).toBeInTheDocument()
-  expect(screen.getByText('실적·한도 다 따지고 결제 전에 어떤 카드 낼지 생각해요 → 한도를 다 챙긴다고 계산해요')).toBeInTheDocument()
-  expect(screen.getByText('대충은 알고 쓰지만 매번 계산하진 않아요 → 한도의 80%로 계산해요')).toBeInTheDocument()
-  expect(screen.getByText('한 장 꽂아두고 신경 끄고 싶어요 → 한도의 60%로 계산해요')).toBeInTheDocument()
+  expect(screen.getByText('실적·한도 다 따지고 카드도 여러 장 나눠 써요 → 모든 카드를 봐요')).toBeInTheDocument()
+  expect(screen.getByText('대충은 알고 쓰지만 매번 계산하진 않아요 → 선택형·조건 복잡한 카드는 빼요')).toBeInTheDocument()
+  expect(screen.getByText('한 장 꽂아두고 신경 끄고 싶어요 → 복잡한 카드는 빼고, 고른 영역이 한 장으로 다 되는 카드만')).toBeInTheDocument()
 })
 
 test('사용액 빠른 선택 버튼을 누르면 입력칸에 들어간다', async () => {

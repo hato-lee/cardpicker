@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { Scored } from '../engine/recommend'
 import type { Persona, Benefit, BenefitType } from '../data/types'
-import { tips, rowAnnualValue, isStale, PERSONA_LABEL } from '../engine/explain'
+import { tips, rowAnnualValue, isStale } from '../engine/explain'
 import { RULES } from '../engine/rules'
 import { won, rateText, capValueText } from './format'
 
@@ -38,11 +38,10 @@ export function CardResult({ rank, scored, persona, today }: Props) {
   const { card, benefit } = scored
   const stale = isStale(card.lastChecked, today)
   const net = benefit.annualNet
-  const pct = Math.round(RULES.personaRealization[persona] * 100)
 
   // 내역 줄: 연 금액 큰 순, 최대 N개 + "외 N개"
   const rows = benefit.rows
-    .map((r) => ({ tag: r.tag, annual: rowAnnualValue(r, persona) }))
+    .map((r) => ({ tag: r.tag, annual: rowAnnualValue(r) }))
     .sort((a, b) => b.annual - a.annual)
   const shown = rows.slice(0, RULES.breakdownMaxRows)
   const rest = rows.length - shown.length
@@ -69,7 +68,7 @@ export function CardResult({ rank, scored, persona, today }: Props) {
         ) : (
           <div className="annual-negative">연회비가 혜택보다 커요 (−{won(-net)})</div>
         )}
-        <div className="annual-sub">연회비 {won(card.annualFee)} 뺀 금액 · {PERSONA_LABEL[persona]} 기준(한도의 {pct}%)</div>
+        <div className="annual-sub">연회비 {won(card.annualFee)} 뺀 금액 · 한도를 다 채웠을 때</div>
       </div>
 
       <ul className="breakdown">

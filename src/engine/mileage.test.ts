@@ -77,10 +77,14 @@ describe('recommendMileage 필터·정렬', () => {
     const many = Array.from({ length: 8 }, (_, i) => card({ ...mile1, id: `c${i}` }))
     expect(recommendMileage(many, q())).toHaveLength(RULES.topN)
   })
-  test('성향은 무시한다', () => {
+  test('성향은 마일 수에 영향 없지만, 적당형·무심형은 복잡도 3 카드를 안 본다', () => {
     const a = recommendMileage([mile1], q({ persona: 'carefree' }))[0]
     const b = recommendMileage([mile1], q({ persona: 'meticulous' }))[0]
     expect(a.annualMiles).toBe(b.annualMiles)
+    const c3 = card({ ...mile1, id: 'c3', complexity: 3 })
+    expect(recommendMileage([c3], q({ persona: 'meticulous' }))).toHaveLength(1)
+    expect(recommendMileage([c3], q({ persona: 'moderate' }))).toHaveLength(0)
+    expect(recommendMileage([c3], q({ persona: 'carefree' }))).toHaveLength(0)
   })
 })
 

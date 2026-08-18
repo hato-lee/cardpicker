@@ -33,9 +33,9 @@ test('연 마일·마일당 비용·덤 줄이 보인다', async () => {
   expect(screen.getAllByText('해외 결제 1,000원당 2마일 · 월 최대 1,000마일').length).toBeGreaterThan(0)
 })
 
-test('Results 마일리지 모드: 성향 칩 없음, 빈 결과 문구', () => {
+test('Results 마일리지 모드: 성향 칩 표시, 빈 결과 문구', () => {
   render(<Results query={q} results={[]} mileResults={{ grouped: false, all: [] }} onEdit={() => {}} today={today} />)
-  expect(screen.queryByText('적당형')).toBeNull()
+  expect(screen.getByText('적당형')).toBeInTheDocument()
   expect(screen.getByText('월 100만 원')).toBeInTheDocument()
   expect(screen.getByText('조건에 맞는 마일리지 카드를 못 찾았어요.')).toBeInTheDocument()
 })

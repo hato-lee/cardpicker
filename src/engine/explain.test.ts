@@ -76,10 +76,9 @@ test('정액인데 note가 없으면 "정액 혜택"', () => {
   expect(tips(ab, 'meticulous')).toEqual(['해외 결제: 정액 혜택'])
 })
 
-test('rowAnnualValue = 월 × 12 × 성향 비율', () => {
+test('rowAnnualValue = 월 × 12 (성향 무관)', () => {
   const ab = annualBenefit(multi, q({ tags: ['주유'] }))!
-  expect(rowAnnualValue(ab.rows[0], 'meticulous')).toBe(180000)
-  expect(rowAnnualValue(ab.rows[0], 'moderate')).toBe(144000)
+  expect(rowAnnualValue(ab.rows[0])).toBe(180000)
 })
 
 test('PERSONA_LABEL', () => {

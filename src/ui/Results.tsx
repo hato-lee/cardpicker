@@ -11,15 +11,19 @@ import { won } from './format'
 interface Props {
   query: Query
   results: Scored[]
+  /** 무심형인데 다 커버하는 카드가 없어서 커버 많은 순으로 푼 결과 */
+  relaxed?: boolean
   mileResults?: MileageGroups
   onEdit: () => void
   today: Date
 }
 
-export function Results({ query, results, mileResults = { grouped: false, all: [] }, onEdit, today }: Props) {
+export const RELAXED_NOTE = '고른 영역을 한 장으로 다 되는 카드가 없어서, 가장 많이 되는 카드부터 보여줘요.'
+
+export function Results({ query, results, relaxed = false, mileResults = { grouped: false, all: [] }, onEdit, today }: Props) {
   const mileage = isMileageQuery(query)
   const chips = [
-    ...(mileage ? [] : [PERSONA_LABEL[query.persona]]),  // 마일리지 트랙은 성향을 안 쓴다
+    PERSONA_LABEL[query.persona],
     `월 ${won(query.monthlySpend)}`,
     query.feeLimit === null ? '연회비 상관없음' : `연회비 ${won(query.feeLimit)}까지`,
     ...query.tags,
@@ -60,6 +64,7 @@ export function Results({ query, results, mileResults = { grouped: false, all: [
         <button type="button" className="link-btn" onClick={onEdit}>조건 바꾸기</button>
       </div>
       <h2>{results.length > 0 ? `당신에게 맞는 카드 TOP ${results.length}` : '당신에게 맞는 카드'}</h2>
+      {relaxed && results.length > 0 && <p className="hint">{RELAXED_NOTE}</p>}
       {results.length === 0 ? (
         <div className="empty">
           <p>조건에 맞는 카드를 못 찾았어요.</p>

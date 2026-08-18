@@ -1,4 +1,4 @@
-import { recommend, coveredTagsOf, universalCoversOf } from './recommend'
+import { recommend, recommendGeneral, coveredTagsOf, universalCoversOf } from './recommend'
 import { RULES } from './rules'
 import type { Card, Query } from '../data/types'
 
@@ -53,10 +53,34 @@ describe('걸러내기', () => {
     expect(r).toHaveLength(1)
     expect(r[0].universalCovers).toEqual(['병의원·약국'])
   })
-  test('무심형은 복잡도 3이 빠진다', () => {
+  test('적당형·무심형은 복잡도 3이 빠지고 꼼꼼형은 본다', () => {
     const c3 = card({ ...oilCard, id: 'c3', complexity: 3 })
     expect(recommend([c3], q({ persona: 'carefree' }))).toHaveLength(0)
-    expect(recommend([c3], q({ persona: 'moderate' }))).toHaveLength(1)
+    expect(recommend([c3], q({ persona: 'moderate' }))).toHaveLength(0)
+    expect(recommend([c3], q({ persona: 'meticulous' }))).toHaveLength(1)
+  })
+  test('무심형은 고른 영역을 한 장으로 다 커버하는 카드만', () => {
+    const cafe = card({ id: 'cafe', benefits: [{ tag: '카페·편의점', type: 'discount', rate: 10, monthlyCap: 5000, stars: 2 }] })
+    const both = card({ id: 'both', benefits: [
+      { tag: '주유', type: 'discount', rate: 5, monthlyCap: 3000, stars: 1 },
+      { tag: '카페·편의점', type: 'discount', rate: 5, monthlyCap: 3000, stars: 1 }] })
+    const tags = ['주유', '카페·편의점'] as const
+    const r = recommendGeneral([oilCard, cafe, both, universalCard], q({ persona: 'carefree', tags: [...tags] }))
+    expect(r.relaxed).toBe(false)
+    // both(직접 둘 다) + uni(모든 가맹점으로 둘 다) 만 남고, oil·cafe는 한 영역만이라 빠짐
+    expect(r.items.map((x) => x.card.id).sort()).toEqual(['both', 'uni'])
+    // 적당형은 넷 다 후보
+    expect(recommend([oilCard, cafe, both, universalCard], q({ persona: 'moderate', tags: [...tags] }))).toHaveLength(4)
+  })
+  test('무심형에 다 커버하는 카드가 없으면 풀어서 커버 많은 순', () => {
+    const cafe = card({ id: 'cafe', benefits: [{ tag: '카페·편의점', type: 'discount', rate: 10, monthlyCap: 50000, stars: 2 }] })
+    const two = card({ id: 'two', benefits: [
+      { tag: '주유', type: 'discount', rate: 5, monthlyCap: 1000, stars: 1 },
+      { tag: '카페·편의점', type: 'discount', rate: 5, monthlyCap: 1000, stars: 1 }] })
+    const r = recommendGeneral([cafe, two], q({ persona: 'carefree', tags: ['주유', '카페·편의점', '대중교통·택시'] }))
+    expect(r.relaxed).toBe(true)
+    // cafe가 금액은 크지만 two가 2영역 커버라 먼저
+    expect(r.items.map((x) => x.card.id)).toEqual(['two', 'cafe'])
   })
 })
 
@@ -81,10 +105,11 @@ describe('정렬', () => {
     // annualNet: a3 = 120000, a1 = a2 = 115000 → a3, a2(실적 0), a1
     expect(recommend([a1, a2, a3], q({ persona: 'meticulous' })).map((x) => x.card.id)).toEqual(['a3', 'a2', 'a1'])
   })
-  test('무심형은 성향 비율 때문에 같은 카드라도 숫자가 작다', () => {
+  test('금액은 성향과 무관하다', () => {
     const m = recommend([oilCard], q({ persona: 'meticulous' }))[0].benefit.annualNet
     const c = recommend([oilCard], q({ persona: 'carefree' }))[0].benefit.annualNet
-    expect(c).toBe(Math.round(m * RULES.personaRealization.carefree))
+    expect(c).toBe(m)
+    expect(m).toBe(15000 * 12)
   })
   test('상위 topN만', () => {
     const many = Array.from({ length: 8 }, (_, i) => card({ id: `c${i}`, benefits: [{ tag: '주유', type: 'discount', rate: 10, monthlyCap: 1000 * (i + 1), stars: 1 }] }))

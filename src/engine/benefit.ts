@@ -23,7 +23,6 @@ export interface AnnualBenefit {
   rows: BenefitRow[]
   monthlyMax: number
   annualGross: number
-  annualRealized: number
   annualNet: number
   clampFactor: number
 }
@@ -141,7 +140,6 @@ export function annualBenefit(card: Card, q: Query, rules: Rules = RULES): Annua
 
   const monthlyMax = finalRows.reduce((s, x) => s + x.monthlyValue, 0)
   const annualGross = monthlyMax * 12
-  const annualRealized = annualGross * rules.personaRealization[q.persona]
-  const annualNet = Math.round(annualRealized - card.annualFee)
-  return { rows: finalRows, monthlyMax, annualGross, annualRealized, annualNet, clampFactor }
+  const annualNet = Math.round(annualGross - card.annualFee)
+  return { rows: finalRows, monthlyMax, annualGross, annualNet, clampFactor }
 }

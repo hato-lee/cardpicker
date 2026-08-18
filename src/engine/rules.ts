@@ -6,11 +6,12 @@ export const RULES = {
   topN: 5,
   staleDays: 90,
   // 성향 = 한도를 실제로 얼마나 챙기는지. 연 혜택에 곱한다.
-  personaRealization: { meticulous: 1.0, moderate: 0.8, carefree: 0.6 },
   // 1마일 ≈ 15원으로 환산
   mileWon: 15,
-  // 무심형은 복잡도 3 제외
-  carefreeMaxComplexity: 2,
+  // 성향별로 볼 수 있는 최대 복잡도. 적당·무심형은 선택형 팩·제외 항목 많은 카드(3)를 안 본다
+  personaMaxComplexity: { meticulous: 3, moderate: 2, carefree: 2 },
+  // 무심형은 고른 영역을 한 장으로 다 커버하는 카드만 (없으면 자동으로 풀어서 커버 많은 순)
+  carefreeFullCoverOnly: true,
   // "이렇게 쓰면 최대" 문장 개수 (성향별)
   tipCount: { meticulous: Infinity, moderate: 2, carefree: 1 },
   // 한 달 사용액 빠른 선택 버튼 (만 원)

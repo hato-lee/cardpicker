@@ -55,11 +55,12 @@ export function scoreMileage(card: Card, q: Query): MileScored | null {
   return { card, rate: t.rate, monthlyCap: t.monthlyCap, nextTier: t.nextTier, monthlyMiles, baseAnnualMiles, bonusMiles, firstYearBonus, annualMiles, feePerMile, extras }
 }
 
-/** 후보 전부를 연 마일 큰 순 → 연회비 낮은 순 → 실적 낮은 순으로. 성향은 쓰지 않는다. */
-function rankMileage(cards: Card[], q: Query): MileScored[] {
+/** 후보 전부를 연 마일 큰 순 → 연회비 낮은 순 → 실적 낮은 순으로. 성향은 복잡도 필터에만 쓴다. */
+function rankMileage(cards: Card[], q: Query, rules: Rules): MileScored[] {
   const out: MileScored[] = []
   for (const card of cards) {
     if (card.status !== 'active') continue
+    if (card.complexity > rules.personaMaxComplexity[q.persona]) continue
     if (q.feeLimit !== null && card.annualFee > q.feeLimit) continue
     if (q.monthlySpend < card.minSpend) continue
     const s = scoreMileage(card, q)
@@ -69,7 +70,7 @@ function rankMileage(cards: Card[], q: Query): MileScored[] {
 }
 
 export function recommendMileage(cards: Card[], q: Query, rules: Rules = RULES): MileScored[] {
-  return rankMileage(cards, q).slice(0, rules.topN)
+  return rankMileage(cards, q, rules).slice(0, rules.topN)
 }
 
 export type MileageGroups =
@@ -81,7 +82,7 @@ export type MileageGroups =
  * 그 이상이거나 상관없음이면 일반(기준 미만)·프리미엄(기준 이상) 각 mileageGroupTopN장.
  */
 export function mileageGroups(cards: Card[], q: Query, rules: Rules = RULES): MileageGroups {
-  const ranked = rankMileage(cards, q)
+  const ranked = rankMileage(cards, q, rules)
   if (q.feeLimit !== null && q.feeLimit < rules.mileagePremiumFee) return { grouped: false, all: ranked.slice(0, rules.topN) }
   return {
     grouped: true,

@@ -24,14 +24,31 @@ export function universalCoversOf(card: Card, tags: Tag[], rules: Rules = RULES)
 
 function passesFilters(card: Card, q: Query, rules: Rules): boolean {
   if (card.status !== 'active') return false
-  if (q.persona === 'carefree' && card.complexity > rules.carefreeMaxComplexity) return false
+  if (card.complexity > rules.personaMaxComplexity[q.persona]) return false
   if (q.feeLimit !== null && card.annualFee > q.feeLimit) return false
   if (q.monthlySpend < card.minSpend) return false
   return true
 }
 
-/** 연 최대 혜택(연회비 뺀 값)이 큰 순. 동률이면 연회비 낮은 순 → 실적 낮은 순. */
-export function recommend(cards: Card[], q: Query, rules: Rules = RULES): Scored[] {
+export interface Recommendation {
+  items: Scored[]
+  /** 무심형인데 고른 영역을 한 장으로 다 커버하는 카드가 없어서, 커버 많은 순으로 풀어서 보여준 경우 */
+  relaxed: boolean
+}
+
+const coverCount = (s: Scored) => s.coveredTags.length + s.universalCovers.length
+
+function byNet(a: Scored, b: Scored): number {
+  return b.benefit.annualNet - a.benefit.annualNet ||
+    a.card.annualFee - b.card.annualFee ||
+    a.card.minSpend - b.card.minSpend
+}
+
+/**
+ * 연 최대 혜택(연회비 뺀 값)이 큰 순. 동률이면 연회비 낮은 순 → 실적 낮은 순.
+ * 무심형은 고른 영역을 한 장으로 다 커버하는 카드만 남기고, 없으면 커버 개수 많은 순으로 푼다.
+ */
+export function recommendGeneral(cards: Card[], q: Query, rules: Rules = RULES): Recommendation {
   const scored: Scored[] = []
   for (const card of cards) {
     if (!passesFilters(card, q, rules)) continue
@@ -39,10 +56,14 @@ export function recommend(cards: Card[], q: Query, rules: Rules = RULES): Scored
     if (benefit === null) continue
     scored.push({ card, benefit, coveredTags: coveredTagsOf(card, q.tags), universalCovers: universalCoversOf(card, q.tags, rules) })
   }
-  return scored
-    .sort((a, b) =>
-      b.benefit.annualNet - a.benefit.annualNet ||
-      a.card.annualFee - b.card.annualFee ||
-      a.card.minSpend - b.card.minSpend)
-    .slice(0, rules.topN)
+  if (q.persona === 'carefree' && rules.carefreeFullCoverOnly) {
+    const full = scored.filter((s) => coverCount(s) === q.tags.length)
+    if (full.length > 0) return { items: full.sort(byNet).slice(0, rules.topN), relaxed: false }
+    return { items: scored.sort((a, b) => coverCount(b) - coverCount(a) || byNet(a, b)).slice(0, rules.topN), relaxed: true }
+  }
+  return { items: scored.sort(byNet).slice(0, rules.topN), relaxed: false }
+}
+
+export function recommend(cards: Card[], q: Query, rules: Rules = RULES): Scored[] {
+  return recommendGeneral(cards, q, rules).items
 }

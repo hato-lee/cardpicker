@@ -92,11 +92,11 @@ test('전 가맹점 마일리지 카드: 마일리지 + 모든 가맹점 둘 다
   expect(r.rows.map((x) => x.tag)).toEqual(['마일리지'])
 })
 
-test('성향 비율과 연회비 차감', () => {
+test('연회비 차감, 성향은 금액에 영향 없음', () => {
   const c = card({ annualFee: 30000, benefits: [{ tag: '주유', type: 'discount', rate: 10, monthlyCap: 10000, stars: 2 }] })
   expect(annualBenefit(c, q({ persona: 'meticulous' }))!.annualNet).toBe(120000 - 30000)
-  expect(annualBenefit(c, q({ persona: 'moderate' }))!.annualNet).toBe(Math.round(120000 * 0.8 - 30000))
-  expect(annualBenefit(c, q({ persona: 'carefree' }))!.annualNet).toBe(Math.round(120000 * 0.6 - 30000))
+  expect(annualBenefit(c, q({ persona: 'moderate' }))!.annualNet).toBe(120000 - 30000)
+  expect(annualBenefit(c, q({ persona: 'carefree' }))!.annualNet).toBe(120000 - 30000)
 })
 
 test('한도 정보 없는 영역 할인은 가정 한도까지만', () => {

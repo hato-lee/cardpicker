@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { CardResult } from './CardResult'
+import { Results, RELAXED_NOTE } from './Results'
 import { annualBenefit } from '../engine/benefit'
 import type { Scored } from '../engine/recommend'
 import type { Card, Query } from '../data/types'
@@ -17,26 +18,26 @@ const oil: Card = {
 const q: Query = { persona: 'moderate', monthlySpend: 1_000_000, feeLimit: null, tags: ['주유', '카페·편의점'] }
 const scored: Scored = { card: oil, benefit: annualBenefit(oil, q)!, coveredTags: ['주유', '카페·편의점'], universalCovers: [] }
 const today = new Date('2026-08-20')
-// 월 2만 × 12 × 0.8 = 192,000 − 10,000 = 182,000
+// 월 2만 × 12 = 240,000 − 10,000 = 230,000
 
 test('이름·카드사·큰 숫자·부제·링크·확인일이 보인다', () => {
   render(<CardResult rank={1} scored={scored} persona="moderate" today={today} />)
   expect(screen.getByText('신한카드 Deep Oil')).toBeInTheDocument()
   expect(screen.getByText(/신한카드 · 신용/)).toBeInTheDocument()
   expect(screen.getByText('연 최대')).toBeInTheDocument()
-  expect(screen.getByText('약 18.2만 원')).toBeInTheDocument()
-  expect(screen.getByText('연회비 1만 원 뺀 금액 · 적당형 기준(한도의 80%)')).toBeInTheDocument()
+  expect(screen.getByText('약 23만 원')).toBeInTheDocument()
+  expect(screen.getByText('연회비 1만 원 뺀 금액 · 한도를 다 채웠을 때')).toBeInTheDocument()
   expect(screen.getByRole('link', { name: /카드사 페이지/ })).toHaveAttribute('href', 'https://example.com/oil')
   expect(screen.getByText(/마지막 확인 2026-08-18/)).toBeInTheDocument()
 })
 
 test('내역 줄: 태그와 연 금액', () => {
   render(<CardResult rank={2} scored={scored} persona="moderate" today={today} />)
-  // 주유 15,000×12×0.8 = 144,000 / 카페 5,000×12×0.8 = 48,000
+  // 주유 15,000×12 = 180,000 / 카페 5,000×12 = 60,000
   expect(screen.getByText('주유')).toBeInTheDocument()
-  expect(screen.getByText('14.4만 원')).toBeInTheDocument()
+  expect(screen.getByText('18만 원')).toBeInTheDocument()
   expect(screen.getByText('카페·편의점')).toBeInTheDocument()
-  expect(screen.getByText('4.8만 원')).toBeInTheDocument()
+  expect(screen.getByText('6만 원')).toBeInTheDocument()
 })
 
 test('1위는 추천 배지, 2위는 없음', () => {
@@ -63,14 +64,14 @@ test('연회비가 혜택보다 크면 문구로 표시', () => {
   const pricey: Card = { ...oil, id: 'p', annualFee: 300000 }
   const s: Scored = { ...scored, card: pricey, benefit: annualBenefit(pricey, q)! }
   render(<CardResult rank={3} scored={s} persona="moderate" today={today} />)
-  // 192,000 − 300,000 = −108,000
-  expect(screen.getByText('연회비가 혜택보다 커요 (−10.8만 원)')).toBeInTheDocument()
+  // 240,000 − 300,000 = −60,000
+  expect(screen.getByText('연회비가 혜택보다 커요 (−6만 원)')).toBeInTheDocument()
   expect(screen.queryByText(/^약 /)).not.toBeInTheDocument()
 })
 
 test('연회비가 혜택과 정확히 같으면(net 0) 괄호 없이 문구만', () => {
-  // monthlyMax 20,000 × 12 × 0.8(적당형) = 192,000 = annualFee → net 0
-  const evenFee: Card = { ...oil, id: 'e', annualFee: 192000 }
+  // monthlyMax 20,000 × 12 = 240,000 = annualFee → net 0
+  const evenFee: Card = { ...oil, id: 'e', annualFee: 240000 }
   const s: Scored = { ...scored, card: evenFee, benefit: annualBenefit(evenFee, q)! }
   render(<CardResult rank={3} scored={s} persona="moderate" today={today} />)
   expect(screen.getByText('연회비가 혜택보다 커요')).toBeInTheDocument()
@@ -120,4 +121,13 @@ test('전체 혜택 줄: 마일리지 구간의 monthlyCap이 null이면 한도 
   render(<CardResult rank={2} scored={s} persona="moderate" today={today} />)
   await userEvent.click(screen.getByRole('button', { name: /자세히 보기/ }))
   expect(screen.getByText('마일리지 1,000원당 1마일 · 월 최대 1,000마일 (실적 200만 원↑ 1,000원당 1.5마일·한도 없음)')).toBeInTheDocument()
+})
+
+test('Results: 무심형 풀어서 보여줄 때만 안내 문구', () => {
+  const cq: Query = { ...q, persona: 'carefree' }
+  const { unmount } = render(<Results query={cq} results={[scored]} relaxed onEdit={() => {}} today={today} />)
+  expect(screen.getByText(RELAXED_NOTE)).toBeInTheDocument()
+  unmount()
+  render(<Results query={cq} results={[scored]} relaxed={false} onEdit={() => {}} today={today} />)
+  expect(screen.queryByText(RELAXED_NOTE)).toBeNull()
 })

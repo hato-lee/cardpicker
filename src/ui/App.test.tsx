@@ -43,7 +43,7 @@ test('제보 폼 주소가 자리표시자면 링크를 숨긴다', async () => 
   expect(screen.queryByRole('link', { name: /제보하기/ })).toBeNull()
 })
 
-test('마일리지만 고르면 마일리지 트랙: 마일 단위 결과, 성향 칩 없음', async () => {
+test('마일리지만 고르면 마일리지 트랙: 마일 단위 결과', async () => {
   render(<App />)
   await goToResults('적당형', ['마일리지'])
   // 연회비 한도 20만(프리미엄 기준 이상)이라 일반/프리미엄 묶음으로 나뉜다
@@ -52,7 +52,6 @@ test('마일리지만 고르면 마일리지 트랙: 마일 단위 결과, 성�
   expect(screen.getAllByText('연 예상').length).toBeGreaterThan(0)
   expect(screen.getAllByText(/약 [\d,]+마일/).length).toBeGreaterThan(0)
   expect(screen.queryByText('연 최대')).toBeNull()
-  expect(screen.queryByText('적당형')).toBeNull()
 })
 
 test('마일리지 트랙: 연회비 한도가 10만 원 미만이면 한 줄 TOP N', async () => {

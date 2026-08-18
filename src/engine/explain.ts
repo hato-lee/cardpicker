@@ -13,8 +13,8 @@ function eun(s: string): string {
 }
 
 /** 줄 하나의 연 혜택(성향 반영). 화면 내역·막대에 쓴다. */
-export function rowAnnualValue(row: BenefitRow, persona: Persona, rules: Rules = RULES): number {
-  return Math.round(row.monthlyValue * 12 * rules.personaRealization[persona])
+export function rowAnnualValue(row: BenefitRow): number {
+  return Math.round(row.monthlyValue * 12)
 }
 
 function tipOf(row: BenefitRow, rules: Rules): string {

@@ -3,7 +3,7 @@ import rawCards from '../data/cards.json'
 import { validateCards } from '../data/schema'
 import type { Card, Query } from '../data/types'
 import type { Tag } from '../data/tags'
-import { recommend, type Scored } from '../engine/recommend'
+import { recommendGeneral, type Scored } from '../engine/recommend'
 import { StepProfile, type Profile } from './StepProfile'
 import { StepTags } from './StepTags'
 import { isMileageQuery, mileageGroups, type MileageGroups } from '../engine/mileage'
@@ -28,6 +28,7 @@ export default function App() {
   const [tags, setTags] = useState<Tag[]>([])
   const [query, setQuery] = useState<Query | null>(null)
   const [results, setResults] = useState<Scored[]>([])
+  const [relaxed, setRelaxed] = useState(false)
   const [mileResults, setMileResults] = useState<MileageGroups>({ grouped: false, all: [] })
 
   const submit = () => {
@@ -40,8 +41,11 @@ export default function App() {
     }
     setQuery(q)
     // '마일리지'만 골랐으면 마일리지 전용 트랙(마일 단위·성향 무시), 아니면 기존 연 혜택 계산
-    if (isMileageQuery(q)) { setMileResults(mileageGroups(CARDS, q)); setResults([]) }
-    else { setResults(recommend(CARDS, q)); setMileResults({ grouped: false, all: [] }) }
+    if (isMileageQuery(q)) { setMileResults(mileageGroups(CARDS, q)); setResults([]); setRelaxed(false) }
+    else {
+      const r = recommendGeneral(CARDS, q)
+      setResults(r.items); setRelaxed(r.relaxed); setMileResults({ grouped: false, all: [] })
+    }
     setStep(3)
   }
 
@@ -61,7 +65,7 @@ export default function App() {
       <h1>카드픽</h1>
       {step === 1 && <StepProfile value={profile} onChange={setProfile} onNext={() => setStep(2)} />}
       {step === 2 && <StepTags value={tags} onChange={setTags} onBack={() => setStep(1)} onSubmit={submit} />}
-      {step === 3 && query && <Results query={query} results={results} mileResults={mileResults} onEdit={() => setStep(1)} today={today} />}
+      {step === 3 && query && <Results query={query} results={results} relaxed={relaxed} mileResults={mileResults} onEdit={() => setStep(1)} today={today} />}
     </main>
   )
 }
