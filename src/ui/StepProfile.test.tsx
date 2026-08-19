@@ -8,13 +8,16 @@ function Harness({ onNext = () => {} }: { onNext?: () => void }) {
   return <StepProfile value={p} onChange={setP} onNext={onNext} />
 }
 
-test('성향 3개와 설명이 보인다', () => {
+test('성향 타일 3개, 고르기 전엔 안내, 고르면 그 성향 설명만', async () => {
   render(<Harness />)
-  expect(screen.getByText('꼼꼼형')).toBeInTheDocument()
-  expect(screen.getByText('실적·한도 다 따지고 카드도 여러 장 나눠 써요')).toBeInTheDocument()
-  expect(screen.getByText('→ 모든 카드를 봐요')).toBeInTheDocument()
+  expect(screen.getAllByRole('radio')).toHaveLength(3)
+  expect(screen.getByText('하나를 골라 주세요 — 어떤 카드를 보여줄지 달라져요')).toBeInTheDocument()
+  await userEvent.click(screen.getByRole('radio', { name: '적당형' }))
+  expect(screen.getByRole('radio', { name: '적당형' })).toHaveAttribute('aria-checked', 'true')
   expect(screen.getByText('대충은 알고 쓰지만 매번 계산하진 않아요')).toBeInTheDocument()
   expect(screen.getByText('→ 선택형·조건 복잡한 카드는 빼요')).toBeInTheDocument()
+  expect(screen.queryByText('→ 모든 카드를 봐요')).toBeNull()
+  await userEvent.click(screen.getByRole('radio', { name: '무심형' }))
   expect(screen.getByText('한 장 꽂아두고 신경 끄고 싶어요')).toBeInTheDocument()
   expect(screen.getByText('→ 복잡한 카드는 빼고, 고른 영역이 한 장으로 다 되는 카드만')).toBeInTheDocument()
 })

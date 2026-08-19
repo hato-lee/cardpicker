@@ -9,13 +9,16 @@ body { margin: 0; font-family: system-ui, -apple-system, "Apple SD Gothic Neo", 
 .field legend, .field > label, .label-row label { display: block; font-size: 16px; font-weight: 600; margin-bottom: 8px; padding: 0; }
 .label-row { display: flex; align-items: baseline; justify-content: space-between; }
 .label-row .slider-value { margin: 0 0 8px; }
-.persona-list { display: grid; gap: 8px; }
-.persona { display: grid; grid-template-columns: auto 1fr; column-gap: 10px; align-items: start; padding: 12px; background: #fff; border: 1px solid #dfe3e8; border-radius: 10px; cursor: pointer; }
-.persona.is-selected { border-color: #2563eb; background: #f3f7ff; box-shadow: 0 0 0 2px rgba(37,99,235,.15); }
-.persona input { margin-top: 3px; }
-.persona-label { font-weight: 600; }
-.persona-desc { grid-column: 2; font-size: 13px; color: #444; }
-.persona-effect { grid-column: 2; font-size: 12px; color: var(--muted); margin-top: 2px; }
+.field-label { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+.persona-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.persona-tile { display: grid; justify-items: center; gap: 6px; padding: 14px 4px 12px; background: #fff; border: 1px solid var(--line); border-radius: 12px; cursor: pointer; font: inherit; color: var(--ink); }
+.persona-tile.is-selected { border-color: var(--brand); background: #f3f7ff; box-shadow: 0 0 0 2px rgba(37,99,235,.15); }
+.persona-emoji { font-size: 28px; line-height: 1; }
+.persona-label { font-weight: 600; font-size: 15px; }
+.persona-explain { min-height: 44px; margin: 10px 2px 0; }
+.persona-desc { margin: 0; font-size: 14px; color: #333; }
+.persona-effect { margin: 3px 0 0; font-size: 12px; color: var(--muted); }
+.persona-prompt { font-size: 13px; color: var(--muted); }
 .spend-box { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 10px; }
 .spend-box .presets { margin-bottom: 8px; }
 .spend-box .input-row input { border-color: var(--line); }
