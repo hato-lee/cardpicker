@@ -17,9 +17,11 @@ interface Props {
   onChange: (tags: Tag[]) => void
   onBack: () => void
   onNext: () => void
+  /** 결과 화면에서 혜택만 고치러 온 경우 */
+  editing?: boolean
 }
 
-export function StepTags({ value, onChange, onBack, onNext }: Props) {
+export function StepTags({ value, onChange, onBack, onNext, editing = false }: Props) {
   // '마일리지'는 배타적: 켜면 다른 태그를 다 끄고, 다른 태그를 켜면 마일리지를 끈다 (마일리지 전용 트랙)
   const toggle = (t: Tag) => {
     if (value.includes(t)) return onChange(value.filter((x) => x !== t))
@@ -65,9 +67,9 @@ export function StepTags({ value, onChange, onBack, onNext }: Props) {
         <span className="switch-knob" aria-hidden="true" />
       </button>
       <div className="button-row">
-        <button type="button" className="secondary" onClick={onBack}>이전</button>
+        <button type="button" className="secondary" onClick={onBack}>{editing ? '결과로' : '이전'}</button>
         <button type="button" className="primary" disabled={count === 0} onClick={onNext}>
-          {mileageMode ? '다음' : `다음${count > 0 ? ` (${count}개)` : ''}`}
+          {editing ? '다시 추천 받기' : mileageMode ? '다음' : `다음${count > 0 ? ` (${count}개)` : ''}`}
         </button>
       </div>
     </section>

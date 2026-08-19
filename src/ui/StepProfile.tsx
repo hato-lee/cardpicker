@@ -24,10 +24,13 @@ interface PersonaProps {
   value: Profile
   onChange: (p: Profile) => void
   onNext: () => void
+  /** 결과 화면에서 고치러 온 경우: 버튼이 '다시 추천 받기'가 되고 돌아가기 버튼이 생긴다 */
+  editing?: boolean
+  onCancel?: () => void
 }
 
 /** 1단계: 성향 하나만 */
-export function StepPersona({ value, onChange, onNext }: PersonaProps) {
+export function StepPersona({ value, onChange, onNext, editing = false, onCancel }: PersonaProps) {
   const selected = PERSONAS.find((p) => p.value === value.persona) ?? null
   return (
     <section className="step">
@@ -60,7 +63,14 @@ export function StepPersona({ value, onChange, onNext }: PersonaProps) {
         )}
       </div>
 
-      <button className="primary" disabled={value.persona === null} onClick={onNext}>다음</button>
+      {editing ? (
+        <div className="button-row">
+          <button type="button" className="secondary" onClick={onCancel}>결과로</button>
+          <button type="button" className="primary" disabled={value.persona === null} onClick={onNext}>다시 추천 받기</button>
+        </div>
+      ) : (
+        <button className="primary" disabled={value.persona === null} onClick={onNext}>다음</button>
+      )}
     </section>
   )
 }
@@ -72,10 +82,11 @@ interface BudgetProps {
   onSubmit: () => void
   /** 마일리지 트랙이면 버튼 문구가 달라진다 */
   mileage?: boolean
+  editing?: boolean
 }
 
 /** 3단계(마지막): 한 달 사용액 + 연회비 허용치 → 추천 받기 */
-export function StepBudget({ value, onChange, onBack, onSubmit, mileage = false }: BudgetProps) {
+export function StepBudget({ value, onChange, onBack, onSubmit, mileage = false, editing = false }: BudgetProps) {
   const sliderValue = value.feeLimit ?? FEE_ANY
   const canSubmit = value.monthlySpendMan !== '' && value.monthlySpendMan > 0
   const current = value.monthlySpendMan === '' ? 0 : value.monthlySpendMan
@@ -83,7 +94,7 @@ export function StepBudget({ value, onChange, onBack, onSubmit, mileage = false 
 
   return (
     <section className="step">
-      <p className="greet">마지막이에요 ✌️</p>
+      <p className="greet">{editing ? '사용액·연회비만 고쳐요 ✎' : '마지막이에요 ✌️'}</p>
       <h2>한 달에 카드로 얼마나 쓰세요?</h2>
 
       <div className="field">
@@ -141,9 +152,9 @@ export function StepBudget({ value, onChange, onBack, onSubmit, mileage = false 
       </div>
 
       <div className="button-row">
-        <button type="button" className="secondary" onClick={onBack}>이전</button>
+        <button type="button" className="secondary" onClick={onBack}>{editing ? '결과로' : '이전'}</button>
         <button type="button" className="primary" disabled={!canSubmit} onClick={onSubmit}>
-          {mileage ? '마일리지 카드 추천 받기' : '추천 받기'}
+          {editing ? '다시 추천 받기' : mileage ? '마일리지 카드 추천 받기' : '추천 받기'}
         </button>
       </div>
     </section>

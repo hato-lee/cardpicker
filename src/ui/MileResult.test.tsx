@@ -36,8 +36,8 @@ test('연 마일·마일당 비용·덤 줄이 보인다', async () => {
 
 test('Results 마일리지 모드: 성향 칩 표시, 빈 결과 문구', () => {
   render(<Results query={q} results={[]} mileResults={{ grouped: false, all: [] }} onEdit={() => {}} today={today} />)
-  expect(screen.getByText('적당형')).toBeInTheDocument()
-  expect(screen.getByText('월 100만 원')).toBeInTheDocument()
+  expect(screen.getByRole('button', { name: /적당형/ })).toBeInTheDocument()
+  expect(screen.getByRole('button', { name: /월 100만 원/ })).toBeInTheDocument()
   expect(screen.getByRole('heading', { name: '조건에 맞는 마일리지 카드를 못 찾았어요' })).toBeInTheDocument()
 })
 

@@ -7,7 +7,7 @@ import { recommendGeneral, type Scored } from '../engine/recommend'
 import { StepPersona, StepBudget, type Profile } from './StepProfile'
 import { StepTags } from './StepTags'
 import { isMileageQuery, mileageGroups, type MileageGroups } from '../engine/mileage'
-import { Results } from './Results'
+import { Results, type EditPart } from './Results'
 
 // cards.json이 깨져도 흰 화면 대신 안내를 보여준다
 let cards: Card[] = []
@@ -24,6 +24,8 @@ type Step = 1 | 2 | 3 | 4
 
 export default function App() {
   const [step, setStep] = useState<Step>(1)
+  // 결과 화면에서 조건 하나만 고치러 온 상태. 고치고 '다시 추천 받기'면 바로 결과로
+  const [editing, setEditing] = useState(false)
   const [profile, setProfile] = useState<Profile>({ persona: null, monthlySpendMan: '', feeLimit: 30_000 })
   const [tags, setTags] = useState<Tag[]>([])
   const [query, setQuery] = useState<Query | null>(null)
@@ -47,7 +49,15 @@ export default function App() {
       setResults(r.items); setRelaxed(r.relaxed); setMileResults({ grouped: false, all: [] })
     }
     setStep(4)
+    setEditing(false)
   }
+
+  const edit = (part: EditPart) => {
+    if (part === 'all') { setEditing(false); setStep(1); return }
+    setEditing(true)
+    setStep(part === 'persona' ? 1 : part === 'tags' ? 2 : 3)
+  }
+  const backToResults = () => { setEditing(false); setStep(4) }
 
   const today = new Date()
 
@@ -66,10 +76,10 @@ export default function App() {
         <span style={{ width: `${(step / 4) * 100}%` }} />
       </div>
       <header className="app-head"><h1>카드픽</h1></header>
-      {step === 1 && <StepPersona value={profile} onChange={setProfile} onNext={() => setStep(2)} />}
-      {step === 2 && <StepTags value={tags} onChange={setTags} onBack={() => setStep(1)} onNext={() => setStep(3)} />}
-      {step === 3 && <StepBudget value={profile} onChange={setProfile} onBack={() => setStep(2)} onSubmit={submit} mileage={tags.length === 1 && tags[0] === '마일리지'} />}
-      {step === 4 && query && <Results query={query} results={results} relaxed={relaxed} mileResults={mileResults} onEdit={() => setStep(1)} today={today} />}
+      {step === 1 && <StepPersona value={profile} onChange={setProfile} onNext={editing ? submit : () => setStep(2)} editing={editing} onCancel={backToResults} />}
+      {step === 2 && <StepTags value={tags} onChange={setTags} onBack={editing ? backToResults : () => setStep(1)} onNext={editing ? submit : () => setStep(3)} editing={editing} />}
+      {step === 3 && <StepBudget value={profile} onChange={setProfile} onBack={editing ? backToResults : () => setStep(2)} onSubmit={submit} mileage={tags.length === 1 && tags[0] === '마일리지'} editing={editing} />}
+      {step === 4 && query && <Results query={query} results={results} relaxed={relaxed} mileResults={mileResults} onEdit={edit} today={today} />}
     </main>
   )
 }

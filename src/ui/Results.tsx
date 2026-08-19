@@ -14,7 +14,8 @@ interface Props {
   /** 무심형인데 다 커버하는 카드가 없어서 커버 많은 순으로 푼 결과 */
   relaxed?: boolean
   mileResults?: MileageGroups
-  onEdit: () => void
+  /** 어느 부분을 고치러 갈지. 칩을 누르면 그 부분으로, 맨 아래 버튼은 혜택/처음부터 */
+  onEdit: (part: EditPart) => void
   today: Date
 }
 
@@ -24,25 +25,40 @@ export const PERSONA_ECHO: Record<Persona, string> = {
   moderate: '복잡한 카드는 뺐어요 · 가장 많이 아끼는 순',
   carefree: '한 장으로 다 되는 단순한 카드만 · 할인형 먼저',
 }
+export type EditPart = 'persona' | 'tags' | 'budget' | 'all'
+
 export const RELAXED_NOTE = '고른 영역을 한 장으로 다 되는 카드가 없어서, 가장 많이 되는 카드부터 보여줘요.'
 
 export function Results({ query, results, relaxed = false, mileResults = { grouped: false, all: [] }, onEdit, today }: Props) {
   const mileage = isMileageQuery(query)
-  const chips = [
-    PERSONA_LABEL[query.persona],
-    `월 ${won(query.monthlySpend)}`,
-    query.feeLimit === null ? '연회비 상관없음' : `연회비 ${won(query.feeLimit)}까지`,
-    ...query.tags,
+  // 칩을 누르면 그 조건을 고치는 화면으로 바로 간다 (나머지 조건은 그대로)
+  const chips: { label: string; part: EditPart }[] = [
+    { label: PERSONA_LABEL[query.persona], part: 'persona' },
+    { label: `월 ${won(query.monthlySpend)}`, part: 'budget' },
+    { label: query.feeLimit === null ? '연회비 상관없음' : `연회비 ${won(query.feeLimit)}까지`, part: 'budget' },
+    ...query.tags.map((t) => ({ label: t, part: 'tags' as EditPart })),
   ]
+  const summary = (
+    <div className="summary">
+      <ul className="chips" aria-label="내 조건 (누르면 바꿀 수 있어요)">
+        {chips.map((c) => (
+          <li key={c.label}>
+            <button type="button" className="chip chip-btn" onClick={() => onEdit(c.part)} title="이 조건 바꾸기">{c.label} ✎</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+  const footer = (
+    <div className="button-row">
+      <button type="button" className="secondary" onClick={() => onEdit('all')}>처음부터</button>
+      <button type="button" className="primary" onClick={() => onEdit('tags')}>혜택 바꾸기</button>
+    </div>
+  )
   if (mileage) {
     return (
       <section className="step">
-        <div className="summary">
-          <ul className="chips" aria-label="내 조건">
-            {chips.map((c) => <li key={c} className="chip">{c}</li>)}
-          </ul>
-          <div className="summary-edit"><button type="button" className="link-btn" onClick={onEdit}>조건 바꾸기</button></div>
-        </div>
+        {summary}
         {mileResults.grouped ? (
           <MileGroups groups={mileResults} monthlySpend={query.monthlySpend} today={today} />
         ) : (
@@ -58,18 +74,13 @@ export function Results({ query, results, relaxed = false, mileResults = { group
             )}
           </>
         )}
-        <button type="button" className="secondary" onClick={onEdit}>조건 바꾸기</button>
+        {footer}
       </section>
     )
   }
   return (
     <section className="step">
-      <div className="summary">
-        <ul className="chips" aria-label="내 조건">
-          {chips.map((c) => <li key={c} className="chip">{c}</li>)}
-        </ul>
-        <div className="summary-edit"><button type="button" className="link-btn" onClick={onEdit}>조건 바꾸기</button></div>
-      </div>
+      {summary}
       <h2>{results.length > 0 ? '이런 카드가 잘 맞겠어요' : '조건에 맞는 카드를 못 찾았어요'}</h2>
       {results.length > 0 && <p className="hint">{PERSONA_ECHO[query.persona]} · TOP {results.length}</p>}
       {relaxed && results.length > 0 && <p className="hint">{RELAXED_NOTE}</p>}
@@ -82,7 +93,7 @@ export function Results({ query, results, relaxed = false, mileResults = { group
           <CardResult key={s.card.id} rank={i + 1} scored={s} persona={query.persona} today={today} />
         ))
       )}
-      <button type="button" className="secondary" onClick={onEdit}>조건 바꾸기</button>
+      {footer}
       {/* 제보 폼 주소를 아직 안 넣었으면(자리표시자) 링크를 숨긴다 */}
       {!REPORT_FORM_URL.includes('REPLACE_ME') && (
         <p className="report">

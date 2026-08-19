@@ -84,6 +84,9 @@ h1 { font-size: 22px; margin: 0 0 24px; }
 .summary-edit .link-btn { font-size: 13px; }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
 .chip { font-size: 12px; padding: 4px 8px; background: #fff; border: 1px solid var(--line); border-radius: 999px; color: #333; }
+.chip-btn { font: inherit; font-size: 12px; cursor: pointer; }
+.chip-btn:hover { border-color: var(--brand); color: var(--brand); }
+.step .button-row { margin-top: 8px; }
 .card.is-top { border-color: var(--brand); box-shadow: 0 0 0 2px rgba(37,99,235,.15); }
 .card-title { min-width: 0; flex: 1; }
 .top-badge { display: inline-block; margin-left: 6px; padding: 2px 6px; font-size: 11px; font-weight: 700; color: var(--brand); background: #e8effd; border-radius: 4px; vertical-align: middle; }
