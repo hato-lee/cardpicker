@@ -35,10 +35,10 @@ export function StepProfile({ value, onChange, onNext }: Props) {
 
   return (
     <section className="step">
-      <h2>나에 대해 <span className="step-no">1 / 3</span></h2>
+      <p className="greet">반가워요 👋</p>
+      <h2 id="persona-label">카드를 어떻게 쓰시는 편이에요?</h2>
 
       <div className="field">
-        <div className="field-label" id="persona-label">나는 어떤 사람?</div>
         <div className="persona-tiles" role="radiogroup" aria-labelledby="persona-label">
           {PERSONAS.map((p) => (
             <button
@@ -65,7 +65,7 @@ export function StepProfile({ value, onChange, onNext }: Props) {
       </div>
 
       <div className="field">
-        <label htmlFor="spend">한 달 카드 사용액</label>
+        <label htmlFor="spend" className="q">한 달에 카드로 얼마나 쓰세요?</label>
         <div className="spend-box">
         <div className="presets">
           {RULES.spendPresetsMan.map((m) => (
@@ -99,7 +99,7 @@ export function StepProfile({ value, onChange, onNext }: Props) {
 
       <div className="field">
         <div className="label-row">
-          <label htmlFor="fee">연회비 허용치</label>
+          <label htmlFor="fee" className="q">연회비는 얼마까지 괜찮으세요?</label>
           <span className="slider-value">{value.feeLimit === null ? '상관없음' : won(value.feeLimit)}</span>
         </div>
         <input

@@ -23,7 +23,7 @@ export function StepTags({ value, onChange, onBack, onSubmit }: Props) {
 
   return (
     <section className="step">
-      <h2>관심 있는 혜택 <span className="step-no">2 / 3</span></h2>
+      <h2>어떤 혜택이 중요하세요?</h2>
       <p className="hint">여러 개 골라도 돼요.</p>
       <div className="tag-grid">
         {TAGS.map((t) => (

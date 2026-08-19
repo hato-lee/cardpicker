@@ -25,9 +25,9 @@ test('성향 타일 3개, 고르기 전엔 안내, 고르면 그 성향 설명�
 test('사용액 빠른 선택 버튼을 누르면 입력칸에 들어간다', async () => {
   render(<Harness />)
   await userEvent.click(screen.getByRole('button', { name: '50만' }))
-  expect(screen.getByLabelText(/한 달 카드 사용액/)).toHaveValue(50)
+  expect(screen.getByLabelText(/한 달에 카드로 얼마나/)).toHaveValue(50)
   await userEvent.click(screen.getByRole('button', { name: '200만' }))
-  expect(screen.getByLabelText(/한 달 카드 사용액/)).toHaveValue(200)
+  expect(screen.getByLabelText(/한 달에 카드로 얼마나/)).toHaveValue(200)
 })
 
 test('연회비 힌트 문구', () => {
@@ -42,7 +42,7 @@ test('성향과 사용액을 넣기 전엔 다음 버튼이 비활성', async ()
   expect(next).toBeDisabled()
   await userEvent.click(screen.getByText('적당형'))
   expect(next).toBeDisabled()
-  await userEvent.type(screen.getByLabelText(/한 달 카드 사용액/), '100')
+  await userEvent.type(screen.getByLabelText(/한 달에 카드로 얼마나/), '100')
   expect(next).toBeEnabled()
   await userEvent.click(next)
   expect(onNext).toHaveBeenCalled()
@@ -50,7 +50,7 @@ test('성향과 사용액을 넣기 전엔 다음 버튼이 비활성', async ()
 
 test('연회비 슬라이더: 20만 원까지는 실제 값, 그 다음 한 칸이 상관없음', () => {
   render(<Harness />)
-  const slider = screen.getByLabelText(/연회비 허용치/) as HTMLInputElement
+  const slider = screen.getByLabelText(/연회비는 얼마까지/) as HTMLInputElement
   expect(screen.getByText('3만 원')).toBeInTheDocument()
   fireEvent.change(slider, { target: { value: '200000' } })
   expect(screen.getByText('20만 원', { selector: '.slider-value' })).toBeInTheDocument()
@@ -61,7 +61,7 @@ test('연회비 슬라이더: 20만 원까지는 실제 값, 그 다음 한 칸�
 
 test('+10/−10 버튼으로 사용액을 미세 조정한다', async () => {
   render(<Harness />)
-  const input = screen.getByLabelText(/한 달 카드 사용액/)
+  const input = screen.getByLabelText(/한 달에 카드로 얼마나/)
   const plus = screen.getByRole('button', { name: '10만 원 더하기' })
   const minus = screen.getByRole('button', { name: '10만 원 빼기' })
   expect(minus).toBeDisabled() // 비어 있으면(0) 더 못 뺌

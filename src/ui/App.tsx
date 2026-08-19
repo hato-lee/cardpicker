@@ -62,7 +62,10 @@ export default function App() {
 
   return (
     <main className="app">
-      <header className="app-head"><h1>카드픽</h1><p className="tagline">내 씀씀이에 맞는 카드 찾기</p></header>
+      <div className="progress" role="progressbar" aria-label="진행" aria-valuemin={1} aria-valuemax={3} aria-valuenow={step}>
+        <span style={{ width: `${(step / 3) * 100}%` }} />
+      </div>
+      <header className="app-head"><h1>카드픽</h1></header>
       {step === 1 && <StepProfile value={profile} onChange={setProfile} onNext={() => setStep(2)} />}
       {step === 2 && <StepTags value={tags} onChange={setTags} onBack={() => setStep(1)} onSubmit={submit} />}
       {step === 3 && query && <Results query={query} results={results} relaxed={relaxed} mileResults={mileResults} onEdit={() => setStep(1)} today={today} />}
