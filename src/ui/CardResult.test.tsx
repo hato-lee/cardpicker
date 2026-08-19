@@ -24,9 +24,9 @@ test('이름·카드사·큰 숫자·부제·링크가 보이고 확인일은 �
   render(<CardResult rank={1} scored={scored} persona="moderate" today={today} />)
   expect(screen.getByText('신한카드 Deep Oil')).toBeInTheDocument()
   expect(screen.getByText(/신한카드 · 신용/)).toBeInTheDocument()
-  expect(screen.getByText('1년에 최대')).toBeInTheDocument()
-  expect(screen.getByText('약 23만 원')).toBeInTheDocument()
-  expect(screen.getByText('연회비 1만 원은 뺐어요 · 한도를 다 채웠을 때')).toBeInTheDocument()
+  expect(screen.getByText('1년에 약')).toBeInTheDocument()
+  expect(screen.getByText('23만 원')).toBeInTheDocument()
+  expect(screen.getByText('한도를 다 채웠을 때 최대치 · 연회비 1만 원은 뺐어요')).toBeInTheDocument()
   expect(screen.getByRole('link', { name: /카드사에서 보기/ })).toHaveAttribute('href', 'https://example.com/oil')
   expect(screen.queryByText(/마지막으로 확인한 날/)).toBeNull()
   await userEvent.click(screen.getByRole('button', { name: /자세히 보기/ }))
@@ -56,10 +56,11 @@ test('자세히 보기를 펼치면 tips와 전체 혜택이 보이고 memo·★
   await userEvent.click(screen.getByRole('button', { name: /자세히 보기/ }))
   expect(screen.getByText(/이렇게 쓰면 최대/)).toBeInTheDocument()
   expect(screen.getByText('주유에 월 15만 원 이상 쓰면 한도(1.5만 원)를 꽉 채워요')).toBeInTheDocument()
-  expect(screen.getByText(/주유 10% 할인 · 월 최대 1.5만 원 \(정유사 1곳 선택\)/)).toBeInTheDocument()
+  expect(screen.getByText(/주유 10% 할인 · 월 최대 1.5만 원/)).toBeInTheDocument()
+  expect(screen.getByText('정유사 1곳 선택')).toBeInTheDocument()
   expect(screen.queryByText(/AI 수집/)).not.toBeInTheDocument()
   expect(screen.queryByText(/★/)).not.toBeInTheDocument()
-  expect(screen.getByRole('button', { name: /접기/ })).toHaveAttribute('aria-expanded', 'true')
+  expect(screen.getAllByRole('button', { name: /접기/ })[0]).toHaveAttribute('aria-expanded', 'true')
 })
 
 test('연회비가 혜택보다 크면 문구로 표시', () => {
@@ -109,8 +110,9 @@ test('전체 혜택 줄에 실적 구간이 붙는다', async () => {
   const s: Scored = { card: tiered, benefit: annualBenefit(tiered, q)!, coveredTags: ['주유', '카페·편의점'], universalCovers: [] }
   render(<CardResult rank={2} scored={s} persona="moderate" today={today} />)
   await userEvent.click(screen.getByRole('button', { name: /자세히 보기/ }))
-  expect(screen.getByText('주유 10% 할인 · 월 최대 1.5만 원 (실적 70만 원↑ 3만 원, 100만 원↑ 12% 할인·5만 원) (정유사 1곳 선택)')).toBeInTheDocument()
-  expect(screen.getByText('카페·편의점 5% 할인 · 월 최대 5,000원')).toBeInTheDocument()
+  expect(screen.getByText(/주유 10% 할인 · 월 최대 1.5만 원/)).toBeInTheDocument()
+  expect(screen.getByText('전월 70만 원 이상 쓰면 3만 원까지, 100만 원 이상이면 12% 할인·5만 원까지 · 정유사 1곳 선택')).toBeInTheDocument()
+  expect(screen.getByText(/카페·편의점 5% 할인 · 월 최대 5,000원/)).toBeInTheDocument()
 })
 
 test('전체 혜택 줄: 마일리지 구간의 monthlyCap이 null이면 한도 없음으로 표기된다', async () => {
@@ -122,7 +124,8 @@ test('전체 혜택 줄: 마일리지 구간의 monthlyCap이 null이면 한도 
   const s: Scored = { card: mileageCard, benefit: annualBenefit(mileageCard, mq)!, coveredTags: ['마일리지'], universalCovers: [] }
   render(<CardResult rank={2} scored={s} persona="moderate" today={today} />)
   await userEvent.click(screen.getByRole('button', { name: /자세히 보기/ }))
-  expect(screen.getByText('마일리지 1,000원당 1마일 · 월 최대 1,000마일 (실적 200만 원↑ 1,000원당 1.5마일·한도 없음)')).toBeInTheDocument()
+  expect(screen.getByText(/마일리지 1,000원당 1마일 · 월 최대 1,000마일/)).toBeInTheDocument()
+  expect(screen.getByText('전월 200만 원 이상 쓰면 1,000원당 1.5마일·한도 없이')).toBeInTheDocument()
 })
 
 test('Results: 무심형 풀어서 보여줄 때만 안내 문구', () => {
@@ -157,4 +160,18 @@ test('포인트 적립이 절반 넘으면 포인트 배지(사용 난이도별 
   r.unmount()
   render(<CardResult rank={2} scored={scored} persona="carefree" today={today} />)
   expect(screen.queryByText(/포인트 적립/)).toBeNull()
+})
+
+test('2위부터는 한 줄로 접혀 있고 누르면 펼쳐진다, 1위엔 이유 한 줄', async () => {
+  const { unmount } = render(<CardResult rank={2} scored={scored} persona="moderate" today={today} compact maxNet={500000} />)
+  const row = screen.getByRole('button', { name: /신한카드 Deep Oil/ })
+  expect(row).toHaveAttribute('aria-expanded', 'false')
+  expect(screen.queryByText('1년에 약')).toBeNull()
+  await userEvent.click(row)
+  expect(screen.getByText('1년에 약')).toBeInTheDocument()
+  await userEvent.click(screen.getByRole('button', { name: /줄이기/ }))
+  expect(screen.queryByText('1년에 약')).toBeNull()
+  unmount()
+  render(<CardResult rank={1} scored={scored} persona="moderate" today={today} lead="2위 X보다 1년에 5만 원 더 아껴요" />)
+  expect(screen.getByText('2위 X보다 1년에 5만 원 더 아껴요')).toBeInTheDocument()
 })

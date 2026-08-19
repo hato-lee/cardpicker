@@ -2,7 +2,7 @@ import type { Query, Persona } from '../data/types'
 import type { Scored } from '../engine/recommend'
 import { isMileageQuery, type MileageGroups } from '../engine/mileage'
 import { RULES } from '../engine/rules'
-import { MileResult } from './MileResult'
+import { MileResult, mileLeadText } from './MileResult'
 import { PERSONA_LABEL } from '../engine/explain'
 import { CardResult } from './CardResult'
 import { REPORT_FORM_URL } from './config'
@@ -26,6 +26,24 @@ export const PERSONA_ECHO: Record<Persona, string> = {
   carefree: '한 장으로 다 되는 단순한 카드만 · 할인형 먼저',
 }
 export type EditPart = 'persona' | 'tags' | 'budget' | 'all'
+
+/** 1위 카드에 붙는 "왜 1위인지" 한 줄 */
+export function leadText(results: Scored[]): string {
+  const top = results[0]
+  const parts: string[] = []
+  if (results.length > 1) {
+    const diff = top.benefit.annualNet - results[1].benefit.annualNet
+    if (diff > 0) parts.push(`2위 ${results[1].card.name}보다 1년에 ${won(diff)} 더 아껴요`)
+    else parts.push(`2위 ${results[1].card.name}와 금액은 같아요 — 연회비·실적이 낮아서 먼저`)
+  } else {
+    parts.push('조건에 맞는 카드가 이것뿐이에요')
+  }
+  const rows = [...top.benefit.rows].sort((a, b) => b.monthlyValue - a.monthlyValue)
+  if (rows.length > 1 && top.benefit.monthlyMax > 0 && rows[0].monthlyValue / top.benefit.monthlyMax >= 0.7) {
+    parts.push(`${rows[0].tag}에서 거의 다 나와요`)
+  }
+  return parts.join(' · ')
+}
 
 export const RELAXED_NOTE = '고른 영역을 한 장으로 다 되는 카드가 없어서, 가장 많이 되는 카드부터 보여줘요.'
 
@@ -69,7 +87,8 @@ export function Results({ query, results, relaxed = false, mileResults = { group
               <MileEmpty />
             ) : (
               mileResults.all.map((s, i) => (
-                <MileResult key={s.card.id} rank={i + 1} scored={s} monthlySpend={query.monthlySpend} today={today} />
+                <MileResult key={s.card.id} rank={i + 1} scored={s} monthlySpend={query.monthlySpend} today={today}
+                  lead={i === 0 ? mileLeadText(mileResults.all) : undefined} compact={i > 0} maxMiles={mileResults.all[0].annualMiles} />
               ))
             )}
           </>
@@ -90,7 +109,17 @@ export function Results({ query, results, relaxed = false, mileResults = { group
         </div>
       ) : (
         results.map((s, i) => (
-          <CardResult key={s.card.id} rank={i + 1} scored={s} persona={query.persona} today={today} />
+          <CardResult
+            key={s.card.id}
+            rank={i + 1}
+            scored={s}
+            persona={query.persona}
+            today={today}
+            pickedTags={query.tags}
+            lead={i === 0 ? leadText(results) : undefined}
+            compact={i > 0}
+            maxNet={results[0].benefit.annualNet}
+          />
         ))
       )}
       {footer}
@@ -129,7 +158,8 @@ function MileGroups({ groups, monthlySpend, today }: { groups: Extract<MileageGr
         <section className="mile-group" aria-label={`연회비 ${fee} 미만`}>
           <h3 className="group-title">가볍게 시작한다면 <span className="group-sub">연회비 {fee} 미만</span></h3>
           {groups.regular.map((s, i) => (
-            <MileResult key={s.card.id} rank={i + 1} scored={s} monthlySpend={monthlySpend} today={today} />
+            <MileResult key={s.card.id} rank={i + 1} scored={s} monthlySpend={monthlySpend} today={today}
+              lead={i === 0 ? mileLeadText(groups.regular) : undefined} compact={i > 0} maxMiles={groups.regular[0].annualMiles} />
           ))}
         </section>
       )}
@@ -137,7 +167,8 @@ function MileGroups({ groups, monthlySpend, today }: { groups: Extract<MileageGr
         <section className="mile-group" aria-label={`프리미엄(연회비 ${fee} 이상)`}>
           <h3 className="group-title">제대로 모은다면 <span className="group-sub">연회비 {fee} 이상 · 보너스 마일·라운지까지</span></h3>
           {groups.premium.map((s, i) => (
-            <MileResult key={s.card.id} rank={i + 1} scored={s} monthlySpend={monthlySpend} today={today} />
+            <MileResult key={s.card.id} rank={i + 1} scored={s} monthlySpend={monthlySpend} today={today}
+              lead={i === 0 ? mileLeadText(groups.premium) : undefined} compact={i > 0} maxMiles={groups.premium[0].annualMiles} />
           ))}
         </section>
       )}

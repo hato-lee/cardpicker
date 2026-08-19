@@ -10,6 +10,19 @@ interface Props {
   scored: MileScored
   monthlySpend: number
   today: Date
+  /** 1위 아래 한 줄 이유 */
+  lead?: string
+  /** 2위부터: 한 줄 요약으로 시작 */
+  compact?: boolean
+  maxMiles?: number
+}
+
+/** 마일리지 1위 이유 한 줄 */
+export function mileLeadText(list: MileScored[]): string {
+  if (list.length < 2) return '이 묶음엔 이 카드뿐이에요'
+  const diff = list[0].annualMiles - list[1].annualMiles
+  if (diff > 0) return `2위 ${list[1].card.name}보다 1년에 ${diff.toLocaleString('ko-KR')}마일 더 쌓여요`
+  return `2위 ${list[1].card.name}와 마일은 같아요 — 연회비·실적이 낮아서 먼저`
 }
 
 /** 마일당 연회비: "1마일에 3.3원꼴" / 연회비 0이면 "연회비 없음" */
@@ -20,10 +33,25 @@ export function feePerMileText(fee: number, feePerMile: number | null): string {
   return `1마일에 ${v}원꼴`
 }
 
-export function MileResult({ rank, scored, monthlySpend, today }: Props) {
+export function MileResult({ rank, scored, monthlySpend, today, lead, compact = false, maxMiles }: Props) {
   const [open, setOpen] = useState(false)
+  const [expanded, setExpanded] = useState(!compact)
   const { card, annualMiles, bonusMiles, firstYearBonus, feePerMile, extras } = scored
   const stale = isStale(card.lastChecked, today)
+  if (!expanded) {
+    const ratio = maxMiles && maxMiles > 0 ? Math.max(0, Math.min(1, annualMiles / maxMiles)) : 0
+    return (
+      <button type="button" className="card card-compact" onClick={() => setExpanded(true)} aria-expanded={false}>
+        <span className="rank rank-sm" aria-label={`${rank}위`}>{rank}</span>
+        <span className="compact-body">
+          <span className="compact-name">{card.name}</span>
+          <span className="compact-bar" aria-hidden="true"><span style={{ width: `${Math.round(ratio * 100)}%` }} /></span>
+        </span>
+        <span className="compact-value">약 {annualMiles.toLocaleString('ko-KR')}마일</span>
+        <span className="compact-caret" aria-hidden="true">▾</span>
+      </button>
+    )
+  }
   const bonusNote = bonusMiles > 0
     ? `해마다 받는 보너스 ${bonusMiles.toLocaleString('ko-KR')}마일 포함`
     : firstYearBonus && card.mileageBonus ? `첫해 보너스 ${card.mileageBonus.miles.toLocaleString('ko-KR')}마일은 따로 있어요`
@@ -53,6 +81,7 @@ export function MileResult({ rank, scored, monthlySpend, today }: Props) {
         <div className="annual-label">1년에 약</div>
         <div className="annual-value">{annualMiles.toLocaleString('ko-KR')}마일</div>
         <div className="annual-sub">{sub1.join(' · ')}<br />{sub2.join(' · ')}</div>
+        {lead && <div className="why">{lead}</div>}
       </div>
 
       {perkPeek && <p className="perk-peek"><span className="perk-star" aria-hidden="true">✦</span> {perkPeek}</p>}
@@ -95,7 +124,11 @@ export function MileResult({ rank, scored, monthlySpend, today }: Props) {
             {card.benefits.map((b) => <li key={b.tag}>{benefitText(b)}</li>)}
           </ul>
           <p className="checked">마지막으로 확인한 날 {card.lastChecked}{stale && <span className="badge">확인 필요</span>}</p>
+          <button type="button" className="link-btn" onClick={() => setOpen(false)}>접기 ▲</button>
         </div>
+      )}
+      {compact && !open && (
+        <button type="button" className="link-btn compact-close" onClick={() => setExpanded(false)}>줄이기 ▴</button>
       )}
     </article>
   )

@@ -52,7 +52,7 @@ test('칩을 누르면 그 조건 화면으로, 결과로 버튼으로 그냥 �
 test('무심형·학원·교육 조합에서도 결과가 나온다', async () => {
   render(<App />)
   await goToResults('무심형', ['학원·교육'])
-  expect(screen.getAllByText('1년에 최대').length).toBeGreaterThan(0)
+  expect(screen.getAllByText('1년에 약').length).toBeGreaterThan(0)
   expect(screen.getByText(/TOP \d/)).toBeInTheDocument()
 })
 
@@ -74,7 +74,7 @@ test('마일리지만 고르면 마일리지 트랙: 마일 단위 결과', asyn
   expect(screen.getByRole('heading', { name: /연회비 10만 원 미만/ })).toBeInTheDocument()
   expect(screen.getAllByText('1년에 약').length).toBeGreaterThan(0)
   expect(screen.getAllByText(/^[\d,]+마일$/).length).toBeGreaterThan(0)
-  expect(screen.queryByText('1년에 최대')).toBeNull()
+  expect(screen.queryByText(/한도를 다 채웠을 때 최대치/)).toBeNull()
 })
 
 test('마일리지 트랙: 연회비 한도가 10만 원 미만이면 한 줄 TOP N', async () => {

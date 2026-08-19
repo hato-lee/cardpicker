@@ -121,3 +121,23 @@ h1 { font-size: 22px; margin: 0 0 24px; }
 .perk-star { color: #c98a00; }
 
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+/* 2위부터: 한 줄 요약 */
+.card-compact { display: grid; grid-template-columns: auto 1fr auto auto; align-items: center; column-gap: 10px; width: 100%; padding: 12px 14px; margin-bottom: 8px; font: inherit; color: var(--ink); text-align: left; cursor: pointer; }
+.rank-sm { width: 24px; height: 24px; font-size: 13px; background: #e8effd; color: var(--brand); }
+.compact-body { display: grid; gap: 5px; min-width: 0; }
+.compact-name { font-weight: 600; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.compact-bar { height: 6px; background: #eef1f5; border-radius: 3px; overflow: hidden; }
+.compact-bar > span { display: block; height: 100%; background: #9db7f0; border-radius: 3px; }
+.compact-value { font-weight: 700; color: var(--good); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.compact-caret { color: var(--muted); font-size: 12px; }
+.compact-close { display: block; margin-top: 8px; font-size: 13px; color: var(--muted); }
+.why { grid-column: 1 / -1; margin-top: 6px; font-size: 13px; color: var(--ink); background: #f3f7ff; border-radius: 6px; padding: 6px 8px; }
+/* 혜택 목록: 윗줄/아랫줄 */
+.benefits { list-style: none; padding: 0; }
+.benefit-item { padding: 4px 0; color: var(--muted); }
+.benefit-item.is-picked { color: var(--ink); }
+.benefit-item.is-picked .benefit-main { font-weight: 600; }
+.benefit-main { font-size: 13px; }
+.benefit-tail { font-size: 12px; color: var(--muted); margin-top: 1px; }
+.detail .link-btn { margin-top: 6px; }
