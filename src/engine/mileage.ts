@@ -73,22 +73,23 @@ export function recommendMileage(cards: Card[], q: Query, rules: Rules = RULES):
   return rankMileage(cards, q, rules).slice(0, rules.topN)
 }
 
-export type MileageGroups =
-  | { grouped: false; all: MileScored[] }
-  | { grouped: true; regular: MileScored[]; premium: MileScored[] }
+export interface MileageResults {
+  /** 가장 많이 쌓이는 순 TOP N (연회비 한도 안에서) */
+  top: MileScored[]
+  /**
+   * "연회비 부담 없이 시작하려면" 힌트용 — 연회비가 프리미엄 기준 미만인 카드 중 1등.
+   * 1위가 이미 그런 카드면 힌트가 필요 없으니 null.
+   */
+  lightPick: MileScored | null
+}
 
-/**
- * 연회비 한도가 프리미엄 기준(RULES.mileagePremiumFee) 미만이면 한 줄(topN),
- * 그 이상이거나 상관없음이면 일반(기준 미만)·프리미엄(기준 이상) 각 mileageGroupTopN장.
- */
-export function mileageGroups(cards: Card[], q: Query, rules: Rules = RULES): MileageGroups {
+/** 마일리지 트랙 결과: 한 줄 TOP N + 가벼운 카드 힌트 하나. */
+export function mileageResults(cards: Card[], q: Query, rules: Rules = RULES): MileageResults {
   const ranked = rankMileage(cards, q, rules)
-  if (q.feeLimit !== null && q.feeLimit < rules.mileagePremiumFee) return { grouped: false, all: ranked.slice(0, rules.topN) }
-  return {
-    grouped: true,
-    regular: ranked.filter((r) => r.card.annualFee < rules.mileagePremiumFee).slice(0, rules.mileageGroupTopN),
-    premium: ranked.filter((r) => r.card.annualFee >= rules.mileagePremiumFee).slice(0, rules.mileageGroupTopN),
-  }
+  const top = ranked.slice(0, rules.topN)
+  const isLight = (r: MileScored) => r.card.annualFee < rules.mileagePremiumFee
+  const lightPick = top.length > 0 && !isLight(top[0]) ? ranked.find(isLight) ?? null : null
+  return { top, lightPick }
 }
 
 /** "이렇게 쓰면 최대" 한 줄 (마일 단위). */

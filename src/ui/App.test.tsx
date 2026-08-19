@@ -69,9 +69,8 @@ test('제보 폼 주소가 자리표시자면 링크를 숨긴다', async () => 
 test('마일리지만 고르면 마일리지 트랙: 마일 단위 결과', async () => {
   render(<App />)
   await goToResults('적당형', ['마일리지'])
-  // 연회비 한도 20만(프리미엄 기준 이상)이라 일반/프리미엄 묶음으로 나뉜다
   expect(screen.getByRole('heading', { name: '이런 마일리지 카드가 잘 맞겠어요' })).toBeInTheDocument()
-  expect(screen.getByRole('heading', { name: /연회비 10만 원 미만/ })).toBeInTheDocument()
+  expect(screen.getByText(/가장 많이 쌓이는 순 · TOP \d/)).toBeInTheDocument()
   expect(screen.getAllByText('1년에 약').length).toBeGreaterThan(0)
   expect(screen.getAllByText(/^[\d,]+마일$/).length).toBeGreaterThan(0)
   expect(screen.queryByText(/한도를 다 채웠을 때 최대치/)).toBeNull()

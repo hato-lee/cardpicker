@@ -1,8 +1,7 @@
 import type { Query, Persona } from '../data/types'
 import type { Tag } from '../data/tags'
 import type { Scored } from '../engine/recommend'
-import { isMileageQuery, type MileageGroups } from '../engine/mileage'
-import { RULES } from '../engine/rules'
+import { isMileageQuery, type MileageResults, type MileScored } from '../engine/mileage'
 import { MileResult, mileLeadText } from './MileResult'
 import { PERSONA_LABEL } from '../engine/explain'
 import { CardResult } from './CardResult'
@@ -14,7 +13,7 @@ interface Props {
   results: Scored[]
   /** 무심형인데 다 커버하는 카드가 없어서 커버 많은 순으로 푼 결과 */
   relaxed?: boolean
-  mileResults?: MileageGroups
+  mileResults?: MileageResults
   /** 어느 부분을 고치러 갈지. 칩을 누르면 그 부분으로, 맨 아래 버튼은 혜택/처음부터 */
   onEdit: (part: EditPart) => void
   today: Date
@@ -56,7 +55,7 @@ export function leadText(results: Scored[], i: number, tags: Tag[] = []): string
 
 export const RELAXED_NOTE = '고른 영역을 한 장으로 다 되는 카드가 없어서, 가장 많이 되는 카드부터 보여줘요.'
 
-export function Results({ query, results, relaxed = false, mileResults = { grouped: false, all: [] }, onEdit, today }: Props) {
+export function Results({ query, results, relaxed = false, mileResults = { top: [], lightPick: null }, onEdit, today }: Props) {
   const mileage = isMileageQuery(query)
   // 칩을 누르면 그 조건을 고치는 화면으로 바로 간다 (나머지 조건은 그대로)
   const chips: { label: string; part: EditPart }[] = [
@@ -86,20 +85,17 @@ export function Results({ query, results, relaxed = false, mileResults = { group
     return (
       <section className="step">
         {summary}
-        {mileResults.grouped ? (
-          <MileGroups groups={mileResults} monthlySpend={query.monthlySpend} today={today} />
+        {mileResults.top.length === 0 ? (
+          <MileEmpty />
         ) : (
           <>
-            {mileResults.all.length > 0 && <h2>이런 마일리지 카드가 잘 맞겠어요</h2>}
-            {mileResults.all.length > 0 && <p className="hint">가장 많이 쌓이는 순 · TOP {mileResults.all.length}</p>}
-            {mileResults.all.length === 0 ? (
-              <MileEmpty />
-            ) : (
-              mileResults.all.map((s, i) => (
-                <MileResult key={s.card.id} rank={i + 1} scored={s} monthlySpend={query.monthlySpend} today={today}
-                  lead={mileLeadText(mileResults.all, i)} compact={i > 0} maxMiles={mileResults.all[0].annualMiles} />
-              ))
-            )}
+            <h2>이런 마일리지 카드가 잘 맞겠어요</h2>
+            <p className="hint">가장 많이 쌓이는 순 · TOP {mileResults.top.length}</p>
+            {mileResults.top.map((s, i) => (
+              <MileResult key={s.card.id} rank={i + 1} scored={s} monthlySpend={query.monthlySpend} today={today}
+                lead={mileLeadText(mileResults.top, i)} compact={i > 0} maxMiles={mileResults.top[0].annualMiles} />
+            ))}
+            {mileResults.lightPick && <LightPick pick={mileResults.lightPick} top={mileResults.top} />}
           </>
         )}
         {footer}
@@ -154,34 +150,18 @@ function MileEmpty() {
   )
 }
 
-/** 일반(연회비 기준 미만) / 프리미엄(기준 이상) 두 묶음. 빈 묶음은 숨긴다. */
-function MileGroups({ groups, monthlySpend, today }: { groups: Extract<MileageGroups, { grouped: true }>; monthlySpend: number; today: Date }) {
-  const fee = won(RULES.mileagePremiumFee)
-  if (groups.regular.length === 0 && groups.premium.length === 0) {
-    return <MileEmpty />
-  }
+/** 1위가 비싼 카드일 때, 연회비 가벼운 카드 중 1등을 한 줄로 귀띔 */
+function LightPick({ pick, top }: { pick: MileScored; top: MileScored[] }) {
+  const rank = top.findIndex((r) => r.card.id === pick.card.id) + 1
+  const fee = pick.card.annualFee === 0 ? '연회비 없음' : `연회비 ${won(pick.card.annualFee)}`
   return (
-    <>
-      <h2>이런 마일리지 카드가 잘 맞겠어요</h2>
-      <p className="hint">가장 많이 쌓이는 순 · 연회비로 두 묶음</p>
-      {groups.regular.length > 0 && (
-        <section className="mile-group" aria-label={`연회비 ${fee} 미만`}>
-          <h3 className="group-title">가볍게 시작한다면 <span className="group-sub">연회비 {fee} 미만</span></h3>
-          {groups.regular.map((s, i) => (
-            <MileResult key={s.card.id} rank={i + 1} scored={s} monthlySpend={monthlySpend} today={today}
-              lead={mileLeadText(groups.regular, i)} compact={i > 0} maxMiles={groups.regular[0].annualMiles} />
-          ))}
-        </section>
+    <p className="light-pick">
+      💡 연회비 부담 없이 시작하려면 →{' '}
+      <strong>{rank > 0 ? `${rank}위 ` : ''}{pick.card.name}</strong>
+      <span className="light-pick-sub"> · {fee} · 1년에 약 {pick.annualMiles.toLocaleString('ko-KR')}마일</span>
+      {rank === 0 && (
+        <> · <a href={pick.card.officialUrl} target="_blank" rel="noopener noreferrer">카드사에서 보기 →</a></>
       )}
-      {groups.premium.length > 0 && (
-        <section className="mile-group" aria-label={`프리미엄(연회비 ${fee} 이상)`}>
-          <h3 className="group-title">제대로 모은다면 <span className="group-sub">연회비 {fee} 이상 · 보너스 마일·라운지까지</span></h3>
-          {groups.premium.map((s, i) => (
-            <MileResult key={s.card.id} rank={i + 1} scored={s} monthlySpend={monthlySpend} today={today}
-              lead={mileLeadText(groups.premium, i)} compact={i > 0} maxMiles={groups.premium[0].annualMiles} />
-          ))}
-        </section>
-      )}
-    </>
+    </p>
   )
 }

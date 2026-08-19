@@ -29,10 +29,8 @@ export const RULES = {
   mileageOnlyWhenPicked: true,
   // 반대 방향: '마일리지' 태그는 마일 적립(마일리지 벤핏 또는 마일리지형 범용)만 채울 수 있다. 포인트/할인 범용은 마일 대신이 못 된다 (마일을 원하는 사람에게 포인트 카드가 1위로 뜨지 않게)
   mileageTagOnlyByMileage: true,
-  // 마일리지 트랙: 연회비 한도가 이 값 이상(또는 상관없음)이면 결과를 일반/프리미엄으로 나눈다. 프리미엄 = 연회비가 이 값 이상
+  // 마일리지 트랙: 1위 연회비가 이 값 이상이면 "연회비 부담 없이 시작하려면 → (이 값 미만 카드 중 1등)" 힌트를 붙인다
   mileagePremiumFee: 100_000,
-  // 나눴을 때 묶음당 카드 수
-  mileageGroupTopN: 3,
 }
 
 export type Rules = typeof RULES

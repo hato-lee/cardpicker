@@ -141,34 +141,33 @@ describe('bonusText', () => {
   })
 })
 
-describe('mileageGroups: 일반/프리미엄 조건부 묶음', () => {
-  const cheap = (id: string, fee: number) => card({ id, annualFee: fee, benefits: [{ tag: '마일리지', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 2 }] })
-  const pool = [cheap('c1', 20000), cheap('c2', 39000), cheap('c3', 45000), cheap('c4', 47000), cheap('p1', 120000), cheap('p2', 300000), cheap('p3', 800000), cheap('p4', 1000000)]
-  test('연회비 한도가 프리미엄 기준 미만이면 한 줄(topN)', async () => {
-    const { mileageGroups } = await import('./mileage')
-    const g = mileageGroups(pool, q({ feeLimit: 50000 }))
-    expect(g.grouped).toBe(false)
-    if (!g.grouped) expect(g.all.map((r) => r.card.id)).toEqual(['c1', 'c2', 'c3', 'c4'])
+describe('mileageResults: 한 줄 TOP N + 가벼운 카드 힌트', () => {
+  const cheap = (id: string, fee: number, rate = 0.1) => card({ id, annualFee: fee, benefits: [{ tag: '마일리지', type: 'mileage', rate, monthlyCap: null, stars: 2 }] })
+  // 비쌀수록 많이 쌓이는 풀: p4 > p3 > p2 > p1 > c4 > c3 > c2 > c1
+  const pool = [cheap('c1', 20000, 0.1), cheap('c2', 39000, 0.11), cheap('c3', 45000, 0.12), cheap('c4', 47000, 0.13),
+    cheap('p1', 120000, 0.2), cheap('p2', 300000, 0.21), cheap('p3', 800000, 0.22), cheap('p4', 1000000, 0.23)]
+  test('한도 상관없음: 많이 쌓이는 순 TOP 5 한 줄 + 10만 원 미만 1등을 힌트로', async () => {
+    const { mileageResults } = await import('./mileage')
+    const g = mileageResults(pool, q({ feeLimit: null }))
+    expect(g.top.map((r) => r.card.id)).toEqual(['p4', 'p3', 'p2', 'p1', 'c4'])
+    expect(g.lightPick?.card.id).toBe('c4')
   })
-  test('한도 상관없음이면 일반 3장 + 프리미엄 3장', async () => {
-    const { mileageGroups } = await import('./mileage')
-    const g = mileageGroups(pool, q({ feeLimit: null }))
-    expect(g.grouped).toBe(true)
-    if (g.grouped) {
-      expect(g.regular.map((r) => r.card.id)).toEqual(['c1', 'c2', 'c3'])
-      expect(g.premium.map((r) => r.card.id)).toEqual(['p1', 'p2', 'p3'])
-    }
+  test('1위가 이미 10만 원 미만이면 힌트 없음', async () => {
+    const { mileageResults } = await import('./mileage')
+    const g = mileageResults(pool, q({ feeLimit: 50000 }))
+    expect(g.top.map((r) => r.card.id)).toEqual(['c4', 'c3', 'c2', 'c1'])
+    expect(g.lightPick).toBeNull()
   })
-  test('한도가 프리미엄 기준 이상이면 묶고, 프리미엄 묶음은 한도 안에서만', async () => {
-    const { mileageGroups } = await import('./mileage')
-    const g = mileageGroups(pool, q({ feeLimit: 300000 }))
-    expect(g.grouped).toBe(true)
-    if (g.grouped) expect(g.premium.map((r) => r.card.id)).toEqual(['p1', 'p2'])
+  test('한도 안의 카드만 (30만 원이면 p3·p4 제외)', async () => {
+    const { mileageResults } = await import('./mileage')
+    const g = mileageResults(pool, q({ feeLimit: 300000 }))
+    expect(g.top.map((r) => r.card.id)).toEqual(['p2', 'p1', 'c4', 'c3', 'c2'])
+    expect(g.lightPick?.card.id).toBe('c4')
   })
-  test('한 묶음이 비어도 grouped (화면에서 그 묶음만 숨김)', async () => {
-    const { mileageGroups } = await import('./mileage')
-    const g = mileageGroups([cheap('c1', 20000)], q({ feeLimit: null }))
-    expect(g.grouped).toBe(true)
-    if (g.grouped) expect(g.premium).toEqual([])
+  test('가벼운 카드가 아예 없으면 힌트 없음', async () => {
+    const { mileageResults } = await import('./mileage')
+    const g = mileageResults([cheap('p1', 120000)], q({ feeLimit: null }))
+    expect(g.top.map((r) => r.card.id)).toEqual(['p1'])
+    expect(g.lightPick).toBeNull()
   })
 })

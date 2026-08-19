@@ -6,7 +6,7 @@ import type { Tag } from '../data/tags'
 import { recommendGeneral, type Scored } from '../engine/recommend'
 import { StepPersona, StepBudget, type Profile } from './StepProfile'
 import { StepTags } from './StepTags'
-import { isMileageQuery, mileageGroups, type MileageGroups } from '../engine/mileage'
+import { isMileageQuery, mileageResults, type MileageResults } from '../engine/mileage'
 import { Results, type EditPart } from './Results'
 
 // cards.json이 깨져도 흰 화면 대신 안내를 보여준다
@@ -31,7 +31,7 @@ export default function App() {
   const [query, setQuery] = useState<Query | null>(null)
   const [results, setResults] = useState<Scored[]>([])
   const [relaxed, setRelaxed] = useState(false)
-  const [mileResults, setMileResults] = useState<MileageGroups>({ grouped: false, all: [] })
+  const [mileResults, setMileResults] = useState<MileageResults>({ top: [], lightPick: null })
 
   const submit = () => {
     if (profile.persona === null || profile.monthlySpendMan === '') return
@@ -43,10 +43,10 @@ export default function App() {
     }
     setQuery(q)
     // '마일리지'만 골랐으면 마일리지 전용 트랙(마일 단위·성향 무시), 아니면 기존 연 혜택 계산
-    if (isMileageQuery(q)) { setMileResults(mileageGroups(CARDS, q)); setResults([]); setRelaxed(false) }
+    if (isMileageQuery(q)) { setMileResults(mileageResults(CARDS, q)); setResults([]); setRelaxed(false) }
     else {
       const r = recommendGeneral(CARDS, q)
-      setResults(r.items); setRelaxed(r.relaxed); setMileResults({ grouped: false, all: [] })
+      setResults(r.items); setRelaxed(r.relaxed); setMileResults({ top: [], lightPick: null })
     }
     setStep(4)
     setEditing(false)
