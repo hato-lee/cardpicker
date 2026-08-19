@@ -1,4 +1,5 @@
 import type { Query, Persona } from '../data/types'
+import type { Tag } from '../data/tags'
 import type { Scored } from '../engine/recommend'
 import { isMileageQuery, type MileageGroups } from '../engine/mileage'
 import { RULES } from '../engine/rules'
@@ -27,21 +28,29 @@ export const PERSONA_ECHO: Record<Persona, string> = {
 }
 export type EditPart = 'persona' | 'tags' | 'budget' | 'all'
 
-/** 1위 카드에 붙는 "왜 1위인지" 한 줄 */
-export function leadText(results: Scored[]): string {
-  const top = results[0]
+/** 카드마다 붙는 비교 한 줄. 1위: "2위 OO보다 1년에 N 더 아껴요" / 그 외: "1위 OO보다 1년에 N 적어요". 고른 영역 중 안 되는 게 있으면 덧붙인다 */
+export function leadText(results: Scored[], i: number, tags: Tag[] = []): string {
+  const me = results[i]
   const parts: string[] = []
-  if (results.length > 1) {
-    const diff = top.benefit.annualNet - results[1].benefit.annualNet
-    if (diff > 0) parts.push(`2위 ${results[1].card.name}보다 1년에 ${won(diff)} 더 아껴요`)
-    else parts.push(`2위 ${results[1].card.name}와 금액은 같아요 — 연회비·실적이 낮아서 먼저`)
+  if (i === 0) {
+    if (results.length > 1) {
+      const diff = me.benefit.annualNet - results[1].benefit.annualNet
+      if (diff > 0) parts.push(`2위 ${results[1].card.name}보다 1년에 ${won(diff)} 더 아껴요`)
+      else parts.push(`2위 ${results[1].card.name}와 금액은 같아요 — 연회비·실적이 낮아서 먼저`)
+    } else {
+      parts.push('조건에 맞는 카드가 이것뿐이에요')
+    }
+    const rows = [...me.benefit.rows].sort((a, b) => b.monthlyValue - a.monthlyValue)
+    if (rows.length > 1 && me.benefit.monthlyMax > 0 && rows[0].monthlyValue / me.benefit.monthlyMax >= 0.7) {
+      parts.push(`${rows[0].tag}에서 거의 다 나와요`)
+    }
   } else {
-    parts.push('조건에 맞는 카드가 이것뿐이에요')
+    const diff = results[0].benefit.annualNet - me.benefit.annualNet
+    parts.push(diff > 0 ? `1위 ${results[0].card.name}보다 1년에 ${won(diff)} 적어요` : `1위 ${results[0].card.name}와 금액은 같아요`)
   }
-  const rows = [...top.benefit.rows].sort((a, b) => b.monthlyValue - a.monthlyValue)
-  if (rows.length > 1 && top.benefit.monthlyMax > 0 && rows[0].monthlyValue / top.benefit.monthlyMax >= 0.7) {
-    parts.push(`${rows[0].tag}에서 거의 다 나와요`)
-  }
+  const covered = new Set<string>([...me.coveredTags, ...me.universalCovers])
+  const missing = tags.filter((t) => !covered.has(t))
+  if (missing.length > 0) parts.push(`${missing.join('·')} 혜택은 없어요`)
   return parts.join(' · ')
 }
 
@@ -88,7 +97,7 @@ export function Results({ query, results, relaxed = false, mileResults = { group
             ) : (
               mileResults.all.map((s, i) => (
                 <MileResult key={s.card.id} rank={i + 1} scored={s} monthlySpend={query.monthlySpend} today={today}
-                  lead={i === 0 ? mileLeadText(mileResults.all) : undefined} compact={i > 0} maxMiles={mileResults.all[0].annualMiles} />
+                  lead={mileLeadText(mileResults.all, i)} compact={i > 0} maxMiles={mileResults.all[0].annualMiles} />
               ))
             )}
           </>
@@ -116,7 +125,7 @@ export function Results({ query, results, relaxed = false, mileResults = { group
             persona={query.persona}
             today={today}
             pickedTags={query.tags}
-            lead={i === 0 ? leadText(results) : undefined}
+            lead={leadText(results, i, query.tags)}
             compact={i > 0}
             maxNet={results[0].benefit.annualNet}
           />
@@ -159,7 +168,7 @@ function MileGroups({ groups, monthlySpend, today }: { groups: Extract<MileageGr
           <h3 className="group-title">가볍게 시작한다면 <span className="group-sub">연회비 {fee} 미만</span></h3>
           {groups.regular.map((s, i) => (
             <MileResult key={s.card.id} rank={i + 1} scored={s} monthlySpend={monthlySpend} today={today}
-              lead={i === 0 ? mileLeadText(groups.regular) : undefined} compact={i > 0} maxMiles={groups.regular[0].annualMiles} />
+              lead={mileLeadText(groups.regular, i)} compact={i > 0} maxMiles={groups.regular[0].annualMiles} />
           ))}
         </section>
       )}
@@ -168,7 +177,7 @@ function MileGroups({ groups, monthlySpend, today }: { groups: Extract<MileageGr
           <h3 className="group-title">제대로 모은다면 <span className="group-sub">연회비 {fee} 이상 · 보너스 마일·라운지까지</span></h3>
           {groups.premium.map((s, i) => (
             <MileResult key={s.card.id} rank={i + 1} scored={s} monthlySpend={monthlySpend} today={today}
-              lead={i === 0 ? mileLeadText(groups.premium) : undefined} compact={i > 0} maxMiles={groups.premium[0].annualMiles} />
+              lead={mileLeadText(groups.premium, i)} compact={i > 0} maxMiles={groups.premium[0].annualMiles} />
           ))}
         </section>
       )}

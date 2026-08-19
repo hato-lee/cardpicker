@@ -131,7 +131,7 @@ h1 { font-size: 22px; margin: 0 0 24px; }
 .compact-bar > span { display: block; height: 100%; background: #9db7f0; border-radius: 3px; }
 .compact-value { font-weight: 700; color: var(--good); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .compact-caret { color: var(--muted); font-size: 12px; }
-.compact-close { display: block; margin-top: 8px; font-size: 13px; color: var(--muted); }
+.collapse-btn { flex: none; align-self: flex-start; width: 28px; height: 28px; border: 1px solid var(--line); border-radius: 50%; background: #fff; color: var(--muted); cursor: pointer; font-size: 12px; }
 .why { grid-column: 1 / -1; margin-top: 6px; font-size: 13px; color: var(--ink); background: #f3f7ff; border-radius: 6px; padding: 6px 8px; }
 /* 혜택 목록: 윗줄/아랫줄 */
 .benefits { list-style: none; padding: 0; }

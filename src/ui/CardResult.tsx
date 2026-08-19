@@ -114,6 +114,7 @@ export function CardResult({ rank, scored, persona, today, lead, pickedTags = []
           </h3>
           <div className="card-sub">{card.issuer} · {card.kind === 'credit' ? '신용' : '체크'} · 연회비 {won(card.annualFee)} · {card.minSpend === 0 ? '실적 없음' : `전월실적 ${won(card.minSpend)}`}</div>
         </div>
+        {compact && <button type="button" className="collapse-btn" aria-label="줄이기" title="줄이기" onClick={() => setExpanded(false)}>▴</button>}
       </header>
 
       <div className="annual">
@@ -169,9 +170,7 @@ export function CardResult({ rank, scored, persona, today, lead, pickedTags = []
           <button type="button" className="link-btn" onClick={() => setOpen(false)}>접기 ▲</button>
         </div>
       )}
-      {compact && !open && (
-        <button type="button" className="link-btn compact-close" onClick={() => setExpanded(false)}>줄이기 ▴</button>
-      )}
+
     </article>
   )
 }

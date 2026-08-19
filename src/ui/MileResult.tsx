@@ -17,12 +17,17 @@ interface Props {
   maxMiles?: number
 }
 
-/** 마일리지 1위 이유 한 줄 */
-export function mileLeadText(list: MileScored[]): string {
-  if (list.length < 2) return '이 묶음엔 이 카드뿐이에요'
-  const diff = list[0].annualMiles - list[1].annualMiles
-  if (diff > 0) return `2위 ${list[1].card.name}보다 1년에 ${diff.toLocaleString('ko-KR')}마일 더 쌓여요`
-  return `2위 ${list[1].card.name}와 마일은 같아요 — 연회비·실적이 낮아서 먼저`
+/** 마일리지 비교 한 줄. 1위: 2위와 비교 / 그 외: 1위와 비교 */
+export function mileLeadText(list: MileScored[], i = 0): string {
+  const m = (n: number) => `${n.toLocaleString('ko-KR')}마일`
+  if (i === 0) {
+    if (list.length < 2) return '이 묶음엔 이 카드뿐이에요'
+    const diff = list[0].annualMiles - list[1].annualMiles
+    if (diff > 0) return `2위 ${list[1].card.name}보다 1년에 ${m(diff)} 더 쌓여요`
+    return `2위 ${list[1].card.name}와 마일은 같아요 — 연회비·실적이 낮아서 먼저`
+  }
+  const diff = list[0].annualMiles - list[i].annualMiles
+  return diff > 0 ? `1위 ${list[0].card.name}보다 1년에 ${m(diff)} 적어요` : `1위 ${list[0].card.name}와 마일은 같아요`
 }
 
 /** 마일당 연회비: "1마일에 3.3원꼴" / 연회비 0이면 "연회비 없음" */
@@ -75,6 +80,7 @@ export function MileResult({ rank, scored, monthlySpend, today, lead, compact = 
           </h3>
           <div className="card-sub">{card.issuer} · {card.kind === 'credit' ? '신용' : '체크'} · 연회비 {won(card.annualFee)} · {card.minSpend === 0 ? '실적 없음' : `전월실적 ${won(card.minSpend)}`}</div>
         </div>
+        {compact && <button type="button" className="collapse-btn" aria-label="줄이기" title="줄이기" onClick={() => setExpanded(false)}>▴</button>}
       </header>
 
       <div className="annual">
@@ -127,9 +133,7 @@ export function MileResult({ rank, scored, monthlySpend, today, lead, compact = 
           <button type="button" className="link-btn" onClick={() => setOpen(false)}>접기 ▲</button>
         </div>
       )}
-      {compact && !open && (
-        <button type="button" className="link-btn compact-close" onClick={() => setExpanded(false)}>줄이기 ▴</button>
-      )}
+
     </article>
   )
 }

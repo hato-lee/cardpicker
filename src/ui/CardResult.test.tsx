@@ -169,9 +169,18 @@ test('2위부터는 한 줄로 접혀 있고 누르면 펼쳐진다, 1위엔 이
   expect(screen.queryByText('1년에 약')).toBeNull()
   await userEvent.click(row)
   expect(screen.getByText('1년에 약')).toBeInTheDocument()
-  await userEvent.click(screen.getByRole('button', { name: /줄이기/ }))
+  await userEvent.click(screen.getByRole('button', { name: '줄이기' }))
   expect(screen.queryByText('1년에 약')).toBeNull()
   unmount()
   render(<CardResult rank={1} scored={scored} persona="moderate" today={today} lead="2위 X보다 1년에 5만 원 더 아껴요" />)
   expect(screen.getByText('2위 X보다 1년에 5만 원 더 아껴요')).toBeInTheDocument()
+})
+
+test('leadText: 1위는 2위와 비교, 그 외는 1위와 비교, 안 되는 영역 표시', async () => {
+  const { leadText } = await import('./Results')
+  const cafeOnly: Card = { ...oil, id: 'c', name: '카페카드', benefits: [{ tag: '카페·편의점', type: 'discount', rate: 10, monthlyCap: 10000, stars: 2 }] }
+  const second: Scored = { card: cafeOnly, benefit: annualBenefit(cafeOnly, q)!, coveredTags: ['카페·편의점'], universalCovers: [] }
+  const list = [scored, second]
+  expect(leadText(list, 0, q.tags)).toBe('2위 카페카드보다 1년에 12만 원 더 아껴요 · 주유에서 거의 다 나와요')
+  expect(leadText(list, 1, q.tags)).toBe('1위 신한카드 Deep Oil보다 1년에 12만 원 적어요 · 주유 혜택은 없어요')
 })
