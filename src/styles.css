@@ -147,9 +147,14 @@ h1 { font-size: 22px; margin: 0 0 24px; }
 .benefit-tail { font-size: 12px; color: var(--muted); margin-top: 1px; }
 .detail .link-btn { margin-top: 0; }
 .kpass-note { margin: 0 0 12px; padding: 10px 12px; border-radius: 10px; background: #eef3ff; font-size: 13px; line-height: 1.55; color: var(--ink); }
-.group-tiles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 8px; }
-.group-tile { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 10px 6px; border: 1px solid var(--line); border-radius: 10px; background: #fff; cursor: pointer; font: inherit; }
-.group-tile.is-selected { border-color: var(--brand); background: #eef3ff; box-shadow: inset 0 0 0 1px var(--brand); }
-.group-tile-label { font-size: 13px; font-weight: 600; text-align: center; line-height: 1.3; }
-.group-tile-sub { font-size: 12px; color: var(--muted); }
+.kpass-box { margin: -8px 0 20px; padding: 12px 14px 4px; border-radius: 12px; background: #f3f7ff; border: 1px solid #dbe6ff; }
+.kpass-box-title { font-size: 13px; font-weight: 700; color: var(--brand); margin-bottom: 8px; }
+.kpass-box .field { margin-bottom: 12px; }
+.kpass-box .field > label.q, .kpass-box .label-row .q { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+.kpass-box .spend-box { background: #fff; }
+.group-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.group-chip { padding: 6px 10px; border: 1px solid var(--line); border-radius: 999px; background: #fff; font: inherit; font-size: 13px; cursor: pointer; }
+.group-chip.is-selected { border-color: var(--brand); background: var(--brand); color: #fff; }
+.group-chip-rate { font-weight: 700; }
+.group-chip.is-selected .group-chip-rate { color: #fff; }
 .field-hint.is-warn { color: #b45309; }

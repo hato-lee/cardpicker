@@ -149,61 +149,6 @@ export function StepBudget({ value, onChange, onBack, onSubmit, mileage = false,
         </div>
       </div>
 
-      {kpass && (
-        <>
-        <div className="field">
-          <label htmlFor="transit" className="q">{TRANSIT_Q}</label>
-          <div className="spend-box">
-            <div className="presets">
-              {RULES.transitPresetsMan.map((m) => (
-                <button
-                  key={m}
-                  type="button"
-                  className={`preset ${value.transitSpendMan === m ? 'is-selected' : ''}`}
-                  aria-pressed={value.transitSpendMan === m}
-                  onClick={() => onChange({ ...value, transitSpendMan: m })}
-                >
-                  {m}만
-                </button>
-              ))}
-            </div>
-            <div className="input-row">
-              <input
-                id="transit"
-                type="number"
-                inputMode="numeric"
-                min={0}
-                placeholder="예: 8"
-                value={value.transitSpendMan}
-                onChange={(e) => onChange({ ...value, transitSpendMan: e.target.value === '' ? '' : Number(e.target.value) })}
-              />
-              <span>만 원</span>
-            </div>
-          </div>
-          <p className={`field-hint ${transitTooBig ? 'is-warn' : ''}`}>{transitTooBig ? TRANSIT_TOO_BIG : TRANSIT_HINT}</p>
-
-        </div>
-        <div className="field">
-          <div className="label-row"><span className="q" id="kpass-group-label">{KPASS_GROUP_Q}</span></div>
-          <div className="group-tiles" role="radiogroup" aria-labelledby="kpass-group-label">
-            {KPASS_GROUPS.map((g) => (
-              <button
-                key={g.value}
-                type="button"
-                role="radio"
-                aria-checked={value.kpassGroup === g.value}
-                className={`group-tile ${value.kpassGroup === g.value ? 'is-selected' : ''}`}
-                onClick={() => onChange({ ...value, kpassGroup: g.value })}
-              >
-                <span className="group-tile-label">{g.label}</span>
-                <span className="group-tile-sub">{g.rate} 환급</span>
-              </button>
-            ))}
-          </div>
-        </div>
-        </>
-      )}
-
       <div className="field">
         <div className="label-row">
           <label htmlFor="fee" className="q">연회비는 얼마까지 괜찮으세요?</label>
@@ -224,6 +169,60 @@ export function StepBudget({ value, onChange, onBack, onSubmit, mileage = false,
         <div className="slider-ends" aria-hidden="true"><span>0원</span><span>상관없음</span></div>
         <p className="field-hint">{FEE_HINT}</p>
       </div>
+
+      {kpass && (
+        <section className="kpass-box" aria-label="K-패스 환급 계산">
+          <div className="kpass-box-title">🎫 K-패스 환급 계산에 써요</div>
+          <div className="field">
+            <label htmlFor="transit" className="q">{TRANSIT_Q}</label>
+            <div className="spend-box">
+              <div className="presets">
+                {RULES.transitPresetsMan.map((m) => (
+                  <button
+                    key={m}
+                    type="button"
+                    className={`preset ${value.transitSpendMan === m ? 'is-selected' : ''}`}
+                    aria-pressed={value.transitSpendMan === m}
+                    onClick={() => onChange({ ...value, transitSpendMan: m })}
+                  >
+                    {m}만
+                  </button>
+                ))}
+              </div>
+              <div className="input-row">
+                <input
+                  id="transit"
+                  type="number"
+                  inputMode="numeric"
+                  min={0}
+                  placeholder="예: 8"
+                  value={value.transitSpendMan}
+                  onChange={(e) => onChange({ ...value, transitSpendMan: e.target.value === '' ? '' : Number(e.target.value) })}
+                />
+                <span>만 원</span>
+              </div>
+            </div>
+            <p className={`field-hint ${transitTooBig ? 'is-warn' : ''}`}>{transitTooBig ? TRANSIT_TOO_BIG : TRANSIT_HINT}</p>
+          </div>
+          <div className="field">
+            <div className="label-row"><span className="q" id="kpass-group-label">{KPASS_GROUP_Q}</span></div>
+            <div className="group-chips" role="radiogroup" aria-labelledby="kpass-group-label">
+              {KPASS_GROUPS.map((g) => (
+                <button
+                  key={g.value}
+                  type="button"
+                  role="radio"
+                  aria-checked={value.kpassGroup === g.value}
+                  className={`group-chip ${value.kpassGroup === g.value ? 'is-selected' : ''}`}
+                  onClick={() => onChange({ ...value, kpassGroup: g.value })}
+                >
+                  {g.label} <span className="group-chip-rate">{g.rate}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <div className="button-row">
         <button type="button" className="secondary" onClick={onBack}>{editing ? '결과로' : '이전'}</button>
