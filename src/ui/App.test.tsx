@@ -47,7 +47,7 @@ test('마일리지만 고르면 마일리지 트랙: 마일 단위 결과', asyn
   render(<App />)
   await goToResults('적당형', ['마일리지'])
   // 연회비 한도 20만(프리미엄 기준 이상)이라 일반/프리미엄 묶음으로 나뉜다
-  expect(screen.getByRole('heading', { name: '당신에게 맞는 마일리지 카드' })).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: '잘 맞는 마일리지 카드' })).toBeInTheDocument()
   expect(screen.getByRole('heading', { name: /연회비 10만 원 미만/ })).toBeInTheDocument()
   expect(screen.getAllByText('연 예상').length).toBeGreaterThan(0)
   expect(screen.getAllByText(/약 [\d,]+마일/).length).toBeGreaterThan(0)

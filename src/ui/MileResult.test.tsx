@@ -26,7 +26,8 @@ test('연 마일·마일당 비용·덤 줄이 보인다', async () => {
   const s = scoreMileage(base, q)!
   render(<MileResult rank={1} scored={s} monthlySpend={q.monthlySpend} today={today} />)
   expect(screen.getByText('약 12,000마일')).toBeInTheDocument()
-  expect(screen.getByText('연회비 3.9만 원 · 마일당 3.3원 · 월 100만 원을 전부 이 카드로 쓸 때')).toBeInTheDocument()
+  const sub = document.querySelector('.annual-sub')!
+  expect(sub.textContent).toBe('연회비 3.9만 원 · 마일당 3.3원월 100만 원 전부 이 카드로 쓸 때')
   await userEvent.click(screen.getByRole('button', { name: /자세히 보기/ }))
   expect(screen.getByText('쓰는 만큼 1,000원당 1마일 — 한도 없음')).toBeInTheDocument()
   expect(screen.getByText('덤으로')).toBeInTheDocument()
@@ -83,7 +84,7 @@ test('Results 묶음 모드: 일반/프리미엄 제목, 접힌 카드에도 부
   render(<Results query={{ ...q, feeLimit: null }} results={[]} mileResults={groups} onEdit={() => {}} today={today} />)
   expect(screen.getByRole('heading', { name: /연회비 10만 원 미만/ })).toBeInTheDocument()
   expect(screen.getByRole('heading', { name: /프리미엄 · 연회비 10만 원 이상/ })).toBeInTheDocument()
-  expect(screen.getByText('✦ 라운지 무제한 외 1개')).toBeInTheDocument()
+  expect(screen.getByText('라운지 무제한 외 1개', { exact: false })).toBeInTheDocument()
   expect(screen.getByText(/연간 보너스 30,000마일은 연 3600만 원 이상 써야 받아요/)).toBeInTheDocument()
 })
 

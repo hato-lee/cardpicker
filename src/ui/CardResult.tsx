@@ -5,6 +5,7 @@ import type { Persona, Benefit, BenefitType } from '../data/types'
 import { tips, rowAnnualValue, isStale } from '../engine/explain'
 import { RULES } from '../engine/rules'
 import { won, rateText, capValueText } from './format'
+import { TAG_EMOJI } from './tagEmoji'
 
 interface Props {
   rank: number
@@ -69,7 +70,7 @@ export function CardResult({ rank, scored, persona, today }: Props) {
         <div className="card-title">
           <h3>
             {card.name}
-            {rank === 1 && <span className="top-badge">추천</span>}
+            {rank === 1 && <span className="top-badge">가장 많이 아껴요</span>}
             {pointsHeavy && <span className={`conv-badge ${card.pointsEase === 'cash' ? 'is-easy' : ''}`} title={POINTS_BADGE_TITLE}>{POINTS_BADGE[card.pointsEase ?? 'unknown']}</span>}
           </h3>
           <div className="card-sub">{card.issuer} · {card.kind === 'credit' ? '신용' : '체크'} · 연회비 {won(card.annualFee)} · {card.minSpend === 0 ? '실적 없음' : `전월실적 ${won(card.minSpend)}`}</div>
@@ -91,7 +92,7 @@ export function CardResult({ rank, scored, persona, today }: Props) {
       <ul className="breakdown">
         {shown.map((r) => (
           <li key={r.tag}>
-            <span className="bd-tag">{r.tag}</span>
+            <span className="bd-tag"><span aria-hidden="true">{TAG_EMOJI[r.tag]} </span>{r.tag}</span>
             <span className="bd-bar" aria-hidden="true"><span style={{ width: `${Math.round((r.annual / maxAnnual) * 100)}%` }} /></span>
             <span className="bd-value">{won(r.annual)}</span>
           </li>
@@ -99,9 +100,15 @@ export function CardResult({ rank, scored, persona, today }: Props) {
         {rest > 0 && <li className="bd-rest">외 {rest}개</li>}
       </ul>
 
-      <button type="button" className="link-btn" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
-        {open ? '접기 ▲' : '자세히 보기 ▼'}
-      </button>
+      <div className="card-actions">
+        <button type="button" className="link-btn" aria-expanded={open} onClick={() => setOpen((v) => !v)}>
+          {open ? '접기 ▲' : '자세히 보기 ▼'}
+        </button>
+        <span className="card-actions-right">
+          {stale && <span className="badge">확인 필요</span>}
+          <a href={card.officialUrl} target="_blank" rel="noopener noreferrer">카드사 페이지 →</a>
+        </span>
+      </div>
       {open && (
         <div className="detail">
           <div className="detail-title">이렇게 쓰면 최대</div>
@@ -118,16 +125,9 @@ export function CardResult({ rank, scored, persona, today }: Props) {
           <ul className="benefits">
             {card.benefits.map((b) => <li key={b.tag}>{benefitText(b)}</li>)}
           </ul>
+          <p className="checked">마지막 확인 {card.lastChecked}{stale && <span className="badge">확인 필요</span>}</p>
         </div>
       )}
-
-      <footer className="card-foot">
-        <a href={card.officialUrl} target="_blank" rel="noopener noreferrer">카드사 페이지 →</a>
-        <span className="checked">
-          마지막 확인 {card.lastChecked}
-          {stale && <span className="badge">확인 필요</span>}
-        </span>
-      </footer>
     </article>
   )
 }

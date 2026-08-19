@@ -20,7 +20,7 @@ const scored: Scored = { card: oil, benefit: annualBenefit(oil, q)!, coveredTags
 const today = new Date('2026-08-20')
 // 월 2만 × 12 = 240,000 − 10,000 = 230,000
 
-test('이름·카드사·큰 숫자·부제·링크·확인일이 보인다', () => {
+test('이름·카드사·큰 숫자·부제·링크가 보이고 확인일은 자세히 보기 안에', async () => {
   render(<CardResult rank={1} scored={scored} persona="moderate" today={today} />)
   expect(screen.getByText('신한카드 Deep Oil')).toBeInTheDocument()
   expect(screen.getByText(/신한카드 · 신용/)).toBeInTheDocument()
@@ -28,6 +28,8 @@ test('이름·카드사·큰 숫자·부제·링크·확인일이 보인다', ()
   expect(screen.getByText('약 23만 원')).toBeInTheDocument()
   expect(screen.getByText('연회비 1만 원 뺀 금액 · 한도를 다 채웠을 때')).toBeInTheDocument()
   expect(screen.getByRole('link', { name: /카드사 페이지/ })).toHaveAttribute('href', 'https://example.com/oil')
+  expect(screen.queryByText(/마지막 확인/)).toBeNull()
+  await userEvent.click(screen.getByRole('button', { name: /자세히 보기/ }))
   expect(screen.getByText(/마지막 확인 2026-08-18/)).toBeInTheDocument()
 })
 
@@ -40,12 +42,12 @@ test('내역 줄: 태그와 연 금액', () => {
   expect(screen.getByText('6만 원')).toBeInTheDocument()
 })
 
-test('1위는 추천 배지, 2위는 없음', () => {
+test('1위는 가장 많이 아껴요 배지, 2위는 없음', () => {
   const { unmount } = render(<CardResult rank={1} scored={scored} persona="moderate" today={today} />)
-  expect(screen.getByText('추천')).toBeInTheDocument()
+  expect(screen.getByText('가장 많이 아껴요')).toBeInTheDocument()
   unmount()
   render(<CardResult rank={2} scored={scored} persona="moderate" today={today} />)
-  expect(screen.queryByText('추천')).not.toBeInTheDocument()
+  expect(screen.queryByText('가장 많이 아껴요')).not.toBeInTheDocument()
 })
 
 test('자세히 보기를 펼치면 tips와 전체 혜택이 보이고 memo·★는 없다', async () => {

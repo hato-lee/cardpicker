@@ -1,4 +1,6 @@
 import { TAGS, type Tag } from '../data/tags'
+import { TAG_EMOJI } from './tagEmoji'
+export { TAG_EMOJI }
 
 export const TAG_WARN_FROM = 4
 export const TAG_TIP = '여러 개 골라도 돼요 · 2~3개가 딱 좋아요'
@@ -7,11 +9,6 @@ export const MILEAGE_HINT = '항공 마일리지는 따로 추천해요. 끄면 
 export const MILEAGE_SWITCH = '항공 마일리지 카드만 볼래요'
 const MILEAGE: Tag = '마일리지'
 
-/** 화면 표시용 이모지. 데이터·계산과 무관 */
-export const TAG_EMOJI: Record<Tag, string> = {
-  '마일리지': '✈️', '모든 가맹점': '💳', '주유': '⛽', '카페·편의점': '☕', '온라인 쇼핑': '🛒', '배달·외식': '🍔',
-  '대중교통·택시': '🚌', '통신비·OTT': '📱', '병의원·약국': '💊', '해외 결제': '🌏', '학원·교육': '📚', '관리비·공과금': '🏠',
-}
 const UNIVERSAL: Tag = '모든 가맹점'
 const GRID_TAGS = TAGS.filter((t) => t !== MILEAGE && t !== UNIVERSAL)
 

@@ -35,13 +35,13 @@ export function Results({ query, results, relaxed = false, mileResults = { group
           <ul className="chips" aria-label="내 조건">
             {chips.map((c) => <li key={c} className="chip">{c}</li>)}
           </ul>
-          <button type="button" className="link-btn" onClick={onEdit}>조건 바꾸기</button>
+          <div className="summary-edit"><button type="button" className="link-btn" onClick={onEdit}>조건 바꾸기</button></div>
         </div>
         {mileResults.grouped ? (
           <MileGroups groups={mileResults} monthlySpend={query.monthlySpend} today={today} />
         ) : (
           <>
-            <h2>{mileResults.all.length > 0 ? `당신에게 맞는 마일리지 카드 TOP ${mileResults.all.length}` : '당신에게 맞는 마일리지 카드'}</h2>
+            <h2>{mileResults.all.length > 0 ? `잘 맞는 마일리지 카드 TOP ${mileResults.all.length}` : '잘 맞는 마일리지 카드'}</h2>
             {mileResults.all.length === 0 ? (
               <MileEmpty />
             ) : (
@@ -61,9 +61,9 @@ export function Results({ query, results, relaxed = false, mileResults = { group
         <ul className="chips" aria-label="내 조건">
           {chips.map((c) => <li key={c} className="chip">{c}</li>)}
         </ul>
-        <button type="button" className="link-btn" onClick={onEdit}>조건 바꾸기</button>
+        <div className="summary-edit"><button type="button" className="link-btn" onClick={onEdit}>조건 바꾸기</button></div>
       </div>
-      <h2>{results.length > 0 ? `당신에게 맞는 카드 TOP ${results.length}` : '당신에게 맞는 카드'}</h2>
+      <h2>{results.length > 0 ? `잘 맞는 카드 TOP ${results.length}` : '잘 맞는 카드'}</h2>
       {relaxed && results.length > 0 && <p className="hint">{RELAXED_NOTE}</p>}
       {results.length === 0 ? (
         <div className="empty">
@@ -99,11 +99,11 @@ function MileEmpty() {
 function MileGroups({ groups, monthlySpend, today }: { groups: Extract<MileageGroups, { grouped: true }>; monthlySpend: number; today: Date }) {
   const fee = won(RULES.mileagePremiumFee)
   if (groups.regular.length === 0 && groups.premium.length === 0) {
-    return (<><h2>당신에게 맞는 마일리지 카드</h2><MileEmpty /></>)
+    return (<><h2>잘 맞는 마일리지 카드</h2><MileEmpty /></>)
   }
   return (
     <>
-      <h2>당신에게 맞는 마일리지 카드</h2>
+      <h2>잘 맞는 마일리지 카드</h2>
       {groups.regular.length > 0 && (
         <section className="mile-group" aria-label={`연회비 ${fee} 미만`}>
           <h3 className="group-title">연회비 {fee} 미만 <span className="group-sub">가성비로 고른다면</span></h3>
