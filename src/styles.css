@@ -47,10 +47,23 @@ button.secondary { width: 100%; padding: 12px; font-size: 15px; background: #fff
 .button-row { display: grid; grid-template-columns: 1fr 2fr; gap: 8px; }
 
 .hint { color: #666; font-size: 14px; margin: -12px 0 16px; }
-.tag-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 12px; }
-.tag { padding: 12px 8px; font-size: 15px; background: #fff; border: 1px solid #dfe3e8; border-radius: 10px; cursor: pointer; }
+.hint.is-warn { color: #b45309; }
+.tag-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 10px; }
+.tag-grid.is-dimmed { opacity: .45; }
+.tag { position: relative; display: flex; align-items: center; gap: 8px; min-height: 52px; padding: 10px 12px; font-size: 15px; font: inherit; color: var(--ink); background: #fff; border: 1px solid #dfe3e8; border-radius: 12px; cursor: pointer; text-align: left; }
+.tag-emoji { font-size: 20px; line-height: 1; flex: none; }
+.tag-text { flex: 1; min-width: 0; }
+.tag-check { flex: none; font-size: 13px; font-weight: 700; }
+.tag.is-wide { grid-column: 1 / -1; }
+.tag-sub { font-size: 12px; font-weight: 400; opacity: .75; }
 .tag.is-selected { background: #2563eb; color: #fff; border-color: #2563eb; }
-.tag:disabled { opacity: 0.4; cursor: not-allowed; }
+.tag:disabled { cursor: not-allowed; }
+.mile-switch { display: flex; align-items: center; gap: 10px; width: 100%; padding: 12px 14px; margin-bottom: 20px; font: inherit; font-size: 15px; color: var(--ink); background: #fff; border: 1px dashed #c9d2e0; border-radius: 12px; cursor: pointer; text-align: left; }
+.mile-switch.is-selected { border-style: solid; border-color: var(--brand); background: #f3f7ff; }
+.switch-knob { flex: none; width: 38px; height: 22px; border-radius: 999px; background: #d3d9e2; position: relative; transition: background .2s; }
+.switch-knob::after { content: ''; position: absolute; top: 3px; left: 3px; width: 16px; height: 16px; border-radius: 50%; background: #fff; transition: transform .2s; }
+.mile-switch.is-selected .switch-knob { background: var(--brand); }
+.mile-switch.is-selected .switch-knob::after { transform: translateX(16px); }
 .warn { color: #d33; font-size: 12px; margin: 0 0 16px; }
 
 .card { background: #fff; border: 1px solid #dfe3e8; border-radius: 12px; padding: 16px; margin-bottom: 12px; }

@@ -7,8 +7,8 @@ async function goToResults(persona = '적당형', tags = ['주유'], feeLimit = 
   await userEvent.type(screen.getByLabelText(/한 달에 카드로 얼마나/), '100')
   fireEvent.change(screen.getByLabelText(/연회비는 얼마까지/), { target: { value: feeLimit } })
   await userEvent.click(screen.getByRole('button', { name: '다음' }))
-  for (const t of tags) await userEvent.click(screen.getByRole('button', { name: t }))
-  await userEvent.click(screen.getByRole('button', { name: '추천 받기' }))
+  for (const t of tags) await userEvent.click(screen.getByRole('button', { name: t === '마일리지' ? /마일리지 카드만/ : t }))
+  await userEvent.click(screen.getByRole('button', { name: /추천 받기/ }))
 }
 
 test('세 화면을 순서대로 지나 결과가 나온다', async () => {

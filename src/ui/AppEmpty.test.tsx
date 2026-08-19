@@ -13,7 +13,7 @@ test('맞는 카드가 없으면 빈 안내', async () => {
   fireEvent.change(screen.getByLabelText(/연회비는 얼마까지/), { target: { value: '200000' } })
   await userEvent.click(screen.getByRole('button', { name: '다음' }))
   await userEvent.click(screen.getByRole('button', { name: '학원·교육' }))
-  await userEvent.click(screen.getByRole('button', { name: '추천 받기' }))
+  await userEvent.click(screen.getByRole('button', { name: /추천 받기/ }))
   expect(screen.getByText(/맞는 카드를 못 찾았어요/)).toBeInTheDocument()
   expect(screen.getByRole('heading', { name: '당신에게 맞는 카드' })).toBeInTheDocument()
 })
