@@ -86,7 +86,7 @@ export function CardResult({ rank, scored, persona, today }: Props) {
         ) : (
           <div className="annual-negative">연회비가 혜택보다 커요 (−{won(-net)})</div>
         )}
-        <div className="annual-sub">연회비 {won(card.annualFee)}은 뺐어요 · 한도를 다 채웠을 때</div>
+        <div className="annual-sub">{card.annualFee === 0 ? '연회비 없음' : `연회비 ${won(card.annualFee)}은 뺐어요`} · 한도를 다 채웠을 때</div>
       </div>
 
       <ul className="breakdown">
