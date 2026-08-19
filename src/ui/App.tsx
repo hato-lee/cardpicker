@@ -89,7 +89,7 @@ export default function App() {
   if (DATA_ERROR) {
     return (
       <main className="app">
-        <h1>카드픽</h1>
+        <h1>카드피커</h1>
         <p className="data-error">카드 데이터에 문제가 있어요: {DATA_ERROR}</p>
       </main>
     )
@@ -100,7 +100,7 @@ export default function App() {
       <div className="progress" role="progressbar" aria-label="진행" aria-valuemin={0} aria-valuemax={4} aria-valuenow={step}>
         <span style={{ width: `${(step / 4) * 100}%` }} />
       </div>
-      <header className="app-head"><h1>카드픽</h1></header>
+      <header className="app-head"><h1>카드피커</h1></header>
       {step === 0 && <StepHome onGuided={startGuided} onQuick={startQuick} onPickTags={startQuickTags} />}
       {step === 1 && <StepPersona value={profile} onChange={setProfile} onNext={editing ? submit : () => setStep(2)} editing={editing} onCancel={backToResults} />}
       {step === 2 && <StepTags value={tags} onChange={setTags} onBack={editing ? backToResults : () => setStep(quick ? 0 : 1)} onNext={(editing || quick) && !kpassNeedsInput ? submit : () => setStep(3)} editing={editing} quick={quick && !editing} kpass={kpass} onKpassChange={setKpass} />}
