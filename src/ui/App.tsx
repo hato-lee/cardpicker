@@ -62,7 +62,7 @@ export default function App() {
 
   return (
     <main className="app">
-      <h1>카드픽</h1>
+      <header className="app-head"><h1>카드픽</h1><p className="tagline">내 씀씀이에 맞는 카드 찾기</p></header>
       {step === 1 && <StepProfile value={profile} onChange={setProfile} onNext={() => setStep(2)} />}
       {step === 2 && <StepTags value={tags} onChange={setTags} onBack={() => setStep(1)} onSubmit={submit} />}
       {step === 3 && query && <Results query={query} results={results} relaxed={relaxed} mileResults={mileResults} onEdit={() => setStep(1)} today={today} />}

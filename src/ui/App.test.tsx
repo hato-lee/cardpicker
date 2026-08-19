@@ -13,7 +13,7 @@ async function goToResults(persona = '적당형', tags = ['주유'], feeLimit = 
 
 test('세 화면을 순서대로 지나 결과가 나온다', async () => {
   render(<App />)
-  expect(screen.getByRole('heading', { name: '나에 대해' })).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: /^나에 대해/ })).toBeInTheDocument()
   await goToResults()
   expect(screen.getByRole('heading', { name: /맞는 카드 TOP \d/ })).toBeInTheDocument()
   // 실데이터에 의존하지 않도록 특정 카드명 대신 "결과 카드가 1장 이상"만 확인한다
@@ -24,7 +24,7 @@ test('조건 바꾸기를 누르면 첫 화면으로', async () => {
   render(<App />)
   await goToResults()
   await userEvent.click(screen.getAllByRole('button', { name: '조건 바꾸기' })[0])
-  expect(screen.getByRole('heading', { name: '나에 대해' })).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: /^나에 대해/ })).toBeInTheDocument()
 })
 
 test('무심형·학원·교육 조합에서도 결과가 나온다', async () => {

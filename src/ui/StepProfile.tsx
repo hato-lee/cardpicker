@@ -8,14 +8,14 @@ export interface Profile {
   feeLimit: number | null
 }
 
-export const PERSONAS: { value: Persona; label: string; desc: string }[] = [
-  { value: 'meticulous', label: '꼼꼼형', desc: '실적·한도 다 따지고 카드도 여러 장 나눠 써요 → 모든 카드를 봐요' },
-  { value: 'moderate', label: '적당형', desc: '대충은 알고 쓰지만 매번 계산하진 않아요 → 선택형·조건 복잡한 카드는 빼요' },
-  { value: 'carefree', label: '무심형', desc: '한 장 꽂아두고 신경 끄고 싶어요 → 복잡한 카드는 빼고, 고른 영역이 한 장으로 다 되는 카드만' },
+export const PERSONAS: { value: Persona; label: string; desc: string; effect: string }[] = [
+  { value: 'meticulous', label: '꼼꼼형', desc: '실적·한도 다 따지고 카드도 여러 장 나눠 써요', effect: '모든 카드를 봐요' },
+  { value: 'moderate', label: '적당형', desc: '대충은 알고 쓰지만 매번 계산하진 않아요', effect: '선택형·조건 복잡한 카드는 빼요' },
+  { value: 'carefree', label: '무심형', desc: '한 장 꽂아두고 신경 끄고 싶어요', effect: '복잡한 카드는 빼고, 고른 영역이 한 장으로 다 되는 카드만' },
 ]
 
 export const FEE_SLIDER = { min: 0, max: 200_000, step: 10_000 } as const
-export const FEE_HINT = '이 금액을 넘는 카드는 안 보여줘요. 결과의 연 혜택은 연회비를 이미 뺀 금액이에요.'
+export const FEE_HINT = '이 금액을 넘는 카드는 안 보여줘요.'
 
 interface Props {
   value: Profile
@@ -31,7 +31,7 @@ export function StepProfile({ value, onChange, onNext }: Props) {
 
   return (
     <section className="step">
-      <h2>나에 대해</h2>
+      <h2>나에 대해 <span className="step-no">1 / 3</span></h2>
 
       <fieldset className="field">
         <legend>나는 어떤 사람?</legend>
@@ -47,6 +47,7 @@ export function StepProfile({ value, onChange, onNext }: Props) {
               />
               <span className="persona-label">{p.label}</span>
               <span className="persona-desc">{p.desc}</span>
+              <span className="persona-effect">→ {p.effect}</span>
             </label>
           ))}
         </div>
@@ -54,6 +55,7 @@ export function StepProfile({ value, onChange, onNext }: Props) {
 
       <div className="field">
         <label htmlFor="spend">한 달 카드 사용액</label>
+        <div className="spend-box">
         <div className="presets">
           {RULES.spendPresetsMan.map((m) => (
             <button
@@ -73,6 +75,7 @@ export function StepProfile({ value, onChange, onNext }: Props) {
             type="number"
             inputMode="numeric"
             min={0}
+            placeholder="예: 80"
             value={value.monthlySpendMan}
             onChange={(e) => onChange({ ...value, monthlySpendMan: e.target.value === '' ? '' : Number(e.target.value) })}
           />
@@ -80,10 +83,14 @@ export function StepProfile({ value, onChange, onNext }: Props) {
           <button type="button" className="step-btn" aria-label={`${RULES.spendStepMan}만 원 빼기`} disabled={current - RULES.spendStepMan < 0} onClick={() => bump(-RULES.spendStepMan)}>−{RULES.spendStepMan}</button>
           <button type="button" className="step-btn" aria-label={`${RULES.spendStepMan}만 원 더하기`} onClick={() => bump(RULES.spendStepMan)}>+{RULES.spendStepMan}</button>
         </div>
+        </div>
       </div>
 
       <div className="field">
-        <label htmlFor="fee">연회비 허용치</label>
+        <div className="label-row">
+          <label htmlFor="fee">연회비 허용치</label>
+          <span className="slider-value">{value.feeLimit === null ? '상관없음' : won(value.feeLimit)}</span>
+        </div>
         <input
           id="fee"
           type="range"
@@ -96,7 +103,7 @@ export function StepProfile({ value, onChange, onNext }: Props) {
             onChange({ ...value, feeLimit: v >= FEE_SLIDER.max ? null : v })
           }}
         />
-        <div className="slider-value">{value.feeLimit === null ? '상관없음' : won(value.feeLimit)}</div>
+        <div className="slider-ends" aria-hidden="true"><span>0원</span><span>상관없음</span></div>
         <p className="field-hint">{FEE_HINT}</p>
       </div>
 
