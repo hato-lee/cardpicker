@@ -12,12 +12,12 @@ interface Props {
   today: Date
 }
 
-/** 마일당 연회비: "마일당 3.3원" / 연회비 0이면 "연회비 없음" */
+/** 마일당 연회비: "1마일에 3.3원꼴" / 연회비 0이면 "연회비 없음" */
 export function feePerMileText(fee: number, feePerMile: number | null): string {
   if (fee === 0) return '연회비 없음'
   if (feePerMile === null) return ''
   const v = Math.round(feePerMile * 10) / 10
-  return `마일당 ${v}원`
+  return `1마일에 ${v}원꼴`
 }
 
 export function MileResult({ rank, scored, monthlySpend, today }: Props) {
@@ -25,11 +25,11 @@ export function MileResult({ rank, scored, monthlySpend, today }: Props) {
   const { card, annualMiles, bonusMiles, firstYearBonus, feePerMile, extras } = scored
   const stale = isStale(card.lastChecked, today)
   const bonusNote = bonusMiles > 0
-    ? `연간 보너스 ${bonusMiles.toLocaleString('ko-KR')}마일 포함`
-    : firstYearBonus && card.mileageBonus ? `첫해엔 보너스 ${card.mileageBonus.miles.toLocaleString('ko-KR')}마일 별도`
-    : card.mileageBonus ? `연간 보너스 ${card.mileageBonus.miles.toLocaleString('ko-KR')}마일은 연 ${won(card.mileageBonus.minAnnualSpend)} 이상 써야 받아요` : ''
-  const sub1 = [`연회비 ${won(card.annualFee)}`, feePerMileText(card.annualFee, feePerMile)].filter(Boolean)
-  const sub2 = [`월 ${won(monthlySpend)} 전부 이 카드로 쓸 때`, bonusNote].filter(Boolean)
+    ? `해마다 받는 보너스 ${bonusMiles.toLocaleString('ko-KR')}마일 포함`
+    : firstYearBonus && card.mileageBonus ? `첫해 보너스 ${card.mileageBonus.miles.toLocaleString('ko-KR')}마일은 따로 있어요`
+    : card.mileageBonus ? `보너스 ${card.mileageBonus.miles.toLocaleString('ko-KR')}마일은 1년에 ${won(card.mileageBonus.minAnnualSpend)} 이상 써야 받아요` : ''
+  const sub1 = card.annualFee === 0 ? ['연회비 없음'] : [`연회비 ${won(card.annualFee)}`, feePerMileText(card.annualFee, feePerMile)].filter(Boolean)
+  const sub2 = [`월 ${won(monthlySpend)}을 전부 이 카드로 쓰면`, bonusNote].filter(Boolean)
   // 접힌 상태에서도 부가 혜택 첫 줄은 보여준다 (프리미엄 비교의 핵심)
   const perkPeek = card.perks && card.perks.length > 0
     ? `${card.perks[0]}${card.perks.length > 1 ? ` 외 ${card.perks.length - 1}개` : ''}`
@@ -76,7 +76,7 @@ export function MileResult({ rank, scored, monthlySpend, today }: Props) {
           </ul>
           {card.perks && card.perks.length > 0 && (
             <>
-              <div className="detail-title">프리미엄 혜택</div>
+              <div className="detail-title">프리미엄이라 받는 것</div>
               <ul className="tips">
                 {card.perks.map((p) => <li key={p}>{p}</li>)}
               </ul>

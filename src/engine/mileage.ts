@@ -94,17 +94,17 @@ export function mileageGroups(cards: Card[], q: Query, rules: Rules = RULES): Mi
 /** "이렇게 쓰면 최대" 한 줄 (마일 단위). */
 export function mileageTip(r: MileScored): string {
   const main = r.monthlyCap === null
-    ? `쓰는 만큼 ${rateText('mileage', r.rate)} — 한도 없음`
+    ? `쓰는 만큼 ${rateText('mileage', r.rate)} 쌓여요 — 한도 없어요`
     : `월 ${won(Math.round(r.monthlyCap / (r.rate / 100)))} 이상 쓰면 한도(${capValueText('mileage', r.monthlyCap)})를 꽉 채워요`
   const hint = r.nextTier ? nextTierText({ type: 'mileage', rate: r.rate, monthlyCap: r.monthlyCap }, r.nextTier) : ''
   return hint ? `${main} ${hint}` : main
 }
 
-/** "연간 보너스 30,000마일 — 첫해는 누적 100만 원, 이후엔 연 3,600만 원 이상 쓸 때" */
+/** "보너스 30,000마일 — 첫해는 100만 원만 써도, 그 뒤엔 1년에 3,600만 원 이상 쓸 때 받아요" */
 export function bonusText(b: MileageBonus): string {
-  const head = `연간 보너스 ${b.miles.toLocaleString('ko-KR')}마일 — `
-  if (b.minAnnualSpend === 0 && b.firstYearMinSpend === undefined) return head + '매년'
-  const later = `연 ${won(b.minAnnualSpend)} 이상 쓸 때`
+  const head = `보너스 ${b.miles.toLocaleString('ko-KR')}마일 — `
+  if (b.minAnnualSpend === 0 && b.firstYearMinSpend === undefined) return head + '조건 없이 해마다 받아요'
+  const later = `1년에 ${won(b.minAnnualSpend)} 이상 쓸 때 받아요`
   if (b.firstYearMinSpend === undefined) return head + later
-  return head + `첫해는 누적 ${won(b.firstYearMinSpend)}, 이후엔 ${later}`
+  return head + `첫해는 ${won(b.firstYearMinSpend)}만 써도, 그 뒤엔 ${later}`
 }

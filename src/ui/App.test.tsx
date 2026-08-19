@@ -82,5 +82,5 @@ test('마일리지 트랙: 연회비 한도가 10만 원 미만이면 한 줄 TO
   await goToResults('적당형', ['마일리지'], '50000')
   expect(screen.getByRole('heading', { name: '이런 마일리지 카드가 잘 맞겠어요' })).toBeInTheDocument()
   expect(screen.getByText(/가장 많이 쌓이는 순 · TOP \d/)).toBeInTheDocument()
-  expect(screen.queryByRole('heading', { name: /프리미엄/ })).toBeNull()
+  expect(screen.queryByRole('heading', { name: /제대로 모은다면/ })).toBeNull()
 })

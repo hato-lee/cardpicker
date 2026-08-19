@@ -127,7 +127,7 @@ function MileGroups({ groups, monthlySpend, today }: { groups: Extract<MileageGr
       <p className="hint">가장 많이 쌓이는 순 · 연회비로 두 묶음</p>
       {groups.regular.length > 0 && (
         <section className="mile-group" aria-label={`연회비 ${fee} 미만`}>
-          <h3 className="group-title">연회비 {fee} 미만 <span className="group-sub">가성비로 고른다면</span></h3>
+          <h3 className="group-title">가볍게 시작한다면 <span className="group-sub">연회비 {fee} 미만</span></h3>
           {groups.regular.map((s, i) => (
             <MileResult key={s.card.id} rank={i + 1} scored={s} monthlySpend={monthlySpend} today={today} />
           ))}
@@ -135,7 +135,7 @@ function MileGroups({ groups, monthlySpend, today }: { groups: Extract<MileageGr
       )}
       {groups.premium.length > 0 && (
         <section className="mile-group" aria-label={`프리미엄(연회비 ${fee} 이상)`}>
-          <h3 className="group-title">프리미엄 · 연회비 {fee} 이상 <span className="group-sub">보너스 마일·라운지까지 본다면</span></h3>
+          <h3 className="group-title">제대로 모은다면 <span className="group-sub">연회비 {fee} 이상 · 보너스 마일·라운지까지</span></h3>
           {groups.premium.map((s, i) => (
             <MileResult key={s.card.id} rank={i + 1} scored={s} monthlySpend={monthlySpend} today={today} />
           ))}

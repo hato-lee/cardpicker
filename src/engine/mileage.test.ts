@@ -91,7 +91,7 @@ describe('recommendMileage 필터·정렬', () => {
 describe('mileageTip', () => {
   test('한도 없음', () => {
     const [r] = recommendMileage([mile1], q())
-    expect(mileageTip(r)).toBe('쓰는 만큼 1,000원당 1마일 — 한도 없음')
+    expect(mileageTip(r)).toBe('쓰는 만큼 1,000원당 1마일 쌓여요 — 한도 없어요')
   })
   test('한도 있음: 필요 지출', () => {
     const c = card({ benefits: [{ tag: '마일리지', type: 'mileage', rate: 0.1, monthlyCap: 500, stars: 2 }] })
@@ -99,7 +99,7 @@ describe('mileageTip', () => {
   })
   test('다음 구간 안내', () => {
     const c = card({ benefits: [{ tag: '마일리지', type: 'mileage', rate: 0.067, monthlyCap: null, stars: 1, tiers: [{ minSpend: 1_500_000, rate: 0.1, monthlyCap: null }] }] })
-    expect(mileageTip(recommendMileage([c], q())[0])).toBe('쓰는 만큼 1,500원당 1마일 — 한도 없음 (월 사용액 150만 원부터는 1,000원당 1마일)')
+    expect(mileageTip(recommendMileage([c], q())[0])).toBe('쓰는 만큼 1,500원당 1마일 쌓여요 — 한도 없어요 (월 사용액 150만 원부터는 1,000원당 1마일)')
   })
 })
 
@@ -135,9 +135,9 @@ describe('연간 보너스 마일 (mileageBonus)', () => {
 describe('bonusText', () => {
   test('첫해·이후 조건을 한 줄로', async () => {
     const { bonusText } = await import('./mileage')
-    expect(bonusText({ miles: 30000, minAnnualSpend: 36_000_000, firstYearMinSpend: 1_000_000 })).toBe('연간 보너스 30,000마일 — 첫해는 누적 100만 원, 이후엔 연 3600만 원 이상 쓸 때')
-    expect(bonusText({ miles: 1000, minAnnualSpend: 0 })).toBe('연간 보너스 1,000마일 — 매년')
-    expect(bonusText({ miles: 5000, minAnnualSpend: 12_000_000 })).toBe('연간 보너스 5,000마일 — 연 1200만 원 이상 쓸 때')
+    expect(bonusText({ miles: 30000, minAnnualSpend: 36_000_000, firstYearMinSpend: 1_000_000 })).toBe('보너스 30,000마일 — 첫해는 100만 원만 써도, 그 뒤엔 1년에 3600만 원 이상 쓸 때 받아요')
+    expect(bonusText({ miles: 1000, minAnnualSpend: 0 })).toBe('보너스 1,000마일 — 조건 없이 해마다 받아요')
+    expect(bonusText({ miles: 5000, minAnnualSpend: 12_000_000 })).toBe('보너스 5,000마일 — 1년에 1200만 원 이상 쓸 때 받아요')
   })
 })
 
