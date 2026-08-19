@@ -1,0 +1,212 @@
+[
+  {
+    "id": "kakaobank-kpass-friends-check",
+    "name": "카카오뱅크 K-패스 프렌즈 체크카드",
+    "issuer": "카카오뱅크",
+    "kind": "check",
+    "annualFee": 0,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "discount",
+        "rate": 0.2,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "평일 0.2%, 주말·공휴일 0.4% 캐시백, 전월실적·한도 없음. 등록금·공과금·상품권·교통카드 충전 등 제외"
+      },
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": 4000,
+        "stars": 1,
+        "note": "버스·지하철 월 5만원 이상 결제 시 4천원 캐시백(전월실적 30만원 이상)"
+      }
+    ],
+    "universal": {
+      "type": "discount",
+      "rate": 0.2,
+      "monthlyCap": null
+    },
+    "complexity": 2,
+    "officialUrl": "https://www.kakaobank.com/products/checkcard",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20), 검수 전. K-패스 환급 대상 카드. 출처: 카카오뱅크 공식 체크카드 페이지(kakaobank.com/products/checkcard — 'K-패스 신청이 가능한 카드 디자인', 회원당 1장, 평일 0.2%/주말 0.4% 확인) + 출시 보도자료(2025-02, 전월실적 30만원 이상 시 대중교통 월 5만원 이상 결제 4천원 캐시백). korea-pass.kr 전용 URL(/products/k-pass)은 404. 기존 kakaobank-friends-check(프렌즈 체크카드)와 기본 캐시백 구조는 같고 대중교통 4천원 캐시백이 추가된 별도 상품. '11개 업종 월 최대 2만 9천원 추가 캐시백'은 시즌제 프로모션이라 제외. 대중교통 4천원 캐시백이 상시 혜택인지 공식 약관으로 재확인 필요."
+  },
+  {
+    "id": "shinhyup-kpass-check",
+    "name": "신협 K-패스 하이브리드 체크카드",
+    "issuer": "신협",
+    "kind": "check",
+    "annualFee": 0,
+    "minSpend": 300000,
+    "benefits": [
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 3000,
+        "stars": 1,
+        "note": "버스·지하철 10% 캐시백(후불교통 청구 시 할인). 고속·공항·시외버스, 공항철도, 교통카드 충전 제외",
+        "tiers": [
+          { "minSpend": 600000, "monthlyCap": 6000 }
+        ]
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 1,
+        "monthlyCap": 10000,
+        "stars": 1,
+        "note": "편의점(GS25·CU·세븐일레븐·이마트24) 월 5천원, 카페(스타벅스·투썸·메가·빽다방·컴포즈·이디야) 월 5천원 각각 한도. 건당 1만원 이상, 편의점은 오프라인만"
+      },
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 1,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "쿠팡·올리브영·다이소 1% 캐시백(건당 1만원 이상, 다이소는 오프라인만)"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "해외가맹점 이용수수료(0.25%)·해외 현금인출·잔액조회 수수료 면제(VISA)"
+      }
+    ],
+    "universal": null,
+    "complexity": 2,
+    "officialUrl": "https://www.cu.co.kr/product/ad/card/selectCard.do?cardSn=1120&mi=100182",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20), 검수 전. K-패스 환급 대상 카드. 출처: 신협 금융상품 공식 페이지(cu.co.kr, cardSn=1120) 원문 — 대중교통 10%(30~60만원 월 3천원, 60만원 이상 월 6천원), 편의점·카페·쇼핑 1% 각 영역별 월 5천원(전월실적 30만원 이상), 연회비 없음(출시 보도). BC카드 제휴 하이브리드(소액신용 30만원+후불교통) 체크카드, 2026-02 출시. 신규 발급월 포함 익월까지 실적 무관 최저 한도 제공. 카페·편의점 태그는 편의점 5천+카페 5천을 합쳐 1만원으로 기재."
+  },
+  {
+    "id": "mg-kpass-check",
+    "name": "새마을금고 K-패스 체크카드",
+    "issuer": "새마을금고",
+    "kind": "check",
+    "annualFee": 0,
+    "minSpend": 200000,
+    "benefits": [
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 20,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "버스·지하철(후불교통) 20% 청구할인. 택시·KTX·고속버스·쏘카·따릉이는 생활혜택 10%(별도 통합한도)",
+        "tiers": [
+          { "minSpend": 600000, "monthlyCap": 10000 }
+        ]
+      },
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "전국 주유소·LPG충전소·전기차충전소 10% 캐시백. 생활혜택 통합 월 한도",
+        "capGroup": "life",
+        "tiers": [
+          { "minSpend": 600000, "monthlyCap": 10000 }
+        ]
+      },
+      {
+        "tag": "통신비·OTT",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "SKT·KT·LG U+ 자동납부(월 1회, 알뜰폰 제외), 넷플릭스·유튜브프리미엄·티빙 정기결제 10% 캐시백. 생활혜택 통합 월 한도",
+        "capGroup": "life",
+        "tiers": [
+          { "minSpend": 600000, "monthlyCap": 10000 }
+        ]
+      },
+      {
+        "tag": "배달·외식",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "배달의민족·쿠팡이츠 10% 캐시백. 생활혜택 통합 월 한도",
+        "capGroup": "life",
+        "tiers": [
+          { "minSpend": 600000, "monthlyCap": 10000 }
+        ]
+      },
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "쿠팡(멤버십 포함)·네이버스마트스토어 10% 캐시백. 생활혜택 통합 월 한도",
+        "capGroup": "life",
+        "tiers": [
+          { "minSpend": 600000, "monthlyCap": 10000 }
+        ]
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "스타벅스·커피빈·투썸·메가·컴포즈·빽다방·매머드 10% 캐시백(현장·브랜드 앱 결제, 편의점은 미포함). 생활혜택 통합 월 한도",
+        "capGroup": "life",
+        "tiers": [
+          { "minSpend": 600000, "monthlyCap": 10000 }
+        ]
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://mgcheck.kfcc.co.kr/plcc/guid/plccKpassGuid.do",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20), 검수 전. K-패스 환급 대상 카드. 출처: MG체크카드 공식 상품안내(mgcheck.kfcc.co.kr/plcc/guid/plccKpassGuid.do) 원문 — 연회비 없음(MASTER/국내전용), 대중교통 20% 월 5천원(20~60만원)/1만원(60만원 이상), 생활혜택 10% 통합 월 5천원/1만원, 전월실적 20만원 이상. 공식 명칭 'K-패스 체크카드(하이브리드)', BC카드 제휴, 2026-02-02 출시, 신규 발급월 포함 2개월 실적 무관 영역별 5천원 제공. 생활혜택 중 올리브영·다이소·포토(인생네컷 등)는 태그 밖이라 생략(통합한도 공유). 언론 보도의 '월 최대 1만원/2만원'은 대중교통+생활 합산액."
+  },
+  {
+    "id": "jeju-kpass-check",
+    "name": "제주은행 탐나는전 체크카드(K-패스)",
+    "issuer": "제주은행",
+    "kind": "check",
+    "annualFee": 0,
+    "minSpend": 200000,
+    "benefits": [
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 2000,
+        "stars": 1,
+        "note": "버스·지하철 10% 캐시백"
+      },
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 0.2,
+        "monthlyCap": 2000,
+        "stars": 1,
+        "note": "국내 가맹점 0.2%, 제주도 내 가맹점 0.5% 포인트 적립(월 2천원 한도)"
+      }
+    ],
+    "universal": {
+      "type": "points",
+      "rate": 0.2,
+      "monthlyCap": 2000
+    },
+    "complexity": 2,
+    "officialUrl": "https://mob.jejubank.co.kr/mob/bridge.jsp?type=card&componentId=SD_PRO_01_05_010_01_M&loginYn=N&params=eyJwcmRDZCI6NDAwMjExMTIwMDgwLCJwcmRHcnBUeXBlIjoiMDIifQ%3D%3D",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20), 검수 전. K-패스 환급 대상 카드. 출처: korea-pass.kr 요약(대중교통 10% 캐시백, 국내 0.2%/제주 0.5% 포인트, 전월실적 20만원, 한도 대중교통 2천원+포인트 2천원) + 출시 정리글(디시 체크카드갤, 동일 수치) — 공식 상세 미확인. officialUrl(korea-pass.kr 제공 제주은행 모바일 링크)은 JBANK 앱 브릿지 페이지라 WebFetch로 본문 못 읽음, 제주은행 PC 상품목록에는 미게시(탐나는전 앱·JBANK 앱 발급). 2026-02-02 출시, 지역화폐 탐나는전+K-패스 통합 체크카드. 기존 '탐나는전 체크카드'(국내 0.2%/제주 0.3% 캐시백, 카드고릴라 idx=2668)와 다른 신상품. 탐나는전 10% 캐시백은 제주도 정책지원금(예산 소진 시 중단)이라 제외. 포인트 종류(BC TOP포인트 추정)·한도 구간 확인 필요."
+  }
+]

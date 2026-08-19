@@ -1,0 +1,74 @@
+[
+ {
+  "issuer": "iM뱅크(구 DGB대구은행)",
+  "name": "iM K-패스 카드",
+  "kind": "credit",
+  "annualFee": 5000,
+  "officialUrl": "https://mbanking.dgb.co.kr/com_ebz_mbs_00001.act?svcId=fis_ebz_sbs_41010_pddtl%2526PD_CD=40100101701075000%2526PD_NM=iM",
+  "note": "[korea-pass.kr cardData id=IM_S] 혜택: 대중교통 10% 할인 / 생활업종(배달앱,이동통신,편의점 등) 5% 할인 | 실적: 30만원 이상, 60만원 이상 | 한도: 최대 2만원 | 연회비: local 5,000원, master 5,000원"
+ },
+ {
+  "issuer": "IBK기업은행",
+  "name": "IBK기업은행 K-패스(신용)",
+  "kind": "credit",
+  "annualFee": 2000,
+  "officialUrl": "https://cardapplication.ibk.co.kr/card/index.jsp?card_prdc_id=103105",
+  "note": "[korea-pass.kr cardData id=IBK_S] 혜택: 대중교통 특화 할인 / 생활서비스 할인 | 실적: 20만원 이상 | 한도: 최대 1만3,200원 외 주유, 놀이공원 할인 | 연회비: local 2,000원, master 4,000원"
+ },
+ {
+  "issuer": "광주은행",
+  "name": "K-패스그린카드v2",
+  "kind": "credit",
+  "annualFee": 10000,
+  "officialUrl": "https://www.kjbank.com/ib20/mnu/FPMCARD020103?ib20_wc=FPMCARD050102V10:FPMCARD050102V20&INBN_GDS_NO=CDR20230623001",
+  "note": "[korea-pass.kr cardData id=KJ] 혜택: 온라인업종 5% / 통신요금(SKT, KT, LG U+)자동이체시 5% / 버스,지하철 10% / 국내 가맹점 이용금액 0.3% | 실적: 30만원 이상 | 한도: 최대 1만 5천점 | 연회비: local 10,000원, master 12,000원 | 광주은행 그린카드v2, 신용·체크 모두 K-패스 등록 가능(공식 목록엔 신용으로만 게시)"
+ },
+ {
+  "issuer": "BC카드(바로카드)",
+  "name": "BC 바로 K-패스 카드",
+  "kind": "credit",
+  "annualFee": 6000,
+  "officialUrl": "https://www.bccard.com/app/card/CreditCardMain.do?gdsno=103112",
+  "note": "[korea-pass.kr cardData id=BARO] 혜택: 대중교통 15% 할인 / OTT/스트리밍 15% 할인 / 이동통신요금/카페/편의점 5% 할인 / 해외 3%할인 | 실적: 30만원 이상, 60만원 이상, 100만원 이상 | 한도: 최대 1만원, 최대 2만원, 최대 3만원 | 연회비: local 6,000원, global 6,000원"
+ },
+ {
+  "issuer": "BNK경남은행",
+  "name": "경남은행 K-패스 카드",
+  "kind": "credit",
+  "annualFee": 8000,
+  "officialUrl": "https://m.knbank.co.kr/ib20/mnu/MOWCOM010000039?FNC_PRD_NO=0000211632",
+  "note": "[korea-pass.kr cardData id=KN] 혜택: 대중교통 15% 할인 / 친환경 모빌리티 10% 할인 / 통신,온라인,배달,OTT,뷰티 5% 할인 / 커피,편의점,병원,약국 업종 10% 할인 | 실적: 30만원 이상, 60만원 이상 | 한도: 최대 1만 6천원 | 연회비: local 8,000원, master 10,000원"
+ },
+ {
+  "issuer": "전북은행",
+  "name": "전북은행 K-패스 신용카드",
+  "kind": "credit",
+  "annualFee": 8000,
+  "officialUrl": "https://m.jbbank.co.kr/s/tcx7yS",
+  "note": "[korea-pass.kr cardData id=JB] 혜택: 대중교통 10% 캐시백 / 병원/약국/이동통신/편의점/커피숍/온라인 쇼핑 5% 캐시백 | 실적: 10만원 이상, 30만원 이상, 50만원 이상 | 한도: 최대 2만원, 최대 1만 5천원 | 연회비: local 8,000원, global 10,000원"
+ },
+ {
+  "issuer": "iM뱅크(구 DGB대구은행)",
+  "name": "iM뱅크 K-패스 체크카드",
+  "kind": "check",
+  "annualFee": 0,
+  "officialUrl": "https://mbanking.dgb.co.kr/com_ebz_mbs_00001.act?svcId=fis_ebz_sbs_41010_pddtl%2526PD_CD=40100101701076000%2526PD_NM=iM",
+  "note": "[korea-pass.kr cardData id=IM_C] 혜택: 대중교통 10% 할인 / 생활업종(배달앱,이동통신,편의점 등) 2% 할인 | 실적: 20만원 이상 | 한도: 최대 4천원"
+ },
+ {
+  "issuer": "IBK기업은행",
+  "name": "IBK기업은행 K-패스(체크)",
+  "kind": "check",
+  "annualFee": 0,
+  "officialUrl": "https://cardapplication.ibk.co.kr/card/index.do?card_prdc_id=103109",
+  "note": "[korea-pass.kr cardData id=IBK_C] 혜택: 대중교통(버스,지하철) 건당 100원 / 커피/쇼핑 10%, 편의점 5% 할인 | 실적: 30만원 이상, 50만원 이상 | 한도: 최대 1만원"
+ },
+ {
+  "issuer": "전북은행",
+  "name": "전북은행 K-패스 체크카드",
+  "kind": "check",
+  "annualFee": 0,
+  "officialUrl": "https://m.jbbank.co.kr/s/Yn1xkK",
+  "note": "[korea-pass.kr cardData id=JB] 혜택: 대중교통 10% 캐시백 / 이동통신/편의점/커피숍/온라인 쇼핑 1% 캐시백 | 실적: 10만원 이상, 20만원 이상 | 한도: 최대 3천원, 최대 4천원"
+ }
+]

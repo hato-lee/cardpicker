@@ -1,0 +1,58 @@
+[
+ {
+  "issuer": "신한카드",
+  "name": "티머니 Pay&Go 신한카드",
+  "kind": "credit",
+  "annualFee": 15000,
+  "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1216792_2207.html?empSeq=502&btnApp=dp01",
+  "note": "[korea-pass.kr cardData id=SH_M] 혜택: 교통 30% 할인 / 고속버스/택시 등 20% 할인 / 생활부문 5% 할인 | 실적: 30만원 이상, 50만원 이상, 100만원 이상 | 한도: 최대 3만 3천원 | 연회비: local 15,000원, global 18,000원"
+ },
+ {
+  "issuer": "신한카드",
+  "name": "K-패스 신한카드(인천패스)",
+  "kind": "credit",
+  "annualFee": 7000,
+  "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1232508_2207.html",
+  "note": "[korea-pass.kr cardData id=SH_IP_S] 혜택: 대중교통 10% 할인 / 간편결제 5% 할인 / 생활부문 5% 할인 | 실적: 20만원 이상, 50만원 이상 | 한도: 20만원 이상 최대 4천원, 50만원 이상 최대 1만원 | 연회비: local 7,000원, global 10,000원"
+ },
+ {
+  "issuer": "NH농협카드",
+  "name": "농협 K-패스카드 신용",
+  "kind": "credit",
+  "annualFee": 13000,
+  "officialUrl": "https://card.nonghyup.com/index_cardProd.html?SERVICE_ID=IPCC2021R&NAVIGATE_TYPE=1&cd_wrs_sqno=90010471",
+  "note": "[korea-pass.kr cardData id=NH_S] 혜택: 대중교통 10% 할인 / 오픈마켓·배달앱 5% 할인 / 커피전문점·편의점 10% 할인 | 실적: 40만원 이상, 80만원 이상 | 한도: 최대 3만 3천원 | 연회비: local 13,000원, visa 15,000원"
+ },
+ {
+  "issuer": "신한카드",
+  "name": "K-패스 신한카드(인천패스) 체크",
+  "kind": "check",
+  "annualFee": 0,
+  "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/check/1232509_2206.html",
+  "note": "[korea-pass.kr cardData id=SH_IP_C] 혜택: 대중교통 10% 할인 / 간편결제 2% 할인 / 생활부문 2% 할인 | 실적: 20만원 이상, 50만원 이상 | 한도: 20만원 이상 최대 4천원, 50만원 이상 최대 1만원"
+ },
+ {
+  "issuer": "신한카드",
+  "name": "신한 이응패스 여민전 K-패스 체크카드",
+  "kind": "check",
+  "annualFee": 0,
+  "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/check/1235507_2206.html",
+  "note": "[korea-pass.kr cardData id=SH_Y_C] 혜택: 대중교통 10% 할인 / 간편결제·배달앱.편의점,커피전문점,올리브영,병원,.약국,OTT2%할인 | 실적: 20만원 이상, 50만원 이상 | 한도: 최대 5천원"
+ },
+ {
+  "issuer": "NH농협카드",
+  "name": "농협 부산 동백전 체크 카드",
+  "kind": "check",
+  "annualFee": 0,
+  "officialUrl": "https://card.nonghyup.com/content/html/busan_chk_card.html",
+  "note": "[korea-pass.kr cardData id=BN] 혜택: 전통시장 2% 할인 / 전통시장 외 0.2% 할인 | 실적: 20만원 이상, 40만원 이상, 60만원 이상 | 한도: 최대 1만원"
+ },
+ {
+  "issuer": "NH농협카드",
+  "name": "농협 이응패스-여민전 체크",
+  "kind": "check",
+  "annualFee": 0,
+  "officialUrl": "https://card.nonghyup.com/content/html/location_card.html?loc=sejongk",
+  "note": "[korea-pass.kr cardData id=NH_Y_C] 혜택: 기본적립 : 0.2% / 0.3% / 0.4% / 추가적립 : 하나로마트/농협몰, GS25, CU, 올리브영, CGV, 스타벅스, 파리바게뜨, 면세점 0.3% / 국제공항 라운지 무료이용 | 실적: 30만원 이상, 50만원 이상, 100만원 이상 | 한도: 한도없음(기본적립 0.3~0.4%), 국제공항 라운지(연 1회)"
+ }
+]

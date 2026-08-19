@@ -1,0 +1,74 @@
+[
+ {
+  "issuer": "하나카드",
+  "name": "K-패스 하나 신용카드",
+  "kind": "credit",
+  "annualFee": 17000,
+  "officialUrl": "https://www.hanacard.co.kr/OPI41000000D.web?_frame=no&CD_PD_SEQ=17016",
+  "note": "[korea-pass.kr cardData id=HN_S] 혜택: 대중교통 10% 할인 / 다이소,올리브영 10% 할인 / 스타벅스,커피빈 10% 할인 | 실적: 50만원 이상, 100만원 이상 | 한도: 최대 3만 5천원 | 연회비: master 17,000원"
+ },
+ {
+  "issuer": "우리카드",
+  "name": "K-패스 우리카드",
+  "kind": "credit",
+  "annualFee": 15000,
+  "officialUrl": "https://pc.wooricard.com/dcpc/yh1/crd/crd01/H1CRD101S02.do?cdPrdCd=102864",
+  "note": "[korea-pass.kr cardData id=WR_S] 혜택: 대중교통 10% 할인 / 전가맹점 0.3% 할인 / 커피/편의점 10% 할인 | 실적: 40만원 이상, 80만원 이상 | 한도: 최대 2만원 | 연회비: local 15,000원"
+ },
+ {
+  "issuer": "삼성카드",
+  "name": "K-패스 삼성카드",
+  "kind": "credit",
+  "annualFee": 10000,
+  "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1830&alncmpC=QHKPASS&affcode=QHKPASS",
+  "note": "[korea-pass.kr cardData id=SS_S] 혜택: 대중교통 10% 할인 / 카페 20% 할인 / OTT/멤버십 20% 할인, 온라인쇼핑 3% 할인 | 실적: 40만원 이상, 80만원 이상 | 한도: 최대 3만 4천원 | 연회비: local 10,000원, master 10,000원"
+ },
+ {
+  "issuer": "롯데카드",
+  "name": "K-패스엔로카",
+  "kind": "credit",
+  "annualFee": 20000,
+  "officialUrl": "http://www.lottecard.co.kr/app/LPBOHAA_V100.lc?bId=96299&vtCdKndC=P15644-A15644",
+  "note": "[korea-pass.kr cardData id=LT] 혜택: 대중교통 최대 15% 할인 / 생활업종 최대 15% 할인 | 실적: 40만원 이상, 80만원 이상 | 한도: 40만원 이상 10%할인, 80만원 이상 15%할인 | 연회비: local 20,000원, master 20,000원"
+ },
+ {
+  "issuer": "하나카드",
+  "name": "K-패스 하나 체크카드",
+  "kind": "check",
+  "annualFee": 0,
+  "officialUrl": "https://www.hanacard.co.kr/OPI41000000D.web?_frame=no&CD_PD_SEQ=17033",
+  "note": "[korea-pass.kr cardData id=HN_C] 혜택: 대중교통 10% 캐시백 / 다이소,올리브영 1% 캐시백 / 스타벅스,커피빈 1% 캐시백 | 실적: 30만원 이상, 60만원 이상 | 한도: 최대 2만 1천원"
+ },
+ {
+  "issuer": "하나카드",
+  "name": "이응패스 하나 여민전 체크카드",
+  "kind": "check",
+  "annualFee": 0,
+  "officialUrl": "https://api.ktgoodpay.com/appWeb/landing/main/wallet?pubCompanyId=GV0000000008",
+  "note": "[korea-pass.kr cardData id=HN_Y_C] 혜택: 편의점, 베이커리, 커피 1만원 이상 사용 시 건당 5% 적립 / 대중교통(버스,지하철) 월 사용금액 5만원 이상 시 5% 적립 | 실적: 20만원 이상 | 한도: 최대 5천 하나머니"
+ },
+ {
+  "issuer": "하나카드",
+  "name": "하나 부산 동백전 체크카드",
+  "kind": "check",
+  "annualFee": 0,
+  "officialUrl": "https://smart.hanacard.co.kr/mobile_web/partner/dong100",
+  "note": "[korea-pass.kr cardData id=BH] 혜택: 전통시장 최대 5천 하나머니 적립 / 부산광역시 소재 가맹점 최대 5천 하나머니 적립 | 실적: 25만원 이상 | 한도: 최대 1만 하나머니"
+ },
+ {
+  "issuer": "우리카드",
+  "name": "K-패스 우리카드 체크",
+  "kind": "check",
+  "annualFee": 0,
+  "officialUrl": "https://pc.wooricard.com/dcpc/yh1/crd/crd01/H1CRD101S02.do?cdPrdCd=102865",
+  "note": "[korea-pass.kr cardData id=WR_C] 혜택: 대중교통 10% 할인 / 커피/편의점 10% 할인 | 실적: 30만원 이상, 60만원 이상 | 한도: 최대 1만원"
+ },
+ {
+  "issuer": "삼성카드",
+  "name": "K-패스 삼성 체크 카드",
+  "kind": "check",
+  "annualFee": 0,
+  "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=ABP1800",
+  "note": "[korea-pass.kr cardData id=SS_C] 혜택: 대중교통 10% 캐시백 / 이동통신 10% 캐시백 / 편의점/커피전문점/제과 1천원 캐시백 / CGV 3천원 할인 | 실적: 30만원 이상 | 한도: 연 최대 11만 4천원"
+ }
+]

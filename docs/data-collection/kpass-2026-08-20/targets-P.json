@@ -1,0 +1,82 @@
+[
+ {
+  "issuer": "이동의즐거움(이즐/캐시비)",
+  "name": "이즐 K-패스카드 (알뜰교통카드+, 더 경기패스, 광주G-패스)",
+  "kind": "prepaid-physical",
+  "annualFee": 0,
+  "officialUrl": "https://www.myezl.com/ezl/sub/kpass.do",
+  "note": "[korea-pass.kr cardData id=EB_REAL] 혜택: 대중교통 10% 추가 적립: 전월 실적 기준의 혜택 제공 (※ 20만원 사용 시 대중교통 금액의 10% 추가 혜택(최대 2천원)) / 이즐충전소 앱에서 카드 간편충전 / 이즐포인트 적립(이즐워크(만보기), 출석체크, 룰렛 등)하여 교통비로 전환하여 사용가능 | 실적: 20만원 | 한도: 최대 2천원"
+ },
+ {
+  "issuer": "BNK부산은행",
+  "name": "부산은행 K-패스 동백(선불형)",
+  "kind": "prepaid-physical",
+  "annualFee": 0,
+  "officialUrl": "https://m.busanbank.co.kr/ib20/mnu/MWPCRDL100CRD10?DBJ_APP=Y&IS_SCHEME=Y",
+  "note": "[korea-pass.kr cardData id=BE] 혜택: 대중교통 10% 추가 적립: 전월 실적 기준의 혜택 제공 (※ 20만원 사용 시 대중교통 금액의 10% 추가 혜택(최대 2천원)) / 모바일 충전서비스 / 이즐포인트 적립(이즐워크(만보기), 출석체크, 룰렛 등)하여 교통비로 전환하여 사용가능 | 실적: 20만원 | 한도: 최대 2천원"
+ },
+ {
+  "issuer": "iM유페이(구 DGB유페이)",
+  "name": "iM유페이 원패스",
+  "kind": "prepaid-physical",
+  "annualFee": 0,
+  "officialUrl": "https://www.imupay.co.kr/personal/kPass",
+  "note": "[korea-pass.kr cardData id=DG_REAL] 혜택: 카드사 추가 마일리지 최대 7천원 적립 / 매달 가장 빠르게 돌려받는 K-패스 적립금 / 원패스 앱에서 카드 간편충전(모바일 충전 서비스) | 실적: 10만원 이상, 20만원 이상, 30만원 이상 | 한도: 최대 7천원 외 대중교통 결제 할인"
+ },
+ {
+  "issuer": "티머니",
+  "name": "티머니 K-패스 실물카드",
+  "kind": "prepaid-physical",
+  "annualFee": 0,
+  "officialUrl": "https://pay.tmoney.co.kr/ncs/pct/tmnykpass/ReadKpassUtlzGd.dev",
+  "note": "[korea-pass.kr cardData id=TM] 혜택: 대중교통 10% 추가 적립 전월 실적 없음 (당월 실적 기준 혜택 제공) / 대중교통 무료 보험(1년) / 계좌 환급 또는 T마일리지 환급 방식 선택 가능 | 실적: 10만원 이상, 20만원 이상, 30만원 이상 | 한도: 최대 7천원"
+ },
+ {
+  "issuer": "이동의즐거움(이즐/캐시비)",
+  "name": "이동의즐거움, 모바일이즐",
+  "kind": "prepaid-mobile",
+  "annualFee": 0,
+  "officialUrl": "https://mob.cashbee.co.kr:60010/01/0/01/1/1/2/1/initalKpassInfoApp.do",
+  "note": "[korea-pass.kr cardData id=EB] 혜택: 대중교통 10% 추가 적립, 전월 실적 기준의 혜택 제공 / 교통카드 간편 충전 서비스 / 이즐워크(만보기) 기능으로 포인트 적립 가능(걸음 수 포인트 지급) | 실적: 10만원 이상, 20만원 이상, 30만원 이상 | 한도: 최대 7천원"
+ },
+ {
+  "issuer": "iM유페이(구 DGB유페이)",
+  "name": "iM유페이 원패스",
+  "kind": "prepaid-mobile",
+  "annualFee": 0,
+  "officialUrl": "https://play.google.com/store/apps/details?id=com.dgbupay.mobile",
+  "note": "[korea-pass.kr cardData id=DG] 혜택: 카드사 추가 마일리지 최대 7천원 적립 / 매달 가장 빠르게 돌려받는 K-패스 적립금 / 원패스 앱에서 카드 간편충전(모바일 충전 서비스) | 실적: 10만원 이상, 20만원 이상, 30만원 이상 | 한도: 최대 7천원 외 대중교통 결제 할인"
+ },
+ {
+  "issuer": "카카오페이",
+  "name": "카카오페이 K-패스",
+  "kind": "prepaid-mobile",
+  "annualFee": 0,
+  "officialUrl": "https://www.kakaopay.com",
+  "note": "[korea-pass.kr cardData id=EB_KAKAO] 혜택: 대중교통 10% 추가 적립, 전월 실적 기준의 혜택 제공 / 모바일 충전서비스(카카오페이머니) | 실적: 10만원 이상, 20만원 이상, 30만원 이상 | 한도: 최대 7천원 외 대중교통 결제 할인 | 공식링크는 카카오톡 딥링크(앱 내 발급)"
+ },
+ {
+  "issuer": "네이버페이(이즐 제휴)",
+  "name": "네이버페이 모바일교통카드",
+  "kind": "prepaid-mobile",
+  "annualFee": 0,
+  "officialUrl": "https://campaign2.naver.com/npay/transitcard/kpass/",
+  "note": "[korea-pass.kr cardData id=NV] 혜택: 신규 등록 시 3천원(최초 1회) / 추가 적립금 최대 8천원 | 이즐(캐시비) 기반 모바일 선불, Android 전용"
+ },
+ {
+  "issuer": "코레일(한국철도공사)",
+  "name": "코레일 레일플러스",
+  "kind": "prepaid-mobile",
+  "annualFee": 0,
+  "officialUrl": "https://railplus.korail.com/com/mic/set/hps/hce/hpskpassIntroduce.do",
+  "note": "[korea-pass.kr cardData id=KR] 혜택: 전월 대중교통 사용금액에 따라 최대 7천원 추가 환급 / KTX 마일리지 1% 추가 적립 / KTX 마일리지 → 모바일 레일플러스 충전금으로 전환 가능 | 실적: 5만원 미만 ~ 30만원 이상 | 한도: 최대 7천원"
+ },
+ {
+  "issuer": "티머니",
+  "name": "모바일티머니 K-패스",
+  "kind": "prepaid-mobile",
+  "annualFee": 0,
+  "officialUrl": "https://pay.tmoney.co.kr",
+  "note": "[korea-pass.kr cardData id=TM] 혜택: 아이폰/안드로이드폰 이용자 모두 사용 가능 / 대중교통 10% 추가 적립 / 당월 실적 기준 혜택 제공(전월 실적 조건 없음) | 실적: (당월 실적 기반), 10만원 이상, 20만원 이상, 30만원 이상 | 한도: 최대 7천원 | 공식 단축링크 http://bit.ly/4o4raEQ | iOS/Android 모두 가능(모바일티머니 앱)"
+ }
+]

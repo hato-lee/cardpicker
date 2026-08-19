@@ -1,153 +1,185 @@
-shinhan-deep-oil (신한카드 Deep Oil, 연회비 10000, active)
-kb-my-wesh (KB국민 My WE:SH 카드, 연회비 15000, active)
-hyundai-the-red-mileage (현대카드 the Red (항공 마일리지형), 연회비 300000, active)
-shinhan-mr-life (신한카드 Mr.Life, 연회비 15000, active)
-shinhan-cheoeum (신한카드 처음, 연회비 15000, active)
-shinhan-air-one (신한카드 Air One, 연회비 49000, active)
-shinhan-b-big (신한카드 B.Big, 연회비 0, active)
-shinhan-simple-plus (신한카드 Simple+, 연회비 10000, discontinued)
-shinhan-point-plan-plus (신한카드 Point Plan+, 연회비 30000, active)
-shinhan-globus (신한카드 Globus, 연회비 22000, active)
-shinhan-edu-plan-plus (신한카드 Edu Plan+, 연회비 40000, active)
-shinhan-the-classic-s (신한카드 The CLASSIC-S, 연회비 97000, active)
-kb-skypass (KB국민 스카이패스카드, 연회비 20000, active)
-kb-gaon (KB국민 가온카드, 연회비 5000, active)
-kb-cheongchundaero-toktok (KB국민 청춘대로 톡톡카드, 연회비 4000, active)
-kb-cheongchundaero-kkulshopping-alpha (KB국민 청춘대로 꿀쇼핑α카드, 연회비 15000, discontinued)
-kb-goodday (KB국민 굿데이카드, 연회비 1000, active)
-kb-tantandaero-auto (KB국민 탄탄대로 오토카드, 연회비 50000, active)
-kb-goldenlife-olim (KB국민 골든라이프올림카드, 연회비 9000, active)
-kb-tantandaero-allshopping (KB국민 탄탄대로 올쇼핑카드, 연회비 9000, discontinued)
-samsung-taptap-o (삼성카드 taptap O, 연회비 10000, active)
-samsung-id-on (삼성 iD ON 카드, 연회비 20000, active)
-samsung-mileage-platinum (삼성카드 & MILEAGE PLATINUM (스카이패스), 연회비 47000, active)
-samsung-amex-blue (삼성카드 American Express Blue, 연회비 15000, active)
-samsung-id-simple (삼성 iD SIMPLE 카드, 연회비 7000, active)
-samsung-id-select-all (삼성 iD SELECT ALL 카드, 연회비 20000, active)
-samsung-taptap-digital (삼성카드 taptap DIGITAL, 연회비 10000, active)
-hyundai-zero-edition3-discount (현대카드 ZERO Edition3(할인형), 연회비 15000, active)
-hyundai-z-work-edition2 (현대카드 Z work Edition2, 연회비 20000, active)
-hyundai-z-family-edition2 (현대카드 Z family Edition2, 연회비 20000, active)
-hyundai-z-play (현대카드 Z play, 연회비 20000, active)
-hyundai-m (현대카드M, 연회비 30000, active)
-hyundai-koreanair-060 (현대카드 대한항공카드 060, 연회비 60000, active)
-hyundai-x (현대카드X, 연회비 50000, active)
-lotte-loca-365 (롯데카드 LOCA 365, 연회비 20000, active)
-lotte-loca-classic (롯데카드 LOCA CLASSIC, 연회비 20000, active)
-lotte-loca-for-auto (롯데카드 LOCA for Auto, 연회비 20000, active)
-lotte-loca-for-health (롯데카드 LOCA for Health, 연회비 20000, active)
-lotte-loca-platinum-mileage (롯데카드 LOCA PLATINUM 마일리지형, 연회비 100000, active)
-woori-every-discount (우리카드 카드의정석 EVERY DISCOUNT, 연회비 12000, active)
-woori-d4-jeongseok (우리카드 D4@카드의정석, 연회비 9000, active)
-woori-nu-iu (우리카드 NU I&U, 연회비 12000, active)
-woori-every-mile-skypass (우리카드 카드의정석 EVERY MILE SKYPASS, 연회비 39000, active)
-hana-1q-daily (하나카드 하나멤버스 1Q 카드 Daily, 연회비 8000, active)
-hana-multi-living (하나카드 MULTI Living, 연회비 12000, active)
-hana-travelog-check (하나 트래블로그 체크카드, 연회비 0, active)
-hana-travelog-skypass (하나카드 트래블로그 SKYPASS 신용카드, 연회비 48000, active)
-nh-allone-pi (NH농협카드 NH올원 파이카드, 연회비 10000, active)
-nh-zgm-playplus (NH농협 zgm.play++카드, 연회비 63000, active)
-nh-ryan-cheese-check (NH농협카드 라이언 치즈 체크카드, 연회비 0, active)
-bc-baro-clear-plus (BC 바로 클리어 플러스, 연회비 5000, active)
-kbank-one-check (케이뱅크 ONE 체크카드, 연회비 0, active)
-shinhan-edu (신한카드 Edu, 연회비 20000, active)
-hyundai-h (현대카드 H, 연회비 15000, active)
-woori-loca-apt-platinum (카드의정석 APT Platinum, 연회비 29000, active)
-kb-need-edu (KB NEED Edu카드, 연회비 25000, active)
-ibk-naui-alpha-edu (나의알파 캐시백 에듀카드, 연회비 5000, active)
-bnk-gyeongnam-kpass-check ([BNK경남] 경남은행 K-패스 체크카드, 연회비 0, active)
-kb-skypass-platinum (KB국민 스카이패스 플래티늄카드, 연회비 120000, active)
-kb-skypass-platinum-s (KB국민 스카이패스 플래티늄S카드, 연회비 40000, active)
-nh-chaeum-skypass (NH농협카드 채움 스카이패스카드, 연회비 15000, active)
-woori-jeongseok-premium-mileage-asiana (우리카드 카드의 정석 프리미엄 마일리지(아시아나), 연회비 135000, excluded)
-shinhan-the-best-plus (신한카드 The BEST+, 연회비 295000, active)
-samsung-taptap-drive (삼성카드 taptap DRIVE, 연회비 10000, active)
-hana-club-sk (하나카드 CLUB SK, 연회비 6000, active)
-shinhan-sol-travel-check (신한카드 SOL트래블 체크, 연회비 0, active)
-samsung-id-all (삼성 iD ALL 카드, 연회비 20000, active)
-samsung-id-move (삼성 iD MOVE 카드, 연회비 20000, active)
-samsung-id-pet (삼성 iD PET 카드, 연회비 15000, active)
-samsung-card4-v4 (삼성카드 4 V4, 연회비 20000, active)
-hyundai-zero-edition3-points (현대카드 ZERO Edition3(포인트형), 연회비 15000, active)
-hyundai-the-green-edition3 (현대카드 the Green Edition3, 연회비 150000, active)
-hyundai-the-pink-edition2 (현대카드 the Pink Edition2, 연회비 150000, active)
-hyundai-x-edition2 (현대카드X Edition2, 연회비 15000, active)
-shinhan-hey-young-check (신한카드 Hey Young 체크카드, 연회비 0, discontinued)
-shinhan-deep-dream-check (신한카드 Deep Dream 체크카드, 연회비 0, active)
-kakaobank-friends-check (카카오뱅크 프렌즈 체크카드, 연회비 0, active)
-tossbank-check (토스뱅크 체크카드, 연회비 0, active)
-kb-coupang-wow (KB국민 쿠팡 와우카드, 연회비 20000, active)
-hyundai-naver-edition2 (네이버 현대카드 Edition2, 연회비 20000, active)
-hyundai-costco-reward-edition2 (코스트코 리워드 현대카드 Edition2, 연회비 20000, active)
-samsung-starbucks (스타벅스 삼성카드, 연회비 30000, active)
-shinhan-emart (신한카드 이마트, 연회비 18000, active)
-shinhan-shinsegae-best-fit (신한카드 신세계 Best Fit, 연회비 15000, active)
-kb-need-autoslim (KB국민 NEED AutoSlim카드, 연회비 14000, active)
-kb-easy-auto-titanium (KB국민 Easy auto 티타늄카드, 연회비 30000, active)
-kb-tmap (TMAP KB국민카드, 연회비 15000, active)
-kb-sk-energy-loveyou (SK에너지 러브유 KB국민카드, 연회비 7000, active)
-kb-e1-lpg (E1 LPG KB국민카드, 연회비 15000, active)
-kb-you-prime (KB국민 YOU Prime 카드, 연회비 30000, active)
-kb-woongjin-thinkbig (KB국민 웅진씽크빅 카드, 연회비 15000, active)
-kb-milkt (KB국민 밀크T 카드, 연회비 15000, active)
-kb-visang-onlyone (KB국민 비상온리원 카드, 연회비 15000, active)
-kb-you-with (KB국민 YOU With 카드, 연회비 15000, active)
-shinhan-the-classic-v (신한카드 The CLASSIC-V, 연회비 197000, active)
-shinhan-the-classic-y (신한카드 The CLASSIC-Y, 연회비 100000, active)
-shinhan-the-classic-neo (신한카드 The CLASSIC NEO, 연회비 117000, active)
-samsung-the1-sfc-skypass (삼성카드 THE 1 SFC (스카이패스), 연회비 245000, active)
-samsung-the-id-1st (삼성카드 THE iD. 1st, 연회비 150000, active)
-samsung-the-id-platinum-point (삼성카드 THE iD. PLATINUM(포인트), 연회비 215000, active)
-hana-jade-classic (하나카드 JADE Classic, 연회비 115000, active)
-lotte-loca-platinum-discount (롯데카드 LOCA PLATINUM 할인형, 연회비 100000, active)
-woori-royal-blue-point (우리카드 ROYAL BLUE POINT, 연회비 300000, active)
-kb-gaon-platinum-voucher (KB국민 가온 플래티늄바우처카드, 연회비 100000, active)
-nh-classy-travel (NH농협카드 클래시 트래블카드, 연회비 120000, active)
-nh-on-platinum-point (NH농협카드 ON PLATINUM카드(포인트형), 연회비 118000, active)
-lotte-loca-money (롯데카드 LOCA MONEY, 연회비 20000, active)
-lotte-digiroca-auto (롯데카드 디지로카 Auto, 연회비 30000, active)
-lotte-loca-lite (롯데카드 LOCA Lite, 연회비 1000, active)
-lotte-digiroca-london (롯데카드 디지로카 London, 연회비 20000, active)
-bc-baro-onoff (BC 바로 On&Off, 연회비 5000, active)
-bc-baro-air-plus-skypass (BC 바로 에어 플러스 스카이패스, 연회비 19000, discontinued)
-bc-baro-macao (BC 바로 MACAO, 연회비 12000, active)
-bc-baro-green-card (BC 바로 그린카드(전국), 연회비 0, active)
-hana-multi-any (하나카드 MULTI Any, 연회비 12000, active)
-hana-oneq (하나카드 하나원큐카드, 연회비 15000, active)
-hana-wonder-daily (하나카드 원더카드(원더 DAILY), 연회비 19900, active)
-hana-1q-shopping-plus (하나카드 1Q Shopping+, 연회비 10000, active)
-woori-shopping-plus (우리카드 카드의정석 SHOPPING+, 연회비 10000, active)
-woori-every-1 (우리카드 카드의정석 EVERY 1, 연회비 12000, discontinued)
-woori-everyday-check (우리카드 카드의정석 EVERYDAY CHECK, 연회비 12000, active)
-nh-chaeum-kpass-check (NH농협카드 채움 K-패스카드(체크), 연회비 0, active)
-nh-zgm-shopping (NH농협 zgm shopping, 연회비 50000, active)
-shinhan-kpass-check (신한카드 K-패스 체크카드, 연회비 0, active)
-shinhan-kpass (신한카드 K-패스, 연회비 7000, active)
-kb-kpass-check (KB국민 K-패스체크카드, 연회비 0, active)
-kb-kpass (KB국민 K-패스카드, 연회비 8000, active)
-kb-nori2-kbpay (KB국민 노리2 체크카드(KB Pay), 연회비 0, active)
-woori-jeongseok-ohacheck (우리카드 카드의정석 오하CHECK, 연회비 0, active)
-hyundai-musinsa (무신사 현대카드, 연회비 10000, active)
-naverpay-money-hana-check (네이버페이 머니 하나 체크카드, 연회비 0, active)
-shinhan-deep-on-platinum-plus (신한카드 Deep On Platinum+, 연회비 30000, active)
-shinhan-the-best-f (신한카드 The BEST-F (마일리지형), 연회비 222000, discontinued)
-shinhan-the-best-xo (신한카드 The BEST-XO (스카이패스형), 연회비 317000, active)
-kb-heritage-smart-mileage (KB국민 HERITAGE Smart (대한항공 마일리지형), 연회비 200000, active)
-kb-heritage-classic-skypass (KB국민 HERITAGE Classic (스카이패스형), 연회비 157000, active)
-kb-skypass-titanium (KB국민 스카이패스 티타늄카드, 연회비 45000, active)
-hyundai-the-purple-mileage (현대카드 the Purple(마일리지형), 연회비 1000000, active)
-lotte-skypass-platinum (롯데카드 SKYPASS 롯데 플래티넘 카드, 연회비 120000, active)
-lotte-digiloca-skypass (롯데카드 디지로카 스카이패스, 연회비 20000, active)
-samsung-special-mileage-skypass (삼성카드 스페셜마일리지 (스카이패스), 연회비 97000, active)
-samsung-shinsegae-the-mileage (신세계 더 마일리지 삼성카드 (스카이패스), 연회비 45000, active)
-hana-skypass-amex-platinum (하나 스카이패스 아멕스 플래티늄 카드, 연회비 45000, active)
-hana-clubh-amex-reserve (하나 CLUB H 아메리칸 익스프레스 리저브 카드, 연회비 150000, active)
-woori-jeongseok-premium-mileage-koreanair (우리카드 카드의 정석 프리미엄 마일리지(대한항공), 연회비 135000, active)
-woori-royal-blue-mileage-skypass (우리카드 ROYAL BLUE MILEAGE (SKYPASS), 연회비 330000, active)
-nh-chaeum-titanium-skypass (NH농협카드 채움 티타늄 스카이패스카드, 연회비 30000, active)
-nh-chaeum-platinum-skypass (NH농협카드 채움 플래티늄 스카이패스카드, 연회비 130000, active)
-bc-baro-air-master (BC 바로 에어 마스터, 연회비 29000, active)
-bc-baro-air-max (BC 바로 에어 맥스, 연회비 43000, active)
-hyundai-koreanair-120 (현대카드 대한항공카드 120 (Edition2), 연회비 120000, active)
-hyundai-koreanair-300 (현대카드 대한항공카드 300 (Edition2), 연회비 300000, active)
-hyundai-koreanair-the-first-edition2 (현대카드 대한항공카드 the First Edition2, 연회비 800000, active)
+shinhan-deep-oil | 신한카드 Deep Oil
+kb-my-wesh | KB국민 My WE:SH 카드
+hyundai-the-red-mileage | 현대카드 the Red (항공 마일리지형)
+shinhan-mr-life | 신한카드 Mr.Life
+shinhan-cheoeum | 신한카드 처음
+shinhan-air-one | 신한카드 Air One
+shinhan-b-big | 신한카드 B.Big
+shinhan-simple-plus | 신한카드 Simple+
+shinhan-point-plan-plus | 신한카드 Point Plan+
+shinhan-globus | 신한카드 Globus
+shinhan-edu-plan-plus | 신한카드 Edu Plan+
+shinhan-the-classic-s | 신한카드 The CLASSIC-S
+kb-skypass | KB국민 스카이패스카드
+kb-gaon | KB국민 가온카드
+kb-cheongchundaero-toktok | KB국민 청춘대로 톡톡카드
+kb-cheongchundaero-kkulshopping-alpha | KB국민 청춘대로 꿀쇼핑α카드
+kb-goodday | KB국민 굿데이카드
+kb-tantandaero-auto | KB국민 탄탄대로 오토카드
+kb-goldenlife-olim | KB국민 골든라이프올림카드
+kb-tantandaero-allshopping | KB국민 탄탄대로 올쇼핑카드
+samsung-taptap-o | 삼성카드 taptap O
+samsung-id-on | 삼성 iD ON 카드
+samsung-mileage-platinum | 삼성카드 & MILEAGE PLATINUM (스카이패스)
+samsung-amex-blue | 삼성카드 American Express Blue
+samsung-id-simple | 삼성 iD SIMPLE 카드
+samsung-id-select-all | 삼성 iD SELECT ALL 카드
+samsung-taptap-digital | 삼성카드 taptap DIGITAL
+hyundai-zero-edition3-discount | 현대카드 ZERO Edition3(할인형)
+hyundai-z-work-edition2 | 현대카드 Z work Edition2
+hyundai-z-family-edition2 | 현대카드 Z family Edition2
+hyundai-z-play | 현대카드 Z play
+hyundai-m | 현대카드M
+hyundai-koreanair-060 | 현대카드 대한항공카드 060
+hyundai-x | 현대카드X
+lotte-loca-365 | 롯데카드 LOCA 365
+lotte-loca-classic | 롯데카드 LOCA CLASSIC
+lotte-loca-for-auto | 롯데카드 LOCA for Auto
+lotte-loca-for-health | 롯데카드 LOCA for Health
+lotte-loca-platinum-mileage | 롯데카드 LOCA PLATINUM 마일리지형
+woori-every-discount | 우리카드 카드의정석 EVERY DISCOUNT
+woori-d4-jeongseok | 우리카드 D4@카드의정석
+woori-nu-iu | 우리카드 NU I&U
+woori-every-mile-skypass | 우리카드 카드의정석 EVERY MILE SKYPASS
+hana-1q-daily | 하나카드 하나멤버스 1Q 카드 Daily
+hana-multi-living | 하나카드 MULTI Living
+hana-travelog-check | 하나 트래블로그 체크카드
+hana-travelog-skypass | 하나카드 트래블로그 SKYPASS 신용카드
+nh-allone-pi | NH농협카드 NH올원 파이카드
+nh-zgm-playplus | NH농협 zgm.play++카드
+nh-ryan-cheese-check | NH농협카드 라이언 치즈 체크카드
+bc-baro-clear-plus | BC 바로 클리어 플러스
+kbank-one-check | 케이뱅크 ONE 체크카드
+shinhan-edu | 신한카드 Edu
+hyundai-h | 현대카드 H
+woori-loca-apt-platinum | 카드의정석 APT Platinum
+kb-need-edu | KB NEED Edu카드
+ibk-naui-alpha-edu | 나의알파 캐시백 에듀카드
+bnk-gyeongnam-kpass-check | [BNK경남] 경남은행 K-패스 체크카드
+kb-skypass-platinum | KB국민 스카이패스 플래티늄카드
+kb-skypass-platinum-s | KB국민 스카이패스 플래티늄S카드
+nh-chaeum-skypass | NH농협카드 채움 스카이패스카드
+woori-jeongseok-premium-mileage-asiana | 우리카드 카드의 정석 프리미엄 마일리지(아시아나)
+shinhan-the-best-plus | 신한카드 The BEST+
+samsung-taptap-drive | 삼성카드 taptap DRIVE
+hana-club-sk | 하나카드 CLUB SK
+shinhan-sol-travel-check | 신한카드 SOL트래블 체크
+samsung-id-all | 삼성 iD ALL 카드
+samsung-id-move | 삼성 iD MOVE 카드
+samsung-id-pet | 삼성 iD PET 카드
+samsung-card4-v4 | 삼성카드 4 V4
+hyundai-zero-edition3-points | 현대카드 ZERO Edition3(포인트형)
+hyundai-the-green-edition3 | 현대카드 the Green Edition3
+hyundai-the-pink-edition2 | 현대카드 the Pink Edition2
+hyundai-x-edition2 | 현대카드X Edition2
+shinhan-hey-young-check | 신한카드 Hey Young 체크카드
+shinhan-deep-dream-check | 신한카드 Deep Dream 체크카드
+kakaobank-friends-check | 카카오뱅크 프렌즈 체크카드
+tossbank-check | 토스뱅크 체크카드
+kb-coupang-wow | KB국민 쿠팡 와우카드
+hyundai-naver-edition2 | 네이버 현대카드 Edition2
+hyundai-costco-reward-edition2 | 코스트코 리워드 현대카드 Edition2
+samsung-starbucks | 스타벅스 삼성카드
+shinhan-emart | 신한카드 이마트
+shinhan-shinsegae-best-fit | 신한카드 신세계 Best Fit
+kb-need-autoslim | KB국민 NEED AutoSlim카드
+kb-easy-auto-titanium | KB국민 Easy auto 티타늄카드
+kb-tmap | TMAP KB국민카드
+kb-sk-energy-loveyou | SK에너지 러브유 KB국민카드
+kb-e1-lpg | E1 LPG KB국민카드
+kb-you-prime | KB국민 YOU Prime 카드
+kb-woongjin-thinkbig | KB국민 웅진씽크빅 카드
+kb-milkt | KB국민 밀크T 카드
+kb-visang-onlyone | KB국민 비상온리원 카드
+kb-you-with | KB국민 YOU With 카드
+shinhan-the-classic-v | 신한카드 The CLASSIC-V
+shinhan-the-classic-y | 신한카드 The CLASSIC-Y
+shinhan-the-classic-neo | 신한카드 The CLASSIC NEO
+samsung-the1-sfc-skypass | 삼성카드 THE 1 SFC (스카이패스)
+samsung-the-id-1st | 삼성카드 THE iD. 1st
+samsung-the-id-platinum-point | 삼성카드 THE iD. PLATINUM(포인트)
+hana-jade-classic | 하나카드 JADE Classic
+lotte-loca-platinum-discount | 롯데카드 LOCA PLATINUM 할인형
+woori-royal-blue-point | 우리카드 ROYAL BLUE POINT
+kb-gaon-platinum-voucher | KB국민 가온 플래티늄바우처카드
+nh-classy-travel | NH농협카드 클래시 트래블카드
+nh-on-platinum-point | NH농협카드 ON PLATINUM카드(포인트형)
+lotte-loca-money | 롯데카드 LOCA MONEY
+lotte-digiroca-auto | 롯데카드 디지로카 Auto
+lotte-loca-lite | 롯데카드 LOCA Lite
+lotte-digiroca-london | 롯데카드 디지로카 London
+bc-baro-onoff | BC 바로 On&Off
+bc-baro-air-plus-skypass | BC 바로 에어 플러스 스카이패스
+bc-baro-macao | BC 바로 MACAO
+bc-baro-green-card | BC 바로 그린카드(전국)
+hana-multi-any | 하나카드 MULTI Any
+hana-oneq | 하나카드 하나원큐카드
+hana-wonder-daily | 하나카드 원더카드(원더 DAILY)
+hana-1q-shopping-plus | 하나카드 1Q Shopping+
+woori-shopping-plus | 우리카드 카드의정석 SHOPPING+
+woori-every-1 | 우리카드 카드의정석 EVERY 1
+woori-everyday-check | 우리카드 카드의정석 EVERYDAY CHECK
+nh-chaeum-kpass-check | NH농협카드 채움 K-패스카드(체크)
+nh-zgm-shopping | NH농협 zgm shopping
+shinhan-kpass-check | 신한카드 K-패스 체크카드
+shinhan-kpass | 신한카드 K-패스
+kb-kpass-check | KB국민 K-패스체크카드
+kb-kpass | KB국민 K-패스카드
+kb-nori2-kbpay | KB국민 노리2 체크카드(KB Pay)
+woori-jeongseok-ohacheck | 우리카드 카드의정석 오하CHECK
+hyundai-musinsa | 무신사 현대카드
+naverpay-money-hana-check | 네이버페이 머니 하나 체크카드
+shinhan-deep-on-platinum-plus | 신한카드 Deep On Platinum+
+shinhan-the-best-f | 신한카드 The BEST-F (마일리지형)
+shinhan-the-best-xo | 신한카드 The BEST-XO (스카이패스형)
+kb-heritage-smart-mileage | KB국민 HERITAGE Smart (대한항공 마일리지형)
+kb-heritage-classic-skypass | KB국민 HERITAGE Classic (스카이패스형)
+kb-skypass-titanium | KB국민 스카이패스 티타늄카드
+hyundai-the-purple-mileage | 현대카드 the Purple(마일리지형)
+lotte-skypass-platinum | 롯데카드 SKYPASS 롯데 플래티넘 카드
+lotte-digiloca-skypass | 롯데카드 디지로카 스카이패스
+samsung-special-mileage-skypass | 삼성카드 스페셜마일리지 (스카이패스)
+samsung-shinsegae-the-mileage | 신세계 더 마일리지 삼성카드 (스카이패스)
+hana-skypass-amex-platinum | 하나 스카이패스 아멕스 플래티늄 카드
+hana-clubh-amex-reserve | 하나 CLUB H 아메리칸 익스프레스 리저브 카드
+woori-jeongseok-premium-mileage-koreanair | 우리카드 카드의 정석 프리미엄 마일리지(대한항공)
+woori-royal-blue-mileage-skypass | 우리카드 ROYAL BLUE MILEAGE (SKYPASS)
+nh-chaeum-titanium-skypass | NH농협카드 채움 티타늄 스카이패스카드
+nh-chaeum-platinum-skypass | NH농협카드 채움 플래티늄 스카이패스카드
+bc-baro-air-master | BC 바로 에어 마스터
+bc-baro-air-max | BC 바로 에어 맥스
+hyundai-koreanair-120 | 현대카드 대한항공카드 120 (Edition2)
+hyundai-koreanair-300 | 현대카드 대한항공카드 300 (Edition2)
+hyundai-koreanair-the-first-edition2 | 현대카드 대한항공카드 the First Edition2
+hyundai-amex-green | 현대 아메리칸 익스프레스 그린카드 Edition2
+hyundai-amex-gold | 현대 아메리칸 익스프레스 골드카드 Edition2
+hyundai-amex-platinum | 현대 아메리칸 익스프레스 더 플래티넘카드 Edition2
+shinhan-the-classic-plus | 신한카드 The CLASSIC+
+kb-bev-v-skypass | KB국민 BeV V카드(스카이패스형)
+kb-heritage-reserve-skypass | KB국민 HERITAGE Reserve(스카이패스형)
+hana-club-primus-skypass | 하나카드 CLUB Primus Skypass 카드
+nh-on-platinum-skypass | NH농협카드 ON PLATINUM카드(스카이패스)
+nh-we-terra-skypass | NH농협카드 위(Ü) 테라카드(스카이패스)
+shinhan-tmoney-paygo | 티머니 Pay&GO 신한카드
+shinhan-incheon-kpass | K-패스 신한카드(인천 i-패스)
+shinhan-incheon-kpass-check | K-패스 신한카드(인천 i-패스) 체크
+nh-kpass | NH농협카드 K-패스카드(신용)
+hana-kpass | K-패스 하나 신용카드
+hana-kpass-check | K-패스 하나 체크카드
+woori-kpass | K-패스 우리카드
+woori-kpass-check | K-패스 우리카드(체크)
+samsung-kpass | K-패스 삼성카드
+samsung-kpass-check | K-패스 삼성체크카드
+lotte-kpass-loca | 롯데카드 K-패스엔로카
+im-kpass | iM K-패스 카드
+im-kpass-check | iM뱅크 K-패스 체크카드
+ibk-kpass | IBK기업은행 K-패스(신용)
+ibk-kpass-check | IBK기업은행 K-패스(체크)
+kwangju-kpass | 광주은행 K-패스그린카드v2
+bc-baro-kpass | BC 바로 K-패스 카드
+bnk-gyeongnam-kpass | [BNK경남] 경남은행 K-패스 카드
+jb-kpass | 전북은행 K-패스 신용카드
+jb-kpass-check | 전북은행 K-패스 체크카드
+kakaobank-kpass-friends-check | 카카오뱅크 K-패스 프렌즈 체크카드
+shinhyup-kpass-check | 신협 K-패스 하이브리드 체크카드
+mg-kpass-check | 새마을금고 K-패스 체크카드

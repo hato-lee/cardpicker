@@ -1,0 +1,509 @@
+[
+  {
+    "id": "bc-baro-kpass",
+    "name": "BC 바로 K-패스 카드",
+    "issuer": "BC카드",
+    "kind": "credit",
+    "annualFee": 6000,
+    "minSpend": 300000,
+    "benefits": [
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 15,
+        "monthlyCap": 7000,
+        "stars": 2,
+        "note": "시내버스·지하철 후불교통, 시외·고속버스·공항버스 제외. 통합 한도 내 대중교통 한도",
+        "tiers": [
+          {
+            "minSpend": 600000,
+            "monthlyCap": 12000
+          },
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 15000
+          }
+        ]
+      },
+      {
+        "tag": "통신비·OTT",
+        "type": "discount",
+        "rate": 15,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "capGroup": "shared",
+        "note": "넷플릭스·유튜브프리미엄·티빙·디즈니+·멜론 등 공식 정기결제 15%, 이동통신 자동이체 5%. 통합 한도",
+        "tiers": [
+          {
+            "minSpend": 600000,
+            "monthlyCap": 20000
+          },
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 30000
+          }
+        ]
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "capGroup": "shared",
+        "note": "편의점 건당 5천원 이상·카페 건당 3천원 이상 현장결제. 통합 한도",
+        "tiers": [
+          {
+            "minSpend": 600000,
+            "monthlyCap": 20000
+          },
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 30000
+          }
+        ]
+      },
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 3,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "capGroup": "shared",
+        "note": "해외겸용카드 건당 USD10 이상. 통합 한도",
+        "tiers": [
+          {
+            "minSpend": 600000,
+            "monthlyCap": 20000
+          },
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 30000
+          }
+        ]
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://www.bccard.com/app/card/CreditCardMain.do?gdsno=103112",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20), 검수 전. K-패스 환급 대상 카드. 출처: BC카드 공식 상품 페이지. 통합 월 할인한도 1만/2만/3만원(30/60/100만) 안에 대중교통 한도 7천/1만2천/1만5천원이 따로 있어 대중교통은 capGroup 없이 자체 한도로 표기. 가족카드 불가. 해외겸용 VISA 연회비 7,000원."
+  },
+  {
+    "id": "jb-kpass",
+    "name": "전북은행 K-패스 신용카드",
+    "issuer": "전북은행",
+    "kind": "credit",
+    "annualFee": 8000,
+    "minSpend": 300000,
+    "benefits": [
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 20000,
+        "stars": 3,
+        "note": "버스·지하철 캐시백(다음 달 15일 지급). 전월 10만~30만원이면 월 1만원까지. 고속·시외·공항버스·공항철도 제외"
+      },
+      {
+        "tag": "병의원·약국",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "capGroup": "life",
+        "note": "병원·약국 업종 캐시백, 생활 통합 한도",
+        "tiers": [
+          {
+            "minSpend": 500000,
+            "monthlyCap": 15000
+          }
+        ]
+      },
+      {
+        "tag": "통신비·OTT",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "capGroup": "life",
+        "note": "이동통신 업종 캐시백, 생활 통합 한도",
+        "tiers": [
+          {
+            "minSpend": 500000,
+            "monthlyCap": 15000
+          }
+        ]
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "capGroup": "life",
+        "note": "편의점, 스타벅스·할리스·탐앤탐스·투썸·엔제리너스·카페베네, 생활 통합 한도",
+        "tiers": [
+          {
+            "minSpend": 500000,
+            "monthlyCap": 15000
+          }
+        ]
+      },
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "capGroup": "life",
+        "note": "쿠팡·11번가·G마켓·옥션·SSG.COM, 생활 통합 한도",
+        "tiers": [
+          {
+            "minSpend": 500000,
+            "monthlyCap": 15000
+          }
+        ]
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://m.jbbank.co.kr/s/tcx7yS",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20), 검수 전. K-패스 환급 대상 카드. 출처: 전북은행 모바일 상품상세(cms/prod_dtl, 공식). 실제 최저 실적은 10만원(대중교통 캐시백 월 1만원만 제공)이나 생활 캐시백이 30만원부터라 minSpend 30만원으로 적고 10만원 구간은 note에 표기(검수 시 구조 결정 필요). 연회비 국내전용 8,000원·Master 10,000원(korea-pass.kr 요약). 가맹점 업종 분류는 KB국민카드 기준. 2026-02-02 출시."
+  },
+  {
+    "id": "shinhan-tmoney-paygo",
+    "name": "티머니 Pay&GO 신한카드",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 300000,
+    "benefits": [
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 30,
+        "monthlyCap": 7000,
+        "stars": 2,
+        "note": "모바일티머니로 결제한 버스·지하철 30% 할인. 티머니GO 고속·시외버스·택시·따릉이·킥보드는 20% 할인(일 1회, 건당 할인 2천원까지)이며 한도 공유",
+        "tiers": [
+          {
+            "minSpend": 500000,
+            "monthlyCap": 12000
+          },
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 18000
+          }
+        ]
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "capGroup": "b",
+        "note": "스타벅스·커피빈·투썸·엔젤리너스·카페베네 5%(건당 1만원까지, 월 8회), GS25·CU·세븐일레븐·이마트24·미니스톱 5%(건당 1만원까지, 월 5회). 통신비 할인과 한도 통합",
+        "tiers": [
+          {
+            "minSpend": 500000,
+            "monthlyCap": 10000
+          },
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 15000
+          }
+        ]
+      },
+      {
+        "tag": "통신비·OTT",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "capGroup": "b",
+        "note": "SKT·KT·LG U+ 이동통신요금 자동이체 5%(건당 5만원까지, 월 2회). 카페·편의점 할인과 한도 통합",
+        "tiers": [
+          {
+            "minSpend": 500000,
+            "monthlyCap": 10000
+          },
+          {
+            "minSpend": 1000000,
+            "monthlyCap": 15000
+          }
+        ]
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1216792_2207.html",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20), 검수 전. K-패스 환급 대상 카드. 출처: 신한카드 공식 페이지(요율·구간별 한도·제외항목 확인), 연회비는 korea-pass.kr 요약(국내전용 15,000원/해외겸용 18,000원 — 공식 페이지엔 템플릿 변수라 미표시, 확인 필요). 교통 한도(7천/1만2천/1만8천)와 생활서비스 통합한도(5천/1만/1만5천)는 별도 풀. 교통 30%는 모바일티머니 결제 기준(실물 후불교통 터치는 대상 아님으로 보임, 확인 필요). 백화점(현대·신세계·롯데·갤러리아) 5% 할인(건당 10만원, 월 2회)은 태그 밖. 기프트카드·선불충전·무이자할부 실적 제외."
+  },
+  {
+    "id": "nh-kpass",
+    "name": "NH농협카드 K-패스카드(신용)",
+    "issuer": "NH농협카드",
+    "kind": "credit",
+    "annualFee": 13000,
+    "minSpend": 400000,
+    "benefits": [
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "버스·지하철·택시·철도 10% 청구할인. 렌터카·카쉐어링·전기차 충전 10%도 같은 모빌리티 한도에서 차감",
+        "tiers": [
+          {
+            "minSpend": 800000,
+            "monthlyCap": 20000
+          }
+        ]
+      },
+      {
+        "tag": "통신비·OTT",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "capGroup": "b",
+        "note": "SKT·KT·LG U+ 이동통신요금 자동이체 5% 청구할인(월 1회). 온라인쇼핑·배달앱 할인과 한도 통합",
+        "tiers": [
+          {
+            "minSpend": 800000,
+            "monthlyCap": 10000
+          }
+        ]
+      },
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "capGroup": "b",
+        "note": "쿠팡·11번가·G마켓·옥션 5% 청구할인. 통신비·배달앱 할인과 한도 통합(스포츠시설·올리브영 5%도 같은 한도)",
+        "tiers": [
+          {
+            "minSpend": 800000,
+            "monthlyCap": 10000
+          }
+        ]
+      },
+      {
+        "tag": "배달·외식",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "capGroup": "b",
+        "note": "배달앱 5% 청구할인. 통신비·온라인쇼핑 할인과 한도 통합",
+        "tiers": [
+          {
+            "minSpend": 800000,
+            "monthlyCap": 10000
+          }
+        ]
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 3000,
+        "stars": 1,
+        "note": "스타벅스·이디야 등 커피전문점 10% 청구할인(월 2천원, 2회 한), 편의점 10% 청구할인(월 1천원)"
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://card.nonghyup.com/servlet/IpCc2021R.act?CD_WRS_SQNO=90010471",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20), 검수 전. K-패스 환급 대상 카드. 출처: NH농협카드 공식 상품 페이지(servlet). 연회비 국내전용 13,000원(기본 6,000+제휴 7,000), VISA 15,000원. 모빌리티 통합한도(1만/2만원, 전월 40만~80만원 미만/80만원 이상)와 라이프서비스① 통합한도(5천/1만원, capGroup b)는 별도 풀, 커피·편의점은 각각 월 2천원·1천원 고정 한도(합산 3천원으로 기재). 스포츠시설·올리브영 5%는 태그 밖. 배달앱·커피·편의점 대상 브랜드 목록 세부는 확인 필요. 경기패스 버전(농협 K-패스카드(경기패스)) 있음(혜택 동일, 지역 추가 혜택)."
+  },
+  {
+    "id": "mg-kpass-check",
+    "name": "새마을금고 K-패스 체크카드",
+    "issuer": "새마을금고",
+    "kind": "check",
+    "annualFee": 0,
+    "minSpend": 200000,
+    "benefits": [
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 20,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "버스·지하철(후불교통) 20% 청구할인. 택시·KTX·고속버스·쏘카·따릉이는 생활혜택 10%(별도 통합한도)",
+        "tiers": [
+          {
+            "minSpend": 600000,
+            "monthlyCap": 10000
+          }
+        ]
+      },
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "전국 주유소·LPG충전소·전기차충전소 10% 캐시백. 생활혜택 통합 월 한도",
+        "capGroup": "life",
+        "tiers": [
+          {
+            "minSpend": 600000,
+            "monthlyCap": 10000
+          }
+        ]
+      },
+      {
+        "tag": "통신비·OTT",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "SKT·KT·LG U+ 자동납부(월 1회, 알뜰폰 제외), 넷플릭스·유튜브프리미엄·티빙 정기결제 10% 캐시백. 생활혜택 통합 월 한도",
+        "capGroup": "life",
+        "tiers": [
+          {
+            "minSpend": 600000,
+            "monthlyCap": 10000
+          }
+        ]
+      },
+      {
+        "tag": "배달·외식",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "배달의민족·쿠팡이츠 10% 캐시백. 생활혜택 통합 월 한도",
+        "capGroup": "life",
+        "tiers": [
+          {
+            "minSpend": 600000,
+            "monthlyCap": 10000
+          }
+        ]
+      },
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "쿠팡(멤버십 포함)·네이버스마트스토어 10% 캐시백. 생활혜택 통합 월 한도",
+        "capGroup": "life",
+        "tiers": [
+          {
+            "minSpend": 600000,
+            "monthlyCap": 10000
+          }
+        ]
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "스타벅스·커피빈·투썸·메가·컴포즈·빽다방·매머드 10% 캐시백(현장·브랜드 앱 결제, 편의점은 미포함). 생활혜택 통합 월 한도",
+        "capGroup": "life",
+        "tiers": [
+          {
+            "minSpend": 600000,
+            "monthlyCap": 10000
+          }
+        ]
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://mgcheck.kfcc.co.kr/plcc/guid/plccKpassGuid.do",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20), 검수 전. K-패스 환급 대상 카드. 출처: MG체크카드 공식 상품안내(mgcheck.kfcc.co.kr/plcc/guid/plccKpassGuid.do) 원문 — 연회비 없음(MASTER/국내전용), 대중교통 20% 월 5천원(20~60만원)/1만원(60만원 이상), 생활혜택 10% 통합 월 5천원/1만원, 전월실적 20만원 이상. 공식 명칭 'K-패스 체크카드(하이브리드)', BC카드 제휴, 2026-02-02 출시, 신규 발급월 포함 2개월 실적 무관 영역별 5천원 제공. 생활혜택 중 올리브영·다이소·포토(인생네컷 등)는 태그 밖이라 생략(통합한도 공유). 언론 보도의 '월 최대 1만원/2만원'은 대중교통+생활 합산액."
+  },
+  {
+    "id": "samsung-kpass",
+    "name": "K-패스 삼성카드",
+    "issuer": "삼성카드",
+    "kind": "credit",
+    "annualFee": 10000,
+    "minSpend": 400000,
+    "benefits": [
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "버스·지하철 오프라인 결제, 시외·고속버스 제외",
+        "tiers": [
+          {
+            "minSpend": 800000,
+            "monthlyCap": 10000
+          }
+        ]
+      },
+      {
+        "tag": "카페·편의점",
+        "type": "discount",
+        "rate": 20,
+        "monthlyCap": 4000,
+        "stars": 2,
+        "note": "스타벅스·이디야·투썸·커피빈·블루보틀 오프라인(스타벅스 사이렌오더 포함)",
+        "tiers": [
+          {
+            "minSpend": 800000,
+            "monthlyCap": 8000
+          }
+        ]
+      },
+      {
+        "tag": "통신비·OTT",
+        "type": "discount",
+        "rate": 20,
+        "monthlyCap": 4000,
+        "stars": 2,
+        "note": "넷플릭스·디즈니+·웨이브·유튜브프리미엄·티빙·멜론, 쿠팡와우·네이버플러스 멤버십 정기결제, 인앱결제 제외",
+        "tiers": [
+          {
+            "minSpend": 800000,
+            "monthlyCap": 8000
+          }
+        ]
+      },
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 3,
+        "monthlyCap": 4000,
+        "stars": 2,
+        "note": "쿠팡·SSG·G마켓·옥션·11번가·무신사·W컨셉",
+        "tiers": [
+          {
+            "minSpend": 800000,
+            "monthlyCap": 8000
+          }
+        ]
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1830",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20), 검수 전. K-패스 환급 대상 카드. 출처: 카드고릴라 상세(삼성 공식 페이지는 JS라 혜택명만 확인)+korea-pass.kr 요약(최대 3만4천원 일치). 영역별 월 한도 각각 적용. 연회비 국내전용·마스터 동일 1만원. 특수소재 카드 발급수수료 5천원 별도."
+  }
+]

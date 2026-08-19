@@ -1,0 +1,58 @@
+[
+ {
+  "issuer": "케이뱅크",
+  "name": "케이뱅크 ONE 체크카드",
+  "kind": "check",
+  "annualFee": 0,
+  "officialUrl": "https://www.kbanknow.com/k/tdbb0xS",
+  "note": "[korea-pass.kr cardData id=KBANK] 혜택: 모두다 캐시백 : 온라인 1.2%, 오프라인 0.7% 캐시백 / 여기서 더 캐시백 : 자주 쓰는 곳에서 7% 캐시백 / 369 캐시백: 3번 결제할 때마다 1,000원 캐시백 | 실적: 대중교통 5만원 이상, 전월 실적 30만원 이상 | 한도: 대중교통 월 3천원, 월 최대 2만 5천원 | 전용 상품 아님(일반 체크카드에 K-패스 기능 탑재)"
+ },
+ {
+  "issuer": "카카오뱅크",
+  "name": "K-패스 프렌즈 체크카드",
+  "kind": "check",
+  "annualFee": 0,
+  "officialUrl": "https://www.kakaobank.com/products/k-pass",
+  "note": "[korea-pass.kr cardData id=KO] 혜택: 대중교통 4천원 캐시백 / 평일 0.2% 캐시백 / 주말 0.4% 캐시백 | 실적: 30만원 이상 | 한도: 최대 2만 9천원"
+ },
+ {
+  "issuer": "BNK부산은행",
+  "name": "부산 동백전 체크카드",
+  "kind": "check",
+  "annualFee": 0,
+  "officialUrl": "https://m.busanbank.co.kr/ib20/mnu/MWPMEM5100MEM20?IS_SCHEME=Y",
+  "note": "[korea-pass.kr cardData id=BB] 혜택: 가맹점 결재 시 최대 7% / 동백플러스 가맹점 QR 결제 시 최대 20% | 한도: 기본 캐시백 한도 30만원"
+ },
+ {
+  "issuer": "신협",
+  "name": "신협 K-패스 하이브리드 체크카드",
+  "kind": "check",
+  "annualFee": 0,
+  "officialUrl": "https://m.cu.co.kr/mbranch/prd/PRD020103U/04",
+  "note": "[korea-pass.kr cardData id=SY] 혜택: 대중교통 10% 할인 / 편의점/카페/쇼핑 1% 할인 | 실적: 대중교통 30만원 이상 / 60만원 이상, 편의점/카페/쇼핑 30만원 이상 | 한도: 최대 1만 8천원, 최대 2만 1천원 | 하이브리드(소액신용) 체크카드"
+ },
+ {
+  "issuer": "새마을금고",
+  "name": "새마을 금고 K-패스 카드",
+  "kind": "check",
+  "annualFee": 0,
+  "officialUrl": "https://mbank.kfcc.co.kr/CARD/06/PMWCARD060201?PRDT_CD=104566&PRDT_NM=K-%ED%8C%A8%EC%8A%A4",
+  "note": "[korea-pass.kr cardData id=SM] 혜택: 대중교통 20% 할인 / 연계교통(택시/주유 등)·생활혜택(통신/커피/다이소 등) 10% 할인 | 실적: 20만원 이상, 60만원 이상 | 한도: 최대 2만원 | 하이브리드 체크카드"
+ },
+ {
+  "issuer": "토스뱅크",
+  "name": "토스뱅크 체크카드(K-패스)",
+  "kind": "check",
+  "annualFee": 0,
+  "officialUrl": "https://tossbank.com/card/k-pass?referrer=k-pass_official-pc",
+  "note": "[korea-pass.kr cardData id=TB] 혜택: 오프라인 캐시백 월 최대 35,000원 / 온라인 캐시백 월 최대 14,000원 / 국내 결제금액의 0.3% 캐시백 또는 기부 | 한도: 최대 3만 7천원 | 토스뱅크 체크카드에 K-패스 기능 탑재"
+ },
+ {
+  "issuer": "제주은행",
+  "name": "제주은행 K-패스 체크카드",
+  "kind": "check",
+  "annualFee": 0,
+  "officialUrl": "https://mob.jejubank.co.kr/mob/bridge.jsp?type=card&componentId=SD_PRO_01_05_010_01_M&loginYn=N&params=eyJwcmRDZCI6NDAwMjExMTIwMDgwLCJwcmRHcnBUeXBlIjoiMDIifQ%3D%3D",
+  "note": "[korea-pass.kr cardData id=JJ] 혜택: 대중교통 10% 캐시백 / 국내 가맹점 0.2% / 제주도 내 가맹점 0.5% 포인트 적립 | 실적: 20만원 이상 | 한도: 최대 4천원 (대중교통 2천원, 포인트 적립 2천원) | 실제 상품명 '탐나는전 체크카드'(2026-02-02 출시, 지역화폐+K-패스)"
+ }
+]
