@@ -1,12 +1,17 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { useState } from 'react'
-import { StepTags, TAG_WARN_TEXT, MILEAGE_HINT } from './StepTags'
+import { StepTags, TAG_WARN_TEXT, MILEAGE_HINT, KPASS_HINT } from './StepTags'
 import type { Tag } from '../data/tags'
 
 function Harness({ onNext = () => {} }: { onNext?: () => void }) {
   const [t, setT] = useState<Tag[]>([])
   return <StepTags value={t} onChange={setT} onBack={() => {}} onNext={onNext} />
+}
+function KpassHarness() {
+  const [t, setT] = useState<Tag[]>([])
+  const [k, setK] = useState(false)
+  return <StepTags value={t} onChange={setT} onBack={() => {}} onNext={() => {}} kpass={k} onKpassChange={setK} />
 }
 
 test('태그 12개 버튼이 보인다', () => {
@@ -55,5 +60,27 @@ describe('마일리지는 다른 태그와 섞을 수 없다', () => {
     await userEvent.click(screen.getByRole('button', { name: /마일리지 카드만/ }))
     expect(screen.getByRole('button', { name: '주유' })).toBeEnabled()
     expect(screen.queryByText(MILEAGE_HINT)).not.toBeInTheDocument()
+  })
+})
+
+describe('K-패스 스위치', () => {
+  test('켜면 대중교통·택시가 자동 선택·잠김, 안내가 뜨고, 다른 혜택은 더 고를 수 있다', async () => {
+    render(<KpassHarness />)
+    await userEvent.click(screen.getByRole('button', { name: /K-패스 카드만/ }))
+    expect(screen.getByRole('button', { name: /K-패스 카드만/ })).toHaveAttribute('aria-pressed', 'true')
+    const transit = screen.getByRole('button', { name: /대중교통·택시/ })
+    expect(transit).toHaveAttribute('aria-pressed', 'true')
+    expect(transit).toBeDisabled()
+    expect(screen.getByText(KPASS_HINT)).toBeInTheDocument()
+    await userEvent.click(screen.getByRole('button', { name: '카페·편의점' }))
+    expect(screen.getByRole('button', { name: '카페·편의점' })).toHaveAttribute('aria-pressed', 'true')
+    expect(screen.getByRole('button', { name: /^다음/ })).toHaveTextContent('다음 (2개)')
+  })
+  test('마일리지를 켜면 K-패스가 꺼진다', async () => {
+    render(<KpassHarness />)
+    await userEvent.click(screen.getByRole('button', { name: /K-패스 카드만/ }))
+    await userEvent.click(screen.getByRole('button', { name: /마일리지 카드만/ }))
+    expect(screen.getByRole('button', { name: /K-패스 카드만/ })).toHaveAttribute('aria-pressed', 'false')
+    expect(screen.getByRole('button', { name: /마일리지 카드만/ })).toHaveAttribute('aria-pressed', 'true')
   })
 })

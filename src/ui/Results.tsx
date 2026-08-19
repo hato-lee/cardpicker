@@ -1,12 +1,13 @@
-import type { Query, Persona } from '../data/types'
+import type { Query, Persona, KpassGroup } from '../data/types'
 import type { Tag } from '../data/tags'
-import type { Scored } from '../engine/recommend'
+import { kpassAnnualRefund, kpassMonthlyRefund, type Scored } from '../engine/recommend'
 import { isMileageQuery, type MileageResults, type MileScored } from '../engine/mileage'
 import { MileResult, mileLeadText } from './MileResult'
 import { PERSONA_LABEL } from '../engine/explain'
 import { CardResult } from './CardResult'
 import { REPORT_FORM_URL } from './config'
 import { won } from './format'
+import { KPASS_GROUPS } from './StepProfile'
 
 interface Props {
   query: Query
@@ -53,15 +54,29 @@ export function leadText(results: Scored[], i: number, tags: Tag[] = []): string
   return parts.join(' · ')
 }
 
+export const KPASS_GROUP_LABEL: Record<KpassGroup, string> = Object.fromEntries(KPASS_GROUPS.map((g) => [g.value, `${g.short} ${g.rate}`])) as Record<KpassGroup, string>
+/** K-패스 결과 맨 위 안내: 환급이 얼마고, 받으려면 뭘 해야 하는지 */
+export function kpassNote(q: Query): string {
+  if (!q.kpass) return ''
+  const rate = KPASS_GROUPS.find((g) => g.value === q.kpass!.group)!.rate
+  return `K-패스 환급: 버스·지하철비 월 ${won(q.kpass.transitSpend)} × ${rate} = 1년 약 ${won(kpassAnnualRefund(q.kpass))} (월 ${won(kpassMonthlyRefund(q.kpass))}). 어느 K-패스 카드든 똑같아요 — 모두의카드(K-패스) 앱에 카드 등록 + 한 달 15번 이상 타면 돼요. 출퇴근 시간대·정액형으로 더 받을 수도 있어요.`
+}
+
 export const RELAXED_NOTE = '고른 영역을 한 장으로 다 되는 카드가 없어서, 가장 많이 되는 카드부터 보여줘요.'
 
 export function Results({ query, results, relaxed = false, mileResults = { top: [], lightPick: null }, onEdit, today }: Props) {
   const mileage = isMileageQuery(query)
+  const refund = query.kpass ? kpassAnnualRefund(query.kpass) : 0
   // 칩을 누르면 그 조건을 고치는 화면으로 바로 간다 (나머지 조건은 그대로)
   const chips: { label: string; part: EditPart }[] = [
     { label: PERSONA_LABEL[query.persona], part: 'persona' },
     { label: `월 ${won(query.monthlySpend)}`, part: 'budget' },
     { label: query.feeLimit === null ? '연회비 상관없음' : `연회비 ${won(query.feeLimit)}까지`, part: 'budget' },
+    ...(query.kpass ? [
+      { label: 'K-패스', part: 'tags' as EditPart },
+      { label: `교통비 월 ${won(query.kpass.transitSpend)}`, part: 'budget' as EditPart },
+      { label: KPASS_GROUP_LABEL[query.kpass.group], part: 'budget' as EditPart },
+    ] : []),
     ...query.tags.map((t) => ({ label: t, part: 'tags' as EditPart })),
   ]
   const summary = (
@@ -105,9 +120,10 @@ export function Results({ query, results, relaxed = false, mileResults = { top: 
   return (
     <section className="step">
       {summary}
-      <h2>{results.length > 0 ? '이런 카드가 잘 맞겠어요' : '조건에 맞는 카드를 못 찾았어요'}</h2>
+      <h2>{results.length > 0 ? (query.kpass ? '이런 K-패스 카드가 잘 맞겠어요' : '이런 카드가 잘 맞겠어요') : (query.kpass ? '조건에 맞는 K-패스 카드를 못 찾았어요' : '조건에 맞는 카드를 못 찾았어요')}</h2>
       {results.length > 0 && <p className="hint">{PERSONA_ECHO[query.persona]} · TOP {results.length}</p>}
       {relaxed && results.length > 0 && <p className="hint">{RELAXED_NOTE}</p>}
+      {query.kpass && results.length > 0 && <p className="kpass-note">🎫 {kpassNote(query)}</p>}
       {results.length === 0 ? (
         <div className="empty">
           <p>연회비를 올리거나 혜택을 바꿔보세요.</p>
@@ -123,8 +139,9 @@ export function Results({ query, results, relaxed = false, mileResults = { top: 
             pickedTags={query.tags}
             lead={leadText(results, i, query.tags)}
             compact={i > 0}
-            maxNet={results[0].benefit.annualNet}
+            maxNet={results[0].benefit.annualNet + refund}
             monthlySpend={query.monthlySpend}
+            kpassRefund={refund}
           />
         ))
       )}

@@ -1,4 +1,4 @@
-import { recommend, recommendGeneral, coveredTagsOf, universalCoversOf, isPointsHeavy } from './recommend'
+import { recommend, recommendGeneral, coveredTagsOf, universalCoversOf, isPointsHeavy, kpassMonthlyRefund, kpassAnnualRefund } from './recommend'
 import { RULES } from './rules'
 import type { Card, Query } from '../data/types'
 
@@ -143,5 +143,28 @@ describe('무심형은 할인형 먼저, 포인트형 뒤', () => {
     const r = recommendGeneral([cafe, twoPts], q({ persona: 'carefree', tags: ['주유', '카페·편의점', '대중교통·택시'] }))
     expect(r.relaxed).toBe(true)
     expect(r.items.map((x) => x.card.id)).toEqual(['twoPts', 'cafe'])
+  })
+})
+
+describe('K-패스 트랙', () => {
+  const transit = (over: Partial<Card>) => card({ benefits: [{ tag: '대중교통·택시', type: 'discount', rate: 10, monthlyCap: 5000, stars: 2 }], complexity: 2, ...over })
+  test('kpass 입력이 있으면 K-패스 카드만 후보', () => {
+    const kp = transit({ id: 'kp', kpass: true })
+    const plain = transit({ id: 'plain', benefits: [{ tag: '대중교통·택시', type: 'discount', rate: 10, monthlyCap: 50000, stars: 3 }] })
+    const got = recommend([plain, kp], q({ tags: ['대중교통·택시'], kpass: { transitSpend: 100_000, group: 'general' } }))
+    expect(got.map((s) => s.card.id)).toEqual(['kp'])
+  })
+  test('kpass 입력이 없으면 K-패스 여부와 무관', () => {
+    const kp = transit({ id: 'kp', kpass: true })
+    const plain = transit({ id: 'plain' })
+    expect(recommend([plain, kp], q({ tags: ['대중교통·택시'] }))).toHaveLength(2)
+  })
+  test('환급: 교통비 × 요율(일반 20%·청년 30%·3자녀 50%·저소득 53.3%), 상한 없음', () => {
+    expect(kpassMonthlyRefund({ transitSpend: 100_000, group: 'general' })).toBe(20_000)
+    expect(kpassMonthlyRefund({ transitSpend: 100_000, group: 'youth' })).toBe(30_000)
+    expect(kpassMonthlyRefund({ transitSpend: 100_000, group: 'multi3' })).toBe(50_000)
+    expect(kpassMonthlyRefund({ transitSpend: 100_000, group: 'low' })).toBe(53_300)
+    expect(kpassAnnualRefund({ transitSpend: 100_000, group: 'general' })).toBe(240_000)
+    expect(kpassMonthlyRefund({ transitSpend: 300_000, group: 'general' })).toBe(60_000)
   })
 })

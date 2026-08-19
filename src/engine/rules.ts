@@ -31,6 +31,12 @@ export const RULES = {
   mileageTagOnlyByMileage: true,
   // 마일리지 트랙: 1위 연회비가 이 값 이상이면 "연회비 부담 없이 시작하려면 → (이 값 미만 카드 중 1등)" 힌트를 붙인다
   mileagePremiumFee: 100_000,
+  // K-패스(모두의카드) 기본형 환급률 (2026-01 기준, korea-pass.kr). 교통비 × 요율 = 월 환급. 월 15회 이상 탔을 때, 카드사 혜택과 별개.
+  // 2026년부터 월 60회·20만 원 상한은 없어졌다. 정액형·시차출퇴근 시간대 혜택은 더 받는 쪽이라 계산에 안 넣는다(최소치로 보여줌).
+  // general 일반(35~64) / youth 청년 19~34·65세 이상·2자녀 / multi3 3자녀 이상 / low 기초·차상위
+  kpassRate: { general: 0.2, youth: 0.3, multi3: 0.5, low: 0.533 },
+  // 한 달 교통비 빠른 선택 버튼 (만 원)
+  transitPresetsMan: [5, 10, 15, 20],
 }
 
 export type Rules = typeof RULES

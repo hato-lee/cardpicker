@@ -57,6 +57,7 @@ const cardSchema = z
     pointsProgram: z.string().min(1).optional(),
     pointsEase: z.enum(['cash', 'shop', 'limited'], { message: 'pointsEase는 cash·shop·limited 중 하나' }).optional(),
     pointsNote: z.string().min(1).optional(),
+    kpass: z.literal(true).optional(),
   })
   .superRefine((data, ctx) => {
     if (data.universal !== null && !data.benefits.some((b) => b.tag === '모든 가맹점')) {

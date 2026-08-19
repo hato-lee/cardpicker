@@ -1,4 +1,4 @@
-import type { Card, Query } from '../data/types'
+import type { Card, KpassInput, Query } from '../data/types'
 import type { Tag } from '../data/tags'
 import { RULES, type Rules } from './rules'
 import { annualBenefit, universalCanCover, type AnnualBenefit } from './benefit'
@@ -27,7 +27,20 @@ function passesFilters(card: Card, q: Query, rules: Rules): boolean {
   if (card.complexity > rules.personaMaxComplexity[q.persona]) return false
   if (q.feeLimit !== null && card.annualFee > q.feeLimit) return false
   if (q.monthlySpend < card.minSpend) return false
+  if (q.kpass && !card.kpass) return false
   return true
+}
+
+/**
+ * K-패스(모두의카드) 월 환급액 = 교통비 × 그룹 요율 (기본형 정률, 최소치).
+ * 카드사 혜택과 별개라 순위엔 영향 없고, 큰 숫자에 더해서 보여준다.
+ */
+export function kpassMonthlyRefund(k: KpassInput, rules: Rules = RULES): number {
+  return Math.round(Math.max(0, k.transitSpend) * rules.kpassRate[k.group])
+}
+
+export function kpassAnnualRefund(k: KpassInput, rules: Rules = RULES): number {
+  return kpassMonthlyRefund(k, rules) * 12
 }
 
 export interface Recommendation {

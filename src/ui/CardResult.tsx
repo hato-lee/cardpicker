@@ -24,6 +24,8 @@ interface Props {
   maxNet?: number
   /** 월 사용액(원). 혜택 목록 요약 줄을 내 실적 구간 기준으로 보여주는 데 쓴다 */
   monthlySpend?: number
+  /** K-패스 트랙: 1년 환급액(원). 큰 숫자에 더하고 내역 첫 줄로 보여준다 */
+  kpassRefund?: number
 }
 
 /** 월 한도 표기. 마일리지 한도는 '원'이 아니라 '마일' 단위다. */
@@ -80,14 +82,16 @@ export const POINTS_BADGE: Record<PointsEase | 'unknown', string> = {
   limited: '포인트 적립 · 쓰는 곳 제한',
   unknown: '포인트 적립형',
 }
+export const KPASS_ROW = 'K-패스 환급'
 export const POINTS_BADGE_TITLE = '할인 대신 포인트로 쌓여요. 자세히 보기에서 어떤 포인트인지 볼 수 있어요.'
 
-export function CardResult({ rank, scored, persona, today, lead, pickedTags = [], compact = false, maxNet, monthlySpend }: Props) {
+export function CardResult({ rank, scored, persona, today, lead, pickedTags = [], compact = false, maxNet, monthlySpend, kpassRefund = 0 }: Props) {
   const [open, setOpen] = useState(false)
   const [expanded, setExpanded] = useState(!compact)
   const { card, benefit } = scored
   const stale = isStale(card.lastChecked, today)
-  const net = benefit.annualNet
+  // K-패스 트랙이면 환급을 더한 금액이 큰 숫자
+  const net = benefit.annualNet + kpassRefund
 
   // 2위부터는 한 줄 요약으로 시작 — 누르면 카드 전체가 펼쳐진다
   if (!expanded) {
@@ -107,9 +111,10 @@ export function CardResult({ rank, scored, persona, today, lead, pickedTags = []
 
   // 내역 줄: 연 금액 큰 순, 최대 N개 + "외 N개"
   const rows = benefit.rows
-    .map((r) => ({ tag: r.tag, annual: rowAnnualValue(r) }))
+    .map((r) => ({ tag: r.tag as string, annual: rowAnnualValue(r) }))
     .sort((a, b) => b.annual - a.annual)
-  const shown = rows.slice(0, RULES.breakdownMaxRows)
+  if (kpassRefund > 0) rows.unshift({ tag: KPASS_ROW, annual: kpassRefund })
+  const shown = rows.slice(0, kpassRefund > 0 ? RULES.breakdownMaxRows + 1 : RULES.breakdownMaxRows)
   const rest = rows.length - shown.length
   const maxAnnual = Math.max(1, ...shown.map((r) => r.annual))
 
@@ -143,14 +148,18 @@ export function CardResult({ rank, scored, persona, today, lead, pickedTags = []
         ) : (
           <div className="annual-negative">연회비가 혜택보다 커요 (−{won(-net)})</div>
         )}
-        <div className="annual-sub">한도를 다 채웠을 때 최대치 · {card.annualFee === 0 ? '연회비 없음' : `연회비 ${won(card.annualFee)}은 뺐어요`}</div>
+        <div className="annual-sub">
+          {kpassRefund > 0
+            ? `K-패스 환급 ${won(kpassRefund)} + 카드 혜택 최대 ${won(benefit.annualGross)}${card.annualFee === 0 ? '' : ` − 연회비 ${won(card.annualFee)}`}`
+            : `한도를 다 채웠을 때 최대치 · ${card.annualFee === 0 ? '연회비 없음' : `연회비 ${won(card.annualFee)}은 뺐어요`}`}
+        </div>
         {lead && <div className="why">{lead}</div>}
       </div>
 
       <ul className="breakdown">
         {shown.map((r) => (
           <li key={r.tag}>
-            <span className="bd-tag"><span aria-hidden="true">{TAG_EMOJI[r.tag]} </span>{r.tag}</span>
+            <span className="bd-tag"><span aria-hidden="true">{r.tag === KPASS_ROW ? '🎫' : TAG_EMOJI[r.tag as Tag]} </span>{r.tag}</span>
             <span className="bd-bar" aria-hidden="true"><span style={{ width: `${Math.round((r.annual / maxAnnual) * 100)}%` }} /></span>
             <span className="bd-value">{won(r.annual)}</span>
           </li>

@@ -83,3 +83,23 @@ test('마일리지 트랙: 연회비 한도가 10만 원 미만이면 한 줄 TO
   expect(screen.getByText(/가장 많이 쌓이는 순 · TOP \d/)).toBeInTheDocument()
   expect(screen.queryByRole('heading', { name: /제대로 모은다면/ })).toBeNull()
 })
+
+test('K-패스 트랙: 스위치 → 교통비 입력 → K-패스 카드만, 환급 안내와 큰 숫자에 환급 포함', async () => {
+  render(<App />)
+  await userEvent.click(screen.getByText('꼼꼼형'))
+  await userEvent.click(screen.getByRole('button', { name: '다음' }))
+  await userEvent.click(screen.getByRole('button', { name: /K-패스 카드만/ }))
+  await userEvent.click(screen.getByRole('button', { name: /^다음/ }))
+  await userEvent.type(screen.getByLabelText(/한 달에 카드로 얼마나/), '100')
+  await userEvent.click(screen.getByRole('button', { name: '10만' }))
+  fireEvent.change(screen.getByLabelText(/연회비는 얼마까지/), { target: { value: '200000' } })
+  await userEvent.click(screen.getByRole('button', { name: 'K-패스 카드 추천 받기' }))
+  expect(screen.getByRole('heading', { name: '이런 K-패스 카드가 잘 맞겠어요' })).toBeInTheDocument()
+  expect(screen.getByText(/K-패스 환급: 버스·지하철비 월 10만 원 × 20% = 1년 약 24만 원/)).toBeInTheDocument()
+  // 1위 카드: 내역 첫 줄이 K-패스 환급 24만 원, 부제에 환급 + 카드 혜택
+  expect(screen.getByText('K-패스 환급')).toBeInTheDocument()
+  expect(screen.getByText(/K-패스 환급 24만 원 \+ 카드 혜택 최대/)).toBeInTheDocument()
+  // 조건 칩에 K-패스·교통비·그룹
+  expect(screen.getByRole('button', { name: /교통비 월 10만 원/ })).toBeInTheDocument()
+  expect(screen.getByRole('button', { name: '일반 20% ✎' })).toBeInTheDocument()
+})

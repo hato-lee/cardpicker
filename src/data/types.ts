@@ -64,6 +64,16 @@ export interface Card {
   pointsEase?: PointsEase
   /** 포인트 사용법 한 줄(사용자 표시). 예: "계좌 입금·결제대금 차감 가능" */
   pointsNote?: string
+  /** K-패스(모두의카드) 환급 대상 카드. K-패스 트랙에서 이 카드들만 후보가 된다 */
+  kpass?: boolean
+}
+
+export type KpassGroup = 'general' | 'youth' | 'multi3' | 'low'
+
+/** K-패스 트랙 입력. 있으면 K-패스 카드만 후보 + 환급을 큰 숫자에 더한다 */
+export interface KpassInput {
+  transitSpend: number   // 원, 한 달 대중교통비 (monthlySpend에 포함된 금액)
+  group: KpassGroup
 }
 
 export interface Query {
@@ -71,4 +81,5 @@ export interface Query {
   monthlySpend: number    // 원
   feeLimit: number | null // 원. null = 상관없음
   tags: Tag[]
+  kpass?: KpassInput
 }

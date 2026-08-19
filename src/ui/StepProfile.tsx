@@ -1,4 +1,4 @@
-import type { Persona } from '../data/types'
+import type { KpassGroup, Persona } from '../data/types'
 import { RULES } from '../engine/rules'
 import { won } from './format'
 
@@ -6,7 +6,22 @@ export interface Profile {
   persona: Persona | null
   monthlySpendMan: number | ''
   feeLimit: number | null
+  /** K-패스 트랙에서만 묻는다: 한 달 대중교통비(만 원)·환급 그룹 */
+  transitSpendMan: number | ''
+  kpassGroup: KpassGroup
 }
+
+export const KPASS_GROUPS: { value: KpassGroup; label: string; short: string; rate: string }[] = [
+  { value: 'general', label: '일반', short: '일반', rate: '20%' },
+  { value: 'youth', label: '청년 19~34 · 65세↑ · 2자녀', short: '청년·어르신·2자녀', rate: '30%' },
+  { value: 'multi3', label: '3자녀 이상', short: '3자녀↑', rate: '50%' },
+  { value: 'low', label: '기초·차상위', short: '기초·차상위', rate: '53%' },
+]
+export const TRANSIT_Q = '그중 버스·지하철비는 얼마예요?'
+export const TRANSIT_HINT = '버스·지하철·GTX 요금의 20~53%를 K-패스로 돌려받아요 (택시·KTX 제외)'
+export const TRANSIT_TOO_BIG = '카드 사용액보다 클 수는 없어요'
+export const KPASS_GROUP_Q = '환급 그룹은요?'
+
 
 export const PERSONAS: { value: Persona; label: string; emoji: string; desc: string; effect: string }[] = [
   { value: 'meticulous', label: '꼼꼼형', emoji: '🔍', desc: '실적·한도 계산하는 게 귀찮지 않아요', effect: '복잡한 카드까지 전부 봐요 — 가장 많이 아끼는 순' },
@@ -82,14 +97,18 @@ interface BudgetProps {
   onSubmit: () => void
   /** 마일리지 트랙이면 버튼 문구가 달라진다 */
   mileage?: boolean
+  /** K-패스 트랙이면 교통비·환급 그룹을 더 묻는다 */
+  kpass?: boolean
   editing?: boolean
 }
 
 /** 3단계(마지막): 한 달 사용액 + 연회비 허용치 → 추천 받기 */
-export function StepBudget({ value, onChange, onBack, onSubmit, mileage = false, editing = false }: BudgetProps) {
+export function StepBudget({ value, onChange, onBack, onSubmit, mileage = false, kpass = false, editing = false }: BudgetProps) {
   const sliderValue = value.feeLimit ?? FEE_ANY
-  const canSubmit = value.monthlySpendMan !== '' && value.monthlySpendMan > 0
   const current = value.monthlySpendMan === '' ? 0 : value.monthlySpendMan
+  const transit = value.transitSpendMan === '' ? 0 : value.transitSpendMan
+  const transitTooBig = kpass && transit > current
+  const canSubmit = value.monthlySpendMan !== '' && value.monthlySpendMan > 0 && (!kpass || (transit > 0 && !transitTooBig))
   const bump = (d: number) => onChange({ ...value, monthlySpendMan: Math.max(0, current + d) })
 
   return (
@@ -130,6 +149,61 @@ export function StepBudget({ value, onChange, onBack, onSubmit, mileage = false,
         </div>
       </div>
 
+      {kpass && (
+        <>
+        <div className="field">
+          <label htmlFor="transit" className="q">{TRANSIT_Q}</label>
+          <div className="spend-box">
+            <div className="presets">
+              {RULES.transitPresetsMan.map((m) => (
+                <button
+                  key={m}
+                  type="button"
+                  className={`preset ${value.transitSpendMan === m ? 'is-selected' : ''}`}
+                  aria-pressed={value.transitSpendMan === m}
+                  onClick={() => onChange({ ...value, transitSpendMan: m })}
+                >
+                  {m}만
+                </button>
+              ))}
+            </div>
+            <div className="input-row">
+              <input
+                id="transit"
+                type="number"
+                inputMode="numeric"
+                min={0}
+                placeholder="예: 8"
+                value={value.transitSpendMan}
+                onChange={(e) => onChange({ ...value, transitSpendMan: e.target.value === '' ? '' : Number(e.target.value) })}
+              />
+              <span>만 원</span>
+            </div>
+          </div>
+          <p className={`field-hint ${transitTooBig ? 'is-warn' : ''}`}>{transitTooBig ? TRANSIT_TOO_BIG : TRANSIT_HINT}</p>
+
+        </div>
+        <div className="field">
+          <div className="label-row"><span className="q" id="kpass-group-label">{KPASS_GROUP_Q}</span></div>
+          <div className="group-tiles" role="radiogroup" aria-labelledby="kpass-group-label">
+            {KPASS_GROUPS.map((g) => (
+              <button
+                key={g.value}
+                type="button"
+                role="radio"
+                aria-checked={value.kpassGroup === g.value}
+                className={`group-tile ${value.kpassGroup === g.value ? 'is-selected' : ''}`}
+                onClick={() => onChange({ ...value, kpassGroup: g.value })}
+              >
+                <span className="group-tile-label">{g.label}</span>
+                <span className="group-tile-sub">{g.rate} 환급</span>
+              </button>
+            ))}
+          </div>
+        </div>
+        </>
+      )}
+
       <div className="field">
         <div className="label-row">
           <label htmlFor="fee" className="q">연회비는 얼마까지 괜찮으세요?</label>
@@ -154,7 +228,7 @@ export function StepBudget({ value, onChange, onBack, onSubmit, mileage = false,
       <div className="button-row">
         <button type="button" className="secondary" onClick={onBack}>{editing ? '결과로' : '이전'}</button>
         <button type="button" className="primary" disabled={!canSubmit} onClick={onSubmit}>
-          {editing ? '다시 추천 받기' : mileage ? '마일리지 카드 추천 받기' : '추천 받기'}
+          {editing ? '다시 추천 받기' : mileage ? '마일리지 카드 추천 받기' : kpass ? 'K-패스 카드 추천 받기' : '추천 받기'}
         </button>
       </div>
     </section>

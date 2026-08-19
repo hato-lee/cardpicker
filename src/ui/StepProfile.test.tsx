@@ -4,12 +4,12 @@ import { StepPersona, StepBudget, type Profile } from './StepProfile'
 import { useState } from 'react'
 
 function PersonaHarness({ onNext = () => {} }: { onNext?: () => void }) {
-  const [p, setP] = useState<Profile>({ persona: null, monthlySpendMan: '', feeLimit: 30_000 })
+  const [p, setP] = useState<Profile>({ persona: null, monthlySpendMan: '', feeLimit: 30_000, transitSpendMan: '', kpassGroup: 'general' })
   return <StepPersona value={p} onChange={setP} onNext={onNext} />
 }
-function Harness({ onSubmit = () => {}, mileage = false }: { onSubmit?: () => void; mileage?: boolean }) {
-  const [p, setP] = useState<Profile>({ persona: 'moderate', monthlySpendMan: '', feeLimit: 30_000 })
-  return <StepBudget value={p} onChange={setP} onBack={() => {}} onSubmit={onSubmit} mileage={mileage} />
+function Harness({ onSubmit = () => {}, mileage = false, kpass = false }: { onSubmit?: () => void; mileage?: boolean; kpass?: boolean }) {
+  const [p, setP] = useState<Profile>({ persona: 'moderate', monthlySpendMan: '', feeLimit: 30_000, transitSpendMan: '', kpassGroup: 'general' })
+  return <StepBudget value={p} onChange={setP} onBack={() => {}} onSubmit={onSubmit} mileage={mileage} kpass={kpass} />
 }
 
 test('성향 타일 3개, 고르기 전엔 안내, 고르면 그 성향 설명만', async () => {
@@ -89,4 +89,33 @@ test('+10/−10 버튼으로 사용액을 미세 조정한다', async () => {
   expect(input).toHaveValue(60)
   // 빠른 선택 버튼 하이라이트는 정확히 그 값일 때만
   expect(screen.getByRole('button', { name: '50만' })).toHaveAttribute('aria-pressed', 'false')
+})
+
+describe('K-패스 트랙 입력', () => {
+  test('kpass가 아니면 교통비 질문이 없다', () => {
+    render(<Harness />)
+    expect(screen.queryByLabelText('그중 버스·지하철비는 얼마예요?')).toBeNull()
+  })
+  test('교통비 프리셋·그룹 타일, 교통비 없으면 못 넘어간다', async () => {
+    const onSubmit = vi.fn()
+    render(<Harness kpass onSubmit={onSubmit} />)
+    await userEvent.click(screen.getByRole('button', { name: '100만' }))
+    const go = screen.getByRole('button', { name: 'K-패스 카드 추천 받기' })
+    expect(go).toBeDisabled()
+    await userEvent.click(screen.getByRole('button', { name: '10만' }))
+    expect(screen.getByLabelText('그중 버스·지하철비는 얼마예요?')).toHaveValue(10)
+    expect(screen.getAllByRole('radio')).toHaveLength(4)
+    await userEvent.click(screen.getByRole('radio', { name: /청년/ }))
+    expect(screen.getByRole('radio', { name: /청년/ })).toHaveAttribute('aria-checked', 'true')
+    expect(go).toBeEnabled()
+    await userEvent.click(go)
+    expect(onSubmit).toHaveBeenCalled()
+  })
+  test('교통비가 카드 사용액보다 크면 경고하고 막는다', async () => {
+    render(<Harness kpass />)
+    await userEvent.click(screen.getByRole('button', { name: '30만' }))
+    fireEvent.change(screen.getByLabelText('그중 버스·지하철비는 얼마예요?'), { target: { value: '40' } })
+    expect(screen.getByText('카드 사용액보다 클 수는 없어요')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'K-패스 카드 추천 받기' })).toBeDisabled()
+  })
 })
