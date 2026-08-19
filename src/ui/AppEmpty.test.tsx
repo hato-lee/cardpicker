@@ -9,10 +9,11 @@ import App from './App'
 test('맞는 카드가 없으면 빈 안내', async () => {
   render(<App />)
   await userEvent.click(screen.getByText('무심형'))
-  await userEvent.type(screen.getByLabelText(/한 달에 카드로 얼마나/), '100')
-  fireEvent.change(screen.getByLabelText(/연회비는 얼마까지/), { target: { value: '200000' } })
   await userEvent.click(screen.getByRole('button', { name: '다음' }))
   await userEvent.click(screen.getByRole('button', { name: '학원·교육' }))
+  await userEvent.click(screen.getByRole('button', { name: /^다음/ }))
+  await userEvent.type(screen.getByLabelText(/한 달에 카드로 얼마나/), '100')
+  fireEvent.change(screen.getByLabelText(/연회비는 얼마까지/), { target: { value: '200000' } })
   await userEvent.click(screen.getByRole('button', { name: /추천 받기/ }))
   expect(screen.getByText(/맞는 카드를 못 찾았어요/)).toBeInTheDocument()
   expect(screen.getByRole('heading', { name: '잘 맞는 카드' })).toBeInTheDocument()

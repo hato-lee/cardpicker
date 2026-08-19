@@ -1,15 +1,19 @@
 import { render, screen, fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { StepProfile, type Profile } from './StepProfile'
+import { StepPersona, StepBudget, type Profile } from './StepProfile'
 import { useState } from 'react'
 
-function Harness({ onNext = () => {} }: { onNext?: () => void }) {
+function PersonaHarness({ onNext = () => {} }: { onNext?: () => void }) {
   const [p, setP] = useState<Profile>({ persona: null, monthlySpendMan: '', feeLimit: 30_000 })
-  return <StepProfile value={p} onChange={setP} onNext={onNext} />
+  return <StepPersona value={p} onChange={setP} onNext={onNext} />
+}
+function Harness({ onSubmit = () => {}, mileage = false }: { onSubmit?: () => void; mileage?: boolean }) {
+  const [p, setP] = useState<Profile>({ persona: 'moderate', monthlySpendMan: '', feeLimit: 30_000 })
+  return <StepBudget value={p} onChange={setP} onBack={() => {}} onSubmit={onSubmit} mileage={mileage} />
 }
 
 test('성향 타일 3개, 고르기 전엔 안내, 고르면 그 성향 설명만', async () => {
-  render(<Harness />)
+  render(<PersonaHarness />)
   expect(screen.getAllByRole('radio')).toHaveLength(3)
   expect(screen.getByText('하나를 골라 주세요 — 어떤 카드를 보여줄지 달라져요')).toBeInTheDocument()
   await userEvent.click(screen.getByRole('radio', { name: '적당형' }))
@@ -35,17 +39,29 @@ test('연회비 힌트 문구', () => {
   expect(screen.getByText('이 금액을 넘는 카드는 안 보여줘요.')).toBeInTheDocument()
 })
 
-test('성향과 사용액을 넣기 전엔 다음 버튼이 비활성', async () => {
+test('성향을 고르기 전엔 다음 비활성, 고르면 활성', async () => {
   const onNext = vi.fn()
-  render(<Harness onNext={onNext} />)
+  render(<PersonaHarness onNext={onNext} />)
   const next = screen.getByRole('button', { name: '다음' })
   expect(next).toBeDisabled()
   await userEvent.click(screen.getByText('적당형'))
-  expect(next).toBeDisabled()
-  await userEvent.type(screen.getByLabelText(/한 달에 카드로 얼마나/), '100')
   expect(next).toBeEnabled()
   await userEvent.click(next)
   expect(onNext).toHaveBeenCalled()
+})
+
+test('사용액을 넣기 전엔 추천 받기 비활성, 넣으면 활성 (마일리지면 문구가 다름)', async () => {
+  const onSubmit = vi.fn()
+  const { unmount } = render(<Harness onSubmit={onSubmit} />)
+  const go = screen.getByRole('button', { name: '추천 받기' })
+  expect(go).toBeDisabled()
+  await userEvent.type(screen.getByLabelText(/한 달에 카드로 얼마나/), '100')
+  expect(go).toBeEnabled()
+  await userEvent.click(go)
+  expect(onSubmit).toHaveBeenCalled()
+  unmount()
+  render(<Harness mileage />)
+  expect(screen.getByRole('button', { name: '마일리지 카드 추천 받기' })).toBeInTheDocument()
 })
 
 test('연회비 슬라이더: 20만 원까지는 실제 값, 그 다음 한 칸이 상관없음', () => {

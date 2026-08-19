@@ -20,19 +20,15 @@ export const FEE_SLIDER = { min: 0, max: 200_000, step: 10_000 } as const
 export const FEE_ANY = FEE_SLIDER.max + FEE_SLIDER.step
 export const FEE_HINT = '이 금액을 넘는 카드는 안 보여줘요.'
 
-interface Props {
+interface PersonaProps {
   value: Profile
   onChange: (p: Profile) => void
   onNext: () => void
 }
 
-export function StepProfile({ value, onChange, onNext }: Props) {
-  const sliderValue = value.feeLimit ?? FEE_ANY
-  const canNext = value.persona !== null && value.monthlySpendMan !== '' && value.monthlySpendMan > 0
-  const current = value.monthlySpendMan === '' ? 0 : value.monthlySpendMan
-  const bump = (d: number) => onChange({ ...value, monthlySpendMan: Math.max(0, current + d) })
+/** 1단계: 성향 하나만 */
+export function StepPersona({ value, onChange, onNext }: PersonaProps) {
   const selected = PERSONAS.find((p) => p.value === value.persona) ?? null
-
   return (
     <section className="step">
       <p className="greet">반가워요 👋</p>
@@ -64,8 +60,34 @@ export function StepProfile({ value, onChange, onNext }: Props) {
         )}
       </div>
 
+      <button className="primary" disabled={value.persona === null} onClick={onNext}>다음</button>
+    </section>
+  )
+}
+
+interface BudgetProps {
+  value: Profile
+  onChange: (p: Profile) => void
+  onBack: () => void
+  onSubmit: () => void
+  /** 마일리지 트랙이면 버튼 문구가 달라진다 */
+  mileage?: boolean
+}
+
+/** 3단계(마지막): 한 달 사용액 + 연회비 허용치 → 추천 받기 */
+export function StepBudget({ value, onChange, onBack, onSubmit, mileage = false }: BudgetProps) {
+  const sliderValue = value.feeLimit ?? FEE_ANY
+  const canSubmit = value.monthlySpendMan !== '' && value.monthlySpendMan > 0
+  const current = value.monthlySpendMan === '' ? 0 : value.monthlySpendMan
+  const bump = (d: number) => onChange({ ...value, monthlySpendMan: Math.max(0, current + d) })
+
+  return (
+    <section className="step">
+      <p className="greet">마지막이에요 ✌️</p>
+      <h2>한 달에 카드로 얼마나 쓰세요?</h2>
+
       <div className="field">
-        <label htmlFor="spend" className="q">한 달에 카드로 얼마나 쓰세요?</label>
+        <label htmlFor="spend" className="sr-only">한 달에 카드로 얼마나 쓰세요?</label>
         <div className="spend-box">
         <div className="presets">
           {RULES.spendPresetsMan.map((m) => (
@@ -118,7 +140,12 @@ export function StepProfile({ value, onChange, onNext }: Props) {
         <p className="field-hint">{FEE_HINT}</p>
       </div>
 
-      <button className="primary" disabled={!canNext} onClick={onNext}>다음</button>
+      <div className="button-row">
+        <button type="button" className="secondary" onClick={onBack}>이전</button>
+        <button type="button" className="primary" disabled={!canSubmit} onClick={onSubmit}>
+          {mileage ? '마일리지 카드 추천 받기' : '추천 받기'}
+        </button>
+      </div>
     </section>
   )
 }

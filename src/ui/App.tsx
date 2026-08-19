@@ -4,7 +4,7 @@ import { validateCards } from '../data/schema'
 import type { Card, Query } from '../data/types'
 import type { Tag } from '../data/tags'
 import { recommendGeneral, type Scored } from '../engine/recommend'
-import { StepProfile, type Profile } from './StepProfile'
+import { StepPersona, StepBudget, type Profile } from './StepProfile'
 import { StepTags } from './StepTags'
 import { isMileageQuery, mileageGroups, type MileageGroups } from '../engine/mileage'
 import { Results } from './Results'
@@ -20,7 +20,7 @@ try {
 const CARDS = cards
 const DATA_ERROR = dataError
 
-type Step = 1 | 2 | 3
+type Step = 1 | 2 | 3 | 4
 
 export default function App() {
   const [step, setStep] = useState<Step>(1)
@@ -46,7 +46,7 @@ export default function App() {
       const r = recommendGeneral(CARDS, q)
       setResults(r.items); setRelaxed(r.relaxed); setMileResults({ grouped: false, all: [] })
     }
-    setStep(3)
+    setStep(4)
   }
 
   const today = new Date()
@@ -62,13 +62,14 @@ export default function App() {
 
   return (
     <main className="app">
-      <div className="progress" role="progressbar" aria-label="진행" aria-valuemin={1} aria-valuemax={3} aria-valuenow={step}>
-        <span style={{ width: `${(step / 3) * 100}%` }} />
+      <div className="progress" role="progressbar" aria-label="진행" aria-valuemin={1} aria-valuemax={4} aria-valuenow={step}>
+        <span style={{ width: `${(step / 4) * 100}%` }} />
       </div>
       <header className="app-head"><h1>카드픽</h1></header>
-      {step === 1 && <StepProfile value={profile} onChange={setProfile} onNext={() => setStep(2)} />}
-      {step === 2 && <StepTags value={tags} onChange={setTags} onBack={() => setStep(1)} onSubmit={submit} />}
-      {step === 3 && query && <Results query={query} results={results} relaxed={relaxed} mileResults={mileResults} onEdit={() => setStep(1)} today={today} />}
+      {step === 1 && <StepPersona value={profile} onChange={setProfile} onNext={() => setStep(2)} />}
+      {step === 2 && <StepTags value={tags} onChange={setTags} onBack={() => setStep(1)} onNext={() => setStep(3)} />}
+      {step === 3 && <StepBudget value={profile} onChange={setProfile} onBack={() => setStep(2)} onSubmit={submit} mileage={tags.length === 1 && tags[0] === '마일리지'} />}
+      {step === 4 && query && <Results query={query} results={results} relaxed={relaxed} mileResults={mileResults} onEdit={() => setStep(1)} today={today} />}
     </main>
   )
 }

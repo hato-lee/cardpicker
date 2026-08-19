@@ -4,9 +4,9 @@ import { useState } from 'react'
 import { StepTags, TAG_WARN_TEXT, MILEAGE_HINT } from './StepTags'
 import type { Tag } from '../data/tags'
 
-function Harness({ onSubmit = () => {} }: { onSubmit?: () => void }) {
+function Harness({ onNext = () => {} }: { onNext?: () => void }) {
   const [t, setT] = useState<Tag[]>([])
-  return <StepTags value={t} onChange={setT} onBack={() => {}} onSubmit={onSubmit} />
+  return <StepTags value={t} onChange={setT} onBack={() => {}} onNext={onNext} />
 }
 
 test('태그 12개 버튼이 보인다', () => {
@@ -14,9 +14,9 @@ test('태그 12개 버튼이 보인다', () => {
   expect(screen.getAllByRole('button', { pressed: false })).toHaveLength(12)
 })
 
-test('하나도 안 고르면 추천 받기 비활성, 고르면 활성', async () => {
+test('하나도 안 고르면 다음 비활성, 고르면 활성', async () => {
   render(<Harness />)
-  const submit = screen.getByRole('button', { name: '추천 받기' })
+  const submit = screen.getByRole('button', { name: /^다음/ })
   expect(submit).toBeDisabled()
   await userEvent.click(screen.getByRole('button', { name: '주유' }))
   expect(submit).toBeEnabled()

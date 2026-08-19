@@ -16,10 +16,10 @@ interface Props {
   value: Tag[]
   onChange: (tags: Tag[]) => void
   onBack: () => void
-  onSubmit: () => void
+  onNext: () => void
 }
 
-export function StepTags({ value, onChange, onBack, onSubmit }: Props) {
+export function StepTags({ value, onChange, onBack, onNext }: Props) {
   // '마일리지'는 배타적: 켜면 다른 태그를 다 끄고, 다른 태그를 켜면 마일리지를 끈다 (마일리지 전용 트랙)
   const toggle = (t: Tag) => {
     if (value.includes(t)) return onChange(value.filter((x) => x !== t))
@@ -66,8 +66,8 @@ export function StepTags({ value, onChange, onBack, onSubmit }: Props) {
       </button>
       <div className="button-row">
         <button type="button" className="secondary" onClick={onBack}>이전</button>
-        <button type="button" className="primary" disabled={count === 0} onClick={onSubmit}>
-          {mileageMode ? '마일리지 카드 추천 받기' : `추천 받기${count > 0 ? ` (${count}개)` : ''}`}
+        <button type="button" className="primary" disabled={count === 0} onClick={onNext}>
+          {mileageMode ? '다음' : `다음${count > 0 ? ` (${count}개)` : ''}`}
         </button>
       </div>
     </section>
