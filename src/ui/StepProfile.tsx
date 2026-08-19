@@ -14,7 +14,9 @@ export const PERSONAS: { value: Persona; label: string; desc: string; effect: st
   { value: 'carefree', label: '무심형', desc: '한 장 꽂아두고 신경 끄고 싶어요', effect: '복잡한 카드는 빼고, 고른 영역이 한 장으로 다 되는 카드만' },
 ]
 
+// 슬라이더는 0~20만 원까지 실제 값이고, 마지막 한 칸(20만 + step)이 '상관없음'이다
 export const FEE_SLIDER = { min: 0, max: 200_000, step: 10_000 } as const
+export const FEE_ANY = FEE_SLIDER.max + FEE_SLIDER.step
 export const FEE_HINT = '이 금액을 넘는 카드는 안 보여줘요.'
 
 interface Props {
@@ -24,7 +26,7 @@ interface Props {
 }
 
 export function StepProfile({ value, onChange, onNext }: Props) {
-  const sliderValue = value.feeLimit ?? FEE_SLIDER.max
+  const sliderValue = value.feeLimit ?? FEE_ANY
   const canNext = value.persona !== null && value.monthlySpendMan !== '' && value.monthlySpendMan > 0
   const current = value.monthlySpendMan === '' ? 0 : value.monthlySpendMan
   const bump = (d: number) => onChange({ ...value, monthlySpendMan: Math.max(0, current + d) })
@@ -95,12 +97,12 @@ export function StepProfile({ value, onChange, onNext }: Props) {
           id="fee"
           type="range"
           min={FEE_SLIDER.min}
-          max={FEE_SLIDER.max}
+          max={FEE_ANY}
           step={FEE_SLIDER.step}
           value={sliderValue}
           onChange={(e) => {
             const v = Number(e.target.value)
-            onChange({ ...value, feeLimit: v >= FEE_SLIDER.max ? null : v })
+            onChange({ ...value, feeLimit: v > FEE_SLIDER.max ? null : v })
           }}
         />
         <div className="slider-ends" aria-hidden="true"><span>0원</span><span>상관없음</span></div>

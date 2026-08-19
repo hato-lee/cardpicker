@@ -45,12 +45,15 @@ test('성향과 사용액을 넣기 전엔 다음 버튼이 비활성', async ()
   expect(onNext).toHaveBeenCalled()
 })
 
-test('연회비 슬라이더 끝은 상관없음', () => {
+test('연회비 슬라이더: 20만 원까지는 실제 값, 그 다음 한 칸이 상관없음', () => {
   render(<Harness />)
   const slider = screen.getByLabelText(/연회비 허용치/) as HTMLInputElement
   expect(screen.getByText('3만 원')).toBeInTheDocument()
   fireEvent.change(slider, { target: { value: '200000' } })
+  expect(screen.getByText('20만 원', { selector: '.slider-value' })).toBeInTheDocument()
+  fireEvent.change(slider, { target: { value: '210000' } })
   expect(screen.getByText('상관없음', { selector: '.slider-value' })).toBeInTheDocument()
+  expect(slider.max).toBe('210000')
 })
 
 test('+10/−10 버튼으로 사용액을 미세 조정한다', async () => {
