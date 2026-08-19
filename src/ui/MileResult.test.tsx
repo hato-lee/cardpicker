@@ -30,7 +30,7 @@ test('연 마일·마일당 비용·덤 줄이 보인다', async () => {
   expect(sub.textContent).toBe('연회비 3.9만 원 · 1마일에 3.3원꼴월 100만 원을 전부 이 카드로 쓰면')
   await userEvent.click(screen.getByRole('button', { name: /자세히 보기/ }))
   expect(screen.getByText('쓰는 만큼 1,000원당 1마일 쌓여요 — 한도 없어요')).toBeInTheDocument()
-  expect(screen.getByText('덤으로 받는 것')).toBeInTheDocument()
+  expect(screen.getByText('다른 영역에선')).toBeInTheDocument()
   expect(screen.getAllByText('해외 결제 1,000원당 2마일 · 월 최대 1,000마일').length).toBeGreaterThan(0)
 })
 
@@ -51,7 +51,7 @@ test('연간 보너스·프리미엄 혜택이 보인다 (보너스 포함 시 �
   expect(screen.getByText(/해마다 받는 보너스 30,000마일 포함/)).toBeInTheDocument()
   await userEvent.click(screen.getByRole('button', { name: /자세히 보기/ }))
   expect(screen.getByText('보너스 30,000마일 — 첫해는 100만 원만 써도, 그 뒤엔 1년에 3600만 원 이상 쓸 때 받아요')).toBeInTheDocument()
-  expect(screen.getByText('프리미엄이라 받는 것')).toBeInTheDocument()
+  expect(screen.getByText('이런 것도 받아요')).toBeInTheDocument()
   expect(screen.getByText('전 세계 공항 라운지 무제한')).toBeInTheDocument()
 })
 

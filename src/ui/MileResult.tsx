@@ -3,7 +3,7 @@ import type { MileScored } from '../engine/mileage'
 import { mileageTip, bonusText } from '../engine/mileage'
 import { isStale } from '../engine/explain'
 import { won } from './format'
-import { benefitText } from './CardResult'
+import { BenefitItem } from './CardResult'
 
 interface Props {
   rank: number
@@ -111,7 +111,7 @@ export function MileResult({ rank, scored, monthlySpend, today, lead, compact = 
           </ul>
           {card.perks && card.perks.length > 0 && (
             <>
-              <div className="detail-title">프리미엄이라 받는 것</div>
+              <div className="detail-title">이런 것도 받아요</div>
               <ul className="tips">
                 {card.perks.map((p) => <li key={p}>{p}</li>)}
               </ul>
@@ -119,15 +119,15 @@ export function MileResult({ rank, scored, monthlySpend, today, lead, compact = 
           )}
           {extras.length > 0 && (
             <>
-              <div className="detail-title">덤으로 받는 것</div>
-              <ul className="tips">
-                {extras.map((b) => <li key={b.tag}>{benefitText(b)}</li>)}
+              <div className="detail-title">다른 영역에선</div>
+              <ul className="benefits">
+                {extras.map((b) => <BenefitItem key={b.tag} b={b} picked />)}
               </ul>
             </>
           )}
           <div className="detail-title">이 카드 혜택 전부</div>
           <ul className="benefits">
-            {card.benefits.map((b) => <li key={b.tag}>{benefitText(b)}</li>)}
+            {card.benefits.map((b) => <BenefitItem key={b.tag} b={b} picked={b.type === 'mileage'} />)}
           </ul>
           <p className="checked">마지막으로 확인한 날 {card.lastChecked}{stale && <span className="badge">확인 필요</span>}</p>
           <button type="button" className="link-btn" onClick={() => setOpen(false)}>접기 ▲</button>
