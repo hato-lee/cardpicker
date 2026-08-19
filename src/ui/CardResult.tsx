@@ -83,6 +83,8 @@ export const POINTS_BADGE: Record<PointsEase | 'unknown', string> = {
   unknown: '포인트 적립형',
 }
 export const KPASS_ROW = 'K-패스 환급'
+export const KPASS_BADGE = 'K-패스 환급도 받아요'
+export const KPASS_BADGE_TITLE = '모두의카드(K-패스) 앱에 등록하면 버스·지하철비의 20~53%를 따로 돌려받아요. 이 금액엔 안 들어가 있어요 — 혜택 고르기에서 "K-패스 카드만 볼래요"를 켜면 환급까지 계산해요.'
 export const POINTS_BADGE_TITLE = '할인 대신 포인트로 쌓여요. 자세히 보기에서 어떤 포인트인지 볼 수 있어요.'
 
 export function CardResult({ rank, scored, persona, today, lead, pickedTags = [], compact = false, maxNet, monthlySpend, kpassRefund = 0 }: Props) {
@@ -100,7 +102,7 @@ export function CardResult({ rank, scored, persona, today, lead, pickedTags = []
       <button type="button" className="card card-compact" onClick={() => setExpanded(true)} aria-expanded={false}>
         <span className="rank rank-sm" aria-label={`${rank}위`}>{rank}</span>
         <span className="compact-body">
-          <span className="compact-name">{card.name}</span>
+          <span className="compact-name">{card.name}{card.kpass && kpassRefund === 0 && <span className="kpass-mark" title={KPASS_BADGE_TITLE} aria-label={KPASS_BADGE}> 🎫</span>}</span>
           <span className="compact-bar" aria-hidden="true"><span style={{ width: `${Math.round(ratio * 100)}%` }} /></span>
         </span>
         <span className="compact-value">{net > 0 ? `약 ${won(net)}` : '연회비가 더 커요'}</span>
@@ -133,6 +135,7 @@ export function CardResult({ rank, scored, persona, today, lead, pickedTags = []
             {card.name}
             {rank === 1 && <span className="top-badge">가장 많이 아껴요</span>}
             {pointsHeavy && <span className={`conv-badge ${card.pointsEase === 'cash' ? 'is-easy' : ''}`} title={POINTS_BADGE_TITLE}>{POINTS_BADGE[card.pointsEase ?? 'unknown']}</span>}
+            {card.kpass && kpassRefund === 0 && <span className="kpass-badge" title={KPASS_BADGE_TITLE}>🎫 {KPASS_BADGE}</span>}
           </h3>
           <div className="card-sub">{card.issuer} · {card.kind === 'credit' ? '신용' : '체크'} · 연회비 {won(card.annualFee)} · {card.minSpend === 0 ? '실적 없음' : `전월실적 ${won(card.minSpend)}`}</div>
         </div>
