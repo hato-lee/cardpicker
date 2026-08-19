@@ -128,6 +128,7 @@ export function Results({ query, results, relaxed = false, mileResults = { group
             lead={leadText(results, i, query.tags)}
             compact={i > 0}
             maxNet={results[0].benefit.annualNet}
+            monthlySpend={query.monthlySpend}
           />
         ))
       )}

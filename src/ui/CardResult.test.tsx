@@ -184,3 +184,20 @@ test('leadText: 1위는 2위와 비교, 그 외는 1위와 비교, 안 되는 �
   expect(leadText(list, 0, q.tags)).toBe('2위 카페카드보다 1년에 12만 원 더 아껴요 · 주유에서 거의 다 나와요')
   expect(leadText(list, 1, q.tags)).toBe('1위 신한카드 Deep Oil보다 1년에 12만 원 적어요 · 주유 혜택은 없어요')
 })
+
+test('혜택 목록: 사용액을 주면 요약 줄이 내 실적 구간 기준, 고른 영역이 먼저', async () => {
+  const tiered: Card = { ...oil, benefits: [
+    { tag: '카페·편의점', type: 'discount', rate: 5, monthlyCap: 5000, stars: 1 },
+    { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3,
+      tiers: [{ minSpend: 700000, monthlyCap: 30000 }, { minSpend: 1000000, rate: 12, monthlyCap: 50000 }] },
+  ] }
+  const oq: Query = { ...q, tags: ['주유'] }
+  const s: Scored = { card: tiered, benefit: annualBenefit(tiered, oq)!, coveredTags: ['주유'], universalCovers: [] }
+  render(<CardResult rank={1} scored={s} persona="moderate" today={today} pickedTags={['주유']} monthlySpend={1_000_000} />)
+  await userEvent.click(screen.getByRole('button', { name: /자세히 보기/ }))
+  const items = document.querySelectorAll('.benefit-item')
+  expect(items[0].textContent).toContain('주유 12% 할인 · 월 최대 5만 원 (월 100만 원 기준)')
+  expect(items[0].className).toContain('is-picked')
+  expect(items[1].textContent).toContain('카페·편의점 5% 할인 · 월 최대 5,000원')
+  expect(items[1].className).not.toContain('is-picked')
+})

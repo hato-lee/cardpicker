@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { isPointsHeavy, type Scored } from '../engine/recommend'
+import { resolveTier } from '../engine/benefit'
 import type { PointsEase } from '../data/types'
 import type { Persona, Benefit, BenefitType } from '../data/types'
 import type { Tag } from '../data/tags'
@@ -21,6 +22,8 @@ interface Props {
   compact?: boolean
   /** 막대 비교 기준(1위 금액). compact 줄의 막대 길이에 쓴다 */
   maxNet?: number
+  /** 월 사용액(원). 혜택 목록 요약 줄을 내 실적 구간 기준으로 보여주는 데 쓴다 */
+  monthlySpend?: number
 }
 
 /** 월 한도 표기. 마일리지 한도는 '원'이 아니라 '마일' 단위다. */
@@ -46,15 +49,29 @@ export function benefitText(b: Benefit): string {
   return `${b.tag} ${rateText(b.type, b.rate)} · ${capText(b.type, b.monthlyCap)}${tail ? ` (${tail})` : ''}`
 }
 
-/** 혜택 한 항목: 윗줄 굵게(영역·요율·한도), 아랫줄 작게(실적 구간·조건). 고른 영역은 강조, 나머지는 흐리게 */
-export function BenefitItem({ b, picked }: { b: Benefit; picked: boolean }) {
+/**
+ * 혜택 한 항목: 윗줄 굵게(영역·요율·한도), 아랫줄 작게(실적 구간·조건). 고른 영역은 강조, 나머지는 흐리게.
+ * monthlySpend를 주면 윗줄의 요율·한도는 그 사용액에 맞는 실적 구간 값으로 보여준다 (막대 숫자와 같은 기준).
+ */
+export function BenefitItem({ b, picked, monthlySpend }: { b: Benefit; picked: boolean; monthlySpend?: number }) {
+  const hasTiers = !!b.tiers && b.tiers.length > 0
+  const t = monthlySpend !== undefined && hasTiers ? resolveTier(b, monthlySpend) : { rate: b.rate, monthlyCap: b.monthlyCap }
+  const mine = monthlySpend !== undefined && hasTiers && (t.rate !== b.rate || t.monthlyCap !== b.monthlyCap)
   const tail = [tiersSentence(b), b.note].filter(Boolean).join(' · ')
   return (
     <li className={`benefit-item ${picked ? 'is-picked' : ''}`}>
-      <div className="benefit-main"><span aria-hidden="true">{TAG_EMOJI[b.tag]} </span>{b.tag} {rateText(b.type, b.rate)} · {capText(b.type, b.monthlyCap)}</div>
+      <div className="benefit-main">
+        <span aria-hidden="true">{TAG_EMOJI[b.tag]} </span>{b.tag} {rateText(b.type, t.rate)} · {capText(b.type, t.monthlyCap)}
+        {mine && <span className="benefit-mine"> (월 {won(monthlySpend!)} 기준)</span>}
+      </div>
       {tail && <div className="benefit-tail">{tail}</div>}
     </li>
   )
+}
+
+/** 혜택 목록 순서: 고른 영역 먼저, 나머지는 뒤에 (원래 순서 유지) */
+export function orderBenefits(benefits: Benefit[], picked: (b: Benefit) => boolean): Benefit[] {
+  return [...benefits.filter(picked), ...benefits.filter((b) => !picked(b))]
 }
 
 export const POINTS_BADGE: Record<PointsEase | 'unknown', string> = {
@@ -65,7 +82,7 @@ export const POINTS_BADGE: Record<PointsEase | 'unknown', string> = {
 }
 export const POINTS_BADGE_TITLE = '할인 대신 포인트로 쌓여요. 자세히 보기에서 어떤 포인트인지 볼 수 있어요.'
 
-export function CardResult({ rank, scored, persona, today, lead, pickedTags = [], compact = false, maxNet }: Props) {
+export function CardResult({ rank, scored, persona, today, lead, pickedTags = [], compact = false, maxNet, monthlySpend }: Props) {
   const [open, setOpen] = useState(false)
   const [expanded, setExpanded] = useState(!compact)
   const { card, benefit } = scored
@@ -164,10 +181,14 @@ export function CardResult({ rank, scored, persona, today, lead, pickedTags = []
           )}
           <div className="detail-title">이 카드 혜택 전부</div>
           <ul className="benefits">
-            {card.benefits.map((b) => <BenefitItem key={b.tag} b={b} picked={pickedTags.includes(b.tag)} />)}
+            {orderBenefits(card.benefits, (b) => pickedTags.includes(b.tag)).map((b) => (
+              <BenefitItem key={b.tag} b={b} picked={pickedTags.includes(b.tag)} monthlySpend={monthlySpend} />
+            ))}
           </ul>
-          <p className="checked">마지막으로 확인한 날 {card.lastChecked}{stale && <span className="badge">확인 필요</span>}</p>
-          <button type="button" className="link-btn" onClick={() => setOpen(false)}>접기 ▲</button>
+          <div className="detail-foot">
+            <button type="button" className="link-btn" onClick={() => setOpen(false)}>접기 ▲</button>
+            <span className="checked">마지막으로 확인한 날 {card.lastChecked}{stale && <span className="badge">확인 필요</span>}</span>
+          </div>
         </div>
       )}
 

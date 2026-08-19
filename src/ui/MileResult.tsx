@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import type { MileScored } from '../engine/mileage'
+import type { Benefit } from '../data/types'
 import { mileageTip, bonusText } from '../engine/mileage'
 import { isStale } from '../engine/explain'
 import { won } from './format'
-import { BenefitItem } from './CardResult'
+import { BenefitItem, orderBenefits } from './CardResult'
 
 interface Props {
   rank: number
@@ -15,6 +16,13 @@ interface Props {
   /** 2위부터: 한 줄 요약으로 시작 */
   compact?: boolean
   maxMiles?: number
+}
+
+/** 전 가맹점 마일 카드는 '마일리지'와 '모든 가맹점'이 같은 적립이라 목록에 한 줄만 */
+function dedupeMileageRows(benefits: Benefit[]): Benefit[] {
+  const mile = benefits.find((b) => b.tag === '마일리지' && b.type === 'mileage')
+  if (!mile) return benefits
+  return benefits.filter((b) => !(b.tag === '모든 가맹점' && b.type === 'mileage' && b.rate === mile.rate && b.monthlyCap === mile.monthlyCap))
 }
 
 /** 마일리지 비교 한 줄. 1위: 2위와 비교 / 그 외: 1위와 비교 */
@@ -121,16 +129,20 @@ export function MileResult({ rank, scored, monthlySpend, today, lead, compact = 
             <>
               <div className="detail-title">다른 영역에선</div>
               <ul className="benefits">
-                {extras.map((b) => <BenefitItem key={b.tag} b={b} picked />)}
+                {extras.map((b) => <BenefitItem key={b.tag} b={b} picked monthlySpend={monthlySpend} />)}
               </ul>
             </>
           )}
           <div className="detail-title">이 카드 혜택 전부</div>
           <ul className="benefits">
-            {card.benefits.map((b) => <BenefitItem key={b.tag} b={b} picked={b.type === 'mileage'} />)}
+            {orderBenefits(dedupeMileageRows(card.benefits), (b) => b.type === 'mileage').map((b) => (
+              <BenefitItem key={b.tag} b={b} picked={b.type === 'mileage'} monthlySpend={monthlySpend} />
+            ))}
           </ul>
-          <p className="checked">마지막으로 확인한 날 {card.lastChecked}{stale && <span className="badge">확인 필요</span>}</p>
-          <button type="button" className="link-btn" onClick={() => setOpen(false)}>접기 ▲</button>
+          <div className="detail-foot">
+            <button type="button" className="link-btn" onClick={() => setOpen(false)}>접기 ▲</button>
+            <span className="checked">마지막으로 확인한 날 {card.lastChecked}{stale && <span className="badge">확인 필요</span>}</span>
+          </div>
         </div>
       )}
 
