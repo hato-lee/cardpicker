@@ -203,10 +203,10 @@ test('혜택 목록: 사용액을 주면 요약 줄이 내 실적 구간 기준,
 })
 
 describe('K-패스 배지', () => {
-  const base = {
-    id: 'kp', name: 'K카드', issuer: 'T', kind: 'credit' as const, annualFee: 0, minSpend: 0, complexity: 1,
-    benefits: [{ tag: '대중교통·택시' as const, type: 'discount' as const, rate: 10, monthlyCap: 5000, stars: 2 }], universal: null,
-    officialUrl: 'https://example.com', lastChecked: '2026-08-20', status: 'active' as const, kpass: true as const,
+  const base: Card = {
+    id: 'kp', name: 'K카드', issuer: 'T', kind: 'credit', annualFee: 0, minSpend: 0, complexity: 1,
+    benefits: [{ tag: '대중교통·택시', type: 'discount', rate: 10, monthlyCap: 5000, stars: 2 }], universal: null,
+    officialUrl: 'https://example.com', lastChecked: '2026-08-20', status: 'active', kpass: true,
   }
   const q = { persona: 'moderate' as const, monthlySpend: 500_000, feeLimit: null, tags: ['대중교통·택시' as const] }
   test('일반 결과에서 K-패스 카드엔 배지, K-패스 트랙(환급 포함)에선 안 붙는다', () => {
