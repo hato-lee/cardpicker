@@ -18,12 +18,12 @@ test('성향 타일 3개, 고르기 전엔 안내, 고르면 그 성향 설명�
   expect(screen.getByText('하나를 골라 주세요 — 어떤 카드를 보여줄지 달라져요')).toBeInTheDocument()
   await userEvent.click(screen.getByRole('radio', { name: '적당형' }))
   expect(screen.getByRole('radio', { name: '적당형' })).toHaveAttribute('aria-checked', 'true')
-  expect(screen.getByText('대충은 알고 쓰지만 매번 계산하진 않아요')).toBeInTheDocument()
-  expect(screen.getByText('→ 선택형·조건 복잡한 카드는 빼요')).toBeInTheDocument()
+  expect(screen.getByText('대충은 알고 쓰지만 매번 계산하긴 귀찮아요')).toBeInTheDocument()
+  expect(screen.getByText('→ 선택형·조건 복잡한 카드는 빼요 — 가장 많이 아끼는 순')).toBeInTheDocument()
   expect(screen.queryByText(/복잡한 카드까지 전부 봐요/)).toBeNull()
   await userEvent.click(screen.getByRole('radio', { name: '무심형' }))
-  expect(screen.getByText('한 장 꽂아두고 신경 끄고 싶어요')).toBeInTheDocument()
-  expect(screen.getByText('→ 복잡한 카드는 빼고, 고른 영역이 한 장으로 다 되는 카드만')).toBeInTheDocument()
+  expect(screen.getByText('한 장 꽂아두고 아예 신경 끄고 싶어요')).toBeInTheDocument()
+  expect(screen.getByText('→ 고른 영역이 한 장으로 다 되는 단순한 카드만 — 할인형 먼저')).toBeInTheDocument()
 })
 
 test('사용액 빠른 선택 버튼을 누르면 입력칸에 들어간다', async () => {
