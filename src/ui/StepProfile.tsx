@@ -10,8 +10,8 @@ export interface Profile {
 
 export const PERSONAS: { value: Persona; label: string; emoji: string; desc: string; effect: string }[] = [
   { value: 'meticulous', label: '꼼꼼형', emoji: '🔍', desc: '실적·한도 다 따지고 카드도 여러 장 나눠 써요', effect: '모든 카드를 봐요' },
-  { value: 'moderate', label: '적당형', emoji: '🙂', desc: '대충은 알고 쓰지만 매번 계산하진 않아요', effect: '선택형·조건 복잡한 카드는 빼요' },
-  { value: 'carefree', label: '무심형', emoji: '😌', desc: '한 장 꽂아두고 신경 끄고 싶어요', effect: '복잡한 카드는 빼고, 고른 영역이 한 장으로 다 되는 카드만' },
+  { value: 'moderate', label: '적당형', emoji: '👌', desc: '대충은 알고 쓰지만 매번 계산하진 않아요', effect: '선택형·조건 복잡한 카드는 빼요' },
+  { value: 'carefree', label: '무심형', emoji: '🤷', desc: '한 장 꽂아두고 신경 끄고 싶어요', effect: '복잡한 카드는 빼고, 고른 영역이 한 장으로 다 되는 카드만' },
 ]
 export const PERSONA_PROMPT = '하나를 골라 주세요 — 어떤 카드를 보여줄지 달라져요'
 
