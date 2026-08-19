@@ -8,6 +8,7 @@ import App from './App'
 
 test('맞는 카드가 없으면 빈 안내', async () => {
   render(<App />)
+  await userEvent.click(screen.getByRole('button', { name: /나한테 맞는 카드 찾기/ }))
   await userEvent.click(screen.getByText('무심형'))
   await userEvent.click(screen.getByRole('button', { name: '다음' }))
   await userEvent.click(screen.getByRole('button', { name: '학원·교육' }))

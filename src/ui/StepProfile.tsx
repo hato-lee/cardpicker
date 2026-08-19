@@ -99,11 +99,13 @@ interface BudgetProps {
   mileage?: boolean
   /** K-패스 트랙이면 교통비·환급 그룹을 더 묻는다 */
   kpass?: boolean
+  /** 빠른 길의 K-패스: 사용액·연회비는 깔려 있으니 교통비·그룹만 묻는다 */
+  onlyKpass?: boolean
   editing?: boolean
 }
 
 /** 3단계(마지막): 한 달 사용액 + 연회비 허용치 → 추천 받기 */
-export function StepBudget({ value, onChange, onBack, onSubmit, mileage = false, kpass = false, editing = false }: BudgetProps) {
+export function StepBudget({ value, onChange, onBack, onSubmit, mileage = false, kpass = false, onlyKpass = false, editing = false }: BudgetProps) {
   const sliderValue = value.feeLimit ?? FEE_ANY
   const current = value.monthlySpendMan === '' ? 0 : value.monthlySpendMan
   const transit = value.transitSpendMan === '' ? 0 : value.transitSpendMan
@@ -113,10 +115,11 @@ export function StepBudget({ value, onChange, onBack, onSubmit, mileage = false,
 
   return (
     <section className="step">
-      <p className="greet">{editing ? '사용액·연회비만 고쳐요 ✎' : '마지막이에요 ✌️'}</p>
-      <h2>한 달에 카드로 얼마나 쓰세요?</h2>
+      <p className="greet">{editing ? '사용액·연회비만 고쳐요 ✎' : onlyKpass ? '딱 하나만 물을게요 🎫' : '마지막이에요 ✌️'}</p>
+      <h2>{onlyKpass ? '한 달 버스·지하철비는 얼마예요?' : '한 달에 카드로 얼마나 쓰세요?'}</h2>
+      {onlyKpass && <p className="hint">카드 사용액은 월 {won(current * 10_000)}, 연회비는 상관없음으로 두고 볼게요 — 결과에서 고칠 수 있어요.</p>}
 
-      <div className="field">
+      {!onlyKpass && <div className="field">
         <label htmlFor="spend" className="sr-only">한 달에 카드로 얼마나 쓰세요?</label>
         <div className="spend-box">
         <div className="presets">
@@ -147,9 +150,9 @@ export function StepBudget({ value, onChange, onBack, onSubmit, mileage = false,
           <button type="button" className="step-btn" aria-label={`${RULES.spendStepMan}만 원 더하기`} onClick={() => bump(RULES.spendStepMan)}>+{RULES.spendStepMan}</button>
         </div>
         </div>
-      </div>
+      </div>}
 
-      <div className="field">
+      {!onlyKpass && <div className="field">
         <div className="label-row">
           <label htmlFor="fee" className="q">연회비는 얼마까지 괜찮으세요?</label>
           <span className="slider-value">{value.feeLimit === null ? '상관없음' : won(value.feeLimit)}</span>
@@ -168,13 +171,13 @@ export function StepBudget({ value, onChange, onBack, onSubmit, mileage = false,
         />
         <div className="slider-ends" aria-hidden="true"><span>0원</span><span>상관없음</span></div>
         <p className="field-hint">{FEE_HINT}</p>
-      </div>
+      </div>}
 
       {kpass && (
-        <section className="kpass-box" aria-label="K-패스 환급 계산">
-          <div className="kpass-box-title">🎫 K-패스 환급 계산에 써요</div>
+        <section className={`kpass-box ${onlyKpass ? 'is-plain' : ''}`} aria-label="K-패스 환급 계산">
+          {!onlyKpass && <div className="kpass-box-title">🎫 K-패스 환급 계산에 써요</div>}
           <div className="field">
-            <label htmlFor="transit" className="q">{TRANSIT_Q}</label>
+            <label htmlFor="transit" className={onlyKpass ? 'sr-only' : 'q'}>{TRANSIT_Q}</label>
             <div className="spend-box">
               <div className="presets">
                 {RULES.transitPresetsMan.map((m) => (
@@ -225,7 +228,7 @@ export function StepBudget({ value, onChange, onBack, onSubmit, mileage = false,
       )}
 
       <div className="button-row">
-        <button type="button" className="secondary" onClick={onBack}>{editing ? '결과로' : '이전'}</button>
+        <button type="button" className="secondary" onClick={onBack}>{editing ? '결과로' : onlyKpass ? '처음으로' : '이전'}</button>
         <button type="button" className="primary" disabled={!canSubmit} onClick={onSubmit}>
           {editing ? '다시 추천 받기' : mileage ? '마일리지 카드 추천 받기' : kpass ? 'K-패스 카드 추천 받기' : '추천 받기'}
         </button>

@@ -22,12 +22,14 @@ interface Props {
   onNext: () => void
   /** 결과 화면에서 혜택만 고치러 온 경우 */
   editing?: boolean
+  /** 빠른 길(바로 보기)에서 혜택 직접 고르기: 다음이 곧 결과 */
+  quick?: boolean
   /** K-패스 트랙 스위치. 켜면 '대중교통·택시'가 자동으로 들어가고 마일리지는 꺼진다 */
   kpass?: boolean
   onKpassChange?: (on: boolean) => void
 }
 
-export function StepTags({ value, onChange, onBack, onNext, editing = false, kpass = false, onKpassChange }: Props) {
+export function StepTags({ value, onChange, onBack, onNext, editing = false, quick = false, kpass = false, onKpassChange }: Props) {
   // '마일리지'는 배타적: 켜면 다른 태그를 다 끄고, 다른 태그를 켜면 마일리지를 끈다 (마일리지 전용 트랙)
   const toggle = (t: Tag) => {
     if (value.includes(t)) return onChange(value.filter((x) => x !== t))
@@ -94,9 +96,9 @@ export function StepTags({ value, onChange, onBack, onNext, editing = false, kpa
         </button>
       )}
       <div className="button-row">
-        <button type="button" className="secondary" onClick={onBack}>{editing ? '결과로' : '이전'}</button>
+        <button type="button" className="secondary" onClick={onBack}>{editing ? '결과로' : quick ? '처음으로' : '이전'}</button>
         <button type="button" className="primary" disabled={count === 0} onClick={onNext}>
-          {editing ? '다시 추천 받기' : mileageMode ? '다음' : `다음${count > 0 ? ` (${count}개)` : ''}`}
+          {editing ? '다시 추천 받기' : quick ? (kpass ? '다음' : `바로 보기${count > 0 && !mileageMode ? ` (${count}개)` : ''}`) : mileageMode ? '다음' : `다음${count > 0 ? ` (${count}개)` : ''}`}
         </button>
       </div>
     </section>

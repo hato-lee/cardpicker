@@ -8,6 +8,7 @@ import { CardResult } from './CardResult'
 import { REPORT_FORM_URL } from './config'
 import { won } from './format'
 import { KPASS_GROUPS } from './StepProfile'
+import { QUICK_PERSONA_LABEL } from './quick'
 
 interface Props {
   query: Query
@@ -18,6 +19,8 @@ interface Props {
   /** 어느 부분을 고치러 갈지. 칩을 누르면 그 부분으로, 맨 아래 버튼은 혜택/처음부터 */
   onEdit: (part: EditPart) => void
   today: Date
+  /** 빠른 길(바로 보기)로 온 결과: 성향을 안 물었으니 칩에 '모든 카드' */
+  quick?: boolean
 }
 
 /** 결과 제목 아래 한 줄 — 1단계 성향 설명의 '→ 효과'와 같은 말 */
@@ -64,12 +67,12 @@ export function kpassNote(q: Query): string {
 
 export const RELAXED_NOTE = '고른 영역을 한 장으로 다 되는 카드가 없어서, 가장 많이 되는 카드부터 보여줘요.'
 
-export function Results({ query, results, relaxed = false, mileResults = { top: [], lightPick: null }, onEdit, today }: Props) {
+export function Results({ query, results, relaxed = false, mileResults = { top: [], lightPick: null }, onEdit, today, quick = false }: Props) {
   const mileage = isMileageQuery(query)
   const refund = query.kpass ? kpassAnnualRefund(query.kpass) : 0
   // 칩을 누르면 그 조건을 고치는 화면으로 바로 간다 (나머지 조건은 그대로)
   const chips: { label: string; part: EditPart }[] = [
-    { label: PERSONA_LABEL[query.persona], part: 'persona' },
+    { label: quick ? QUICK_PERSONA_LABEL : PERSONA_LABEL[query.persona], part: 'persona' },
     { label: `월 ${won(query.monthlySpend)}`, part: 'budget' },
     { label: query.feeLimit === null ? '연회비 상관없음' : `연회비 ${won(query.feeLimit)}까지`, part: 'budget' },
     ...(query.kpass ? [
