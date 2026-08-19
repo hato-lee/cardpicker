@@ -78,7 +78,7 @@ export function CardResult({ rank, scored, persona, today }: Props) {
       </header>
 
       <div className="annual">
-        <div className="annual-label">연 최대</div>
+        <div className="annual-label">1년에 최대</div>
         {net > 0 ? (
           <div className="annual-value">약 {won(net)}</div>
         ) : net === 0 ? (
@@ -86,7 +86,7 @@ export function CardResult({ rank, scored, persona, today }: Props) {
         ) : (
           <div className="annual-negative">연회비가 혜택보다 커요 (−{won(-net)})</div>
         )}
-        <div className="annual-sub">연회비 {won(card.annualFee)} 뺀 금액 · 한도를 다 채웠을 때</div>
+        <div className="annual-sub">연회비 {won(card.annualFee)}은 뺐어요 · 한도를 다 채웠을 때</div>
       </div>
 
       <ul className="breakdown">
@@ -106,12 +106,12 @@ export function CardResult({ rank, scored, persona, today }: Props) {
         </button>
         <span className="card-actions-right">
           {stale && <span className="badge">확인 필요</span>}
-          <a href={card.officialUrl} target="_blank" rel="noopener noreferrer">카드사 페이지 →</a>
+          <a href={card.officialUrl} target="_blank" rel="noopener noreferrer">카드사에서 보기 →</a>
         </span>
       </div>
       {open && (
         <div className="detail">
-          <div className="detail-title">이렇게 쓰면 최대</div>
+          <div className="detail-title">이렇게 쓰면 최대로 받아요</div>
           <ul className="tips">
             {tipLines.map((t) => <li key={t}>{t}</li>)}
           </ul>
@@ -121,11 +121,11 @@ export function CardResult({ rank, scored, persona, today }: Props) {
               <p className="points-line">{pointsLine}</p>
             </>
           )}
-          <div className="detail-title">전체 혜택</div>
+          <div className="detail-title">이 카드 혜택 전부</div>
           <ul className="benefits">
             {card.benefits.map((b) => <li key={b.tag}>{benefitText(b)}</li>)}
           </ul>
-          <p className="checked">마지막 확인 {card.lastChecked}{stale && <span className="badge">확인 필요</span>}</p>
+          <p className="checked">마지막으로 확인한 날 {card.lastChecked}{stale && <span className="badge">확인 필요</span>}</p>
         </div>
       )}
     </article>

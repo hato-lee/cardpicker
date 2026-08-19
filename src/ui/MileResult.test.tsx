@@ -25,12 +25,12 @@ test('feePerMileText', () => {
 test('연 마일·마일당 비용·덤 줄이 보인다', async () => {
   const s = scoreMileage(base, q)!
   render(<MileResult rank={1} scored={s} monthlySpend={q.monthlySpend} today={today} />)
-  expect(screen.getByText('약 12,000마일')).toBeInTheDocument()
+  expect(screen.getByText('12,000마일')).toBeInTheDocument()
   const sub = document.querySelector('.annual-sub')!
   expect(sub.textContent).toBe('연회비 3.9만 원 · 마일당 3.3원월 100만 원 전부 이 카드로 쓸 때')
   await userEvent.click(screen.getByRole('button', { name: /자세히 보기/ }))
   expect(screen.getByText('쓰는 만큼 1,000원당 1마일 — 한도 없음')).toBeInTheDocument()
-  expect(screen.getByText('덤으로')).toBeInTheDocument()
+  expect(screen.getByText('덤으로 받는 것')).toBeInTheDocument()
   expect(screen.getAllByText('해외 결제 1,000원당 2마일 · 월 최대 1,000마일').length).toBeGreaterThan(0)
 })
 
@@ -38,7 +38,7 @@ test('Results 마일리지 모드: 성향 칩 표시, 빈 결과 문구', () => 
   render(<Results query={q} results={[]} mileResults={{ grouped: false, all: [] }} onEdit={() => {}} today={today} />)
   expect(screen.getByText('적당형')).toBeInTheDocument()
   expect(screen.getByText('월 100만 원')).toBeInTheDocument()
-  expect(screen.getByText('조건에 맞는 마일리지 카드를 못 찾았어요.')).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: '조건에 맞는 마일리지 카드를 못 찾았어요' })).toBeInTheDocument()
 })
 
 test('연간 보너스·프리미엄 혜택이 보인다 (보너스 포함 시 큰 숫자에 합산)', async () => {
@@ -47,7 +47,7 @@ test('연간 보너스·프리미엄 혜택이 보인다 (보너스 포함 시 �
     perks: ['전 세계 공항 라운지 무제한', '항공권 할인 쿠폰 연 4장'] }
   const s = scoreMileage(premium, { ...q, monthlySpend: 3_000_000 })!
   render(<MileResult rank={1} scored={s} monthlySpend={3_000_000} today={today} />)
-  expect(screen.getByText('약 66,000마일')).toBeInTheDocument()
+  expect(screen.getByText('66,000마일')).toBeInTheDocument()
   expect(screen.getByText(/연간 보너스 30,000마일 포함/)).toBeInTheDocument()
   await userEvent.click(screen.getByRole('button', { name: /자세히 보기/ }))
   expect(screen.getByText('연간 보너스 30,000마일 — 첫해는 누적 100만 원, 이후엔 연 3600만 원 이상 쓸 때')).toBeInTheDocument()
@@ -60,7 +60,7 @@ test('보너스 조건 미달이지만 첫해 조건은 되면 안내만', () =>
     mileageBonus: { miles: 30000, minAnnualSpend: 36_000_000, firstYearMinSpend: 1_000_000 } }
   const s = scoreMileage(premium, q)!
   render(<MileResult rank={1} scored={s} monthlySpend={q.monthlySpend} today={today} />)
-  expect(screen.getByText('약 12,000마일')).toBeInTheDocument()
+  expect(screen.getByText('12,000마일')).toBeInTheDocument()
   expect(screen.getByText(/첫해엔 보너스 30,000마일 별도/)).toBeInTheDocument()
 })
 

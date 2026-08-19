@@ -15,6 +15,6 @@ test('맞는 카드가 없으면 빈 안내', async () => {
   await userEvent.type(screen.getByLabelText(/한 달에 카드로 얼마나/), '100')
   fireEvent.change(screen.getByLabelText(/연회비는 얼마까지/), { target: { value: '200000' } })
   await userEvent.click(screen.getByRole('button', { name: /추천 받기/ }))
-  expect(screen.getByText(/맞는 카드를 못 찾았어요/)).toBeInTheDocument()
-  expect(screen.getByRole('heading', { name: '잘 맞는 카드' })).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: '조건에 맞는 카드를 못 찾았어요' })).toBeInTheDocument()
+  expect(screen.getByText('연회비를 올리거나 혜택을 바꿔보세요.')).toBeInTheDocument()
 })

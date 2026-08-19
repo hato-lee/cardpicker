@@ -50,8 +50,8 @@ export function MileResult({ rank, scored, monthlySpend, today }: Props) {
       </header>
 
       <div className="annual">
-        <div className="annual-label">연 예상</div>
-        <div className="annual-value">약 {annualMiles.toLocaleString('ko-KR')}마일</div>
+        <div className="annual-label">1년에 약</div>
+        <div className="annual-value">{annualMiles.toLocaleString('ko-KR')}마일</div>
         <div className="annual-sub">{sub1.join(' · ')}<br />{sub2.join(' · ')}</div>
       </div>
 
@@ -63,12 +63,12 @@ export function MileResult({ rank, scored, monthlySpend, today }: Props) {
         </button>
         <span className="card-actions-right">
           {stale && <span className="badge">확인 필요</span>}
-          <a href={card.officialUrl} target="_blank" rel="noopener noreferrer">카드사 페이지 →</a>
+          <a href={card.officialUrl} target="_blank" rel="noopener noreferrer">카드사에서 보기 →</a>
         </span>
       </div>
       {open && (
         <div className="detail">
-          <div className="detail-title">이렇게 쓰면 최대</div>
+          <div className="detail-title">이렇게 쓰면 최대로 쌓여요</div>
           <ul className="tips">
             <li>{mileageTip(scored)}</li>
             {card.mileageBonus && <li>{bonusText(card.mileageBonus)}</li>}
@@ -84,17 +84,17 @@ export function MileResult({ rank, scored, monthlySpend, today }: Props) {
           )}
           {extras.length > 0 && (
             <>
-              <div className="detail-title">덤으로</div>
+              <div className="detail-title">덤으로 받는 것</div>
               <ul className="tips">
                 {extras.map((b) => <li key={b.tag}>{benefitText(b)}</li>)}
               </ul>
             </>
           )}
-          <div className="detail-title">전체 혜택</div>
+          <div className="detail-title">이 카드 혜택 전부</div>
           <ul className="benefits">
             {card.benefits.map((b) => <li key={b.tag}>{benefitText(b)}</li>)}
           </ul>
-          <p className="checked">마지막 확인 {card.lastChecked}{stale && <span className="badge">확인 필요</span>}</p>
+          <p className="checked">마지막으로 확인한 날 {card.lastChecked}{stale && <span className="badge">확인 필요</span>}</p>
         </div>
       )}
     </article>

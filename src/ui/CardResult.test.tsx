@@ -24,13 +24,13 @@ test('이름·카드사·큰 숫자·부제·링크가 보이고 확인일은 �
   render(<CardResult rank={1} scored={scored} persona="moderate" today={today} />)
   expect(screen.getByText('신한카드 Deep Oil')).toBeInTheDocument()
   expect(screen.getByText(/신한카드 · 신용/)).toBeInTheDocument()
-  expect(screen.getByText('연 최대')).toBeInTheDocument()
+  expect(screen.getByText('1년에 최대')).toBeInTheDocument()
   expect(screen.getByText('약 23만 원')).toBeInTheDocument()
-  expect(screen.getByText('연회비 1만 원 뺀 금액 · 한도를 다 채웠을 때')).toBeInTheDocument()
-  expect(screen.getByRole('link', { name: /카드사 페이지/ })).toHaveAttribute('href', 'https://example.com/oil')
-  expect(screen.queryByText(/마지막 확인/)).toBeNull()
+  expect(screen.getByText('연회비 1만 원은 뺐어요 · 한도를 다 채웠을 때')).toBeInTheDocument()
+  expect(screen.getByRole('link', { name: /카드사에서 보기/ })).toHaveAttribute('href', 'https://example.com/oil')
+  expect(screen.queryByText(/마지막으로 확인한 날/)).toBeNull()
   await userEvent.click(screen.getByRole('button', { name: /자세히 보기/ }))
-  expect(screen.getByText(/마지막 확인 2026-08-18/)).toBeInTheDocument()
+  expect(screen.getByText(/마지막으로 확인한 날 2026-08-18/)).toBeInTheDocument()
 })
 
 test('내역 줄: 태그와 연 금액', () => {

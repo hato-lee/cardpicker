@@ -16,9 +16,9 @@ test('세 화면을 순서대로 지나 결과가 나온다', async () => {
   render(<App />)
   expect(screen.getByRole('heading', { name: /카드를 어떻게 쓰시는/ })).toBeInTheDocument()
   await goToResults()
-  expect(screen.getByRole('heading', { name: /맞는 카드 TOP \d/ })).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: '이런 카드가 잘 맞겠어요' })).toBeInTheDocument()
   // 실데이터에 의존하지 않도록 특정 카드명 대신 "결과 카드가 1장 이상"만 확인한다
-  expect(screen.getAllByRole('link', { name: /카드사 페이지/ }).length).toBeGreaterThan(0)
+  expect(screen.getAllByRole('link', { name: /카드사에서 보기/ }).length).toBeGreaterThan(0)
 })
 
 test('조건 바꾸기를 누르면 첫 화면으로', async () => {
@@ -31,7 +31,8 @@ test('조건 바꾸기를 누르면 첫 화면으로', async () => {
 test('무심형·학원·교육 조합에서도 결과가 나온다', async () => {
   render(<App />)
   await goToResults('무심형', ['학원·교육'])
-  expect(screen.getAllByText('연 최대').length).toBeGreaterThan(0)
+  expect(screen.getAllByText('1년에 최대').length).toBeGreaterThan(0)
+  expect(screen.getByText(/TOP \d/)).toBeInTheDocument()
 })
 
 // '맞는 카드가 없으면 빈 안내' 테스트는 실데이터와 무관하게 AppEmpty.test.tsx에서 cards.json을 비워 검증한다.
@@ -48,16 +49,17 @@ test('마일리지만 고르면 마일리지 트랙: 마일 단위 결과', asyn
   render(<App />)
   await goToResults('적당형', ['마일리지'])
   // 연회비 한도 20만(프리미엄 기준 이상)이라 일반/프리미엄 묶음으로 나뉜다
-  expect(screen.getByRole('heading', { name: '잘 맞는 마일리지 카드' })).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: '이런 마일리지 카드가 잘 맞겠어요' })).toBeInTheDocument()
   expect(screen.getByRole('heading', { name: /연회비 10만 원 미만/ })).toBeInTheDocument()
-  expect(screen.getAllByText('연 예상').length).toBeGreaterThan(0)
-  expect(screen.getAllByText(/약 [\d,]+마일/).length).toBeGreaterThan(0)
-  expect(screen.queryByText('연 최대')).toBeNull()
+  expect(screen.getAllByText('1년에 약').length).toBeGreaterThan(0)
+  expect(screen.getAllByText(/^[\d,]+마일$/).length).toBeGreaterThan(0)
+  expect(screen.queryByText('1년에 최대')).toBeNull()
 })
 
 test('마일리지 트랙: 연회비 한도가 10만 원 미만이면 한 줄 TOP N', async () => {
   render(<App />)
   await goToResults('적당형', ['마일리지'], '50000')
-  expect(screen.getByRole('heading', { name: /맞는 마일리지 카드 TOP \d/ })).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: '이런 마일리지 카드가 잘 맞겠어요' })).toBeInTheDocument()
+  expect(screen.getByText(/가장 많이 쌓이는 순 · TOP \d/)).toBeInTheDocument()
   expect(screen.queryByRole('heading', { name: /프리미엄/ })).toBeNull()
 })

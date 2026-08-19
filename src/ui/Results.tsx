@@ -1,4 +1,4 @@
-import type { Query } from '../data/types'
+import type { Query, Persona } from '../data/types'
 import type { Scored } from '../engine/recommend'
 import { isMileageQuery, type MileageGroups } from '../engine/mileage'
 import { RULES } from '../engine/rules'
@@ -18,6 +18,12 @@ interface Props {
   today: Date
 }
 
+/** 결과 제목 아래 한 줄 — 1단계 성향 설명의 '→ 효과'와 같은 말 */
+export const PERSONA_ECHO: Record<Persona, string> = {
+  meticulous: '복잡한 카드까지 전부 봤어요 · 가장 많이 아끼는 순',
+  moderate: '복잡한 카드는 뺐어요 · 가장 많이 아끼는 순',
+  carefree: '한 장으로 다 되는 단순한 카드만 · 할인형 먼저',
+}
 export const RELAXED_NOTE = '고른 영역을 한 장으로 다 되는 카드가 없어서, 가장 많이 되는 카드부터 보여줘요.'
 
 export function Results({ query, results, relaxed = false, mileResults = { grouped: false, all: [] }, onEdit, today }: Props) {
@@ -41,7 +47,8 @@ export function Results({ query, results, relaxed = false, mileResults = { group
           <MileGroups groups={mileResults} monthlySpend={query.monthlySpend} today={today} />
         ) : (
           <>
-            <h2>{mileResults.all.length > 0 ? `잘 맞는 마일리지 카드 TOP ${mileResults.all.length}` : '잘 맞는 마일리지 카드'}</h2>
+            {mileResults.all.length > 0 && <h2>이런 마일리지 카드가 잘 맞겠어요</h2>}
+            {mileResults.all.length > 0 && <p className="hint">가장 많이 쌓이는 순 · TOP {mileResults.all.length}</p>}
             {mileResults.all.length === 0 ? (
               <MileEmpty />
             ) : (
@@ -63,12 +70,12 @@ export function Results({ query, results, relaxed = false, mileResults = { group
         </ul>
         <div className="summary-edit"><button type="button" className="link-btn" onClick={onEdit}>조건 바꾸기</button></div>
       </div>
-      <h2>{results.length > 0 ? `잘 맞는 카드 TOP ${results.length}` : '잘 맞는 카드'}</h2>
+      <h2>{results.length > 0 ? '이런 카드가 잘 맞겠어요' : '조건에 맞는 카드를 못 찾았어요'}</h2>
+      {results.length > 0 && <p className="hint">{PERSONA_ECHO[query.persona]} · TOP {results.length}</p>}
       {relaxed && results.length > 0 && <p className="hint">{RELAXED_NOTE}</p>}
       {results.length === 0 ? (
         <div className="empty">
-          <p>조건에 맞는 카드를 못 찾았어요.</p>
-          <p className="hint">연회비 허용치를 올리거나, 태그를 바꿔보세요.</p>
+          <p>연회비를 올리거나 혜택을 바꿔보세요.</p>
         </div>
       ) : (
         results.map((s, i) => (
@@ -88,10 +95,12 @@ export function Results({ query, results, relaxed = false, mileResults = { group
 
 function MileEmpty() {
   return (
-    <div className="empty">
-      <p>조건에 맞는 마일리지 카드를 못 찾았어요.</p>
-      <p className="hint">연회비 허용치를 올려보세요.</p>
-    </div>
+    <>
+      <h2>조건에 맞는 마일리지 카드를 못 찾았어요</h2>
+      <div className="empty">
+        <p>연회비를 올려보세요.</p>
+      </div>
+    </>
   )
 }
 
@@ -99,11 +108,12 @@ function MileEmpty() {
 function MileGroups({ groups, monthlySpend, today }: { groups: Extract<MileageGroups, { grouped: true }>; monthlySpend: number; today: Date }) {
   const fee = won(RULES.mileagePremiumFee)
   if (groups.regular.length === 0 && groups.premium.length === 0) {
-    return (<><h2>잘 맞는 마일리지 카드</h2><MileEmpty /></>)
+    return <MileEmpty />
   }
   return (
     <>
-      <h2>잘 맞는 마일리지 카드</h2>
+      <h2>이런 마일리지 카드가 잘 맞겠어요</h2>
+      <p className="hint">가장 많이 쌓이는 순 · 연회비로 두 묶음</p>
       {groups.regular.length > 0 && (
         <section className="mile-group" aria-label={`연회비 ${fee} 미만`}>
           <h3 className="group-title">연회비 {fee} 미만 <span className="group-sub">가성비로 고른다면</span></h3>
