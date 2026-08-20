@@ -1,7 +1,7 @@
 import type { Query, Persona, KpassGroup } from '../data/types'
 import type { Tag } from '../data/tags'
 import { kpassAnnualRefund, kpassMonthlyRefund, type Scored } from '../engine/recommend'
-import { isMileageQuery, type MileageResults, type MileScored } from '../engine/mileage'
+import { isMileageQuery, MILE_VALUE_NOTE, type MileageResults, type MileScored } from '../engine/mileage'
 import { MileResult, mileLeadText } from './MileResult'
 import { PERSONA_LABEL } from '../engine/explain'
 import { CardResult } from './CardResult'
@@ -117,6 +117,7 @@ export function Results({ query, results, relaxed = false, mileResults = { top: 
           <>
             <h2>이런 마일리지 카드가 잘 맞겠어요</h2>
             <p className="hint">가장 많이 쌓이는 순 · TOP {mileResults.top.length}</p>
+            <p className="hint">{MILE_VALUE_NOTE}</p>
             {mileResults.top.map((s, i) => (
               <MileResult key={s.card.id} rank={i + 1} scored={s} monthlySpend={query.monthlySpend} today={today}
                 lead={mileLeadText(mileResults.top, i)} compact={i > 0} maxMiles={mileResults.top[0].annualMiles} />

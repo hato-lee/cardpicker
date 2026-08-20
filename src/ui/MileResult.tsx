@@ -49,7 +49,7 @@ export function feePerMileText(fee: number, feePerMile: number | null): string {
 export function MileResult({ rank, scored, monthlySpend, today, lead, compact = false, maxMiles }: Props) {
   const [open, setOpen] = useState(false)
   const [expanded, setExpanded] = useState(!compact)
-  const { card, annualMiles, bonusMiles, firstYearBonus, feePerMile, extras } = scored
+  const { card, annualMiles, extraAnnualMiles, extraTags, bonusMiles, firstYearBonus, feePerMile, extras } = scored
   const stale = isStale(card.lastChecked, today)
   if (!expanded) {
     const ratio = maxMiles && maxMiles > 0 ? Math.max(0, Math.min(1, annualMiles / maxMiles)) : 0
@@ -70,7 +70,10 @@ export function MileResult({ rank, scored, monthlySpend, today, lead, compact = 
     : firstYearBonus && card.mileageBonus ? `첫해 보너스 ${card.mileageBonus.miles.toLocaleString('ko-KR')}마일은 따로 있어요`
     : card.mileageBonus ? `보너스 ${card.mileageBonus.miles.toLocaleString('ko-KR')}마일은 1년에 ${won(card.mileageBonus.minAnnualSpend)} 이상 써야 받아요` : ''
   const sub1 = card.annualFee === 0 ? ['연회비 없음'] : [`연회비 ${won(card.annualFee)}`, feePerMileText(card.annualFee, feePerMile)].filter(Boolean)
-  const sub2 = [`월 ${won(monthlySpend)}을 전부 이 카드로 쓰면`, bonusNote].filter(Boolean)
+  const extraNote = extraAnnualMiles > 0
+    ? `${extraTags.slice(0, 3).join('·')}${extraTags.length > 3 ? ' 등' : ''} 추가적립 연 ${extraAnnualMiles.toLocaleString('ko-KR')}마일 포함`
+    : ''
+  const sub2 = [`월 ${won(monthlySpend)}을 전부 이 카드로 쓰면`, extraNote, bonusNote].filter(Boolean)
   // 접힌 상태에서도 부가 혜택 첫 줄은 보여준다 (프리미엄 비교의 핵심)
   const perkPeek = card.perks && card.perks.length > 0
     ? `${card.perks[0]}${card.perks.length > 1 ? ` 외 ${card.perks.length - 1}개` : ''}`
@@ -114,6 +117,7 @@ export function MileResult({ rank, scored, monthlySpend, today, lead, compact = 
           <div className="detail-title">이렇게 쓰면 최대로 쌓여요</div>
           <ul className="tips">
             <li>{mileageTip(scored)}</li>
+            {extraAnnualMiles > 0 && <li>{`${extraTags.join('·')} 추가적립은 그 영역에서 실제로 써야 받아요 — 한도를 채우는 기준으로 계산했어요`}</li>}
             {card.mileageBonus && <li>{bonusText(card.mileageBonus)}</li>}
             {card.mileConversion && <li>{card.mileConversion}</li>}
           </ul>

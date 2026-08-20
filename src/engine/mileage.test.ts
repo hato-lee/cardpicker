@@ -61,6 +61,42 @@ describe('recommendMileage 후보·계산', () => {
   })
 })
 
+describe('국내 생활 영역 추가적립 (extraEarn)', () => {
+  const mileRow = { tag: '마일리지' as const, type: 'mileage' as const, rate: 0.1, monthlyCap: null, stars: 2 as const }
+  test('추가분 줄(한도 있음)은 연 마일에 포함되고, 태그가 표시용으로 나온다', () => {
+    // 월 200만 · 추가 0.2%/월 2,000마일(주유·카페 공유 한도): 채우는 데 100만 필요 → 다 받음
+    const c = card({ benefits: [mileRow,
+      { tag: '주유', type: 'mileage', rate: 0.2, monthlyCap: 2000, capGroup: 'x', stars: 2 },
+      { tag: '카페', type: 'mileage', rate: 0.2, monthlyCap: 2000, capGroup: 'x', stars: 2 }] })
+    const [r] = recommendMileage([c], q({ monthlySpend: 2_000_000 }))
+    expect(r.extraAnnualMiles).toBe(24000)      // 2,000 × 12, capGroup은 한 번만
+    expect(r.annualMiles).toBe(24000 + 24000)   // 기본 2,000/월 + 추가 2,000/월
+    expect(r.extraTags).toEqual(['주유', '카페'])
+  })
+  test('한도를 채울 만큼 못 쓰면 비례 축소된다', () => {
+    // 월 50만 · 추가 0.2%/2,000마일 → 필요 지출 100만 → 절반만
+    const c = card({ benefits: [mileRow, { tag: '주유', type: 'mileage', rate: 0.2, monthlyCap: 2000, stars: 2 }] })
+    const [r] = recommendMileage([c], q({ monthlySpend: 500_000 }))
+    expect(r.extraAnnualMiles).toBe(12000)
+  })
+  test('해외 결제 줄과 한도 없는 줄은 세지 않는다 (덤으로만)', () => {
+    const c = card({ benefits: [mileRow,
+      { tag: '해외 결제', type: 'mileage', rate: 0.2, monthlyCap: 2000, stars: 2 },
+      { tag: '카페', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 1 }] })
+    const [r] = recommendMileage([c], q({ monthlySpend: 2_000_000 }))
+    expect(r.extraAnnualMiles).toBe(0)
+    expect(r.annualMiles).toBe(24000)
+  })
+  test('전월실적 조건부 추가적립(cap 0 + tiers)은 실적을 채워야 산다', () => {
+    const c = card({ benefits: [mileRow,
+      { tag: '주유', type: 'mileage', rate: 0.2, monthlyCap: 0, stars: 1, tiers: [{ minSpend: 1_000_000, monthlyCap: 2000 }] }] })
+    const [low] = recommendMileage([c], q({ monthlySpend: 500_000 }))
+    expect(low.extraAnnualMiles).toBe(0)
+    const [high] = recommendMileage([c], q({ monthlySpend: 2_000_000 }))
+    expect(high.extraAnnualMiles).toBe(24000)
+  })
+})
+
 describe('recommendMileage 필터·정렬', () => {
   test('연회비 한도·실적·단종·제외 필터', () => {
     const pricey = card({ ...mile1, id: 'p', annualFee: 300000 })
