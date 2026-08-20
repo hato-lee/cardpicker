@@ -87,6 +87,8 @@ export default function App() {
     setStep(part === 'persona' ? 1 : part === 'tags' ? 2 : 3)
   }
   const backToResults = () => { setEditing(false); setStep(4) }
+  // 로고 클릭: 어느 화면에서든 처음으로
+  const goHome = () => { setEditing(false); setStep(0) }
   // 혜택만 고치던 중 K-패스를 켰는데 교통비가 아직 없으면 3단계를 거쳐야 한다
   const kpassNeedsInput = kpass && profile.transitSpendMan === ''
 
@@ -106,7 +108,7 @@ export default function App() {
       <div className="progress" role="progressbar" aria-label="진행" aria-valuemin={0} aria-valuemax={4} aria-valuenow={step}>
         <span style={{ width: `${(step / 4) * 100}%` }} />
       </div>
-      <header className="app-head is-home"><h1>💳 카드피커</h1></header>
+      <header className="app-head is-home"><h1><button type="button" className="logo-btn" onClick={goHome} title="처음 화면으로">💳 카드피커</button></h1></header>
       {step === 0 && <StepHome onGuided={startGuided} onQuick={startQuick} onPickTags={startQuickTags} />}
       {step === 1 && <StepPersona value={profile} onChange={setProfile} onNext={editing ? submit : () => setStep(2)} editing={editing} onCancel={backToResults} />}
       {step === 2 && <StepTags value={tags} onChange={setTags} onBack={editing ? backToResults : () => setStep(quick ? 0 : 1)} onNext={(editing || quick) && !kpassNeedsInput ? submit : () => setStep(3)} editing={editing} quick={quick && !editing} kpass={kpass} onKpassChange={setKpass} />}

@@ -22,17 +22,24 @@ test('세 화면을 순서대로 지나 결과가 나온다', async () => {
   expect(screen.getAllByRole('link', { name: /카드사에서 보기/ }).length).toBeGreaterThan(0)
 })
 
-test('처음부터를 누르면 첫 화면으로', async () => {
+test('로고를 누르면 어느 화면에서든 첫 화면으로', async () => {
   render(<App />)
   await goToResults()
-  await userEvent.click(screen.getByRole('button', { name: '처음부터' }))
+  await userEvent.click(screen.getByRole('button', { name: '💳 카드피커' }))
   expect(screen.getByRole('heading', { name: '어떻게 찾아볼까요?' })).toBeInTheDocument()
 })
 
-test('혜택 바꾸기: 혜택 화면만 거쳐 바로 결과로 돌아온다 (성향·사용액은 그대로)', async () => {
+test('처음으로를 누르면 첫 화면으로', async () => {
+  render(<App />)
+  await goToResults()
+  await userEvent.click(screen.getByRole('button', { name: '🏠 처음으로' }))
+  expect(screen.getByRole('heading', { name: '어떻게 찾아볼까요?' })).toBeInTheDocument()
+})
+
+test('혜택 다시 고르기: 혜택 화면만 거쳐 바로 결과로 돌아온다 (성향·사용액은 그대로)', async () => {
   render(<App />)
   await goToResults('적당형', ['주유'])
-  await userEvent.click(screen.getByRole('button', { name: '혜택 바꾸기' }))
+  await userEvent.click(screen.getByRole('button', { name: '혜택 다시 고르기' }))
   expect(screen.getByRole('heading', { name: '어떤 혜택이 중요하세요?' })).toBeInTheDocument()
   await userEvent.click(screen.getByRole('button', { name: '카페·편의점' }))
   await userEvent.click(screen.getByRole('button', { name: '다시 추천 받기' }))
@@ -141,7 +148,7 @@ describe('빠른 길(바로 보기)', () => {
     expect(screen.getByRole('heading', { name: '이런 카드가 잘 맞겠어요' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: '월 150만 원 ✎' })).toBeInTheDocument()
     expect(screen.getByText(/고른 혜택으로 바로 보여드려요/)).toBeInTheDocument()
-    await userEvent.click(screen.getByRole('button', { name: '처음부터' }))
+    await userEvent.click(screen.getByRole('button', { name: '🏠 처음으로' }))
     expect(screen.getByRole('heading', { name: '어떻게 찾아볼까요?' })).toBeInTheDocument()
   })
   test('결과 칩에서 사용액을 고치면 전체 입력 화면이 나오고 다시 결과로', async () => {

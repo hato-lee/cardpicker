@@ -103,8 +103,8 @@ export function Results({ query, results, relaxed = false, mileResults = { top: 
   )
   const footer = (
     <div className="button-row">
-      <button type="button" className="secondary" onClick={() => onEdit('all')}>처음부터</button>
-      <button type="button" className="primary" onClick={() => onEdit('tags')}>혜택 바꾸기</button>
+      <button type="button" className="secondary" onClick={() => onEdit('all')}>🏠 처음으로</button>
+      <button type="button" className="primary" onClick={() => onEdit('tags')}>혜택 다시 고르기</button>
     </div>
   )
   if (mileage) {
