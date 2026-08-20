@@ -1,185 +1,185 @@
-shinhan-deep-oil | 신한카드 Deep Oil
-kb-my-wesh | KB국민 My WE:SH 카드
-hyundai-the-red-mileage | 현대카드 the Red (항공 마일리지형)
-shinhan-mr-life | 신한카드 Mr.Life
-shinhan-cheoeum | 신한카드 처음
-shinhan-air-one | 신한카드 Air One
-shinhan-b-big | 신한카드 B.Big
-shinhan-simple-plus | 신한카드 Simple+
-shinhan-point-plan-plus | 신한카드 Point Plan+
-shinhan-globus | 신한카드 Globus
-shinhan-edu-plan-plus | 신한카드 Edu Plan+
-shinhan-the-classic-s | 신한카드 The CLASSIC-S
-kb-skypass | KB국민 스카이패스카드
-kb-gaon | KB국민 가온카드
-kb-cheongchundaero-toktok | KB국민 청춘대로 톡톡카드
-kb-cheongchundaero-kkulshopping-alpha | KB국민 청춘대로 꿀쇼핑α카드
-kb-goodday | KB국민 굿데이카드
-kb-tantandaero-auto | KB국민 탄탄대로 오토카드
-kb-goldenlife-olim | KB국민 골든라이프올림카드
-kb-tantandaero-allshopping | KB국민 탄탄대로 올쇼핑카드
-samsung-taptap-o | 삼성카드 taptap O
-samsung-id-on | 삼성 iD ON 카드
-samsung-mileage-platinum | 삼성카드 & MILEAGE PLATINUM (스카이패스)
-samsung-amex-blue | 삼성카드 American Express Blue
-samsung-id-simple | 삼성 iD SIMPLE 카드
-samsung-id-select-all | 삼성 iD SELECT ALL 카드
-samsung-taptap-digital | 삼성카드 taptap DIGITAL
-hyundai-zero-edition3-discount | 현대카드 ZERO Edition3(할인형)
-hyundai-z-work-edition2 | 현대카드 Z work Edition2
-hyundai-z-family-edition2 | 현대카드 Z family Edition2
-hyundai-z-play | 현대카드 Z play
-hyundai-m | 현대카드M
-hyundai-koreanair-060 | 현대카드 대한항공카드 060
-hyundai-x | 현대카드X
-lotte-loca-365 | 롯데카드 LOCA 365
-lotte-loca-classic | 롯데카드 LOCA CLASSIC
-lotte-loca-for-auto | 롯데카드 LOCA for Auto
-lotte-loca-for-health | 롯데카드 LOCA for Health
-lotte-loca-platinum-mileage | 롯데카드 LOCA PLATINUM 마일리지형
-woori-every-discount | 우리카드 카드의정석 EVERY DISCOUNT
-woori-d4-jeongseok | 우리카드 D4@카드의정석
-woori-nu-iu | 우리카드 NU I&U
-woori-every-mile-skypass | 우리카드 카드의정석 EVERY MILE SKYPASS
-hana-1q-daily | 하나카드 하나멤버스 1Q 카드 Daily
-hana-multi-living | 하나카드 MULTI Living
-hana-travelog-check | 하나 트래블로그 체크카드
-hana-travelog-skypass | 하나카드 트래블로그 SKYPASS 신용카드
-nh-allone-pi | NH농협카드 NH올원 파이카드
-nh-zgm-playplus | NH농협 zgm.play++카드
-nh-ryan-cheese-check | NH농협카드 라이언 치즈 체크카드
-bc-baro-clear-plus | BC 바로 클리어 플러스
-kbank-one-check | 케이뱅크 ONE 체크카드
-shinhan-edu | 신한카드 Edu
-hyundai-h | 현대카드 H
-woori-loca-apt-platinum | 카드의정석 APT Platinum
-kb-need-edu | KB NEED Edu카드
-ibk-naui-alpha-edu | 나의알파 캐시백 에듀카드
-bnk-gyeongnam-kpass-check | [BNK경남] 경남은행 K-패스 체크카드
-kb-skypass-platinum | KB국민 스카이패스 플래티늄카드
-kb-skypass-platinum-s | KB국민 스카이패스 플래티늄S카드
-nh-chaeum-skypass | NH농협카드 채움 스카이패스카드
-woori-jeongseok-premium-mileage-asiana | 우리카드 카드의 정석 프리미엄 마일리지(아시아나)
-shinhan-the-best-plus | 신한카드 The BEST+
-samsung-taptap-drive | 삼성카드 taptap DRIVE
-hana-club-sk | 하나카드 CLUB SK
-shinhan-sol-travel-check | 신한카드 SOL트래블 체크
-samsung-id-all | 삼성 iD ALL 카드
-samsung-id-move | 삼성 iD MOVE 카드
-samsung-id-pet | 삼성 iD PET 카드
-samsung-card4-v4 | 삼성카드 4 V4
-hyundai-zero-edition3-points | 현대카드 ZERO Edition3(포인트형)
-hyundai-the-green-edition3 | 현대카드 the Green Edition3
-hyundai-the-pink-edition2 | 현대카드 the Pink Edition2
-hyundai-x-edition2 | 현대카드X Edition2
-shinhan-hey-young-check | 신한카드 Hey Young 체크카드
-shinhan-deep-dream-check | 신한카드 Deep Dream 체크카드
-kakaobank-friends-check | 카카오뱅크 프렌즈 체크카드
-tossbank-check | 토스뱅크 체크카드
-kb-coupang-wow | KB국민 쿠팡 와우카드
-hyundai-naver-edition2 | 네이버 현대카드 Edition2
-hyundai-costco-reward-edition2 | 코스트코 리워드 현대카드 Edition2
-samsung-starbucks | 스타벅스 삼성카드
-shinhan-emart | 신한카드 이마트
-shinhan-shinsegae-best-fit | 신한카드 신세계 Best Fit
-kb-need-autoslim | KB국민 NEED AutoSlim카드
-kb-easy-auto-titanium | KB국민 Easy auto 티타늄카드
-kb-tmap | TMAP KB국민카드
-kb-sk-energy-loveyou | SK에너지 러브유 KB국민카드
-kb-e1-lpg | E1 LPG KB국민카드
-kb-you-prime | KB국민 YOU Prime 카드
-kb-woongjin-thinkbig | KB국민 웅진씽크빅 카드
-kb-milkt | KB국민 밀크T 카드
-kb-visang-onlyone | KB국민 비상온리원 카드
-kb-you-with | KB국민 YOU With 카드
-shinhan-the-classic-v | 신한카드 The CLASSIC-V
-shinhan-the-classic-y | 신한카드 The CLASSIC-Y
-shinhan-the-classic-neo | 신한카드 The CLASSIC NEO
-samsung-the1-sfc-skypass | 삼성카드 THE 1 SFC (스카이패스)
-samsung-the-id-1st | 삼성카드 THE iD. 1st
-samsung-the-id-platinum-point | 삼성카드 THE iD. PLATINUM(포인트)
-hana-jade-classic | 하나카드 JADE Classic
-lotte-loca-platinum-discount | 롯데카드 LOCA PLATINUM 할인형
-woori-royal-blue-point | 우리카드 ROYAL BLUE POINT
-kb-gaon-platinum-voucher | KB국민 가온 플래티늄바우처카드
-nh-classy-travel | NH농협카드 클래시 트래블카드
-nh-on-platinum-point | NH농협카드 ON PLATINUM카드(포인트형)
-lotte-loca-money | 롯데카드 LOCA MONEY
-lotte-digiroca-auto | 롯데카드 디지로카 Auto
-lotte-loca-lite | 롯데카드 LOCA Lite
-lotte-digiroca-london | 롯데카드 디지로카 London
-bc-baro-onoff | BC 바로 On&Off
-bc-baro-air-plus-skypass | BC 바로 에어 플러스 스카이패스
-bc-baro-macao | BC 바로 MACAO
-bc-baro-green-card | BC 바로 그린카드(전국)
-hana-multi-any | 하나카드 MULTI Any
-hana-oneq | 하나카드 하나원큐카드
-hana-wonder-daily | 하나카드 원더카드(원더 DAILY)
-hana-1q-shopping-plus | 하나카드 1Q Shopping+
-woori-shopping-plus | 우리카드 카드의정석 SHOPPING+
-woori-every-1 | 우리카드 카드의정석 EVERY 1
-woori-everyday-check | 우리카드 카드의정석 EVERYDAY CHECK
-nh-chaeum-kpass-check | NH농협카드 채움 K-패스카드(체크)
-nh-zgm-shopping | NH농협 zgm shopping
-shinhan-kpass-check | 신한카드 K-패스 체크카드
-shinhan-kpass | 신한카드 K-패스
-kb-kpass-check | KB국민 K-패스체크카드
-kb-kpass | KB국민 K-패스카드
-kb-nori2-kbpay | KB국민 노리2 체크카드(KB Pay)
-woori-jeongseok-ohacheck | 우리카드 카드의정석 오하CHECK
-hyundai-musinsa | 무신사 현대카드
-naverpay-money-hana-check | 네이버페이 머니 하나 체크카드
-shinhan-deep-on-platinum-plus | 신한카드 Deep On Platinum+
-shinhan-the-best-f | 신한카드 The BEST-F (마일리지형)
-shinhan-the-best-xo | 신한카드 The BEST-XO (스카이패스형)
-kb-heritage-smart-mileage | KB국민 HERITAGE Smart (대한항공 마일리지형)
-kb-heritage-classic-skypass | KB국민 HERITAGE Classic (스카이패스형)
-kb-skypass-titanium | KB국민 스카이패스 티타늄카드
-hyundai-the-purple-mileage | 현대카드 the Purple(마일리지형)
-lotte-skypass-platinum | 롯데카드 SKYPASS 롯데 플래티넘 카드
-lotte-digiloca-skypass | 롯데카드 디지로카 스카이패스
-samsung-special-mileage-skypass | 삼성카드 스페셜마일리지 (스카이패스)
-samsung-shinsegae-the-mileage | 신세계 더 마일리지 삼성카드 (스카이패스)
-hana-skypass-amex-platinum | 하나 스카이패스 아멕스 플래티늄 카드
-hana-clubh-amex-reserve | 하나 CLUB H 아메리칸 익스프레스 리저브 카드
-woori-jeongseok-premium-mileage-koreanair | 우리카드 카드의 정석 프리미엄 마일리지(대한항공)
-woori-royal-blue-mileage-skypass | 우리카드 ROYAL BLUE MILEAGE (SKYPASS)
-nh-chaeum-titanium-skypass | NH농협카드 채움 티타늄 스카이패스카드
-nh-chaeum-platinum-skypass | NH농협카드 채움 플래티늄 스카이패스카드
-bc-baro-air-master | BC 바로 에어 마스터
-bc-baro-air-max | BC 바로 에어 맥스
-hyundai-koreanair-120 | 현대카드 대한항공카드 120 (Edition2)
-hyundai-koreanair-300 | 현대카드 대한항공카드 300 (Edition2)
-hyundai-koreanair-the-first-edition2 | 현대카드 대한항공카드 the First Edition2
-hyundai-amex-green | 현대 아메리칸 익스프레스 그린카드 Edition2
-hyundai-amex-gold | 현대 아메리칸 익스프레스 골드카드 Edition2
-hyundai-amex-platinum | 현대 아메리칸 익스프레스 더 플래티넘카드 Edition2
-shinhan-the-classic-plus | 신한카드 The CLASSIC+
-kb-bev-v-skypass | KB국민 BeV V카드(스카이패스형)
-kb-heritage-reserve-skypass | KB국민 HERITAGE Reserve(스카이패스형)
-hana-club-primus-skypass | 하나카드 CLUB Primus Skypass 카드
-nh-on-platinum-skypass | NH농협카드 ON PLATINUM카드(스카이패스)
-nh-we-terra-skypass | NH농협카드 위(Ü) 테라카드(스카이패스)
-shinhan-tmoney-paygo | 티머니 Pay&GO 신한카드
-shinhan-incheon-kpass | K-패스 신한카드(인천 i-패스)
-shinhan-incheon-kpass-check | K-패스 신한카드(인천 i-패스) 체크
-nh-kpass | NH농협카드 K-패스카드(신용)
-hana-kpass | K-패스 하나 신용카드
-hana-kpass-check | K-패스 하나 체크카드
-woori-kpass | K-패스 우리카드
-woori-kpass-check | K-패스 우리카드(체크)
-samsung-kpass | K-패스 삼성카드
-samsung-kpass-check | K-패스 삼성체크카드
-lotte-kpass-loca | 롯데카드 K-패스엔로카
-im-kpass | iM K-패스 카드
-im-kpass-check | iM뱅크 K-패스 체크카드
-ibk-kpass | IBK기업은행 K-패스(신용)
-ibk-kpass-check | IBK기업은행 K-패스(체크)
-kwangju-kpass | 광주은행 K-패스그린카드v2
-bc-baro-kpass | BC 바로 K-패스 카드
-bnk-gyeongnam-kpass | [BNK경남] 경남은행 K-패스 카드
-jb-kpass | 전북은행 K-패스 신용카드
-jb-kpass-check | 전북은행 K-패스 체크카드
-kakaobank-kpass-friends-check | 카카오뱅크 K-패스 프렌즈 체크카드
-shinhyup-kpass-check | 신협 K-패스 하이브리드 체크카드
-mg-kpass-check | 새마을금고 K-패스 체크카드
+shinhan-deep-oil
+kb-my-wesh
+hyundai-the-red-mileage
+shinhan-mr-life
+shinhan-cheoeum
+shinhan-air-one
+shinhan-b-big
+shinhan-simple-plus
+shinhan-point-plan-plus
+shinhan-globus
+shinhan-edu-plan-plus
+shinhan-the-classic-s
+kb-skypass
+kb-gaon
+kb-cheongchundaero-toktok
+kb-cheongchundaero-kkulshopping-alpha
+kb-goodday
+kb-tantandaero-auto
+kb-goldenlife-olim
+kb-tantandaero-allshopping
+samsung-taptap-o
+samsung-id-on
+samsung-mileage-platinum
+samsung-amex-blue
+samsung-id-simple
+samsung-id-select-all
+samsung-taptap-digital
+hyundai-zero-edition3-discount
+hyundai-z-work-edition2
+hyundai-z-family-edition2
+hyundai-z-play
+hyundai-m
+hyundai-koreanair-060
+hyundai-x
+lotte-loca-365
+lotte-loca-classic
+lotte-loca-for-auto
+lotte-loca-for-health
+lotte-loca-platinum-mileage
+woori-every-discount
+woori-d4-jeongseok
+woori-nu-iu
+woori-every-mile-skypass
+hana-1q-daily
+hana-multi-living
+hana-travelog-check
+hana-travelog-skypass
+nh-allone-pi
+nh-zgm-playplus
+nh-ryan-cheese-check
+bc-baro-clear-plus
+kbank-one-check
+shinhan-edu
+hyundai-h
+woori-loca-apt-platinum
+kb-need-edu
+ibk-naui-alpha-edu
+bnk-gyeongnam-kpass-check
+kb-skypass-platinum
+kb-skypass-platinum-s
+nh-chaeum-skypass
+woori-jeongseok-premium-mileage-asiana
+shinhan-the-best-plus
+samsung-taptap-drive
+hana-club-sk
+shinhan-sol-travel-check
+samsung-id-all
+samsung-id-move
+samsung-id-pet
+samsung-card4-v4
+hyundai-zero-edition3-points
+hyundai-the-green-edition3
+hyundai-the-pink-edition2
+hyundai-x-edition2
+shinhan-hey-young-check
+shinhan-deep-dream-check
+kakaobank-friends-check
+tossbank-check
+kb-coupang-wow
+hyundai-naver-edition2
+hyundai-costco-reward-edition2
+samsung-starbucks
+shinhan-emart
+shinhan-shinsegae-best-fit
+kb-need-autoslim
+kb-easy-auto-titanium
+kb-tmap
+kb-sk-energy-loveyou
+kb-e1-lpg
+kb-you-prime
+kb-woongjin-thinkbig
+kb-milkt
+kb-visang-onlyone
+kb-you-with
+shinhan-the-classic-v
+shinhan-the-classic-y
+shinhan-the-classic-neo
+samsung-the1-sfc-skypass
+samsung-the-id-1st
+samsung-the-id-platinum-point
+hana-jade-classic
+lotte-loca-platinum-discount
+woori-royal-blue-point
+kb-gaon-platinum-voucher
+nh-classy-travel
+nh-on-platinum-point
+lotte-loca-money
+lotte-digiroca-auto
+lotte-loca-lite
+lotte-digiroca-london
+bc-baro-onoff
+bc-baro-air-plus-skypass
+bc-baro-macao
+bc-baro-green-card
+hana-multi-any
+hana-oneq
+hana-wonder-daily
+hana-1q-shopping-plus
+woori-shopping-plus
+woori-every-1
+woori-everyday-check
+nh-chaeum-kpass-check
+nh-zgm-shopping
+shinhan-kpass-check
+shinhan-kpass
+kb-kpass-check
+kb-kpass
+kb-nori2-kbpay
+woori-jeongseok-ohacheck
+hyundai-musinsa
+naverpay-money-hana-check
+shinhan-deep-on-platinum-plus
+shinhan-the-best-f
+shinhan-the-best-xo
+kb-heritage-smart-mileage
+kb-heritage-classic-skypass
+kb-skypass-titanium
+hyundai-the-purple-mileage
+lotte-skypass-platinum
+lotte-digiloca-skypass
+samsung-special-mileage-skypass
+samsung-shinsegae-the-mileage
+hana-skypass-amex-platinum
+hana-clubh-amex-reserve
+woori-jeongseok-premium-mileage-koreanair
+woori-royal-blue-mileage-skypass
+nh-chaeum-titanium-skypass
+nh-chaeum-platinum-skypass
+bc-baro-air-master
+bc-baro-air-max
+hyundai-koreanair-120
+hyundai-koreanair-300
+hyundai-koreanair-the-first-edition2
+hyundai-amex-green
+hyundai-amex-gold
+hyundai-amex-platinum
+shinhan-the-classic-plus
+kb-bev-v-skypass
+kb-heritage-reserve-skypass
+hana-club-primus-skypass
+nh-on-platinum-skypass
+nh-we-terra-skypass
+shinhan-tmoney-paygo
+shinhan-incheon-kpass
+shinhan-incheon-kpass-check
+nh-kpass
+hana-kpass
+hana-kpass-check
+woori-kpass
+woori-kpass-check
+samsung-kpass
+samsung-kpass-check
+lotte-kpass-loca
+im-kpass
+im-kpass-check
+ibk-kpass
+ibk-kpass-check
+kwangju-kpass
+bc-baro-kpass
+bnk-gyeongnam-kpass
+jb-kpass
+jb-kpass-check
+kakaobank-kpass-friends-check
+shinhyup-kpass-check
+mg-kpass-check

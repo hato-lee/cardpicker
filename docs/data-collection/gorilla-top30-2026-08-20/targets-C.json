@@ -1,0 +1,56 @@
+[
+ {
+  "ranking": 9,
+  "name": "NH20해봄카드",
+  "corp": "NH농협카드",
+  "gorillaIdx": 184,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/184",
+  "annualFeeRaw": "해외겸용 [8,000]원",
+  "topBenefitRaw": "[{\"idx\": 39, \"tags\": [\"인천공항라운지\", \"연 2회\", \"무료\"], \"title\": \"공항라운지\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/39/logo_img/759/ico_lounge.png\", \"name\": \"ico_lounge.png\"}, \"inputValue\": \"\"}, {\"idx\": 71, \"tags\": [\"국내 놀이공원\", \"50%\", \"할인\"], \"title\": \"테마파크\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/71/logo_img/926/ico_themePark.png\", \"name\": \"ico_themePark.png\"}, \"inputValue\": \"\"}, {\"idx\": 99, \"tags\": [\"온라인 쇼핑몰\", \"10%\", \"할인\"], \"title\": \"온라인쇼핑\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/99/logo_img/963/ico_onlineShopping.png\", \"name\": \"ico_onlineShopping.png\"}, \"inputValue\": \"\"}]"
+ },
+ {
+  "ranking": 10,
+  "name": "트래블로그+(플러스) 신용카드",
+  "corp": "하나카드",
+  "gorillaIdx": 2961,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2961",
+  "annualFeeRaw": "국내전용 [20,000]원 / 해외겸용 [20,000]원",
+  "topBenefitRaw": "[{\"idx\": 180, \"tags\": [\"국내외 가맹점\", \"1%\", \"적립\"], \"title\": \"국내외가맹점\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/180/logo_img/27494/ico_allStore.png\", \"name\": \"ico_allStore.png\"}, \"inputValue\": \"\"}, {\"idx\": 27, \"tags\": [\"해외 가맹점\", \"3%\", \"적립\"], \"title\": \"해외\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/27/logo_img/865/ico_foregin%28%ED%95%B4%EC%99%B8%29.png\", \"name\": \"ico_foregin(해외).png\"}, \"inputValue\": \"\"}, {\"idx\": 18, \"tags\": [\"항공·면세점·여행\", \"3%\", \"적립\"], \"title\": \"여행/숙박\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/18/logo_img/856/ico_travel%28%EC%97%AC%ED%96%89%EC%88%99%EB%B0%95%29.png\", \"name\": \"ico_travel(여행숙박).png\"}, \"inputValue\": \"\"}]"
+ },
+ {
+  "ranking": 12,
+  "name": "KB NEED Pay 카드",
+  "corp": "KB국민카드",
+  "gorillaIdx": 2964,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2964",
+  "annualFeeRaw": "국내전용 [19,000]원 / 해외겸용 [19,000]원",
+  "topBenefitRaw": "[{\"idx\": 1, \"tags\": [\"간편결제\", \"15%/10%\", \"할인 (택 1)\"], \"title\": \"간편결제\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/1/logo_img/747/ico_pay.png\", \"name\": \"ico_pay.png\"}, \"inputValue\": \"\"}, {\"idx\": 85, \"tags\": [\"온라인패션몰\", \"5%\", \"할인\"], \"title\": \"할인\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/85/logo_img/949/ico_discount.png\", \"name\": \"ico_discount.png\"}, \"inputValue\": \"\"}, {\"idx\": 85, \"tags\": [\"디지털콘텐츠/멤버십\", \"30%\", \"할인\"], \"title\": \"할인\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/85/logo_img/949/ico_discount.png\", \"name\": \"ico_discount.png\"}, \"inputValue\": \"\"}]"
+ },
+ {
+  "ranking": 20,
+  "name": "KB YOU Wish 카드",
+  "corp": "KB국민카드",
+  "gorillaIdx": 2970,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2970",
+  "annualFeeRaw": "국내전용 [15,000]원 / 해외겸용 [15,000]원",
+  "topBenefitRaw": "[{\"idx\": 1, \"tags\": [\"KB Pay\", \"10%\", \"할인\"], \"title\": \"간편결제\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/1/logo_img/747/ico_pay.png\", \"name\": \"ico_pay.png\"}, \"inputValue\": \"\"}, {\"idx\": 85, \"tags\": [\"푸드/통신/OTT\", \"10~30%\", \"할인\"], \"title\": \"할인\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/85/logo_img/949/ico_discount.png\", \"name\": \"ico_discount.png\"}, \"inputValue\": \"\"}, {\"idx\": 68, \"tags\": [\"배달/일상/관리\", \"5~30%\", \"선택 할인\"], \"title\": \"선택형\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/68/logo_img/8897/ico_diy.png\", \"name\": \"ico_diy.png\"}, \"inputValue\": \"\"}]"
+ },
+ {
+  "ranking": 22,
+  "name": "카드의정석2 SUPER",
+  "corp": "우리카드",
+  "gorillaIdx": 2980,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2980",
+  "annualFeeRaw": "국내전용 [30,000]원 / 해외겸용 [30,000]원",
+  "topBenefitRaw": "[{\"idx\": 180, \"tags\": [\"국내외 가맹점\", \"2%\", \"할인\"], \"title\": \"국내외가맹점\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/180/logo_img/27494/ico_allStore.png\", \"name\": \"ico_allStore.png\"}, \"inputValue\": \"\"}, {\"idx\": 65, \"tags\": [\"2~3개월\", \"무이자 할부\", \"서비스\"], \"title\": \"무이자할부\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/65/logo_img/792/ico_monthlyInstallment.png\", \"name\": \"ico_monthlyInstallment.png\"}, \"inputValue\": \"\"}, {\"idx\": 149, \"tags\": [\"해외수수료\", \"면제\", \"서비스\"], \"title\": \"수수료우대\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/149/logo_img/1014/ico_commission.png\", \"name\": \"ico_commission.png\"}, \"inputValue\": \"\"}]"
+ },
+ {
+  "ranking": 30,
+  "name": "올바른 FLEX 카드",
+  "corp": "NH농협카드",
+  "gorillaIdx": 666,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/666",
+  "annualFeeRaw": "국내전용 [10,000]원 / 해외겸용 [12,000]원",
+  "topBenefitRaw": "[{\"idx\": 127, \"tags\": [\"커피\", \"50%\", \"할인\"], \"title\": \"카페\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/127/logo_img/991/ico_cafe.png\", \"name\": \"ico_cafe.png\"}, \"inputValue\": \"\"}, {\"idx\": 169, \"tags\": [\"스트리밍\", \"20%\", \"할인\"], \"title\": \"디지털구독\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/169/logo_img/8178/ico_subscribe.png\", \"name\": \"ico_subscribe.png\"}, \"inputValue\": \"\"}, {\"idx\": 115, \"tags\": [\"영화\", \"30%\", \"할인\"], \"title\": \"영화\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/115/logo_img/2330/ico_movie.png\", \"name\": \"ico_movie.png\"}, \"inputValue\": \"\"}]"
+ }
+]

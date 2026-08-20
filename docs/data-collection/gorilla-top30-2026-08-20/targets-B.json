@@ -1,0 +1,56 @@
+[
+ {
+  "ranking": 6,
+  "name": "American Express® Gold Card Edition2",
+  "corp": "현대카드",
+  "gorillaIdx": 2663,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2663",
+  "annualFeeRaw": "해외겸용 [300,000]원",
+  "topBenefitRaw": "[{\"idx\": 158, \"tags\": [\"바우처\", \"연간 25만원\", \"상당\"], \"title\": \"바우처\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/158/logo_img/1005/ico_voucher.png\", \"name\": \"ico_voucher.png\"}, \"inputValue\": \"\"}, {\"idx\": 39, \"tags\": [\"전 세계 공항라운지\", \"연 10회\", \"무료 이용\"], \"title\": \"공항라운지\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/39/logo_img/759/ico_lounge.png\", \"name\": \"ico_lounge.png\"}, \"inputValue\": \"\"}, {\"idx\": 86, \"tags\": [\"멤버십리워즈(MR)\", \"최대 3MR\", \"적립\"], \"title\": \"적립\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/86/logo_img/950/ico_point.png\", \"name\": \"ico_point.png\"}, \"inputValue\": \"\"}]"
+ },
+ {
+  "ranking": 7,
+  "name": "알파벳카드S",
+  "corp": "현대카드",
+  "gorillaIdx": 2881,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2881",
+  "annualFeeRaw": "국내전용 [15,000]원 / 해외겸용 [15,000]원",
+  "topBenefitRaw": "[{\"idx\": 75, \"tags\": [\"온라인몰, 대형마트, 슈퍼마켓\", \"10%\", \"청구 할인\"], \"title\": \"대형마트\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/75/logo_img/930/ico_mart.png\", \"name\": \"ico_mart.png\"}, \"inputValue\": \"\"}, {\"idx\": 97, \"tags\": [\"백화점, 프리미엄 아울렛\", \"10%\", \"청구 할인\"], \"title\": \"백화점\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/97/logo_img/961/ico_shopping.png\", \"name\": \"ico_shopping.png\"}, \"inputValue\": \"\"}, {\"idx\": 85, \"tags\": [\"커피전문점, 편의점, 대중교통\", \"5%\", \"청구 할인\"], \"title\": \"할인\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/85/logo_img/949/ico_discount.png\", \"name\": \"ico_discount.png\"}, \"inputValue\": \"\"}]"
+ },
+ {
+  "ranking": 21,
+  "name": "알파벳카드R",
+  "corp": "현대카드",
+  "gorillaIdx": 2969,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2969",
+  "annualFeeRaw": "국내전용 [15,000]원 / 해외겸용 [15,000]원",
+  "topBenefitRaw": "[{\"idx\": 85, \"tags\": [\"생활 요금, 이동통신 요금\", \"10%\", \"청구 할인\"], \"title\": \"할인\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/85/logo_img/949/ico_discount.png\", \"name\": \"ico_discount.png\"}, \"inputValue\": \"\"}, {\"idx\": 85, \"tags\": [\"디지털 콘텐츠, 온라인쇼핑 멤버십\", \"10%\", \"청구 할인\"], \"title\": \"할인\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/85/logo_img/949/ico_discount.png\", \"name\": \"ico_discount.png\"}, \"inputValue\": \"\"}, {\"idx\": 85, \"tags\": [\"커피전문점, 편의점, 대중교통\", \"5%\", \"청구 할인\"], \"title\": \"할인\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/85/logo_img/949/ico_discount.png\", \"name\": \"ico_discount.png\"}, \"inputValue\": \"\"}]"
+ },
+ {
+  "ranking": 14,
+  "name": "신한카드 처음(ANNIVERSE)",
+  "corp": "신한카드",
+  "gorillaIdx": 2759,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2759",
+  "annualFeeRaw": "국내전용 [15,000]원 / 해외겸용 [18,000]원",
+  "topBenefitRaw": "[{\"idx\": 86, \"tags\": [\"음식·생활·패션\", \"5%\", \"적립\"], \"title\": \"적립\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/86/logo_img/950/ico_point.png\", \"name\": \"ico_point.png\"}, \"inputValue\": \"\"}, {\"idx\": 23, \"tags\": [\"통신·구독·멤버십\", \"최대 20%\", \"적립\"], \"title\": \"통신\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/23/logo_img/861/ico_mobile%28%ED%86%B5%EC%8B%A0%29.png\", \"name\": \"ico_mobile(통신).png\"}, \"inputValue\": \"\"}, {\"idx\": 86, \"tags\": [\"소비관리 보너스\", \"매월 최대 1만P\"], \"title\": \"적립\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/86/logo_img/950/ico_point.png\", \"name\": \"ico_point.png\"}, \"inputValue\": \"\"}]"
+ },
+ {
+  "ranking": 17,
+  "name": "신한카드 Discount Plan+",
+  "corp": "신한카드",
+  "gorillaIdx": 2835,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2835",
+  "annualFeeRaw": "국내전용 [50,000]원 / 해외겸용 [50,000]원",
+  "topBenefitRaw": "[{\"idx\": 22, \"tags\": [\"카페\", \"10%\", \"할인\"], \"title\": \"카페/디저트\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/22/logo_img/860/ico_cafe%28%EC%B9%B4%ED%8E%98%EB%94%94%EC%A0%80%ED%8A%B8%29.png\", \"name\": \"ico_cafe(카페디저트).png\"}, \"inputValue\": \"\"}, {\"idx\": 16, \"tags\": [\"쇼핑\", \"10%\", \"할인\"], \"title\": \"쇼핑\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/16/logo_img/854/ico_shopping%28%EC%87%BC%ED%95%91%29.png\", \"name\": \"ico_shopping(쇼핑).png\"}, \"inputValue\": \"\"}, {\"idx\": 85, \"tags\": [\"정기결제\", \"최대 20%\", \"할인\"], \"title\": \"할인\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/85/logo_img/949/ico_discount.png\", \"name\": \"ico_discount.png\"}, \"inputValue\": \"\"}]"
+ },
+ {
+  "ranking": 23,
+  "name": "신한카드 Simple Plan+",
+  "corp": "신한카드",
+  "gorillaIdx": 2950,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2950",
+  "annualFeeRaw": "국내전용 [47,000]원 / 해외겸용 [50,000]원",
+  "topBenefitRaw": "[{\"idx\": 85, \"tags\": [\"실적·한도 없이 국내\", \"1.5%\", \"할인\"], \"title\": \"할인\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/85/logo_img/949/ico_discount.png\", \"name\": \"ico_discount.png\"}, \"inputValue\": \"\"}, {\"idx\": 27, \"tags\": [\"실적·한도 없이 해외\", \"2%\", \"할인\"], \"title\": \"해외\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/27/logo_img/865/ico_foregin%28%ED%95%B4%EC%99%B8%29.png\", \"name\": \"ico_foregin(해외).png\"}, \"inputValue\": \"\"}, {\"idx\": 83, \"tags\": [\"마트/병원/주유\", \"3만원\", \"웰컴 캐시백\"], \"title\": \"캐시백\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/83/logo_img/948/ico_cashback.png\", \"name\": \"ico_cashback.png\"}, \"inputValue\": \"\"}]"
+ }
+]

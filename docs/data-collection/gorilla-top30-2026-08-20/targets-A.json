@@ -1,0 +1,47 @@
+[
+ {
+  "ranking": 4,
+  "name": "삼성카드 & MILEAGE PLATINUM (스카이패스)",
+  "corp": "삼성카드",
+  "gorillaIdx": 49,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/49",
+  "annualFeeRaw": "국내전용 [47,000]원 / 해외겸용 [49,000]원",
+  "topBenefitRaw": "[{\"idx\": 141, \"tags\": [\"1,000원당\", \"1마일\", \"기본적립\"], \"title\": \"대한항공\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/141/logo_img/1006/ico_mileage.png\", \"name\": \"ico_mileage.png\"}, \"inputValue\": \"\"}, {\"idx\": 127, \"tags\": [\"국내/해외 택1 옵션형\", \"1마일\", \"특별적립\"], \"title\": \"카페\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/127/logo_img/991/ico_cafe.png\", \"name\": \"ico_cafe.png\"}, \"inputValue\": \"\"}, {\"idx\": 39, \"tags\": [\"인천공항\", \"라운지\", \"무료이용\"], \"title\": \"공항라운지\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/39/logo_img/759/ico_lounge.png\", \"name\": \"ico_lounge.png\"}, \"inputValue\": \"\"}]"
+ },
+ {
+  "ranking": 8,
+  "name": "삼성 iD SELECT UP 카드",
+  "corp": "삼성카드",
+  "gorillaIdx": 2986,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2986",
+  "annualFeeRaw": "국내전용 [18,000]원 / 해외겸용 [18,000]원",
+  "topBenefitRaw": "[{\"idx\": 68, \"tags\": [\"선택 옵션에 따른\", \"할인 혜택\", \"(택 1)\"], \"title\": \"선택형\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/68/logo_img/8897/ico_diy.png\", \"name\": \"ico_diy.png\"}, \"inputValue\": \"\"}, {\"idx\": 199, \"tags\": [\"국내 가맹점\", \"0.5%\", \"할인\"], \"title\": \"국내가맹점\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/199/logo_img/47943/ico_allStore.png\", \"name\": \"ico_allStore.png\"}, \"inputValue\": \"\"}, {\"idx\": 16, \"tags\": [\"쇼핑\", \"1%\", \"할인\"], \"title\": \"쇼핑\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/16/logo_img/854/ico_shopping%28%EC%87%BC%ED%95%91%29.png\", \"name\": \"ico_shopping(쇼핑).png\"}, \"inputValue\": \"\"}]"
+ },
+ {
+  "ranking": 18,
+  "name": "삼성카드 taptap S",
+  "corp": "삼성카드",
+  "gorillaIdx": 52,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/52",
+  "annualFeeRaw": "국내전용 [10,000]원 / 해외겸용 [10,000]원",
+  "topBenefitRaw": "[{\"idx\": 11, \"tags\": [\"국내외가맹점\", \"1%\", \"적립\"], \"title\": \"모든가맹점\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/11/logo_img/916/ico_allStore.png\", \"name\": \"ico_allStore.png\"}, \"inputValue\": \"\"}, {\"idx\": 122, \"tags\": [\"주유소\", \"2,000원\", \"할인\"], \"title\": \"주유소\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/122/logo_img/986/ico_oil.png\", \"name\": \"ico_oil.png\"}, \"inputValue\": \"\"}, {\"idx\": 115, \"tags\": [\"영화관\", \"5,000원\", \"할인\"], \"title\": \"영화\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/115/logo_img/2330/ico_movie.png\", \"name\": \"ico_movie.png\"}, \"inputValue\": \"\"}]"
+ },
+ {
+  "ranking": 24,
+  "name": "삼성 iD GLOBAL 카드",
+  "corp": "삼성카드",
+  "gorillaIdx": 2676,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2676",
+  "annualFeeRaw": "국내전용 [20,000]원 / 해외겸용 [20,000]원",
+  "topBenefitRaw": "[{\"idx\": 27, \"tags\": [\"해외 이용\", \"2%\", \"할인\"], \"title\": \"해외\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/27/logo_img/865/ico_foregin%28%ED%95%B4%EC%99%B8%29.png\", \"name\": \"ico_foregin(해외).png\"}, \"inputValue\": \"\"}, {\"idx\": 39, \"tags\": [\"공항라운지\", \"연 2회\", \"무료 이용\"], \"title\": \"공항라운지\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/39/logo_img/759/ico_lounge.png\", \"name\": \"ico_lounge.png\"}, \"inputValue\": \"\"}, {\"idx\": 185, \"tags\": [\"디지털콘텐츠\", \"50%\", \"할인\"], \"title\": \"디지털구독\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/185/logo_img/38116/ico_subscribe.png\", \"name\": \"ico_subscribe.png\"}, \"inputValue\": \"\"}]"
+ },
+ {
+  "ranking": 26,
+  "name": "삼성 iD SELECT ON 카드",
+  "corp": "삼성카드",
+  "gorillaIdx": 2886,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2886",
+  "annualFeeRaw": "국내전용 [20,000]원 / 해외겸용 [20,000]원",
+  "topBenefitRaw": "[{\"idx\": 68, \"tags\": [\"음식점 또는 온라인몰\", \" 금/토/일 10%\", \"할인\"], \"title\": \"선택형\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/68/logo_img/8897/ico_diy.png\", \"name\": \"ico_diy.png\"}, \"inputValue\": \"\"}, {\"idx\": 154, \"tags\": [\"생활 편의 영역\", \"5%\", \"할인\"], \"title\": \"생활\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/154/logo_img/923/ico_life.png\", \"name\": \"ico_life.png\"}, \"inputValue\": \"\"}, {\"idx\": 185, \"tags\": [\"인앱 결제/디지털콘텐츠\", \"50%\", \"할인\"], \"title\": \"디지털구독\", \"logo_img\": {\"url\": \"https://d1c5n4ri2guedi.cloudfront.net/benefit/185/logo_img/38116/ico_subscribe.png\", \"name\": \"ico_subscribe.png\"}, \"inputValue\": \"\"}]"
+ }
+]
