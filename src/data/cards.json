@@ -14229,5 +14229,79 @@
   "lastChecked": "2026-08-20",
   "status": "active",
   "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문. 카드고릴라 월간 100위. 적립은 전월실적 조건 없음. 태그 밖(전월 30만 조건): CGV·메가박스 예매 건당 3,500원 할인(월 4매), 롯데월드·에버랜드 50%·캐리비안베이 30% 현장할인. 연회비 브랜드별 15,000원(K-World)~20,000원."
+ },
+ {
+  "id": "hana-moving-life",
+  "name": "MOVING카드 LIFE모드",
+  "issuer": "하나카드",
+  "kind": "credit",
+  "annualFee": 20000,
+  "minSpend": 500000,
+  "benefits": [
+   {
+    "tag": "병의원·약국",
+    "type": "points",
+    "rate": 10,
+    "monthlyCap": 10000,
+    "stars": 2,
+    "note": "병·의원·약국 오프라인 결제 하나머니 10% (보건소·동물병원 제외), 영역별 월 1만"
+   },
+   {
+    "tag": "학원·교육",
+    "type": "points",
+    "rate": 10,
+    "monthlyCap": 10000,
+    "stars": 2,
+    "note": "입시·보습·외국어·예체능 학원 오프라인 결제 10%, 월 1만"
+   },
+   {
+    "tag": "관리비·공과금",
+    "type": "points",
+    "rate": 10,
+    "monthlyCap": 10000,
+    "stars": 2,
+    "capGroup": "lifefee",
+    "note": "아파트관리비·전기·도시가스 자동납부 10%, 통신비와 생활요금 통합 월 1만"
+   },
+   {
+    "tag": "통신비",
+    "type": "points",
+    "rate": 10,
+    "monthlyCap": 10000,
+    "stars": 2,
+    "capGroup": "lifefee",
+    "note": "SKT·KT·LG U+ 자동이체 10% (알뜰폰 제외), 관리비와 생활요금 통합 월 1만"
+   },
+   {
+    "tag": "주유",
+    "type": "points",
+    "rate": 10,
+    "monthlyCap": 10000,
+    "stars": 2,
+    "note": "SK·GS·S-Oil·HD현대·알뜰주유소 10%, 제휴 전기차 충전은 30%, 영역 월 1만"
+   },
+   {
+    "tag": "OTT·구독",
+    "type": "points",
+    "rate": 30,
+    "monthlyCap": 10000,
+    "stars": 2,
+    "note": "넷플릭스·유튜브 프리미엄 등 스트리밍 30% + 쿠팡와우·네이버플러스 등 멤버십, 통합 월 1만, 자동납부 건만"
+   },
+   {
+    "tag": "온라인 쇼핑",
+    "type": "points",
+    "rate": 10,
+    "monthlyCap": 10000,
+    "stars": 2,
+    "note": "쿠팡·네이버플러스스토어·SSG·컬리·오아시스 공식 앱 결제 10%, 3일 연속 이용 시 20%, 월 1만"
+   }
+  ],
+  "universal": null,
+  "complexity": 3,
+  "officialUrl": "https://www.hanacard.co.kr/OPI42000000D.web?CD_PD_SEQ=19197",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라 인기혜택 차트 대조), 검수 전. 출처: 카드고릴라 API 상품안내 원문+하나카드 공식 링크. 카드고릴라 주간 주유·충전 7위·교육비 9위. MOVING 모드 선택형(발급 후 하나페이 앱에서 모드 변경 가능) — ONLINE모드(hana-moving-online)와 자매. 이마트·롯데마트 등 오프라인 쇼핑 10%는 태그 밖(마트). '3일 연속 이용 시 2배'는 기본률로 기재하고 note에만 표기. 하나머니 1P=1원."
  }
 ]

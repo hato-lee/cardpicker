@@ -1,0 +1,137 @@
+{
+ "K-패스": {
+  "idx": 216,
+  "top10": [
+   "K-패스 (신용)",
+   "K-패스 신한카드",
+   "티머니 Pay & GO 신한카드",
+   "K-패스 카드",
+   "K-패스카드(신용)",
+   "K-패스카드",
+   "K-패스 삼성카드",
+   "K-패스 하나 신용카드",
+   "K-패스 우리카드",
+   "K-패스엔로카"
+  ]
+ },
+ "공과금": {
+  "idx": 229,
+  "top10": [
+   "신한카드 Mr.Life",
+   "삼성 iD SELECT ALL 카드",
+   "신한카드 Discount Plan+",
+   "KB YOU Prime 카드",
+   "알파벳카드R",
+   "신한카드 Point Plan",
+   "알파벳카드O",
+   "알파벳카드H",
+   "zgm 할인카드",
+   "BC 바로 Air Max 카드"
+  ]
+ },
+ "온라인쇼핑": {
+  "idx": 225,
+  "top10": [
+   "신한카드 Mr.Life",
+   "삼성 iD SELECT ALL 카드",
+   "NH20해봄카드",
+   "알파벳카드S",
+   "삼성 iD SELECT UP 카드",
+   "KB NEED Pay 카드",
+   "신한카드 처음(ANNIVERSE)",
+   "삼성카드 taptap O",
+   "신한카드 Discount Plan+",
+   "KB YOU Prime 카드"
+  ]
+ },
+ "주유·충전": {
+  "idx": 221,
+  "top10": [
+   "K-패스 (신용)",
+   "KB YOU Prime 카드",
+   "삼성 iD GLOBAL 카드",
+   "JADE Classic",
+   "알파벳카드O",
+   "I-ALL",
+   "MOVING카드 LIFE모드",
+   "JADE Prime",
+   "BeV Ⅲ 카드",
+   "BC 바로 MACAO 카드"
+  ]
+ },
+ "모든가맹점": {
+  "idx": 200,
+  "top10": [
+   "삼성카드 & MILEAGE PLATINUM (스카이패스)",
+   "삼성 iD SELECT ALL 카드",
+   "American Express® Gold Card Edition2",
+   "트래블로그+(플러스) 신용카드",
+   "카드의정석2 SUPER",
+   "삼성 iD GLOBAL 카드",
+   "KB YOU Wish 카드",
+   "삼성카드 taptap S",
+   "신한카드 Simple Plan+",
+   "쿠팡 와우카드"
+  ]
+ },
+ "마일리지": {
+  "idx": 213,
+  "top10": [
+   "삼성카드 & MILEAGE PLATINUM (스카이패스)",
+   "대한항공카드 300",
+   "대한항공카드 the First Edition2",
+   "신한카드 Air One",
+   "대한항공카드 060",
+   "카드의정석 EVERY MILE SKYPASS",
+   "THE 1 (스카이패스)",
+   "대한항공카드 120",
+   "BC 바로 Air Max 카드",
+   "하나 스카이패스 아멕스 플래티늄 카드"
+  ]
+ },
+ "간편결제": {
+  "idx": 258,
+  "top10": [
+   "트래블로그+(플러스) 신용카드",
+   "삼성 iD GLOBAL 카드",
+   "삼성 iD SELECT ON 카드",
+   "K-패스 신한카드",
+   "카드의정석 SHOPPING+",
+   "MOVING카드 ONLINE모드",
+   "원더카드 2.0 FREE",
+   "MOVING카드 ALLDAY모드",
+   "삼성 iD ON 카드",
+   "zgm.the pay카드"
+  ]
+ },
+ "디지털구독": {
+  "idx": 205,
+  "top10": [
+   "삼성 iD SELECT ALL 카드",
+   "KB국민 My WE:SH 카드",
+   "KB NEED Pay 카드",
+   "신한카드 처음(ANNIVERSE)",
+   "신한카드 Discount Plan+",
+   "알파벳카드R",
+   "삼성 iD GLOBAL 카드",
+   "KB YOU Wish 카드",
+   "쿠팡 와우카드",
+   "삼성 iD SELECT ON 카드"
+  ]
+ },
+ "교육비": {
+  "idx": 209,
+  "top10": [
+   "굿데이카드",
+   "삼성 iD SELECT ALL 카드",
+   "KB YOU Prime 카드",
+   "알파벳카드H",
+   "현대카드 Summit",
+   "현대카드 ZERO Up(포인트형)",
+   "LOCA 365 카드",
+   "카드의정석2 ROUTINE",
+   "MOVING카드 LIFE모드",
+   "국민행복 삼성카드 V2"
+  ]
+ }
+}
