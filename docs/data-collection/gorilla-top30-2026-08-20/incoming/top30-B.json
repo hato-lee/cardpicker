@@ -1,0 +1,365 @@
+[
+  {
+    "id": "hyundai-alphabet-s",
+    "name": "알파벳카드S",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 400000,
+    "benefits": [
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "온라인몰(쿠팡·네이버플러스스토어·G마켓·SSG 등) 10% 청구할인, 대형마트·슈퍼마켓·백화점·아울렛과 월 통합 한도, 간편결제·PG 결제 제외",
+        "tiers": [
+          { "minSpend": 800000, "monthlyCap": 20000 },
+          { "minSpend": 1200000, "monthlyCap": 35000 }
+        ]
+      },
+      {
+        "tag": "카페",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "스타벅스·투썸·폴바셋·이디야·메가 5% 청구할인, 편의점·대중교통과 통합 한도(영역별 월 5천원 별도 상한)",
+        "capGroup": "cafecvs",
+        "tiers": [
+          { "minSpend": 800000, "monthlyCap": 10000 },
+          { "minSpend": 1200000, "monthlyCap": 15000 }
+        ]
+      },
+      {
+        "tag": "편의점",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "GS25·CU·세븐일레븐·이마트24 현장 결제 5% 청구할인(앱 결제 제외), 카페·대중교통과 통합 한도(영역별 월 5천원 별도 상한)",
+        "capGroup": "cafecvs",
+        "tiers": [
+          { "minSpend": 800000, "monthlyCap": 10000 },
+          { "minSpend": 1200000, "monthlyCap": 15000 }
+        ]
+      },
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "시내버스·지하철·택시 5% 청구할인, 시외·고속버스 제외, 카페·편의점과 통합 한도(영역별 월 5천원 별도 상한)",
+        "capGroup": "cafecvs",
+        "tiers": [
+          { "minSpend": 800000, "monthlyCap": 10000 },
+          { "minSpend": 1200000, "monthlyCap": 15000 }
+        ]
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=HCS",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20, 고릴라TOP30), 검수 전. 출처: 카드고릴라 API 상품안내 전문(현대카드 공식 페이지는 JS 렌더링이라 직접 확인 못함, 공식 URL은 카드고릴라 기재값). 카드고릴라 월간 7위. 2025-07 출시 '현대카드 시리즈(D·H·O·S·T)'가 2026-07 독자 브랜드 '알파벳카드'로 개편된 쇼핑 특화 카드. 대형마트·슈퍼마켓·백화점·아울렛 10%는 태그 밖이며 온라인 쇼핑과 월 통합 한도를 나눔. 해외 가맹점 이용분 혜택 제외. 메탈 플레이트(발급 수수료 7만원)와 신규 발급 캐시백 이벤트는 이벤트성/태그 밖이라 제외."
+  },
+  {
+    "id": "hyundai-alphabet-r",
+    "name": "알파벳카드R",
+    "issuer": "현대카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 400000,
+    "benefits": [
+      {
+        "tag": "관리비·공과금",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "아파트관리비·도시가스·전기요금 정기결제 10% 청구할인, 통신·구독과 통합 한도",
+        "capGroup": "regular",
+        "tiers": [
+          { "minSpend": 800000, "monthlyCap": 20000 },
+          { "minSpend": 1200000, "monthlyCap": 35000 }
+        ]
+      },
+      {
+        "tag": "통신비",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "SKT·KT·LGU+ 정기결제 10% 청구할인, 알뜰폰·결합상품 제외, 공과금·구독과 통합 한도",
+        "capGroup": "regular",
+        "tiers": [
+          { "minSpend": 800000, "monthlyCap": 20000 },
+          { "minSpend": 1200000, "monthlyCap": 35000 }
+        ]
+      },
+      {
+        "tag": "OTT·구독",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "넷플릭스·유튜브프리미엄·티빙·디즈니+·멜론·지니, 네이버플러스·쿠팡와우·컬리멤버스 정기결제 10% 청구할인(인앱결제 제외), 공과금·통신과 통합 한도",
+        "capGroup": "regular",
+        "tiers": [
+          { "minSpend": 800000, "monthlyCap": 20000 },
+          { "minSpend": 1200000, "monthlyCap": 35000 }
+        ]
+      },
+      {
+        "tag": "카페",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "스타벅스·투썸·폴바셋·이디야·메가 5% 청구할인, 편의점·대중교통과 통합 한도(영역별 월 5천원 별도 상한)",
+        "capGroup": "cafecvs",
+        "tiers": [
+          { "minSpend": 800000, "monthlyCap": 10000 },
+          { "minSpend": 1200000, "monthlyCap": 15000 }
+        ]
+      },
+      {
+        "tag": "편의점",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "GS25·CU·세븐일레븐·이마트24 현장 결제 5% 청구할인(앱 결제 제외), 카페·대중교통과 통합 한도(영역별 월 5천원 별도 상한)",
+        "capGroup": "cafecvs",
+        "tiers": [
+          { "minSpend": 800000, "monthlyCap": 10000 },
+          { "minSpend": 1200000, "monthlyCap": 15000 }
+        ]
+      },
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "시내버스·지하철·택시 5% 청구할인, 시외·고속버스 제외, 카페·편의점과 통합 한도(영역별 월 5천원 별도 상한)",
+        "capGroup": "cafecvs",
+        "tiers": [
+          { "minSpend": 800000, "monthlyCap": 10000 },
+          { "minSpend": 1200000, "monthlyCap": 15000 }
+        ]
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=ALR",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20, 고릴라TOP30), 검수 전. 출처: 카드고릴라 API 상품안내 전문(현대카드 공식 페이지는 JS 렌더링이라 직접 확인 못함, 공식 URL은 카드고릴라 기재값). 카드고릴라 월간 21위. 2026-07 알파벳카드 브랜드 론칭과 함께 나온 신규 3종(B·P·R) 중 정기결제(Repeat) 특화 카드. OTT·넷플릭스 등은 공식 홈페이지(PC) 결제수단 등록 건만 할인되는 조건 까다로움(모바일 앱·간편결제·인앱결제 제외). 메탈 플레이트(발급 수수료 7만원)는 태그 밖."
+  },
+  {
+    "id": "shinhan-discount-plan-plus",
+    "name": "신한카드 Discount Plan+",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 50000,
+    "minSpend": 400000,
+    "benefits": [
+      {
+        "tag": "카페",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "스타벅스·투썸·폴바셋·커피빈·메가·이디야 07~15시 결제만 10% 할인, 일 1회·1회 1만원까지, 음식점·편의점·배달앱과 통합 한도",
+        "capGroup": "time",
+        "tiers": [
+          { "minSpend": 800000, "monthlyCap": 10000 },
+          { "minSpend": 1200000, "monthlyCap": 15000 },
+          { "minSpend": 1800000, "monthlyCap": 20000 }
+        ]
+      },
+      {
+        "tag": "배달·외식",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "음식점 07~15시·배달앱(배민·요기요·쿠팡이츠) 18~22시 10% 할인, 일 1회·1회 1만원까지, 카페·편의점과 통합 한도",
+        "capGroup": "time",
+        "tiers": [
+          { "minSpend": 800000, "monthlyCap": 10000 },
+          { "minSpend": 1200000, "monthlyCap": 15000 },
+          { "minSpend": 1800000, "monthlyCap": 20000 }
+        ]
+      },
+      {
+        "tag": "편의점",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "CU·GS25·세븐일레븐·이마트24 18~22시 오프라인 결제만 10% 할인, 일 1회·1회 1만원까지, 카페·음식점·배달앱과 통합 한도",
+        "capGroup": "time",
+        "tiers": [
+          { "minSpend": 800000, "monthlyCap": 10000 },
+          { "minSpend": 1200000, "monthlyCap": 15000 },
+          { "minSpend": 1800000, "monthlyCap": 20000 }
+        ]
+      },
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 15000,
+        "stars": 3,
+        "note": "네이버플러스스토어·쿠팡·SSG·무신사·29CM 10% 할인, 영역별 일 1회·월 5회·1회 5만원까지, 마트·아울렛·잡화·주유·택시·해외·병원 영역과 통합 한도",
+        "capGroup": "daily",
+        "tiers": [
+          { "minSpend": 800000, "monthlyCap": 25000 },
+          { "minSpend": 1200000, "monthlyCap": 35000 },
+          { "minSpend": 1800000, "monthlyCap": 50000 }
+        ]
+      },
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 15000,
+        "stars": 2,
+        "note": "SK에너지·GS칼텍스·S-OIL·HD현대오일뱅크 5% 할인, LPG 제외, 일 1회·월 5회·1회 5만원까지, Daily Plan 영역과 통합 한도",
+        "capGroup": "daily",
+        "tiers": [
+          { "minSpend": 800000, "monthlyCap": 25000 },
+          { "minSpend": 1200000, "monthlyCap": 35000 },
+          { "minSpend": 1800000, "monthlyCap": 50000 }
+        ]
+      },
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 15000,
+        "stars": 2,
+        "note": "택시(카카오T 포함) 5% 할인, 버스·지하철은 대상 아님, 일 1회·월 5회, Daily Plan 영역과 통합 한도",
+        "capGroup": "daily",
+        "tiers": [
+          { "minSpend": 800000, "monthlyCap": 25000 },
+          { "minSpend": 1200000, "monthlyCap": 35000 },
+          { "minSpend": 1800000, "monthlyCap": 50000 }
+        ]
+      },
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 15000,
+        "stars": 2,
+        "note": "해외 일시불 5% 할인(Mastercard, 해외이용 수수료 별도), 일 1회·월 5회·1회 5만원까지, Daily Plan 영역과 통합 한도",
+        "capGroup": "daily",
+        "tiers": [
+          { "minSpend": 800000, "monthlyCap": 25000 },
+          { "minSpend": 1200000, "monthlyCap": 35000 },
+          { "minSpend": 1800000, "monthlyCap": 50000 }
+        ]
+      },
+      {
+        "tag": "병의원·약국",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 15000,
+        "stars": 2,
+        "note": "병원·치과·약국 업종 5% 할인, 일 1회·월 5회·1회 5만원까지, Daily Plan 영역과 통합 한도",
+        "capGroup": "daily",
+        "tiers": [
+          { "minSpend": 800000, "monthlyCap": 25000 },
+          { "minSpend": 1200000, "monthlyCap": 35000 },
+          { "minSpend": 1800000, "monthlyCap": 50000 }
+        ]
+      },
+      {
+        "tag": "관리비·공과금",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "아파트관리비·도시가스·전기요금 자동납부 10% 할인, 1회 5만원까지, 통신·구독과 통합 한도",
+        "capGroup": "monthly",
+        "tiers": [
+          { "minSpend": 800000, "monthlyCap": 10000 },
+          { "minSpend": 1200000, "monthlyCap": 15000 },
+          { "minSpend": 1800000, "monthlyCap": 20000 }
+        ]
+      },
+      {
+        "tag": "통신비",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "SKT·KT·LGU+ 자동납부 10% 할인, 월 1회·1회 5만원까지, 알뜰폰·결합상품 제외, 공과금·구독과 통합 한도",
+        "capGroup": "monthly",
+        "tiers": [
+          { "minSpend": 800000, "monthlyCap": 10000 },
+          { "minSpend": 1200000, "monthlyCap": 15000 },
+          { "minSpend": 1800000, "monthlyCap": 20000 }
+        ]
+      },
+      {
+        "tag": "OTT·구독",
+        "type": "discount",
+        "rate": 20,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "넷플릭스·유튜브프리미엄·티빙·디즈니+·밀리의서재, 네이버플러스·쿠팡와우 정기결제 20% 할인(인앱결제 제외), 1회 1만원까지, 공과금·통신과 통합 한도",
+        "capGroup": "monthly",
+        "tiers": [
+          { "minSpend": 800000, "monthlyCap": 10000 },
+          { "minSpend": 1200000, "monthlyCap": 15000 },
+          { "minSpend": 1800000, "monthlyCap": 20000 }
+        ]
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1232390_2207.html",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20, 고릴라TOP30), 검수 전. 출처: 카드고릴라 API 상품안내 전문 + 신한카드 공식 페이지(Time/Daily/Monthly Plan 월 통합 한도표 일치 확인, 연회비는 공식 페이지가 템플릿 변수라 카드고릴라 값 50,000원 사용). 카드고릴라 월간 17위. 2025-03 출시 Plan+ 시리즈. 태그 밖이라 제외: 마트·아울렛·잡화 10%(Daily 통합한도 공유), 미용실·온라인서점·카쉐어링·주차 5%(Daily), 피트니스 5%(Monthly), 영화 예매 5천원 할인(월 1회), Monthly 리워드 캐시백(전월 150만/180만 이상 3천/5천원), 연 1회 장보기 3만원 캐시백, 스피드메이트·테마파크 할인, 매월 1일 Plan Day 2배 할인."
+  },
+  {
+    "id": "shinhan-simple-plan-plus",
+    "name": "신한카드 Simple Plan+",
+    "issuer": "신한카드",
+    "kind": "credit",
+    "annualFee": 47000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "discount",
+        "rate": 1.5,
+        "monthlyCap": null,
+        "stars": 3,
+        "note": "전월실적·한도 없이 국내 이용금액 1.5% 결제일 할인"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 2,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "전월실적·한도 없이 해외 이용금액 2% 결제일 할인(Mastercard), 해외이용 수수료는 별도"
+      }
+    ],
+    "universal": { "type": "discount", "rate": 1.5, "monthlyCap": null },
+    "complexity": 1,
+    "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1237252_2207.html",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20, 고릴라TOP30), 검수 전. 출처: 카드고릴라 API + 신한카드 공식 페이지(국내 1.5%·해외 2%·실적/한도 없음 확인, 연회비는 공식 페이지가 템플릿 변수라 카드고릴라 값 국내전용 47,000원 사용, 해외겸용 50,000원). 카드고릴라 월간 23위. 2026-02 출시, 단종된 Simple/Simple+ 시리즈의 후속. 태그 밖·이벤트성이라 제외: 웰컴 캐시백 3만원(마트/병원/주유 최초 1회), 가족카드 분기 실적 캐시백 1만원, 국내 5만원 이상 2~3개월 무이자할부. 무이자할부 이용 건은 1.5% 할인 미적용."
+  }
+]

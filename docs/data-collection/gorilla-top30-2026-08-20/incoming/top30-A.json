@@ -1,0 +1,260 @@
+[
+  {
+    "id": "samsung-id-select-up",
+    "name": "삼성 iD SELECT UP 카드",
+    "issuer": "삼성카드",
+    "kind": "credit",
+    "annualFee": 18000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "discount",
+        "rate": 0.5,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "국내 가맹점 0.5% 결제일할인, 실적·한도 없음"
+      },
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 1,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "쿠팡·네이버플러스 스토어·SSG·컬리·홈쇼핑·백화점·할인점 1% 결제일할인, 실적·한도 없음, 임대매장 제외"
+      },
+      {
+        "tag": "병의원·약국",
+        "type": "discount",
+        "rate": 20,
+        "monthlyCap": 7000,
+        "stars": 2,
+        "note": "선택형 옵션(생활 영역과 택1): 병의원·약국·한의원·동물병원 오프라인 20%, 전월 50만원 이상 시 제공",
+        "tiers": [
+          { "minSpend": 1000000, "monthlyCap": 10000 },
+          { "minSpend": 1500000, "monthlyCap": 15000 }
+        ]
+      },
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 7000,
+        "stars": 2,
+        "note": "선택형 생활 옵션(의료와 택1): SK·GS·현대오일뱅크·S-OIL 10%, LPG충전소 제외, 보험·이동통신과 통합 한도, 전월 50만원 이상",
+        "capGroup": "life",
+        "tiers": [
+          { "minSpend": 1000000, "monthlyCap": 10000 },
+          { "minSpend": 1500000, "monthlyCap": 15000 }
+        ]
+      },
+      {
+        "tag": "통신비",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 7000,
+        "stars": 2,
+        "note": "선택형 생활 옵션(의료와 택1): SKT/KT/LG U+ 정기결제 10%, 알뜰폰 제외, 주유·보험과 통합 한도, 전월 50만원 이상",
+        "capGroup": "life",
+        "tiers": [
+          { "minSpend": 1000000, "monthlyCap": 10000 },
+          { "minSpend": 1500000, "monthlyCap": 15000 }
+        ]
+      },
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "해외수수료 면제(브랜드사 1.1%+해외이용 0.2% 결제일할인), 해외겸용 VISA 한정"
+      }
+    ],
+    "universal": { "type": "discount", "rate": 0.5, "monthlyCap": null },
+    "complexity": 3,
+    "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1913",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20, 고릴라TOP30), 검수 전. 출처: 카드고릴라 API(idx 2986, 삼성카드 상품설명 원문)+공식 페이지 링크. 카드고릴라 월간 8위. 카드 자체 전월실적 조건 없음(기본 서비스 무실적)이라 minSpend 0으로 했으나, SELECT 옵션(의료 20%/생활 10%)은 전월 50만원 이상부터 제공됨(50·100·150만 구간 한도 7천/1만/1.5만원) — note에 명시. 의료·생활은 매월 택1이라 동시 적용 불가. 여가 2%(골프/항공/면세점/철도/공연, 통합 월 50만원 한도)·병원/약국 5만원 이상 2~3개월 무이자할부는 태그 밖. 2026년 4월 출시."
+  },
+  {
+    "id": "samsung-taptap-s",
+    "name": "삼성카드 taptap S",
+    "issuer": "삼성카드",
+    "kind": "credit",
+    "annualFee": 10000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 1,
+        "monthlyCap": null,
+        "stars": 3,
+        "note": "국내외 전 가맹점 1% 빅포인트 적립, 실적·한도 없음(대중교통·공과금·등록금 등 제외)"
+      },
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 4,
+        "monthlyCap": 8000,
+        "stars": 2,
+        "note": "주유소·LPG충전소 5만원 이상 결제 시 건당 2,000원 결제일할인, 일 1회·월 4회"
+      }
+    ],
+    "universal": { "type": "points", "rate": 1, "monthlyCap": null },
+    "complexity": 2,
+    "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1482",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20, 고릴라TOP30), 검수 전. 출처: 카드고릴라 API(idx 52, 삼성카드 상품설명 원문)+공식 페이지 링크. 카드고릴라 월간 18위. 1% 적립은 전월실적 무관이나 주유·영화 할인은 전월 50만원 이상 조건이라 minSpend 500000. 주유는 건당 정액 2,000원(5만원 이상)을 4%로 환산, 월 최대 8,000원. 영화관 1만원 이상 현장결제 시 5,000원 할인(월 2회·연 12회)은 태그 밖."
+  },
+  {
+    "id": "samsung-id-global",
+    "name": "삼성 iD GLOBAL 카드",
+    "issuer": "삼성카드",
+    "kind": "credit",
+    "annualFee": 20000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "discount",
+        "rate": 0.5,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "국내 가맹점 0.5% 결제일할인, 실적·한도 없음"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 2,
+        "monthlyCap": 300000,
+        "stars": 2,
+        "note": "해외 가맹점·해외 직구 2% 결제일할인(실적 무관, 월 30만원 한도), 해외수수료 1.2% 면제, 삼성페이 해외 오프라인 결제 시 5%(전월 50만원 이상, 월 1만~2만원)"
+      },
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 1,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "쿠팡·G마켓·옥션·11번가·SSG 등 지정 온라인몰과 온라인 간편결제(삼성·네이버·카카오페이) 1%, 실적·한도 없음"
+      },
+      {
+        "tag": "편의점",
+        "type": "discount",
+        "rate": 1,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "CU·GS25·세븐일레븐·미니스톱·이마트24 오프라인 1%, 실적·한도 없음, 임대매장 제외"
+      },
+      {
+        "tag": "카페",
+        "type": "discount",
+        "rate": 1,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "스타벅스·이디야·투썸·커피빈·블루보틀 1%, 실적·한도 없음, 임대매장 제외"
+      },
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 1,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "주유소·LPG충전소 1%, 실적·한도 없음"
+      },
+      {
+        "tag": "OTT·구독",
+        "type": "discount",
+        "rate": 50,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "note": "구글플레이·앱스토어 인앱결제, 넷플릭스·디즈니+·유튜브 프리미엄, 쿠팡 와우·네이버플러스 멤버십 50% 결제일할인, 간편결제 등록 결제 제외",
+        "tiers": [
+          { "minSpend": 1000000, "monthlyCap": 20000 }
+        ]
+      }
+    ],
+    "universal": { "type": "discount", "rate": 0.5, "monthlyCap": null },
+    "complexity": 2,
+    "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1824",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20, 고릴라TOP30), 검수 전. 출처: 카드고릴라 API(idx 2676, 삼성카드 상품설명 원문)+공식 페이지 링크. 카드고릴라 월간 24위. 국내 0.5%·생활영역 1%·해외 2%·수수료 면제는 실적 무관, 디지털구독·삼성페이 해외 5%·라운지는 전월 50만원 이상(50만/100만 구간 1만/2만원)이라 minSpend 500000. 생활 1%에는 항공·여행사·면세점·리셀(크림)·백화점·홈쇼핑도 포함(태그 밖). 국내외 공항라운지 연 2회 무료(전월 50만원 이상)는 태그 밖. 해외수수료 면제·해외 5%는 해외겸용카드 한정."
+  },
+  {
+    "id": "samsung-id-select-on",
+    "name": "삼성 iD SELECT ON 카드",
+    "issuer": "삼성카드",
+    "kind": "credit",
+    "annualFee": 20000,
+    "minSpend": 300000,
+    "benefits": [
+      {
+        "tag": "배달·외식",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "선택형 옵션(쇼핑 2배 옵션과 택1): 음식점 금~일 10%·월~목 5% 결제일할인(오프라인, 임대매장 제외). 배달앱(배민·쿠팡이츠·요기요) 5%는 별도 월 5,000원 한도",
+        "tiers": [
+          { "minSpend": 600000, "monthlyCap": 10000 }
+        ]
+      },
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "선택형 옵션(외식 2배 옵션과 택1): 무신사·29CM 등 온라인 패션몰과 쿠팡·G마켓·11번가·컬리 등 온라인몰 금~일 10%·월~목 5%",
+        "tiers": [
+          { "minSpend": 600000, "monthlyCap": 10000 }
+        ]
+      },
+      {
+        "tag": "카페",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "스타벅스·이디야·투썸·커피빈·블루보틀·메가·컴포즈 5% 결제일할인, 오프라인(스타벅스는 사이렌오더 포함), 임대매장 제외"
+      },
+      {
+        "tag": "대중교통·택시",
+        "type": "discount",
+        "rate": 5,
+        "monthlyCap": 5000,
+        "stars": 2,
+        "note": "택시·쏘카(카셰어링) 5% 결제일할인, 버스·지하철은 해당 없음"
+      },
+      {
+        "tag": "OTT·구독",
+        "type": "discount",
+        "rate": 50,
+        "monthlyCap": 5000,
+        "stars": 1,
+        "note": "구글플레이·앱스토어 인앱결제, 넷플릭스·디즈니+·유튜브 프리미엄·티빙 정기결제 50% 결제일할인, 간편결제 등록 결제 제외",
+        "tiers": [
+          { "minSpend": 600000, "monthlyCap": 10000 }
+        ]
+      },
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 2,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "해외 가맹점·해외 직구 2% 결제일할인, 실적·한도 없음, 해외겸용카드 한정"
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1877",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20, 고릴라TOP30), 검수 전. 출처: 카드고릴라 API(idx 2886, 삼성카드 상품설명 원문)+공식 페이지 링크. 카드고릴라 월간 26위. SELECT는 3옵션 택1: (1)외식 2배(음식점 주말 10%/주중 5%, 한도 30만↑ 5천·60만↑ 1만 + 온라인몰 5%/월 5천) (2)쇼핑 2배(온라인몰 주말 10%, 한도 동일 + 음식점 5%/월 5천) (3)온라인 간편결제 1%(실적·한도 없음) — 배달·외식과 온라인 쇼핑 벤핏을 각각 자기 옵션의 2배 값으로 적었으므로 실제로는 동시에 둘 다 최대치가 될 수 없음. 음식점·온라인몰 한도는 서로 별도 풀. 생활 편의(배달앱/카페/택시)는 항목별 각 월 5,000원 한도, 전월 30만원 이상."
+  }
+]
