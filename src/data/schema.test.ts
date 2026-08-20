@@ -9,7 +9,7 @@ const good = {
   minSpend: 300000,
   benefits: [
     { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3 },
-    { tag: '카페·편의점', type: 'discount', rate: 5, monthlyCap: 5000, stars: 1 },
+    { tag: '카페', type: 'discount', rate: 5, monthlyCap: 5000, stars: 1 },
   ],
   universal: null,
   complexity: 2,
@@ -98,7 +98,7 @@ test('capGroup이 같고 monthlyCap도 같으면 통과한다', () => {
     id: 'cap-group-ok',
     benefits: [
       { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3, capGroup: 'shared' },
-      { tag: '카페·편의점', type: 'discount', rate: 5, monthlyCap: 15000, stars: 1, capGroup: 'shared' },
+      { tag: '카페', type: 'discount', rate: 5, monthlyCap: 15000, stars: 1, capGroup: 'shared' },
     ],
   }
   expect(validateCards([ok])).toHaveLength(1)
@@ -110,7 +110,7 @@ test('capGroup이 같은데 monthlyCap이 다르면 실패한다', () => {
     id: 'cap-group-bad',
     benefits: [
       { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3, capGroup: 'shared' },
-      { tag: '카페·편의점', type: 'discount', rate: 5, monthlyCap: 5000, stars: 1, capGroup: 'shared' },
+      { tag: '카페', type: 'discount', rate: 5, monthlyCap: 5000, stars: 1, capGroup: 'shared' },
     ],
   }
   expect(() => validateCards([bad])).toThrow(/cap-group-bad/)
@@ -164,7 +164,7 @@ test('tiers: 모르는 필드는 실패', () => {
 test('capGroup: 같은 그룹인데 tiers의 minSpend/monthlyCap 열이 다르면 실패', () => {
   const bad = { ...tiered, benefits: [
     { tag: '주유', type: 'discount', rate: 10, monthlyCap: 5000, stars: 2, capGroup: 'g', tiers: [{ minSpend: 700000, monthlyCap: 10000 }] },
-    { tag: '통신비·OTT', type: 'discount', rate: 5, monthlyCap: 5000, stars: 2, capGroup: 'g', tiers: [{ minSpend: 700000, monthlyCap: 20000 }] },
+    { tag: '통신비', type: 'discount', rate: 5, monthlyCap: 5000, stars: 2, capGroup: 'g', tiers: [{ minSpend: 700000, monthlyCap: 20000 }] },
   ] }
   expect(() => validateCards([bad])).toThrow(/capGroup 'g'.*tiers/)
   const bad2 = { ...bad, benefits: [bad.benefits[0], { ...bad.benefits[1], tiers: undefined }] }
@@ -174,7 +174,7 @@ test('capGroup: 같은 그룹인데 tiers의 minSpend/monthlyCap 열이 다르�
 test('capGroup: tiers의 rate가 달라도 minSpend/monthlyCap이 같으면 통과', () => {
   const ok = { ...tiered, benefits: [
     { tag: '주유', type: 'discount', rate: 10, monthlyCap: 5000, stars: 2, capGroup: 'g', tiers: [{ minSpend: 700000, rate: 12, monthlyCap: 10000 }] },
-    { tag: '통신비·OTT', type: 'discount', rate: 5, monthlyCap: 5000, stars: 2, capGroup: 'g', tiers: [{ minSpend: 700000, monthlyCap: 10000 }] },
+    { tag: '통신비', type: 'discount', rate: 5, monthlyCap: 5000, stars: 2, capGroup: 'g', tiers: [{ minSpend: 700000, monthlyCap: 10000 }] },
   ] }
   expect(validateCards([ok])).toHaveLength(1)
 })
@@ -182,7 +182,7 @@ test('capGroup: tiers의 rate가 달라도 minSpend/monthlyCap이 같으면 통�
 test('capGroup: tiers의 monthlyCap이 null이면 실패', () => {
   const bad = { ...tiered, benefits: [
     { tag: '주유', type: 'discount', rate: 10, monthlyCap: 5000, stars: 2, capGroup: 'g', tiers: [{ minSpend: 700000, monthlyCap: null }] },
-    { tag: '통신비·OTT', type: 'discount', rate: 5, monthlyCap: 5000, stars: 2, capGroup: 'g', tiers: [{ minSpend: 700000, monthlyCap: null }] },
+    { tag: '통신비', type: 'discount', rate: 5, monthlyCap: 5000, stars: 2, capGroup: 'g', tiers: [{ minSpend: 700000, monthlyCap: null }] },
   ] }
   expect(() => validateCards([bad])).toThrow(/capGroup 'g'.*monthlyCap/)
 })

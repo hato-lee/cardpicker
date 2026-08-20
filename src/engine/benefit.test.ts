@@ -55,12 +55,12 @@ test('정액(rate 0): 한도 그대로, 상한 조정 안 받음', () => {
 test('상한: 필요 지출 합이 사용액을 넘으면 비례 축소', () => {
   const c = card({ benefits: [
     { tag: '주유', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3 },       // 20만
-    { tag: '카페·편의점', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3 }, // 20만
+    { tag: '카페', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3 }, // 20만
   ] })
-  const ok = annualBenefit(c, q({ tags: ['주유', '카페·편의점'], monthlySpend: 400_000 }))!
+  const ok = annualBenefit(c, q({ tags: ['주유', '카페'], monthlySpend: 400_000 }))!
   expect(ok.clampFactor).toBe(1)
   expect(ok.monthlyMax).toBe(40000)
-  const tight = annualBenefit(c, q({ tags: ['주유', '카페·편의점'], monthlySpend: 200_000 }))!
+  const tight = annualBenefit(c, q({ tags: ['주유', '카페'], monthlySpend: 200_000 }))!
   expect(tight.clampFactor).toBe(0.5)
   expect(tight.monthlyMax).toBe(20000)
 })
@@ -123,12 +123,12 @@ test('범용 줄과 마일리지 줄은 가정 한도 예외', () => {
 test('capGroup: 같은 그룹의 monthlyValue 합이 그룹 한도를 넘으면 비례 축소', () => {
   const c = card({ benefits: [
     { tag: '주유', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3, capGroup: 'g' },
-    { tag: '카페·편의점', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3, capGroup: 'g' },
+    { tag: '카페', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3, capGroup: 'g' },
   ] })
-  const r = annualBenefit(c, q({ tags: ['주유', '카페·편의점'], monthlySpend: 1_000_000 }))!
+  const r = annualBenefit(c, q({ tags: ['주유', '카페'], monthlySpend: 1_000_000 }))!
   expect(r.monthlyMax).toBe(20000)
   const oil = r.rows.find((x) => x.tag === '주유')!
-  const cafe = r.rows.find((x) => x.tag === '카페·편의점')!
+  const cafe = r.rows.find((x) => x.tag === '카페')!
   expect(oil.monthlyValue).toBe(10000)
   expect(cafe.monthlyValue).toBe(10000)
 })
@@ -136,9 +136,9 @@ test('capGroup: 같은 그룹의 monthlyValue 합이 그룹 한도를 넘으면 
 test('capGroup 없으면 그룹 상한 없이 각자 한도까지', () => {
   const c = card({ benefits: [
     { tag: '주유', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3 },
-    { tag: '카페·편의점', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3 },
+    { tag: '카페', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3 },
   ] })
-  const r = annualBenefit(c, q({ tags: ['주유', '카페·편의점'], monthlySpend: 1_000_000 }))!
+  const r = annualBenefit(c, q({ tags: ['주유', '카페'], monthlySpend: 1_000_000 }))!
   expect(r.monthlyMax).toBe(40000)
 })
 
@@ -173,8 +173,8 @@ describe('마일리지는 마일리지 태그를 골랐을 때만', () => {
     expect(r.rows[0].monthlyValue).toBe(1000 * RULES.mileWon)
   })
   test('마일리지 안 골랐어도 다른 할인 혜택은 그대로', () => {
-    const r = annualBenefit(mileCard, q({ tags: ['주유', '카페·편의점'] }))!
-    expect(r.rows.map((x) => x.tag)).toEqual(['주유'])  // 범용(마일)로는 카페·편의점을 커버하지 않는다
+    const r = annualBenefit(mileCard, q({ tags: ['주유', '카페'] }))!
+    expect(r.rows.map((x) => x.tag)).toEqual(['주유'])  // 범용(마일)로는 카페을 커버하지 않는다
   })
   test('규칙을 끄면 예전처럼 범용 마일로 커버한다', () => {
     const r = annualBenefit(mileCard, q({ tags: ['모든 가맹점'] }), { ...RULES, mileageOnlyWhenPicked: false })!
@@ -231,11 +231,11 @@ describe('실적 구간(tiers)', () => {
   test('capGroup + tiers: 그룹 한도가 구간 따라 커진다', () => {
     const c = card({ minSpend: 400_000, benefits: [
       { tag: '주유', type: 'discount', rate: 2.5, monthlyCap: 5000, stars: 1, capGroup: 'main', tiers: [{ minSpend: 700_000, monthlyCap: 10000 }] },
-      { tag: '통신비·OTT', type: 'discount', rate: 2.5, monthlyCap: 5000, stars: 1, capGroup: 'main', tiers: [{ minSpend: 700_000, monthlyCap: 10000 }] },
+      { tag: '통신비', type: 'discount', rate: 2.5, monthlyCap: 5000, stars: 1, capGroup: 'main', tiers: [{ minSpend: 700_000, monthlyCap: 10000 }] },
     ] })
-    const low = annualBenefit(c, q({ tags: ['주유', '통신비·OTT'], monthlySpend: 500_000 }))!
+    const low = annualBenefit(c, q({ tags: ['주유', '통신비'], monthlySpend: 500_000 }))!
     expect(low.monthlyMax).toBeCloseTo(5000, 5)   // 그룹 한도 5천 (총액 상한: 필요지출 40만 ≤ 50만이라 그대로)
-    const high = annualBenefit(c, q({ tags: ['주유', '통신비·OTT'], monthlySpend: 1_000_000 }))!
+    const high = annualBenefit(c, q({ tags: ['주유', '통신비'], monthlySpend: 1_000_000 }))!
     expect(high.monthlyMax).toBeCloseTo(10000, 5) // 그룹 한도 1만
   })
 
@@ -258,7 +258,7 @@ describe("'마일리지'는 마일 적립만 채울 수 있다 (mileageTagOnlyBy
     expect(annualBenefit(pointsCard, q({ tags: ['마일리지'] }))).toBeNull()
   })
   test('마일리지 + 다른 태그면 그 태그를 위해 범용 줄은 그대로 생긴다', () => {
-    const r = annualBenefit(pointsCard, q({ tags: ['마일리지', '카페·편의점'], monthlySpend: 500_000 }))!
+    const r = annualBenefit(pointsCard, q({ tags: ['마일리지', '카페'], monthlySpend: 500_000 }))!
     expect(r.rows.map((x) => x.tag)).toEqual(['모든 가맹점'])
     expect(r.rows[0].monthlyValue).toBe(6000)
   })

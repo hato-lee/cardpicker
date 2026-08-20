@@ -14,9 +14,9 @@ function KpassHarness() {
   return <StepTags value={t} onChange={setT} onBack={() => {}} onNext={() => {}} kpass={k} onKpassChange={setK} />
 }
 
-test('태그 12개 버튼이 보인다', () => {
+test('태그 14개 버튼이 보인다', () => {
   render(<Harness />)
-  expect(screen.getAllByRole('button', { pressed: false })).toHaveLength(12)
+  expect(screen.getAllByRole('button', { pressed: false })).toHaveLength(14)
 })
 
 test('하나도 안 고르면 다음 비활성, 고르면 활성', async () => {
@@ -37,7 +37,7 @@ test('다시 누르면 해제된다', async () => {
 
 test('4개째부터 안내 문구가 뜬다', async () => {
   render(<Harness />)
-  for (const t of ['주유', '카페·편의점', '해외 결제']) await userEvent.click(screen.getByRole('button', { name: t }))
+  for (const t of ['주유', '카페', '해외 결제']) await userEvent.click(screen.getByRole('button', { name: t }))
   expect(screen.queryByText(TAG_WARN_TEXT)).not.toBeInTheDocument()
   await userEvent.click(screen.getByRole('button', { name: '온라인 쇼핑' }))
   expect(screen.getByText(TAG_WARN_TEXT)).toBeInTheDocument()
@@ -72,8 +72,8 @@ describe('K-패스 스위치', () => {
     expect(transit).toHaveAttribute('aria-pressed', 'true')
     expect(transit).toBeDisabled()
     expect(screen.getByText(KPASS_HINT)).toBeInTheDocument()
-    await userEvent.click(screen.getByRole('button', { name: '카페·편의점' }))
-    expect(screen.getByRole('button', { name: '카페·편의점' })).toHaveAttribute('aria-pressed', 'true')
+    await userEvent.click(screen.getByRole('button', { name: '카페' }))
+    expect(screen.getByRole('button', { name: '카페' })).toHaveAttribute('aria-pressed', 'true')
     expect(screen.getByRole('button', { name: /^다음/ })).toHaveTextContent('다음 (2개)')
   })
   test('마일리지를 켜면 K-패스가 꺼진다', async () => {

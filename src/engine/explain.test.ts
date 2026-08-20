@@ -11,28 +11,28 @@ const q = (over: Partial<Query> = {}): Query => ({ persona: 'meticulous', monthl
 
 const multi: Card = { ...base, benefits: [
   { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3 },
-  { tag: '카페·편의점', type: 'discount', rate: 5, monthlyCap: 5000, stars: 1 },
+  { tag: '카페', type: 'discount', rate: 5, monthlyCap: 5000, stars: 1 },
   { tag: '해외 결제', type: 'discount', rate: 2, monthlyCap: null, stars: 1 },
   { tag: '학원·교육', type: 'discount', rate: 0, monthlyCap: 12000, stars: 2, note: '밀크T 자동이체 시 월 12,000원 정액 할인' },
 ] }
-const tags = ['주유', '카페·편의점', '해외 결제', '학원·교육'] as const
+const tags = ['주유', '카페', '해외 결제', '학원·교육'] as const
 
 test('꼼꼼형: 줄마다 한 문장, 월 혜택 큰 순', () => {
   const ab = annualBenefit(multi, q({ tags: [...tags], monthlySpend: 400_000 }))!
   const t = tips(ab, 'meticulous')
   expect(t).toHaveLength(4)
   expect(t).toContain('주유에 월 15만 원 이상 쓰면 한도(1.5만 원)를 꽉 채워요')
-  expect(t).toContain('카페·편의점에 월 10만 원 이상 쓰면 한도(5,000원)를 꽉 채워요')
+  expect(t).toContain('카페에 월 10만 원 이상 쓰면 한도(5,000원)를 꽉 채워요')
   expect(t).toContain('해외 결제는 쓰는 만큼 2% 할인 — 한도 없음')
   expect(t).toContain('학원·교육: 밀크T 자동이체 시 월 12,000원 정액 할인')
 })
 
 test('월 혜택 큰 줄이 먼저', () => {
   const two: Card = { ...base, benefits: [
-    { tag: '카페·편의점', type: 'discount', rate: 5, monthlyCap: 5000, stars: 1 },
+    { tag: '카페', type: 'discount', rate: 5, monthlyCap: 5000, stars: 1 },
     { tag: '주유', type: 'discount', rate: 10, monthlyCap: 15000, stars: 3 },
   ] }
-  const ab = annualBenefit(two, q({ tags: ['카페·편의점', '주유'] }))!
+  const ab = annualBenefit(two, q({ tags: ['카페', '주유'] }))!
   expect(tips(ab, 'meticulous')[0]).toBe('주유에 월 15만 원 이상 쓰면 한도(1.5만 원)를 꽉 채워요')
 })
 
@@ -60,14 +60,14 @@ test('조사 은/는: 받침 있으면 은, 없으면 는 (한글 아니면 는)
   const c: Card = { ...base, benefits: [
     { tag: '온라인 쇼핑', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 2 },
     { tag: '해외 결제', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 1 },
-    { tag: '통신비·OTT', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 1 },
+    { tag: '통신비', type: 'mileage', rate: 0.1, monthlyCap: null, stars: 1 },
   ] }
   // 마일 적립은 '마일리지'를 골랐을 때만 세므로 태그에 넣어둔다
-  const ab = annualBenefit(c, q({ tags: ['마일리지', '온라인 쇼핑', '해외 결제', '통신비·OTT'], monthlySpend: 500_000 }))!
+  const ab = annualBenefit(c, q({ tags: ['마일리지', '온라인 쇼핑', '해외 결제', '통신비'], monthlySpend: 500_000 }))!
   const t = tips(ab, 'meticulous')
   expect(t).toContain('온라인 쇼핑은 쓰는 만큼 1,000원당 1마일 — 한도 없음')
   expect(t).toContain('해외 결제는 쓰는 만큼 1,000원당 1마일 — 한도 없음')
-  expect(t).toContain('통신비·OTT는 쓰는 만큼 1,000원당 1마일 — 한도 없음')
+  expect(t).toContain('통신비는 쓰는 만큼 1,000원당 1마일 — 한도 없음')
 })
 
 test('정액인데 note가 없으면 "정액 혜택"', () => {
