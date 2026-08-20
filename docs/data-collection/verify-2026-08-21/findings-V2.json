@@ -1,0 +1,226 @@
+[
+  {
+    "id": "ibk-point",
+    "field": "benefits[0].rate / note(건당 구간 0.6~3.3%)",
+    "current": 0.6,
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "IBK 공식 상세(ibk.co.kr/cardbiz/detailBizNew.ibk PDTM_CD=347/PDCD=0001): 건당 10만 미만 0.6% / 10~30만 0.8% / 30~70만 1.1% / 70~100만 2.2% / 100만 이상 3.3%"
+  },
+  {
+    "id": "ibk-point",
+    "field": "benefits[0].monthlyCap",
+    "current": 50000,
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "IBK 공식 상세: 통합 월 적립한도 — 전월 이용실적 50만원 이상 시 월 5만 포인트"
+  },
+  {
+    "id": "ibk-point",
+    "field": "minSpend",
+    "current": 500000,
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "IBK 공식 상세: 국내외 가맹점 적립은 전월 이용금액 50만원 이상인 경우 제공"
+  },
+  {
+    "id": "ibk-point",
+    "field": "annualFee",
+    "current": 21000,
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "IBK 공식 신청 페이지(cardapplication.ibk.co.kr 103937) 및 공식 상세: BC(국내전용) 21,000원 / VISA·Master 22,000원"
+  },
+  {
+    "id": "ibk-point-38",
+    "field": "benefits[0].rate + monthlyCap(기본 1.5%, 한도 없음)",
+    "current": 1.5,
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "IBK 공식 상세(347/0003): 기본 포인트 국내·외 가맹점 1.5%, 전월 50만 이상, 월 적립한도 없음"
+  },
+  {
+    "id": "ibk-point-38",
+    "field": "benefits[1](해외 특별적립 5%, 월 15,000P)",
+    "current": {"rate": 5, "monthlyCap": 15000},
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "IBK 공식 상세: 특별 포인트Ⅰ 해외 가맹점 5%, 월 적립한도 15,000포인트, 기본과 중복 적용 가능(초과 시 기본만)"
+  },
+  {
+    "id": "ibk-point-38",
+    "field": "benefits[2](온라인 특별적립 0.5%, 월 10,000P)",
+    "current": {"rate": 0.5, "monthlyCap": 10000},
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "IBK 공식 상세: 특별 포인트Ⅱ 쿠팡·G마켓·옥션·11번가 0.5%, 월 10,000포인트, 기본과 중복"
+  },
+  {
+    "id": "ibk-point-38",
+    "field": "annualFee / minSpend",
+    "current": {"annualFee": 37000, "minSpend": 500000},
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "IBK 공식 신청 페이지(103991)·공식 상세: BC 37,000원(Visa·Master 38,000원), 전월 이용실적 50만원 이상 시 제공"
+  },
+  {
+    "id": "ibk-i-all",
+    "field": "benefits[0](ALL 0.5%) + minSpend 0",
+    "current": {"rate": 0.5, "monthlyCap": null, "minSpend": 0},
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "IBK 공식 상세(338/0001): ALL 국내·외 0.5% 할인, 전월 실적조건 없음·할인한도 없음(LIVING·MEMBERSHIP 가맹점 제외)"
+  },
+  {
+    "id": "ibk-i-all",
+    "field": "LIVING rate 1%(우대 1.5%) / MEMBERSHIP rate 5%(우대 7%)",
+    "current": {"living": 1, "membership": 5},
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "IBK 공식 상세: LIVING 전월 50만 이상 1%, 3개월 연속 50만 시 1.5% / MEMBERSHIP 5%, 우대 7%"
+  },
+  {
+    "id": "ibk-i-all",
+    "field": "LIVING+MEMBERSHIP 통합 monthlyCap 및 tiers(2만/3만/4만)",
+    "current": {"monthlyCap": 20000, "tiers": [{"minSpend": 700000, "monthlyCap": 30000}, {"minSpend": 1000000, "monthlyCap": 40000}]},
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "IBK 공식 상세 통합할인한도 표: 전월 50만 이상 2만원 / 70만 이상 3만원 / 100만 이상 4만원 (LIVING+MEMBERSHIP 통합)"
+  },
+  {
+    "id": "ibk-i-all",
+    "field": "annualFee",
+    "current": 14000,
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "IBK 공식 신청 페이지(102475)·공식 상세: BC 14,000원 / Master 15,000원"
+  },
+  {
+    "id": "ibk-i-all",
+    "field": "benefits[주유].note (대상 가맹점)",
+    "current": "GS칼텍스·S-OIL·SK에너지·HD현대오일뱅크, 월 50만원 이용분까지 인정",
+    "proposed": "국내 주유소 및 전기차 충전소 전체(주유·충전 합산 월 50만원까지 할인대상 인정)",
+    "verdict": "수정필요",
+    "evidence": "IBK 공식 상세: [주유·충전] '국내 주유소 및 전기차 충전소' — 특정 4개 정유사 한정 아님. 숫자(1%·통합한도·월 50만 인정)는 일치, note 문구만 수정 필요"
+  },
+  {
+    "id": "ibk-i-all",
+    "field": "benefits[온라인 쇼핑].note (대상 가맹점)",
+    "current": "쿠팡·G마켓·11번가·옥션·홈쇼핑 6사",
+    "proposed": "쿠팡·G마켓·11번가·옥션·인터파크 + 홈쇼핑 6사",
+    "verdict": "수정필요",
+    "evidence": "IBK 공식 상세: [온라인쇼핑]에 인터파크 포함. 숫자는 일치, note 가맹점 목록만 보강 필요"
+  },
+  {
+    "id": "ibk-i-mileage-koreanair",
+    "field": "benefits[0]/universal(기본 1천원당 1마일, 한도 없음)",
+    "current": {"rate": 0.1, "monthlyCap": null},
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "IBK 공식 상세(344/0001): 대한항공 기본 1천원당 1마일리지, 월 적립한도 제한없음"
+  },
+  {
+    "id": "ibk-i-mileage-koreanair",
+    "field": "benefits[해외 결제](1천원당 2마일, 추가분 월 2,000마일)",
+    "current": {"rate": 0.2, "monthlyCap": 2000},
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "IBK 공식 상세: 해외가맹점·국내면세점 추가 1천원당 1마일(기본과 별도), 추가분 월 한도 2,000마일, 초과 시 기본만 적립 — 합산 2마일/1천원 구조 일치"
+  },
+  {
+    "id": "ibk-i-mileage-koreanair",
+    "field": "benefits[카페](스타벅스 4,000원 청구할인 월 1회)",
+    "current": {"monthlyCap": 4000},
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "IBK 공식 상세: 스타벅스 1만원 이상 결제 시 4천원 청구할인, 월 1회·연 12회, 사이렌오더 포함"
+  },
+  {
+    "id": "ibk-i-mileage-koreanair",
+    "field": "annualFee / minSpend",
+    "current": {"annualFee": 41000, "minSpend": 500000},
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "IBK 공식 신청 페이지(103401)·공식 상세: BC 41,000원(Master 42,000원), 모든 서비스 전월 이용실적 50만원 이상 시 제공"
+  },
+  {
+    "id": "ibk-bliss-mileage",
+    "field": "benefits[0]/universal(기본 1,500원당 1마일)",
+    "current": {"rate": 0.067, "monthlyCap": null},
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "IBK 공식 상세(358/0001): 국내·외 가맹점 1,500원당 1마일리지, 전월실적 50만원 이상, 월 적립한도 없음"
+  },
+  {
+    "id": "ibk-bliss-mileage",
+    "field": "특화적립 tiers(전월 80만, 1,500원당 2마일, 영역별 월 2,000마일)",
+    "current": {"minSpend": 800000, "rate": 0.133, "monthlyCap": 2000},
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "IBK 공식 상세: 온라인·음식점·해외 3개 영역 1,500원당 2마일, 전월실적 80만원, 각 영역 월 2천 마일 한도, 한도 초과 시 기본적립(중복 아님 — 대체형 구조로 기재된 현재 데이터와 일치)"
+  },
+  {
+    "id": "ibk-bliss-mileage",
+    "field": "annualFee / minSpend",
+    "current": {"annualFee": 99000, "minSpend": 500000},
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "IBK 공식 신청 페이지(104506)·공식 상세: BC 99,000원 / Master 100,000원, 기본적립 전월실적 50만원 이상"
+  },
+  {
+    "id": "shinhan-deep-oil",
+    "field": "status",
+    "current": "active",
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "공식 신청 페이지(shinhancard.com/pconts/html/card/apply/credit/1188274_2207.html) 정상 동작, '온라인 신청하기' 버튼·여신금융협회 심의필 제2025-C1h-17341호(2025.12.01~2026.11.30) 유효. 카드고릴라 API(cards/39) is_discon=false, 뱅크샐러드(CARD000118) 발급 이벤트 진행중. 나무위키의 중단 서술은 KCC오토그룹 제휴판(1192711)에 해당"
+  },
+  {
+    "id": "shinhan-deep-oil",
+    "field": "annualFee",
+    "current": 10000,
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "카드고릴라 API(cards/39)·뱅크샐러드: S&(국내형) 10,000원 / Master 해외겸용 13,000원 — 기존 '미확인' 값 확정. 공식 페이지는 여전히 템플릿 변수(wlAfe)"
+  },
+  {
+    "id": "shinhan-deep-oil",
+    "field": "benefits[주유](10%, 이용한도 15만→30만)",
+    "current": {"rate": 10, "monthlyCap": 15000, "tier70만": 30000},
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "공식 페이지 통합할인한도 표: 전월 30만~70만 미만 주유 월 이용금액 한도 15만원(할인 1.5만), 70만 이상 30만원(할인 3만). 선택 정유사 1곳 10%, LPG 제외"
+  },
+  {
+    "id": "shinhan-deep-oil",
+    "field": "benefits[생활서비스 5%](편의점+커피+택시 통합 한도)",
+    "current": {"rate": 5, "monthlyCap": 7500, "tier70만": 15000},
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "공식 페이지: 생활서비스(GS25·CU·스타벅스·이디야·택시) 5% 결제일 할인, 통합 월 이용금액 한도 15만원(→할인상한 7,500원)/70만 이상 30만원(→15,000원)"
+  },
+  {
+    "id": "shinhan-deep-oil",
+    "field": "minSpend",
+    "current": 300000,
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "공식 페이지: 각 서비스는 전월 이용금액(주유·LPG 제외) 30만원 이상 시 제공"
+  },
+  {
+    "id": "hyundai-x-edition2",
+    "field": "status",
+    "current": "active",
+    "proposed": "discontinued",
+    "verdict": "수정필요",
+    "evidence": "카드고릴라 API(cards/411) is_discon=true. 2026-07 현대카드 알파벳카드 개편(뉴시스 2026-07-01 보도)으로 X Edition2는 2026-07-23부로 신규·교체·추가 발급 중단(갱신은 사전안내분에 한해 9/30까지, 나무위키 현대카드/카드 상품/발급 중단). 현대카드 공식 페이지는 접속되나 정적 템플릿이라 발급 가능 여부 판단 근거 안 됨"
+  },
+  {
+    "id": "hyundai-x-edition2",
+    "field": "annualFee / benefits[0](0.5%→100만 이상 1%)",
+    "current": {"annualFee": 15000, "rate": 0.5, "tier": {"minSpend": 1000000, "rate": 1}},
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "현대카드 공식 페이지·카드고릴라 API(cards/411): 국내전용 15,000원(Visa 20,000원). 요율 구조는 기존 검증(카드고릴라 API) 유지 — 단, 단종이므로 기존 보유자 참고용"
+  }
+]

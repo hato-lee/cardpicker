@@ -1,0 +1,114 @@
+[
+  {
+    "id": "shinhan-rpm-plus-platinum",
+    "field": "benefits[0].note (공식 리터당 적립값)",
+    "current": "전 주유소 리터당 40~150P, LPG 10~50P, 주유·충전 통합 월 30만 원 이용분까지",
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "카드고릴라 API idx16 상품안내 원문: 전월 실적 50만 미만/50~100/100~200/200만 이상 구간별 40/80/100/150P per L(LPG 10/20/30/50P), 주유소·충전소 통합 이용금액 월 30만원까지, SK에너지 고시 휘발유가 기준. is_discon false"
+  },
+  {
+    "id": "shinhan-rpm-plus-platinum",
+    "field": "universal.monthlyCap (통합 적립 한도)",
+    "current": 50000,
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "카드고릴라 API idx16 원문: '월 적립한도 5만 포인트', 사용월(1일~말일) 기준 최대 5만P, 주유소/충전소·특별적립(1~5%)·일반적립(0.2~2%) 모두 포함, 가족·복수카드 통합"
+  },
+  {
+    "id": "shinhan-rpm-plus-platinum",
+    "field": "benefits[0].capGroup",
+    "current": null,
+    "proposed": "pts",
+    "verdict": "수정필요",
+    "evidence": "공식 원문상 월 5만P 통합 한도에 주유 적립도 포함되는데 주유 benefit에만 capGroup 'pts'가 빠져 있음. memo에도 '주유 포함'이라 적혀 있어 데이터 불일치 — 주유 benefit에 capGroup 'pts' 추가 필요"
+  },
+  {
+    "id": "shinhan-rpm-plus-platinum",
+    "field": "benefits[0].rate + tiers[].rate (환산 기준 유가)",
+    "current": {"rate": 2.4, "tiers": [4.7, 5.9, 8.8], "가정": "휘발유 1,700원/L"},
+    "proposed": {"rate": 2.2, "tiers": [4.3, 5.4, 8.1], "가정": "휘발유 1,850원/L"},
+    "verdict": "수정필요",
+    "evidence": "오피넷 기준 2026-08 전국 평균 휘발유 1,863원/L(8월 둘째 주 1,864원) — 1,700원 가정은 시세보다 약 10% 낮아 %가 과대. 1,850원/L 기준 40P=2.2%, 80P=4.3%, 100P=5.4%, 150P=8.1%. note에 '휘발유 약 1,850원/L 기준 환산' 명시 권장"
+  },
+  {
+    "id": "shinhan-rpm-plus-platinum",
+    "field": "benefits[0].monthlyCap + tiers[].monthlyCap (환산 한도)",
+    "current": {"monthlyCap": 7000, "tiers": [14000, 17000, 26000]},
+    "proposed": {"monthlyCap": 6500, "tiers": [13000, 16000, 24000]},
+    "verdict": "수정필요",
+    "evidence": "한도는 '이용금액 월 30만원'이므로 30만원÷1,850원/L=약 162L 기준 40P=6,500P, 80P=13,000P, 100P=16,000P, 150P=24,000P. 현재값은 1,700원/L 환산치라 과대"
+  },
+  {
+    "id": "hana-jade-prime",
+    "field": "benefits[2] 주유 (공식 리터당 적립값·한도)",
+    "current": "리터당 150 하나머니, EV충전 30%와 통합 월 1만, 전월 50만 이상",
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "카드고릴라 API idx2703 원문: 주유(LPG 포함) 리터당 150 하나머니, EV충전 30%, 월 통합 1만 하나머니, 지난달 실적 50만 이상, SK에너지 고시 휘발유가 기준 리터 환산. 대상은 SK·GS칼텍스·S-Oil·HD현대오일뱅크·알뜰주유소(전 주유소는 아님). is_discon false, 연회비 국내전용 295,000원 일치"
+  },
+  {
+    "id": "hana-jade-prime",
+    "field": "benefits[2].rate (환산 기준 유가)",
+    "current": 9,
+    "proposed": 8,
+    "verdict": "수정필요",
+    "evidence": "1,650원/L 가정(9.1%)은 시세 대비 낮음. 오피넷 2026-08 전국 평균 1,863원/L, 1,850원/L 기준 150÷1,850=8.1%→8. note 제안: '리터당 150 하나머니(휘발유가 약 1,850원/L 환산 약 8%), LPG 포함, EV충전 30%와 통합 월 1만'. 기본 적립 1%(200만 미만 한도 없음)·200만 이상 1.5%/10만 한도, 해외 3% 통합 5만도 원문 일치 확인"
+  },
+  {
+    "id": "kb-bev-iii",
+    "field": "benefits[0] 모든 가맹점 (1.1~1.3%)",
+    "current": "주중 1.1%·주말 1.3%, 백화점·대형마트 1.3%, 주말 면세점·프리미엄아울렛 1.5%, 주유소·충전소 제외",
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "카드고릴라 API idx133 원문: 주중(월~목) 전 가맹점 1.1%·일상쇼핑(백화점/대형마트) 1.3%, 주말(금~일) 전 가맹점 1.3%·면세점/롯데·신세계 프리미엄아울렛 1.5%, 주유소·충전소 적립 제외, 전월 50만 이상 시 제공(적립 한도 명시 없음→monthlyCap null 타당). is_discon false, 연회비 200,000원(K-WORLD) 일치"
+  },
+  {
+    "id": "kb-bev-iii",
+    "field": "benefits[1] 주유 (공식 리터당 할인값·이용 한도)",
+    "current": "리터당 100원 할인, 월 이용금액 20만원(전월 100만 이상 40만원), GS칼텍스 고시 휘발유가 연동",
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "카드고릴라 API idx133 원문: 전 주유소/충전소 리터당 100원 할인, 전월 50만 이상→이용금액 20만원 한도, 100만 이상→40만원 한도, GS칼텍스 본사 고시 휘발유가 기준(경유·등유·LPG 비례 적용)"
+  },
+  {
+    "id": "kb-bev-iii",
+    "field": "benefits[1].rate·monthlyCap·tiers[0].monthlyCap (환산 기준 유가)",
+    "current": {"rate": 6, "monthlyCap": 12000, "tier100만.monthlyCap": 24000, "가정": "휘발유 1,650원/L"},
+    "proposed": {"rate": 5.4, "monthlyCap": 11000, "tier100만.monthlyCap": 22000, "가정": "휘발유 1,850원/L"},
+    "verdict": "수정필요",
+    "evidence": "오피넷 2026-08 전국 평균 1,863원/L 기준 100÷1,850=5.4%, 20만원÷1,850×100원=10,800→11,000원, 40만원 기준 21,600→22,000원. note 제안: '...월 이용금액 20만원까지(휘발유 약 1,850원/L 기준 약 5.4% 환산, 유가 따라 변동)'. 3개 주유 카드 모두 동일 유가(1,850원/L)로 통일 권장"
+  },
+  {
+    "id": "shinhan-marriott-bonvoy-the-best",
+    "field": "benefits 적립값·조건 (공식 값)",
+    "current": "기본 1,000원당 1P(실적 무관), 카페·해외 일시불 3P(전월 30만·해외는 해외겸용 필요), 한도 없음",
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "카드고릴라 API idx716 원문: 기본적립 1천원당 1P, 특별적립2 해외 일시불/항공/택시/카페 3P(전월 국내 이용 30만 이상, 해외·메리어트 적립은 국내전용 발급 시 불가), 메리어트 5P, 적립 월 한도 언급 없음. is_discon false, 연회비 국내전용 264,000원·해외겸용 267,000원(해외 적립 쓰려면 해외겸용 267,000원 필요 — annualFee 264000은 국내전용 기준임을 인지)"
+  },
+  {
+    "id": "shinhan-marriott-bonvoy-the-best",
+    "field": "benefits[].rate + universal.rate (포인트 가치 환산)",
+    "current": {"기본": 0.1, "카페": 0.3, "해외": 0.3, "가정": "1P=1원"},
+    "proposed": {"기본": 1.0, "카페": 3.0, "해외": 3.0, "가정": "1P=10원"},
+    "verdict": "수정필요",
+    "evidence": "제3자 평가(WalletHub·AwardTravelFinder·TheMilesMarket 2026) 메리어트 본보이 1P≈0.7~0.8센트(호텔 숙박 환산, 최대 2.5센트) — 환율 약 1,400원/USD 시 1P≈10~11원. 보수적 하단 0.7센트≈10원 채택 제안. 선택지: (a) 1P=10원 → 기본 1%·특별 3% [권장: 시장 평가 하단이라 여전히 보수적이면서 26.4만원 연회비 카드의 비교 왜곡 해소], (b) 현행 1P=1원 유지 → 액면 표기지만 실가치 대비 약 10배 과소평가로 타 카드와 비교 불가. note 제안: '국내 모든 가맹점 1,000원당 메리어트 본보이 1포인트(1P≈10원, 제3자 평가 0.7~0.8센트 기준 보수 환산), 실적 조건 없음' + memo에 '무료숙박권 35,000P 이하 호텔 = 포인트 실사용 시 가치 상회 가능' 유지"
+  },
+  {
+    "id": "woori-all-infinite",
+    "field": "benefits[0] 기본 적립 (공식 포인트 가치·적립률)",
+    "current": "3,000원당 1.3P(1P 약 32원, 약 1.4%), 실적·한도 없음",
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "카드고릴라 API idx2613 원문: 'ALL 리워드 포인트 사용가치 : 1포인트 = 0.02유로(EUR)' 공식 명시, 기본적립 실적조건 없음·국내가맹점 3,000원당 1.3P·한도 제한 없음. EUR/KRW 현재 약 1,618원(2026-08) → 1P≈32.4원, 1.3P/3,000원=1.40% — rate 1.4 유지 타당. is_discon false, 연회비 500,000원 일치"
+  },
+  {
+    "id": "woori-all-infinite",
+    "field": "benefits[1] 해외 결제 (rate 3.2·monthlyCap 128000)",
+    "current": {"rate": 3.2, "monthlyCap": 128000},
+    "proposed": null,
+    "verdict": "확인일치",
+    "evidence": "원문: 특별적립 전월 50만 이상, 해외 가맹점 3,000원당 3P·아코르 5P, 통합 월 4,000P(본인+가족 합산), 한도 초과분은 기본적립. 3P×32.4원/3,000원=3.24%→3.2 유지, 4,000P×약 32원=약 128,000원 환산 타당(현 환율로는 약 129,600원이나 오차 1% 수준). memo의 환율 1,609.81원도 현재 1,618원과 근사 — 수정 불요, memo에 '환율 따라 변동' 문구만 유지"
+  }
+]
