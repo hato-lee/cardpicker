@@ -1,0 +1,228 @@
+[
+  {
+    "id": "lotte-loca-likit-20",
+    "name": "LOCA LIKIT 2.0",
+    "issuer": "롯데카드",
+    "kind": "credit",
+    "annualFee": 20000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "discount",
+        "rate": 1.2,
+        "monthlyCap": null,
+        "stars": 3,
+        "note": "국내 전 가맹점 1.2% 결제일 할인, 전월실적·한도 없음. 대중교통·택시·세금·공과금·아파트관리비·상품권 등은 할인 제외"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 2,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "해외 가맹점 2% 결제일 할인, 실적·한도 없음. 해외겸용 카드 한정, 해외이용 수수료는 별도"
+      }
+    ],
+    "universal": { "type": "discount", "rate": 1.2, "monthlyCap": null },
+    "complexity": 1,
+    "officialUrl": "https://www.lottecard.co.kr/app/LPBOHAA_V100.lc?bId=105655",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문(공식 페이지 JS라 직접 확인 불가). 카드고릴라 월간 52위. 국내 5만원 이상 2~3개월 무이자할부는 태그 밖. 해외 간편결제·PG 결제는 국내 1.2% 적용."
+  },
+  {
+    "id": "lotte-loca-likit-15",
+    "name": "LOCA LIKIT 1.5",
+    "issuer": "롯데카드",
+    "kind": "credit",
+    "annualFee": 10000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "discount",
+        "rate": 0.8,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "국내 전 가맹점 0.8% 결제일 할인, 전월실적·한도 없음. 대중교통·택시·세금·공과금·아파트관리비·상품권 등은 할인 제외"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 1.5,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "해외 가맹점 1.5% 결제일 할인, 실적·한도 없음. 해외겸용 카드 한정, 해외이용 수수료는 별도"
+      }
+    ],
+    "universal": { "type": "discount", "rate": 0.8, "monthlyCap": null },
+    "complexity": 1,
+    "officialUrl": "https://www.lottecard.co.kr/app/LPBOHAA_V100.lc?bId=105354",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문(공식 페이지 JS라 직접 확인 불가). 카드고릴라 월간 79위. 국내 5만원 이상 2~3개월 무이자할부는 태그 밖."
+  },
+  {
+    "id": "kb-wesh-travel",
+    "name": "KB국민 WE:SH Travel 카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 25000,
+    "minSpend": 300000,
+    "benefits": [
+      {
+        "tag": "온라인 쇼핑",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "capGroup": "daily",
+        "note": "11번가·G마켓·SSG.COM과 무신사·W컨셉·지그재그·29CM, KB Pay 결제 시에만. 커피·편의점·영화관과 통합 한도, 건당 1만원 한도",
+        "tiers": [
+          { "minSpend": 700000, "monthlyCap": 20000 },
+          { "minSpend": 1200000, "monthlyCap": 30000 }
+        ]
+      },
+      {
+        "tag": "카페",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "capGroup": "daily",
+        "note": "커피전문점 오프라인·공식 앱 주문(사이렌오더 등) KB Pay 결제 시, 백화점·대형마트 입점 매장 제외. 온라인쇼핑·편의점과 통합 한도",
+        "tiers": [
+          { "minSpend": 700000, "monthlyCap": 20000 },
+          { "minSpend": 1200000, "monthlyCap": 30000 }
+        ]
+      },
+      {
+        "tag": "편의점",
+        "type": "discount",
+        "rate": 10,
+        "monthlyCap": 10000,
+        "stars": 2,
+        "capGroup": "daily",
+        "note": "GS25·CU 오프라인 매장 KB Pay 결제 시, 백화점·대형마트 입점 매장 제외. 온라인쇼핑·커피와 통합 한도",
+        "tiers": [
+          { "minSpend": 700000, "monthlyCap": 20000 },
+          { "minSpend": 1200000, "monthlyCap": 30000 }
+        ]
+      },
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 0,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "해외이용 수수료 총 1.25%(브랜드 1%+해외서비스 0.25%) 면제, 환율우대 100%(USD 매매기준율 적용). 실적·한도 없음, 해외겸용 카드 한정"
+      }
+    ],
+    "universal": null,
+    "complexity": 3,
+    "officialUrl": "https://card.kbcard.com/CRD/DVIEW/HCAMCXPRICAC0076?cooperationcode=09561&mainCC=a",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문(KB 공식 상세 링크 확인). 카드고릴라 월간 63위. 태그 밖: 온라인 항공(대한항공·아시아나)·면세점 5%(월 2만), 철도·고속버스 10%(월 1만, 시내교통 아님), KB손보 여행자보험 10%, 영화관 10%(통합한도 포함), 공항라운지 연 2회(전월 30만). 모바일 단독카드 연회비 19,000원. 가족카드 발급 불가."
+  },
+  {
+    "id": "kb-bev-iii",
+    "name": "KB국민 BeV Ⅲ 카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 200000,
+    "minSpend": 500000,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 1.1,
+        "monthlyCap": null,
+        "stars": 3,
+        "note": "전 가맹점 포인트리 주중 1.1%·주말 1.3% 적립(주유소·충전소 제외), 백화점·대형마트 1.3%, 주말 면세점·프리미엄아울렛 1.5%"
+      },
+      {
+        "tag": "주유",
+        "type": "discount",
+        "rate": 6,
+        "monthlyCap": 12000,
+        "stars": 2,
+        "note": "전 주유소·충전소 리터당 100원 할인(GS칼텍스 고시 휘발유가 연동, 경유·LPG는 비례 적용), 월 이용금액 20만원까지",
+        "tiers": [
+          { "minSpend": 1000000, "monthlyCap": 24000 }
+        ]
+      }
+    ],
+    "universal": { "type": "points", "rate": 1.1, "monthlyCap": null },
+    "complexity": 2,
+    "officialUrl": "https://card.kbcard.com/CXPRICAC0076.cms?mainCC=a&cooperationcode=09310",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문. 카드고릴라 월간 92위. 프리미엄이나 초대·자산 조건 없이 신청 가능(is_discon false). 연 1회 15만원 상품권/호텔뷔페/영화 쿠폰(첫해 50만·이후 연 600만 이용 조건), 여행상품·렌트카·골프·은행 수수료 우대는 태그 밖. 주유 리터당 100원을 약 6%·월 최대 1.2만원(휘발유 약 1,650원/L 기준)으로 환산 — 유가에 따라 변동."
+  },
+  {
+    "id": "kb-all-point",
+    "name": "KB ALL point 카드",
+    "issuer": "KB국민카드",
+    "kind": "credit",
+    "annualFee": 15000,
+    "minSpend": 0,
+    "benefits": [
+      {
+        "tag": "모든 가맹점",
+        "type": "points",
+        "rate": 0.7,
+        "monthlyCap": null,
+        "stars": 2,
+        "note": "국내 가맹점 0.7% 포인트리, 실적·한도 없음. 주말·공휴일 0.5% 추가적립(대중교통·통신요금·해외는 주말 추가 제외)"
+      },
+      {
+        "tag": "배달·외식",
+        "type": "points",
+        "rate": 1.2,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "음식점 업종(한식·중식·일식·양식·뷔페·패밀리레스토랑) 기본 0.7%+추가 0.5%, 주말은 최대 1.7%"
+      },
+      {
+        "tag": "카페",
+        "type": "points",
+        "rate": 1.2,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "커피전문점(스타벅스·커피빈 등) 기본 0.7%+추가 0.5%, 주말은 최대 1.7%"
+      },
+      {
+        "tag": "대중교통·택시",
+        "type": "points",
+        "rate": 1.2,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "버스·지하철·택시 기본 0.7%+추가 0.5% 적립, 시외·고속버스 제외"
+      },
+      {
+        "tag": "통신비",
+        "type": "points",
+        "rate": 1.2,
+        "monthlyCap": null,
+        "stars": 1,
+        "note": "이동통신요금(SKT·KT·LG U+) 이 카드로 자동납부 등록 시 기본 0.7%+추가 0.5% 적립"
+      },
+      {
+        "tag": "해외 결제",
+        "type": "discount",
+        "rate": 1.7,
+        "monthlyCap": 17000,
+        "stars": 2,
+        "note": "해외이용금액 1.7% 캐시백(월 이용금액 100만원까지), 전월실적 없음, 다음달 결제계좌 입금"
+      }
+    ],
+    "universal": { "type": "points", "rate": 0.7, "monthlyCap": null },
+    "complexity": 2,
+    "officialUrl": "https://card.kbcard.com/CRD/DVIEW/HCAMCXPRICAC0076?cooperationcode=09162&mainCC=a",
+    "lastChecked": "2026-08-20",
+    "status": "active",
+    "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문. 카드고릴라 월간 100위. 적립은 전월실적 조건 없음. 태그 밖(전월 30만 조건): CGV·메가박스 예매 건당 3,500원 할인(월 4매), 롯데월드·에버랜드 50%·캐리비안베이 30% 현장할인. 연회비 브랜드별 15,000원(K-World)~20,000원."
+  }
+]

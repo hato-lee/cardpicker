@@ -8137,7 +8137,7 @@
   "name": "현대 아메리칸 익스프레스 그린카드 Edition2",
   "issuer": "현대카드",
   "kind": "credit",
-  "annualFee": 100000,
+  "annualFee": 150000,
   "minSpend": 0,
   "benefits": [
    {
@@ -8224,7 +8224,7 @@
   },
   "complexity": 3,
   "officialUrl": "https://www.americanexpress.com/ko-kr/network/credit-cards/hyundai/green-card.html",
-  "lastChecked": "2026-08-18",
+  "lastChecked": "2026-08-20",
   "status": "active",
   "mileageBonus": {
    "miles": 6667,
@@ -8238,7 +8238,7 @@
    "Be My Guest 호텔 다이닝·아웃백 할인 연 최대 6만원(전월 50만원 이상)",
    "전년 600만원 이상 이용 시 5,000MR(약 3,333마일) 보너스"
   ],
-  "memo": "AI 수집(2026-08-18), 검수 전. 출처: American Express Korea 공식 페이지(현대카드 발급, hyundaicard.com은 자바스크립트 렌더링이라 참고 불가). 국내 독점 발급사인 현대카드가 판매하는 아멕스 프로프라이어터리 카드로, 기존 existing-ids의 '현대카드 the Green Edition3'(Hyundai Originals, M포인트형)와는 이름·상품이 다른 별도 카드임. MR→마일 환산은 대한항공 스카이패스 기준(1.5MR=1마일, 아시아마일즈 등은 1MR=1마일로 더 유리함). 연간 스페셜은 전년 600만원 이상 5,000MR / 1,200만원 이상 10,000MR 2단계이며 위 마일리지 보너스는 상위 구간 기준. 미확인: 특별적립(해외 등) 카테고리의 월 적립 한도 여부(일부 자료에 월 한도 언급 있었으나 정확한 수치를 찾지 못함). 마일리지재검수(2026-08-18): 공식 americanexpress.com/ko-kr 페이지 재확인. 연회비 150,000→100,000원 정정(공식 페이지 값). 기본 1,500원당1MR·1.5MR=1마일 환산(rate 0.044) 정확, 해외결제 3MR(0.133)·Be My Guest 연최대6만원 확인(교차검색). 누락된 특별적립(디지털스트리밍·커피베이커리·대중교통 1,500원당2MR=0.089, 전월 50만원 이상·한도없음)을 카페·편의점/대중교통·택시/통신비·OTT로 추가. 연간보너스(전년 1,200만원 이상 10,000MR=6,667마일, 첫해 100만원 이상)·하위구간(600만원 이상 5,000MR=3,333마일)도 perks와 일치 확인.",
+  "memo": "AI 수집(2026-08-18), 검수 전. 출처: American Express Korea 공식 페이지(현대카드 발급, hyundaicard.com은 자바스크립트 렌더링이라 참고 불가). 국내 독점 발급사인 현대카드가 판매하는 아멕스 프로프라이어터리 카드로, 기존 existing-ids의 '현대카드 the Green Edition3'(Hyundai Originals, M포인트형)와는 이름·상품이 다른 별도 카드임. MR→마일 환산은 대한항공 스카이패스 기준(1.5MR=1마일, 아시아마일즈 등은 1MR=1마일로 더 유리함). 연간 스페셜은 전년 600만원 이상 5,000MR / 1,200만원 이상 10,000MR 2단계이며 위 마일리지 보너스는 상위 구간 기준. 미확인: 특별적립(해외 등) 카테고리의 월 적립 한도 여부(일부 자료에 월 한도 언급 있었으나 정확한 수치를 찾지 못함). 마일리지재검수(2026-08-18): 공식 americanexpress.com/ko-kr 페이지 재확인. 연회비 150,000→100,000원 정정(공식 페이지 값). 기본 1,500원당1MR·1.5MR=1마일 환산(rate 0.044) 정확, 해외결제 3MR(0.133)·Be My Guest 연최대6만원 확인(교차검색). 누락된 특별적립(디지털스트리밍·커피베이커리·대중교통 1,500원당2MR=0.089, 전월 50만원 이상·한도없음)을 카페·편의점/대중교통·택시/통신비·OTT로 추가. 연간보너스(전년 1,200만원 이상 10,000MR=6,667마일, 첫해 100만원 이상)·하위구간(600만원 이상 5,000MR=3,333마일)도 perks와 일치 확인. 연회비 교정(2026-08-20): 10만→15만 원 — 구버전(Edition1) 값이 들어가 있었음. 카드고릴라·언론 보도(Edition2 출시 시 연회비 인상) 교차 확인.",
   "mileConversion": "멤버십 리워즈 포인트(1,500원당 1MR)를 대한항공 스카이패스 마일로 1.5:1 전환한 값이에요. 아시아마일즈 등 1:1 전환처는 더 유리해요"
  },
  {
@@ -11773,5 +11773,2461 @@
   "lastChecked": "2026-08-20",
   "status": "active",
   "memo": "AI 수집(2026-08-20, 고릴라TOP30), 검수 전. 출처: 카드고릴라 상세(API)+농협 공식 신청페이지 링크, 공식 세부 교차확인 필요. 카드고릴라 월간 30위. 태그 밖: CGV·롯데시네마 30%(건당 1만원 이상, 월 5천원), NH pay 건당 1천원 할인(월 2천원), 국제공항 라운지 연 1회. 연회비 국내전용 1만원/해외겸용(VISA) 1만2천원."
+ },
+ {
+  "id": "hyundai-alphabet-o",
+  "name": "알파벳카드O",
+  "issuer": "현대카드",
+  "kind": "credit",
+  "annualFee": 15000,
+  "minSpend": 400000,
+  "benefits": [
+   {
+    "tag": "주유",
+    "type": "discount",
+    "rate": 10,
+    "monthlyCap": 10000,
+    "stars": 2,
+    "note": "주유소·LPG/전기/수소 충전소, 정비소·세차장과 통합 한도, 간편결제·PG 결제 제외",
+    "tiers": [
+     {
+      "minSpend": 800000,
+      "monthlyCap": 20000
+     },
+     {
+      "minSpend": 1200000,
+      "monthlyCap": 35000
+     }
+    ]
+   },
+   {
+    "tag": "통신비",
+    "type": "discount",
+    "rate": 5,
+    "monthlyCap": 5000,
+    "capGroup": "telutil",
+    "stars": 2,
+    "note": "SKT·KT·LGU+ 정기결제만, 알뜰폰·인터넷 결합상품 제외, 영역별 월 5천원",
+    "tiers": [
+     {
+      "minSpend": 800000,
+      "monthlyCap": 10000
+     },
+     {
+      "minSpend": 1200000,
+      "monthlyCap": 15000
+     }
+    ]
+   },
+   {
+    "tag": "관리비·공과금",
+    "type": "discount",
+    "rate": 5,
+    "monthlyCap": 5000,
+    "capGroup": "telutil",
+    "stars": 2,
+    "note": "아파트 관리비·도시가스 정기결제만, 통신비와 통합 한도, 영역별 월 5천원",
+    "tiers": [
+     {
+      "minSpend": 800000,
+      "monthlyCap": 10000
+     },
+     {
+      "minSpend": 1200000,
+      "monthlyCap": 15000
+     }
+    ]
+   }
+  ],
+  "universal": null,
+  "complexity": 3,
+  "officialUrl": "https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=HCO",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라31~100), 검수 전. 출처: 카드고릴라 API 상품안내 원문(현대카드 공식 페이지는 JS라 직접 미확인). 카드고릴라 월간 32위. 차량 정비소·세차장 10% 할인은 주유와 통합 한도(태그 밖 영역). 메탈 플레이트(수수료 7만원)는 태그 밖."
+ },
+ {
+  "id": "hyundai-alphabet-b",
+  "name": "알파벳카드B",
+  "issuer": "현대카드",
+  "kind": "credit",
+  "annualFee": 15000,
+  "minSpend": 400000,
+  "benefits": [
+   {
+    "tag": "카페",
+    "type": "discount",
+    "rate": 5,
+    "monthlyCap": 5000,
+    "capGroup": "cafecvstr",
+    "stars": 2,
+    "note": "스타벅스·투썸·폴바셋·이디야·메가MGC만, 편의점·대중교통과 통합 한도, 영역별 월 5천원",
+    "tiers": [
+     {
+      "minSpend": 800000,
+      "monthlyCap": 10000
+     },
+     {
+      "minSpend": 1200000,
+      "monthlyCap": 15000
+     }
+    ]
+   },
+   {
+    "tag": "편의점",
+    "type": "discount",
+    "rate": 5,
+    "monthlyCap": 5000,
+    "capGroup": "cafecvstr",
+    "stars": 2,
+    "note": "GS25·CU·세븐일레븐·이마트24 현장 결제만(앱 결제 제외), 영역별 월 5천원",
+    "tiers": [
+     {
+      "minSpend": 800000,
+      "monthlyCap": 10000
+     },
+     {
+      "minSpend": 1200000,
+      "monthlyCap": 15000
+     }
+    ]
+   },
+   {
+    "tag": "대중교통·택시",
+    "type": "discount",
+    "rate": 5,
+    "monthlyCap": 5000,
+    "capGroup": "cafecvstr",
+    "stars": 2,
+    "note": "시내버스·지하철·택시(시외·고속버스 제외), 카페·편의점과 통합 한도, 영역별 월 5천원",
+    "tiers": [
+     {
+      "minSpend": 800000,
+      "monthlyCap": 10000
+     },
+     {
+      "minSpend": 1200000,
+      "monthlyCap": 15000
+     }
+    ]
+   }
+  ],
+  "universal": null,
+  "complexity": 3,
+  "officialUrl": "https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=ALB",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라31~100), 검수 전. 출처: 카드고릴라 API 상품안내 원문(현대카드 공식 페이지는 JS라 직접 미확인). 카드고릴라 월간 41위. 기본 혜택인 뷰티(올리브영·미용실·피부과·성형외과·치과)·헬스(헬스장·필라테스 등)·패션(무신사·29CM·KREAM·나이키 등) 10% 할인(월 1만~3.5만 구간 한도)은 14개 태그 밖이라 미수록 — 특정 의원·특정 몰 한정이라 병의원·온라인쇼핑 태그로 넣으면 과대 표기 우려."
+ },
+ {
+  "id": "hyundai-alphabet-t",
+  "name": "알파벳카드T",
+  "issuer": "현대카드",
+  "kind": "credit",
+  "annualFee": 15000,
+  "minSpend": 0,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "discount",
+    "rate": 0.7,
+    "monthlyCap": null,
+    "stars": 2,
+    "note": "국내 가맹점 청구 할인, 실적·한도 없음"
+   },
+   {
+    "tag": "해외 결제",
+    "type": "discount",
+    "rate": 2,
+    "monthlyCap": null,
+    "stars": 2,
+    "note": "해외 온·오프라인 2% 할인 + 국제브랜드·해외서비스 수수료(1.3%) 전액 할인, 국내외겸용 카드만, 한도 없음"
+   }
+  ],
+  "universal": {
+   "type": "discount",
+   "rate": 0.7,
+   "monthlyCap": null
+  },
+  "complexity": 1,
+  "officialUrl": "https://www.hyundaicard.com/cpc/ca/CPCCA0101_01.hc?cardWcd=HCT",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라31~100), 검수 전. 출처: 카드고릴라 API 상품안내 원문(현대카드 공식 페이지는 JS라 직접 미확인). 카드고릴라 월간 77위. 국내 0.7%는 해외 이용분 제외(해외는 2% 별도). 메탈 플레이트(수수료 7만원)는 태그 밖."
+ },
+ {
+  "id": "hyundai-summit",
+  "name": "현대카드 Summit",
+  "issuer": "현대카드",
+  "kind": "credit",
+  "annualFee": 200000,
+  "minSpend": 500000,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "points",
+    "rate": 1.5,
+    "monthlyCap": null,
+    "stars": 3,
+    "note": "국내외 가맹점 M포인트 적립, 적립 한도 없음"
+   },
+   {
+    "tag": "학원·교육",
+    "type": "points",
+    "rate": 5,
+    "monthlyCap": 20000,
+    "capGroup": "special5",
+    "stars": 2,
+    "note": "학원·유치원 업종, 전월 100만원 이상 시(미만 시 기본 1.5%), 병원·여행·골프 영역과 통합 월 2만P"
+   },
+   {
+    "tag": "병의원·약국",
+    "type": "points",
+    "rate": 5,
+    "monthlyCap": 20000,
+    "capGroup": "special5",
+    "stars": 2,
+    "note": "병원·약국 업종, 전월 100만원 이상 시(미만 시 기본 1.5%), 교육·여행·골프 영역과 통합 월 2만P"
+   }
+  ],
+  "universal": {
+   "type": "points",
+   "rate": 1.5,
+   "monthlyCap": null
+  },
+  "complexity": 2,
+  "officialUrl": "https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=SPM",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라31~100), 검수 전. 출처: 카드고릴라 API 상품안내 원문(현대카드 공식 페이지는 JS라 직접 미확인). 카드고릴라 월간 57위. 초대·자산 조건 없이 신청 가능. 여행(국내 항공사·여행사·특급호텔)·골프 5% 적립은 태그 밖(교육·병원과 통합 월 2만P 한도). 연 1회 15만원권 바우처(연간 1,200만원 이용 시), 공항라운지 연 5회, 공항·호텔 발레파킹 월 5회는 태그 밖."
+ },
+ {
+  "id": "hyundai-zero-up-discount",
+  "name": "현대카드 ZERO Up(할인형)",
+  "issuer": "현대카드",
+  "kind": "credit",
+  "annualFee": 30000,
+  "minSpend": 0,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "discount",
+    "rate": 0.8,
+    "monthlyCap": null,
+    "stars": 2,
+    "note": "국내외 가맹점 청구 할인, 실적·한도 없음"
+   },
+   {
+    "tag": "온라인 쇼핑",
+    "type": "discount",
+    "rate": 1.6,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "네이버플러스 스토어·쿠팡·SSG·G마켓·옥션, 10만원 이상 단일 결제 건만, 한도 없음"
+   },
+   {
+    "tag": "주유",
+    "type": "discount",
+    "rate": 1.6,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "주유 업종 10만원 이상 단일 결제 건만(LPG·전기·수소 충전은 0.8%), 한도 없음"
+   },
+   {
+    "tag": "학원·교육",
+    "type": "discount",
+    "rate": 1.6,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "학원·유치원 업종 10만원 이상 단일 결제 건만, 한도 없음"
+   },
+   {
+    "tag": "통신비",
+    "type": "discount",
+    "rate": 1.6,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "SKT·KT·LGU+ 정기결제 10만원 이상만(알뜰폰·인터넷 결합 제외), 한도 없음"
+   }
+  ],
+  "universal": {
+   "type": "discount",
+   "rate": 0.8,
+   "monthlyCap": null
+  },
+  "complexity": 2,
+  "officialUrl": "https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=ZRUP",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라31~100), 검수 전. 출처: 카드고릴라 API 상품안내 원문(현대카드 공식 페이지는 JS라 직접 미확인). 카드고릴라 월간 73위. 대형마트(이마트·하나로마트·롯데마트) 1.6% 할인은 태그 밖. 1.6% 추가 할인은 모두 10만원 이상 단일 결제 건 한정이라 실효성 낮을 수 있음. X 긴급할인(최대 50만 선지급 후 할인액으로 상환)은 상시 할인 아니라 미수록. 기존 hyundai-zero-edition3-discount(ZERO Edition3)와 다른 카드."
+ },
+ {
+  "id": "hyundai-zero-up-points",
+  "name": "현대카드 ZERO Up(포인트형)",
+  "issuer": "현대카드",
+  "kind": "credit",
+  "annualFee": 30000,
+  "minSpend": 0,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "points",
+    "rate": 1.2,
+    "monthlyCap": null,
+    "stars": 3,
+    "note": "국내외 가맹점 M포인트 적립, 실적·한도 없음"
+   },
+   {
+    "tag": "온라인 쇼핑",
+    "type": "points",
+    "rate": 2.4,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "네이버플러스 스토어·쿠팡·SSG·G마켓·옥션, 10만원 이상 단일 결제 건만, 한도 없음"
+   },
+   {
+    "tag": "주유",
+    "type": "points",
+    "rate": 2.4,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "주유 업종 10만원 이상 단일 결제 건만(LPG·전기·수소 충전은 1.2%), 한도 없음"
+   },
+   {
+    "tag": "학원·교육",
+    "type": "points",
+    "rate": 2.4,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "학원·유치원 업종 10만원 이상 단일 결제 건만, 한도 없음"
+   },
+   {
+    "tag": "통신비",
+    "type": "points",
+    "rate": 2.4,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "SKT·KT·LGU+ 정기결제 10만원 이상만(알뜰폰·인터넷 결합 제외), 한도 없음"
+   }
+  ],
+  "universal": {
+   "type": "points",
+   "rate": 1.2,
+   "monthlyCap": null
+  },
+  "complexity": 2,
+  "officialUrl": "https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=MZRUP",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라31~100), 검수 전. 출처: 카드고릴라 API 상품안내 원문(현대카드 공식 페이지는 JS라 직접 미확인). 카드고릴라 월간 88위. 대형마트(이마트·하나로마트·롯데마트) 2.4% 적립은 태그 밖. 2.4% 추가 적립은 모두 10만원 이상 단일 결제 건 한정. M 긴급적립(최대 50만P 선지급 후 적립분으로 상환)은 상시 혜택 아니라 미수록. 기존 hyundai-zero-edition3-points(ZERO Edition3)와 다른 카드."
+ },
+ {
+  "id": "hyundai-energyplus",
+  "name": "에너지플러스 현대카드",
+  "issuer": "현대카드",
+  "kind": "credit",
+  "annualFee": 10000,
+  "minSpend": 400000,
+  "benefits": [
+   {
+    "tag": "주유",
+    "type": "discount",
+    "rate": 5,
+    "monthlyCap": 15000,
+    "stars": 2,
+    "note": "GS칼텍스 전용: 반경 5km 최저가와의 차액 할인 + 앱 '바로주유' 결제 시 5% 추가 할인, 휘발유·경유·LPG(등유·전기차 충전 제외), 일 결제 10만원까지",
+    "tiers": [
+     {
+      "minSpend": 800000,
+      "monthlyCap": 30000
+     }
+    ]
+   }
+  ],
+  "universal": null,
+  "complexity": 2,
+  "officialUrl": "https://www.hyundaicard.com/cpc/cr/CPCCR0201_01.hc?cardWcd=GEPHC",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라31~100), 검수 전. 출처: 카드고릴라 API 상품안내 원문(현대카드 공식 페이지는 JS라 직접 미확인). 카드고릴라 월간 80위. rate 5는 앱 결제 추가 할인 기준이며 최저가 차액 할인은 유가에 따라 변동(주력 혜택). 주차·세차·정비 5% 할인(월 5천원, 80만 이상 1만원)은 태그 밖. GS칼텍스 결제액은 전월 실적에 미합산."
+ },
+ {
+  "id": "shinhan-marriott-bonvoy-the-best",
+  "name": "메리어트 본보이™ 더 베스트 신한카드",
+  "issuer": "신한카드",
+  "kind": "credit",
+  "annualFee": 264000,
+  "minSpend": 0,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "points",
+    "rate": 0.1,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "국내 모든 가맹점 1,000원당 메리어트 본보이 1포인트 적립, 실적 조건 없음"
+   },
+   {
+    "tag": "카페",
+    "type": "points",
+    "rate": 0.3,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "스타벅스·커피빈·폴바셋·투썸플레이스 1,000원당 3포인트, 전월 30만 원 이상 시"
+   },
+   {
+    "tag": "해외 결제",
+    "type": "points",
+    "rate": 0.3,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "해외 일시불 1,000원당 3포인트, 해외겸용(VISA) 카드·전월 30만 원 이상 시"
+   }
+  ],
+  "universal": {
+   "type": "points",
+   "rate": 0.1,
+   "monthlyCap": null
+  },
+  "complexity": 2,
+  "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/premium/1200288_2205.html",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라31-100), 검수 전. 출처: 카드고릴라 API 상품안내 원문+신한카드 공식 신청 페이지. 카드고릴라 월간 59위. 적립은 메리어트 본보이 포인트(1P 가치 원화 환산 안 함, 요율은 1,000원당 포인트 수 기준이라 과소평가될 수 있음). 메리어트 호텔 결제 1,000원당 5P, 대한항공·아시아나·제주항공·진에어와 택시 1,000원당 3P는 태그 밖. 연 1회 무료숙박권(연 100만 원 이용 시, 35,000P 이하 호텔), 골드 엘리트 자동 부여, 숙박 크레딧 10개, 공항라운지 연 4회, 국내 조식 5만 원 할인 연 2회는 태그 밖 프리미엄 혜택. 초대·자산 조건 없이 신청 가능 확인."
+ },
+ {
+  "id": "shinhan-aliexpress",
+  "name": "알리익스프레스 신한카드",
+  "issuer": "신한카드",
+  "kind": "credit",
+  "annualFee": 16000,
+  "minSpend": 300000,
+  "benefits": [
+   {
+    "tag": "온라인 쇼핑",
+    "type": "discount",
+    "rate": 10,
+    "monthlyCap": 10000,
+    "stars": 2,
+    "note": "알리익스프레스 국내·해외 배송상품 10% 결제일 할인, 해외 배송상품은 건당 2만 원 이상 시",
+    "tiers": [
+     {
+      "minSpend": 600000,
+      "monthlyCap": 20000
+     },
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 30000
+     }
+    ]
+   },
+   {
+    "tag": "배달·외식",
+    "type": "discount",
+    "rate": 10,
+    "monthlyCap": 5000,
+    "stars": 2,
+    "capGroup": "dining",
+    "note": "음식점(한식·중식·양식·일식·패스트푸드 등)과 배달의민족·땡겨요 앱 결제, 할인액 1일 1천 원 한도",
+    "tiers": [
+     {
+      "minSpend": 600000,
+      "monthlyCap": 10000
+     },
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 20000
+     }
+    ]
+   },
+   {
+    "tag": "카페",
+    "type": "discount",
+    "rate": 10,
+    "monthlyCap": 5000,
+    "stars": 2,
+    "capGroup": "dining",
+    "note": "스타벅스·투썸·메가·빽다방 등 커피전문점 오프라인, 음식점·배달앱과 통합 한도, 할인액 1일 1천 원 한도",
+    "tiers": [
+     {
+      "minSpend": 600000,
+      "monthlyCap": 10000
+     },
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 20000
+     }
+    ]
+   },
+   {
+    "tag": "해외 결제",
+    "type": "points",
+    "rate": 1,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "해외 이용 1% 마이신한포인트 적립, 해외겸용(Mastercard) 한정"
+   }
+  ],
+  "universal": null,
+  "complexity": 3,
+  "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1231466_2207.html",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라31-100), 검수 전. 출처: 카드고릴라 API 상품안내 원문+신한카드 공식 신청 페이지. 카드고릴라 월간 72위. 실적 구간 30만/60만/100만 원별 한도 상이(tiers 반영). 음식점·카페·배달앱은 통합 할인 한도(capGroup dining)."
+ },
+ {
+  "id": "shinhan-rpm-plus-platinum",
+  "name": "신한카드 RPM+ Platinum#",
+  "issuer": "신한카드",
+  "kind": "credit",
+  "annualFee": 32000,
+  "minSpend": 0,
+  "benefits": [
+   {
+    "tag": "주유",
+    "type": "points",
+    "rate": 2.4,
+    "monthlyCap": 7000,
+    "stars": 2,
+    "note": "전 주유소 리터당 40~150P 적립(전월 실적 구간별), LPG 충전소는 리터당 10~50P, 주유·충전 통합 월 30만 원 이용분까지",
+    "tiers": [
+     {
+      "minSpend": 500000,
+      "rate": 4.7,
+      "monthlyCap": 14000
+     },
+     {
+      "minSpend": 1000000,
+      "rate": 5.9,
+      "monthlyCap": 17000
+     },
+     {
+      "minSpend": 2000000,
+      "rate": 8.8,
+      "monthlyCap": 26000
+     }
+    ]
+   },
+   {
+    "tag": "편의점",
+    "type": "points",
+    "rate": 1,
+    "monthlyCap": 50000,
+    "stars": 1,
+    "capGroup": "pts",
+    "note": "전국 편의점 특별적립, 전월 실적 구간별 1~5%",
+    "tiers": [
+     {
+      "minSpend": 500000,
+      "rate": 2,
+      "monthlyCap": 50000
+     },
+     {
+      "minSpend": 1000000,
+      "rate": 3.5,
+      "monthlyCap": 50000
+     },
+     {
+      "minSpend": 2000000,
+      "rate": 5,
+      "monthlyCap": 50000
+     }
+    ]
+   },
+   {
+    "tag": "온라인 쇼핑",
+    "type": "points",
+    "rate": 1,
+    "monthlyCap": 50000,
+    "stars": 1,
+    "capGroup": "pts",
+    "note": "11번가·G마켓·옥션(신한 SOL페이 앱카드 결제 한정)과 CJ온스타일 1~5% 적립",
+    "tiers": [
+     {
+      "minSpend": 500000,
+      "rate": 2,
+      "monthlyCap": 50000
+     },
+     {
+      "minSpend": 1000000,
+      "rate": 3.5,
+      "monthlyCap": 50000
+     },
+     {
+      "minSpend": 2000000,
+      "rate": 5,
+      "monthlyCap": 50000
+     }
+    ]
+   },
+   {
+    "tag": "대중교통·택시",
+    "type": "points",
+    "rate": 1,
+    "monthlyCap": 50000,
+    "stars": 1,
+    "capGroup": "pts",
+    "note": "택시만 해당(버스·지하철 제외), 전월 실적 구간별 1~5% 적립",
+    "tiers": [
+     {
+      "minSpend": 500000,
+      "rate": 2,
+      "monthlyCap": 50000
+     },
+     {
+      "minSpend": 1000000,
+      "rate": 3.5,
+      "monthlyCap": 50000
+     },
+     {
+      "minSpend": 2000000,
+      "rate": 5,
+      "monthlyCap": 50000
+     }
+    ]
+   },
+   {
+    "tag": "모든 가맹점",
+    "type": "points",
+    "rate": 0.2,
+    "monthlyCap": 50000,
+    "stars": 1,
+    "capGroup": "pts",
+    "note": "국내외 전 가맹점 0.2~2% 마이신한포인트 적립(특별적립과 중복 불가)",
+    "tiers": [
+     {
+      "minSpend": 500000,
+      "rate": 0.5,
+      "monthlyCap": 50000
+     },
+     {
+      "minSpend": 1000000,
+      "rate": 1,
+      "monthlyCap": 50000
+     },
+     {
+      "minSpend": 2000000,
+      "rate": 2,
+      "monthlyCap": 50000
+     }
+    ]
+   }
+  ],
+  "universal": {
+   "type": "points",
+   "rate": 0.2,
+   "monthlyCap": 50000,
+   "tiers": [
+    {
+     "minSpend": 500000,
+     "rate": 0.5,
+     "monthlyCap": 50000
+    },
+    {
+     "minSpend": 1000000,
+     "rate": 1,
+     "monthlyCap": 50000
+    },
+    {
+     "minSpend": 2000000,
+     "rate": 2,
+     "monthlyCap": 50000
+    }
+   ]
+  },
+  "complexity": 3,
+  "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1187945_2207.html",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라31-100), 검수 전. 출처: 카드고릴라 API 상품안내 원문+신한카드 공식 신청 페이지. 카드고릴라 월간 86위. is_discon false로 신규 발급 중 확인. 주유는 리터당 적립이라 휘발유 1,700원/L 가정으로 %·한도 환산(확인 필요), 한도는 이용금액 월 30만 원 기준 환산값. 전 적립 통합 월 5만P 한도(주유 포함, capGroup pts). 최저 구간(전월 50만 미만)에도 적립 제공되어 minSpend 0. 롯데·현대백화점, 롯데마트·이마트·홈플러스, 차량 정비소 1~5% 적립은 태그 밖. 1일 무료주차 월 3회, 인천공항 발렛·커피 등 프리미엄 서비스는 태그 밖."
+ },
+ {
+  "id": "shinhan-the-best-xo-point",
+  "name": "신한카드 The BEST-XO (마이신한포인트형)",
+  "issuer": "신한카드",
+  "kind": "credit",
+  "annualFee": 297000,
+  "minSpend": 500000,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "points",
+    "rate": 1,
+    "monthlyCap": null,
+    "stars": 3,
+    "note": "국내외 일시불·할부 1% 마이신한포인트 적립, 한도 없음. 전월 300만 원 이상 시 0.5% 추가",
+    "tiers": [
+     {
+      "minSpend": 3000000,
+      "rate": 1.5,
+      "monthlyCap": null
+     }
+    ]
+   },
+   {
+    "tag": "주유",
+    "type": "points",
+    "rate": 3,
+    "monthlyCap": 20000,
+    "stars": 2,
+    "note": "모든 주유소 3% 추가 적립(기본 1%와 별도), LPG 제외"
+   },
+   {
+    "tag": "온라인 쇼핑",
+    "type": "points",
+    "rate": 0.5,
+    "monthlyCap": 30000,
+    "stars": 1,
+    "note": "SOL페이·네이버페이·쿠페이 간편결제 0.5% 추가 적립(기본 1%와 별도)"
+   },
+   {
+    "tag": "해외 결제",
+    "type": "points",
+    "rate": 1,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "해외 일시불 1% 추가 적립(기본 1%와 별도), 해외겸용(Mastercard) 한정"
+   }
+  ],
+  "universal": {
+   "type": "points",
+   "rate": 1,
+   "monthlyCap": null,
+   "tiers": [
+    {
+     "minSpend": 3000000,
+     "rate": 1.5,
+     "monthlyCap": null
+    }
+   ]
+  },
+  "complexity": 2,
+  "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/premium/1231479_2205.html",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라31-100), 검수 전. 출처: 카드고릴라 API 상품안내 원문+신한카드 공식 신청 페이지. 카드고릴라 월간 99위. 스카이패스형은 기존 DB(shinhan-the-best-xo)에 있어 마이신한포인트형만 신규 수록. 연회비: 국내전용 297,000원/해외겸용 300,000원(스카이패스형은 317,000/320,000원). 기본 리워드 한도 표기 없음(한도 없음으로 기재). 연 1회 Gift Option(신세계상품권 20만 원·호텔외식 23만 원·마이신한포인트 20만점 등 택1, 연회비 납부+연 100만 원 이용 시)은 태그 밖. is_discon false로 신규 발급 중 확인. 초대·자산 조건 없음."
+ },
+ {
+  "id": "samsung-naverpay-taptap",
+  "name": "네이버페이 taptap",
+  "issuer": "삼성카드",
+  "kind": "credit",
+  "annualFee": 15000,
+  "minSpend": 300000,
+  "benefits": [
+   {
+    "tag": "온라인 쇼핑",
+    "type": "points",
+    "rate": 10,
+    "monthlyCap": 5000,
+    "stars": 2,
+    "note": "네이버페이 온라인 간편결제 10% 네이버페이 포인트 적립. 일상 패키지 기준, 온라인 패키지 선택 시 월 1만P 한도+건별 7만 원 이상 결제 시 3,000P 월 1회"
+   },
+   {
+    "tag": "카페",
+    "type": "points",
+    "rate": 5,
+    "monthlyCap": 5000,
+    "stars": 2,
+    "capGroup": "daily",
+    "note": "스타벅스·투썸·커피빈 등 커피전문점 오프라인, 편의점·배달앱과 통합 한도(일상 패키지 선택 시)"
+   },
+   {
+    "tag": "편의점",
+    "type": "points",
+    "rate": 5,
+    "monthlyCap": 5000,
+    "stars": 2,
+    "capGroup": "daily",
+    "note": "CU·세븐일레븐·GS25·미니스톱 오프라인, 커피·배달앱과 통합 한도(일상 패키지 선택 시)"
+   },
+   {
+    "tag": "배달·외식",
+    "type": "points",
+    "rate": 5,
+    "monthlyCap": 5000,
+    "stars": 2,
+    "capGroup": "daily",
+    "note": "배달의민족·요기요·배달통 앱 결제, 커피·편의점과 통합 한도(일상 패키지 선택 시)"
+   },
+   {
+    "tag": "모든 가맹점",
+    "type": "points",
+    "rate": 0.5,
+    "monthlyCap": null,
+    "stars": 2,
+    "note": "국내외 온·오프라인 전 가맹점 0.5% 네이버페이 포인트 적립, 실적·한도 없음"
+   }
+  ],
+  "universal": {
+   "type": "points",
+   "rate": 0.5,
+   "monthlyCap": null
+  },
+  "complexity": 3,
+  "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1544",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라31-100), 검수 전. 출처: 카드고릴라 API 상품안내 원문+삼성카드 공식 페이지. 카드고릴라 월간 66위. 카드 신청은 네이버페이 앱/웹을 통해서만 가능(삼성카드 페이지에서 확인, 신규 발급 중). 일상 패키지/온라인 패키지 중 매월 택1 — 수록값은 일상 패키지 기준(카페·편의점·배달 5%는 일상 패키지에만 제공). 대중교통·택시는 적립 제외 업종."
+ },
+ {
+  "id": "samsung-triplus",
+  "name": "트라이플러스 삼성카드",
+  "issuer": "삼성카드",
+  "kind": "credit",
+  "annualFee": 15000,
+  "minSpend": 400000,
+  "benefits": [
+   {
+    "tag": "카페",
+    "type": "discount",
+    "rate": 20,
+    "monthlyCap": 10000,
+    "stars": 2,
+    "note": "파리바게뜨·배스킨라빈스·던킨·파스쿠찌·쉐이크쉑·파리크라상 오프라인과 해피오더 앱 20% 할인, 통합 월 1만 원(베이커리·디저트 중심)"
+   },
+   {
+    "tag": "온라인 쇼핑",
+    "type": "discount",
+    "rate": 5,
+    "monthlyCap": 4000,
+    "stars": 2,
+    "note": "쿠팡·네이버플러스 스토어·SSG·G마켓·옥션·11번가·컬리와 이마트·롯데마트 등 할인점 오프라인 통합 한도",
+    "tiers": [
+     {
+      "minSpend": 800000,
+      "monthlyCap": 8000
+     }
+    ]
+   },
+   {
+    "tag": "통신비",
+    "type": "discount",
+    "rate": 5,
+    "monthlyCap": 4000,
+    "stars": 2,
+    "capGroup": "life",
+    "note": "SKT·KT·LGU+·알뜰폰, 인터넷·유선 자동납부, 아파트 관리비와 통합 한도",
+    "tiers": [
+     {
+      "minSpend": 800000,
+      "monthlyCap": 8000
+     }
+    ]
+   },
+   {
+    "tag": "관리비·공과금",
+    "type": "discount",
+    "rate": 5,
+    "monthlyCap": 4000,
+    "stars": 2,
+    "capGroup": "life",
+    "note": "아파트 관리비 정기결제, 통신비와 통합 한도",
+    "tiers": [
+     {
+      "minSpend": 800000,
+      "monthlyCap": 8000
+     }
+    ]
+   },
+   {
+    "tag": "학원·교육",
+    "type": "discount",
+    "rate": 5,
+    "monthlyCap": 4000,
+    "stars": 2,
+    "note": "입시·외국어·예체능 학원(오프라인), 학습지(웅진씽크빅·교원·대교·한솔), 인터넷강의, 온라인서점(YES24·알라딘·교보) 통합 한도",
+    "tiers": [
+     {
+      "minSpend": 800000,
+      "monthlyCap": 8000
+     }
+    ]
+   },
+   {
+    "tag": "해외 결제",
+    "type": "discount",
+    "rate": 1,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "해외 가맹점 1% 할인, 실적·한도 없음, 해외겸용 한정"
+   },
+   {
+    "tag": "모든 가맹점",
+    "type": "points",
+    "rate": 0.1,
+    "monthlyCap": 3000,
+    "stars": 1,
+    "note": "국내 가맹점 0.1% 뷰티포인트(아모레퍼시픽) 적립, SPC·hy 1% 적립과 통합 월 3,000P"
+   }
+  ],
+  "universal": {
+   "type": "points",
+   "rate": 0.1,
+   "monthlyCap": 3000
+  },
+  "complexity": 3,
+  "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1895",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라31-100), 검수 전. 출처: 카드고릴라 API 상품안내 원문+삼성카드 공식 페이지. 카드고릴라 월간 90위. 2026년 3월 출시 신상품. hy(프레딧몰·프레시매니저) 20% 할인 월 1만 원, 아모레퍼시픽 온라인몰 10% 뷰티포인트 적립 월 1만P, 당월 이용 영역 개수(해피오더·hy·아모레) 따라 5/10/20% 추가 결제대금 차감(월 5천~1.5만 원)은 태그 밖/복잡 혜택이라 미반영. 적립·할인은 뷰티포인트/결제일할인 혼재."
+ },
+ {
+  "id": "samsung-gukmin-haengbok-v2",
+  "name": "국민행복 삼성카드 V2",
+  "issuer": "삼성카드",
+  "kind": "credit",
+  "annualFee": 0,
+  "minSpend": 300000,
+  "benefits": [
+   {
+    "tag": "온라인 쇼핑",
+    "type": "discount",
+    "rate": 7,
+    "monthlyCap": 4000,
+    "stars": 2,
+    "note": "쿠팡·G마켓·11번가·SSG·롯데ON 등 온라인몰과 백화점·할인점·다이소·마켓컬리 포함 쇼핑 영역 통합 한도",
+    "tiers": [
+     {
+      "minSpend": 600000,
+      "monthlyCap": 8000
+     },
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 16000
+     }
+    ]
+   },
+   {
+    "tag": "병의원·약국",
+    "type": "discount",
+    "rate": 7,
+    "monthlyCap": 4000,
+    "stars": 2,
+    "capGroup": "care",
+    "note": "병·의원, 약국, 산후조리원 — 보육 영역(학원·주유 포함) 통합 한도",
+    "tiers": [
+     {
+      "minSpend": 600000,
+      "monthlyCap": 8000
+     },
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 16000
+     }
+    ]
+   },
+   {
+    "tag": "학원·교육",
+    "type": "discount",
+    "rate": 7,
+    "monthlyCap": 4000,
+    "stars": 2,
+    "capGroup": "care",
+    "note": "학원·학습지·온라인서점·어린이집·유치원 — 보육 영역(의료·주유 포함) 통합 한도",
+    "tiers": [
+     {
+      "minSpend": 600000,
+      "monthlyCap": 8000
+     },
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 16000
+     }
+    ]
+   },
+   {
+    "tag": "주유",
+    "type": "discount",
+    "rate": 7,
+    "monthlyCap": 4000,
+    "stars": 2,
+    "capGroup": "care",
+    "note": "SK에너지·GS칼텍스·S-OIL — 보육 영역(의료·학원 포함) 통합 한도",
+    "tiers": [
+     {
+      "minSpend": 600000,
+      "monthlyCap": 8000
+     },
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 16000
+     }
+    ]
+   },
+   {
+    "tag": "관리비·공과금",
+    "type": "discount",
+    "rate": 7,
+    "monthlyCap": 4000,
+    "stars": 2,
+    "capGroup": "bill",
+    "note": "아파트 관리비·도시가스·전기요금·4대 보험 자동납부 — 생활요금 영역(통신 포함) 통합 한도",
+    "tiers": [
+     {
+      "minSpend": 600000,
+      "monthlyCap": 8000
+     },
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 16000
+     }
+    ]
+   },
+   {
+    "tag": "통신비",
+    "type": "discount",
+    "rate": 7,
+    "monthlyCap": 4000,
+    "stars": 2,
+    "capGroup": "bill",
+    "note": "SKT·KT·LGU+·SK브로드밴드 이동통신·인터넷·유선 자동납부 — 생활요금 영역(관리비 포함) 통합 한도",
+    "tiers": [
+     {
+      "minSpend": 600000,
+      "monthlyCap": 8000
+     },
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 16000
+     }
+    ]
+   },
+   {
+    "tag": "OTT·구독",
+    "type": "discount",
+    "rate": 0,
+    "monthlyCap": 3000,
+    "stars": 2,
+    "note": "넷플릭스·웨이브·왓챠·멜론·FLO 정기결제 건별 5천 원 이상 시 3,000원 할인, 월 1회"
+   },
+   {
+    "tag": "해외 결제",
+    "type": "discount",
+    "rate": 1.5,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "해외 가맹점·해외 직구 1.5% 할인, 실적 무관, 해외겸용 한정"
+   }
+  ],
+  "universal": null,
+  "complexity": 3,
+  "officialUrl": "https://www.samsungcard.com/home/card/cardinfo/PGHPPCCCardCardinfoDetails001?code=AAP1688",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라31-100), 검수 전. 출처: 카드고릴라 API 상품안내 원문+삼성카드 공식 페이지. 카드고릴라 월간 98위. 국민행복카드(바우처 겸용) — 임신·출산·육아 국가바우처 이용 가능 카드지만 삼성카드 홈페이지·모니모·전화로 누구나 일반 발급 가능(확인). 바우처 자체는 혜택 미수록. 연회비 없음. 쇼핑·보육·생활요금 3개 영역 7% 할인은 영역별 한도(4천/8천/1.6만 원) 외에 전체 통합 월 한도 1만/2만/4만 원이 별도로 있음(구조상 미반영, 검수 시 참고). 백화점·할인점 오프라인 7%는 온라인 쇼핑 note에 병기. 해외 할인한도는 통합 월 50만 원(원문 표기). 신세계백화점 제휴 서비스는 태그 밖."
+ },
+ {
+  "id": "nh-zgm-discount",
+  "name": "NH농협 zgm 할인카드",
+  "issuer": "NH농협카드",
+  "kind": "credit",
+  "annualFee": 27000,
+  "minSpend": 400000,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "discount",
+    "rate": 1,
+    "monthlyCap": 40000,
+    "capGroup": "basic",
+    "stars": 3,
+    "note": "국내 가맹점 1%, NH페이 온라인·해외는 2%, 일 1만원 한도"
+   },
+   {
+    "tag": "해외 결제",
+    "type": "discount",
+    "rate": 2,
+    "monthlyCap": 40000,
+    "capGroup": "basic",
+    "stars": 2,
+    "note": "해외 가맹점 2% 청구할인, 기본할인 통합 한도(일 1만원)"
+   },
+   {
+    "tag": "관리비·공과금",
+    "type": "discount",
+    "rate": 10,
+    "monthlyCap": 20000,
+    "capGroup": "life",
+    "stars": 2,
+    "note": "아파트관리비·전기요금(주택용)·도시가스 자동납부, 영역당 월 5천원"
+   },
+   {
+    "tag": "통신비",
+    "type": "discount",
+    "rate": 10,
+    "monthlyCap": 20000,
+    "capGroup": "life",
+    "stars": 2,
+    "note": "SKT·KT·LGU+ 이동통신 자동납부, 알뜰폰·TV·인터넷 제외, 영역당 월 5천원"
+   },
+   {
+    "tag": "온라인 쇼핑",
+    "type": "discount",
+    "rate": 10,
+    "monthlyCap": 20000,
+    "capGroup": "life",
+    "stars": 2,
+    "note": "새벽배송(쿠팡·컬리·오아시스마켓, 멤버십 포함), 영역당 월 5천원"
+   },
+   {
+    "tag": "병의원·약국",
+    "type": "discount",
+    "rate": 10,
+    "monthlyCap": 20000,
+    "capGroup": "life",
+    "stars": 2,
+    "note": "동물병원·애완동물 업종만 해당, 영역당 월 5천원"
+   },
+   {
+    "tag": "OTT·구독",
+    "type": "discount",
+    "rate": 30,
+    "monthlyCap": 20000,
+    "capGroup": "life",
+    "stars": 2,
+    "note": "유튜브프리미엄·넷플릭스·티빙·웨이브 정기결제, 영역당 월 5천원"
+   }
+  ],
+  "universal": {
+   "type": "discount",
+   "rate": 1,
+   "monthlyCap": 40000
+  },
+  "complexity": 3,
+  "officialUrl": "https://card.nonghyup.com/servlet/IpCc2021R.act?CD_WRS_SQNO=90010515",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: NH농협카드 공식 상품페이지+카드고릴라 API. 카드고릴라 월간 44위. 기본할인과 생활할인은 중복 미적용(큰 쪽 적용). 생활할인은 영역당 월 5천원·통합 월 2만원(공유한도 2만원으로 기재). 생활할인 중 대형마트·보험 10% 할인과 국내외 공항라운지 월 1회·연 2회는 태그 밖."
+ },
+ {
+  "id": "nh-zgm-japan-travel",
+  "name": "NH농협 zgm.일본여행중 카드",
+  "issuer": "NH농협카드",
+  "kind": "credit",
+  "annualFee": 23000,
+  "minSpend": 0,
+  "benefits": [
+   {
+    "tag": "해외 결제",
+    "type": "points",
+    "rate": 1.5,
+    "monthlyCap": 30000,
+    "capGroup": "point",
+    "stars": 2,
+    "note": "해외 온·오프라인 1.5% NH포인트(JCB 발급 시), 건당 1만원 이상, 해외서비스수수료·브랜드수수료 면제. 일본 오프라인 매장은 10% 적립(전월 30만원 이상, 연 10만P 한도)"
+   },
+   {
+    "tag": "온라인 쇼핑",
+    "type": "points",
+    "rate": 1,
+    "monthlyCap": 30000,
+    "capGroup": "point",
+    "stars": 1,
+    "note": "쿠팡·티몬·위메프·SSG·G마켓·옥션·11번가·농협몰, 건당 1만원 이상"
+   },
+   {
+    "tag": "모든 가맹점",
+    "type": "points",
+    "rate": 0.5,
+    "monthlyCap": 30000,
+    "capGroup": "point",
+    "stars": 2,
+    "note": "그 외 가맹점 0.5% NH포인트, 건당 1만원 이상, 월 통합 3만P"
+   }
+  ],
+  "universal": {
+   "type": "points",
+   "rate": 0.5,
+   "monthlyCap": 30000
+  },
+  "complexity": 3,
+  "officialUrl": "https://card.nonghyup.com/servlet/IpCc2021R.act?CD_WRS_SQNO=90010476",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: NH농협카드 공식 상품페이지+카드고릴라 API. 카드고릴라 월간 60위. 기본 적립은 전월실적 무관(월 통합 3만P). 항공사(대한항공 등)·면세점·백화점·대형마트 1% 적립, 익스피디아 객실 9% 할인, 공항라운지 월 1회·연 2회(전월 30만 이상)는 태그 밖. 수수료 면제·해외 적립은 JCB 국내외겸용 발급 시만."
+ },
+ {
+  "id": "nh-zgm-the-pay",
+  "name": "NH농협 zgm.the pay카드",
+  "issuer": "NH농협카드",
+  "kind": "credit",
+  "annualFee": 12000,
+  "minSpend": 0,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "discount",
+    "rate": 1,
+    "monthlyCap": null,
+    "stars": 3,
+    "note": "국내·해외 온·오프라인 전 가맹점 1% 청구할인, 실적·한도 없음"
+   },
+   {
+    "tag": "온라인 쇼핑",
+    "type": "discount",
+    "rate": 1.2,
+    "monthlyCap": 100000,
+    "stars": 2,
+    "note": "온라인 간편결제 시 NH페이 1.7%·삼성/네이버/카카오페이 등 1.2%, 전 가맹점 1%와 중복 미적용"
+   }
+  ],
+  "universal": {
+   "type": "discount",
+   "rate": 1,
+   "monthlyCap": null
+  },
+  "complexity": 1,
+  "officialUrl": "https://card.nonghyup.com/servlet/IpCc2021R.act?CD_WRS_SQNO=90010178",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: NH농협카드 공식 상품페이지+카드고릴라 API. 카드고릴라 월간 65위. 전 가맹점 1%는 한도 없음(공식 확인), 간편결제 할인은 월 통합 10만원. 온라인 발급 전용(홈페이지·앱 신청만 가능)."
+ },
+ {
+  "id": "nh-byeoldajul",
+  "name": "NH농협 별다줄카드",
+  "issuer": "NH농협카드",
+  "kind": "credit",
+  "annualFee": 12000,
+  "minSpend": 300000,
+  "benefits": [
+   {
+    "tag": "온라인 쇼핑",
+    "type": "discount",
+    "rate": 7,
+    "monthlyCap": 7000,
+    "stars": 2,
+    "note": "국내 온라인 전 가맹점 7%, 무신사·지그재그·크림·번개장터·야놀자·여기어때·오늘의집 등 13개 가맹점은 14%",
+    "tiers": [
+     {
+      "minSpend": 700000,
+      "monthlyCap": 14000
+     },
+     {
+      "minSpend": 1500000,
+      "monthlyCap": 20000
+     }
+    ]
+   },
+   {
+    "tag": "대중교통·택시",
+    "type": "discount",
+    "rate": 5,
+    "monthlyCap": 1000,
+    "stars": 2,
+    "note": "버스·지하철 후불교통, 택시·시외고속버스 제외",
+    "tiers": [
+     {
+      "minSpend": 700000,
+      "monthlyCap": 2000
+     }
+    ]
+   },
+   {
+    "tag": "카페",
+    "type": "discount",
+    "rate": 5,
+    "monthlyCap": 1000,
+    "stars": 2,
+    "note": "스타벅스(사이렌오더 포함)·이디야(현장결제)",
+    "tiers": [
+     {
+      "minSpend": 700000,
+      "monthlyCap": 2000
+     }
+    ]
+   },
+   {
+    "tag": "편의점",
+    "type": "discount",
+    "rate": 5,
+    "monthlyCap": 1000,
+    "stars": 2,
+    "note": "GS25·CU·세븐일레븐 현장결제",
+    "tiers": [
+     {
+      "minSpend": 700000,
+      "monthlyCap": 2000
+     }
+    ]
+   },
+   {
+    "tag": "통신비",
+    "type": "discount",
+    "rate": 5,
+    "monthlyCap": 1000,
+    "stars": 2,
+    "note": "SKT·KT·LGU+ 이동통신 자동납부, 알뜰폰 제외",
+    "tiers": [
+     {
+      "minSpend": 700000,
+      "monthlyCap": 2000
+     }
+    ]
+   },
+   {
+    "tag": "배달·외식",
+    "type": "discount",
+    "rate": 5,
+    "monthlyCap": 1000,
+    "stars": 2,
+    "note": "배달의민족·요기요·쿠팡이츠 공식 앱 카드결제",
+    "tiers": [
+     {
+      "minSpend": 700000,
+      "monthlyCap": 2000
+     }
+    ]
+   },
+   {
+    "tag": "OTT·구독",
+    "type": "discount",
+    "rate": 5,
+    "monthlyCap": 1000,
+    "stars": 2,
+    "note": "쿠팡와우·네이버멤버십플러스·유튜브프리미엄·넷플릭스·티빙·디즈니플러스 정기결제",
+    "tiers": [
+     {
+      "minSpend": 700000,
+      "monthlyCap": 2000
+     }
+    ]
+   }
+  ],
+  "universal": null,
+  "complexity": 3,
+  "officialUrl": "https://card.nonghyup.com/servlet/IpCc2021R.act?CD_WRS_SQNO=90010137",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: NH농협카드 공식 상품페이지+카드고릴라 API. 카드고릴라 월간 69위. 온라인쇼핑 한도는 기본할인(7%)+더블할인(14%) 합산 통합한도. 생활할인 6개 영역은 영역별 독립 한도(30만~70만 1천원, 70만 이상 2천원). 국제공항 라운지 연 2회, 놀이공원 자유이용권 50% 현장할인(에버랜드·롯데월드 등, 월 1회 연 6회)은 태그 밖."
+ },
+ {
+  "id": "nh-zgm-streaming",
+  "name": "NH농협 zgm.streaming카드",
+  "issuer": "NH농협카드",
+  "kind": "credit",
+  "annualFee": 12000,
+  "minSpend": 400000,
+  "benefits": [
+   {
+    "tag": "OTT·구독",
+    "type": "discount",
+    "rate": 50,
+    "monthlyCap": 12000,
+    "stars": 2,
+    "note": "스트리밍(넷플릭스·웨이브·티빙·디즈니플러스·유튜브프리미엄·멜론) 50% 월 5천원 + 멤버십(네이버플러스·쿠팡와우·컬리패스·요기패스) 건당 최대 7천원 월 7천원, 가맹점별 월 1회, 정기결제만"
+   },
+   {
+    "tag": "카페",
+    "type": "discount",
+    "rate": 50,
+    "monthlyCap": 5000,
+    "stars": 2,
+    "note": "스타벅스 사이렌오더 전용 50%, 일 1회 월 2회"
+   },
+   {
+    "tag": "온라인 쇼핑",
+    "type": "discount",
+    "rate": 5,
+    "monthlyCap": 3000,
+    "stars": 2,
+    "note": "온라인 간편결제(NH페이·삼성·네이버·카카오페이 등) 건당 2만원 이상, 일 1회"
+   }
+  ],
+  "universal": null,
+  "complexity": 2,
+  "officialUrl": "https://card.nonghyup.com/servlet/IpCc2021R.act?CD_WRS_SQNO=90010179",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: NH농협카드 공식 상품페이지+카드고릴라 API. 카드고릴라 월간 97위. OTT·구독은 스트리밍 50%(월 5천)와 멤버십 정액(월 7천) 두 서비스를 합산 월 1.2만원으로 기재. 인앱결제·타 간편결제 이용 시 할인 제외."
+ },
+ {
+  "id": "ibk-point",
+  "name": "IBK포인트(신용)",
+  "issuer": "IBK기업은행",
+  "kind": "credit",
+  "annualFee": 21000,
+  "minSpend": 500000,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "points",
+    "rate": 0.6,
+    "monthlyCap": 50000,
+    "stars": 2,
+    "note": "국내외 전 가맹점, 건당 결제금액별 차등: 10만원 미만 0.6%, 10만~30만 0.8%, 30만~70만 1.1%, 70만~100만 2.2%, 100만원 이상 3.3%"
+   }
+  ],
+  "universal": {
+   "type": "points",
+   "rate": 0.6,
+   "monthlyCap": 50000
+  },
+  "complexity": 2,
+  "officialUrl": "https://cardapplication.ibk.co.kr/card/index.do?card_prdc_id=103937",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문(IBK 공식 페이지는 JS라 원문 미확인). 카드고릴라 월간 40위. 적립률은 건당 결제금액 구간별 0.6~3.3%(가장 낮은 구간 기준으로 기재), 통합 월 적립한도 5만P(전월 50만 이상)."
+ },
+ {
+  "id": "ibk-point-38",
+  "name": "IBK포인트3.8(신용)",
+  "issuer": "IBK기업은행",
+  "kind": "credit",
+  "annualFee": 37000,
+  "minSpend": 500000,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "points",
+    "rate": 1.5,
+    "monthlyCap": null,
+    "stars": 3,
+    "note": "국내외 전 가맹점 1.5% 적립, 월 적립한도 없음"
+   },
+   {
+    "tag": "해외 결제",
+    "type": "points",
+    "rate": 5,
+    "monthlyCap": 15000,
+    "stars": 2,
+    "note": "해외 가맹점 특별적립 5%(월 1.5만P 한도), 기본 1.5%와 중복 적립(합산 6.5%)"
+   },
+   {
+    "tag": "온라인 쇼핑",
+    "type": "points",
+    "rate": 0.5,
+    "monthlyCap": 10000,
+    "stars": 1,
+    "note": "쿠팡·G마켓·옥션·11번가 특별적립 0.5%(월 1만P 한도), 기본 1.5%와 중복 적립(합산 2%)"
+   }
+  ],
+  "universal": {
+   "type": "points",
+   "rate": 1.5,
+   "monthlyCap": null
+  },
+  "complexity": 2,
+  "officialUrl": "https://cardapplication.ibk.co.kr/card/index.do?card_prdc_id=103991",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문(IBK 공식 페이지는 JS라 원문 미확인). 카드고릴라 월간 49위. 기본 1.5%는 한도 없음(공식 확인). 특별적립 한도 초과 시 기본 적립만 제공."
+ },
+ {
+  "id": "ibk-i-all",
+  "name": "IBK기업은행 I-ALL",
+  "issuer": "IBK기업은행",
+  "kind": "credit",
+  "annualFee": 14000,
+  "minSpend": 0,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "discount",
+    "rate": 0.5,
+    "monthlyCap": null,
+    "stars": 2,
+    "note": "국내외 전 가맹점 0.5%, 실적·한도 없음, LIVING·MEMBERSHIP 대상 가맹점 제외"
+   },
+   {
+    "tag": "온라인 쇼핑",
+    "type": "discount",
+    "rate": 1,
+    "monthlyCap": 20000,
+    "capGroup": "livmem",
+    "stars": 1,
+    "note": "쿠팡·G마켓·11번가·옥션·홈쇼핑 6사, 전월 50만원 이상 시, 3개월 연속 50만 이용 시 1.5%",
+    "tiers": [
+     {
+      "minSpend": 700000,
+      "monthlyCap": 30000
+     },
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 40000
+     }
+    ]
+   },
+   {
+    "tag": "배달·외식",
+    "type": "discount",
+    "rate": 1,
+    "monthlyCap": 20000,
+    "capGroup": "livmem",
+    "stars": 1,
+    "note": "배달의민족·쿠팡이츠·요기요 공식 앱 결제, 전월 50만원 이상 시",
+    "tiers": [
+     {
+      "minSpend": 700000,
+      "monthlyCap": 30000
+     },
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 40000
+     }
+    ]
+   },
+   {
+    "tag": "카페",
+    "type": "discount",
+    "rate": 1,
+    "monthlyCap": 20000,
+    "capGroup": "livmem",
+    "stars": 1,
+    "note": "스타벅스·커피빈·투썸플레이스·폴바셋·이디야, 전월 50만원 이상 시",
+    "tiers": [
+     {
+      "minSpend": 700000,
+      "monthlyCap": 30000
+     },
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 40000
+     }
+    ]
+   },
+   {
+    "tag": "편의점",
+    "type": "discount",
+    "rate": 1,
+    "monthlyCap": 20000,
+    "capGroup": "livmem",
+    "stars": 1,
+    "note": "GS25·CU·세븐일레븐 오프라인 결제, 전월 50만원 이상 시",
+    "tiers": [
+     {
+      "minSpend": 700000,
+      "monthlyCap": 30000
+     },
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 40000
+     }
+    ]
+   },
+   {
+    "tag": "대중교통·택시",
+    "type": "discount",
+    "rate": 1,
+    "monthlyCap": 20000,
+    "capGroup": "livmem",
+    "stars": 1,
+    "note": "버스·지하철·택시(카카오T 포함), 시외·고속버스 제외, 전월 50만원 이상 시",
+    "tiers": [
+     {
+      "minSpend": 700000,
+      "monthlyCap": 30000
+     },
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 40000
+     }
+    ]
+   },
+   {
+    "tag": "주유",
+    "type": "discount",
+    "rate": 1,
+    "monthlyCap": 20000,
+    "capGroup": "livmem",
+    "stars": 1,
+    "note": "GS칼텍스·S-OIL·SK에너지·HD현대오일뱅크, 월 50만원 이용분까지 인정, 전월 50만원 이상 시",
+    "tiers": [
+     {
+      "minSpend": 700000,
+      "monthlyCap": 30000
+     },
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 40000
+     }
+    ]
+   },
+   {
+    "tag": "통신비",
+    "type": "discount",
+    "rate": 1,
+    "monthlyCap": 20000,
+    "capGroup": "livmem",
+    "stars": 1,
+    "note": "SKT·KT·LGU+ 통신요금 자동이체, 알뜰폰·인터넷 등 결합상품 제외, 전월 50만원 이상 시",
+    "tiers": [
+     {
+      "minSpend": 700000,
+      "monthlyCap": 30000
+     },
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 40000
+     }
+    ]
+   },
+   {
+    "tag": "병의원·약국",
+    "type": "discount",
+    "rate": 1,
+    "monthlyCap": 20000,
+    "capGroup": "livmem",
+    "stars": 1,
+    "note": "동물병원·애완동물 업종만 해당(오프라인), 전월 50만원 이상 시",
+    "tiers": [
+     {
+      "minSpend": 700000,
+      "monthlyCap": 30000
+     },
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 40000
+     }
+    ]
+   },
+   {
+    "tag": "OTT·구독",
+    "type": "discount",
+    "rate": 5,
+    "monthlyCap": 20000,
+    "capGroup": "livmem",
+    "stars": 2,
+    "note": "넷플릭스·유튜브프리미엄·디즈니플러스·티빙, 쿠팡와우·네이버멤버십플러스 정기결제, 전월 50만원 이상 시, 3개월 연속 50만 이용 시 7%",
+    "tiers": [
+     {
+      "minSpend": 700000,
+      "monthlyCap": 30000
+     },
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 40000
+     }
+    ]
+   }
+  ],
+  "universal": {
+   "type": "discount",
+   "rate": 0.5,
+   "monthlyCap": null
+  },
+  "complexity": 3,
+  "officialUrl": "https://cardapplication.ibk.co.kr/card/index.do?card_prdc_id=102475",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문(IBK 공식 페이지는 JS라 원문 미확인). 카드고릴라 월간 51위. 기본 0.5%는 실적 무관이라 minSpend 0으로 기재, LIVING(1%)·MEMBERSHIP(5%)은 전월 50만원 이상부터(각 note 참조). LIVING·MEMBERSHIP 통합 월 할인한도 50만 이상 2만/70만 이상 3만/100만 이상 4만. 우대조건(3개월 연속 50만)시 LIVING 1.5%·MEMBERSHIP 7%. 대형마트(이마트·롯데마트·홈플러스) 1% 할인은 태그 밖."
+ },
+ {
+  "id": "ibk-i-mileage-koreanair",
+  "name": "IBK기업은행 I-Mileage (대한항공)",
+  "issuer": "IBK기업은행",
+  "kind": "credit",
+  "annualFee": 41000,
+  "minSpend": 500000,
+  "benefits": [
+   {
+    "tag": "마일리지",
+    "type": "mileage",
+    "rate": 0.1,
+    "monthlyCap": null,
+    "stars": 2,
+    "note": "대한항공 스카이패스 1,000원당 1마일, 월 적립한도 없음"
+   },
+   {
+    "tag": "모든 가맹점",
+    "type": "mileage",
+    "rate": 0.1,
+    "monthlyCap": null,
+    "stars": 2,
+    "note": "국내·해외 전 가맹점 1,000원당 1마일"
+   },
+   {
+    "tag": "해외 결제",
+    "type": "mileage",
+    "rate": 0.2,
+    "monthlyCap": 2000,
+    "stars": 3,
+    "note": "해외 가맹점·국내 면세점 1,000원당 2마일, 추가 1마일분은 월 2,000마일 한도(초과 시 기본 적립)"
+   },
+   {
+    "tag": "카페",
+    "type": "discount",
+    "rate": 0,
+    "monthlyCap": 4000,
+    "stars": 1,
+    "note": "스타벅스 1만원 이상 결제 시 4,000원 청구할인, 월 1회(사이렌오더 포함)"
+   }
+  ],
+  "universal": {
+   "type": "mileage",
+   "rate": 0.1,
+   "monthlyCap": null
+  },
+  "complexity": 2,
+  "officialUrl": "https://cardapplication.ibk.co.kr/card/index.do?card_prdc_id=103401",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문(IBK 공식 페이지는 JS라 원문 미확인). 카드고릴라 월간 62위. 모든 서비스 전월 50만원 이상 시 제공. 전 세계 공항라운지 연 2회(동반 1인 가능), 인천·김포공항 발레파킹 연 2회(Mastercard 해외겸용만)는 태그 밖."
+ },
+ {
+  "id": "ibk-bliss-mileage",
+  "name": "IBK기업은행 BLISS Mileage",
+  "issuer": "IBK기업은행",
+  "kind": "credit",
+  "annualFee": 99000,
+  "minSpend": 500000,
+  "benefits": [
+   {
+    "tag": "마일리지",
+    "type": "mileage",
+    "rate": 0.067,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "대한항공 스카이패스 1,500원당 1마일, 월 적립한도 없음"
+   },
+   {
+    "tag": "모든 가맹점",
+    "type": "mileage",
+    "rate": 0.067,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "국내·해외 전 가맹점 1,500원당 1마일"
+   },
+   {
+    "tag": "온라인 쇼핑",
+    "type": "mileage",
+    "rate": 0.067,
+    "monthlyCap": null,
+    "stars": 2,
+    "note": "쿠팡·네이버스마트스토어·SSG·마켓컬리·넷플릭스·유튜브프리미엄·디즈니플러스·배달의민족·쿠팡이츠, 전월 80만원 이상 시 1,500원당 2마일(특화적립 한도 초과 시 기본 적립)",
+    "tiers": [
+     {
+      "minSpend": 800000,
+      "rate": 0.133,
+      "monthlyCap": 2000
+     }
+    ]
+   },
+   {
+    "tag": "배달·외식",
+    "type": "mileage",
+    "rate": 0.067,
+    "monthlyCap": null,
+    "stars": 2,
+    "note": "음식점 업종, 전월 80만원 이상 시 1,500원당 2마일(특화적립 한도 초과 시 기본 적립)",
+    "tiers": [
+     {
+      "minSpend": 800000,
+      "rate": 0.133,
+      "monthlyCap": 2000
+     }
+    ]
+   },
+   {
+    "tag": "해외 결제",
+    "type": "mileage",
+    "rate": 0.067,
+    "monthlyCap": null,
+    "stars": 2,
+    "note": "해외 가맹점, 전월 80만원 이상 시 1,500원당 2마일(특화적립 한도 초과 시 기본 적립)",
+    "tiers": [
+     {
+      "minSpend": 800000,
+      "rate": 0.133,
+      "monthlyCap": 2000
+     }
+    ]
+   }
+  ],
+  "universal": {
+   "type": "mileage",
+   "rate": 0.067,
+   "monthlyCap": null
+  },
+  "complexity": 3,
+  "officialUrl": "https://cardapplication.ibk.co.kr/card/index.do?card_prdc_id=104506",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문(IBK 공식 페이지는 JS라 원문 미확인). 카드고릴라 월간 95위. 초대·자산 조건 없는 일반 발급 프리미엄 카드. 특화적립(온라인·음식점·해외)은 3개 영역 각각 월 2,000마일 한도. 연 1회 바우처 7만원 상당 택1(신세계상품권·GS칼텍스 주유권·컬리·배민·Npay·스카이패스 3천마일, 초년도 50만·이후 연 200만 이용 조건), 국내외 공항라운지 연 2~8회(이용실적 차등, 동반 1인)는 태그 밖."
+ },
+ {
+  "id": "hana-wonder2-free-plus",
+  "name": "원더카드 2.0 FREE+",
+  "issuer": "하나카드",
+  "kind": "credit",
+  "annualFee": 19900,
+  "minSpend": 400000,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "discount",
+    "rate": 0.8,
+    "monthlyCap": null,
+    "stars": 2,
+    "note": "국내외 결제 청구할인, 실적 조건·한도 없음. 하나페이 등 간편결제 이용 시 1.2%"
+   },
+   {
+    "tag": "온라인 쇼핑",
+    "type": "discount",
+    "rate": 4,
+    "monthlyCap": 4000,
+    "stars": 2,
+    "note": "컬리·SSG·롯데ON·더현대닷컴 기준, G마켓·옥션·11번가·티몬 그룹은 별도 월 4천. 쿠팡은 2%(슈퍼마켓과 통합 월 5만)",
+    "tiers": [
+     {
+      "minSpend": 800000,
+      "monthlyCap": 8000
+     },
+     {
+      "minSpend": 1200000,
+      "monthlyCap": 12000
+     }
+    ]
+   },
+   {
+    "tag": "배달·외식",
+    "type": "discount",
+    "rate": 4,
+    "monthlyCap": 4000,
+    "stars": 2,
+    "note": "배달의민족·요기요·쿠팡이츠 앱 결제, 음식점 현장 결제 제외",
+    "tiers": [
+     {
+      "minSpend": 800000,
+      "monthlyCap": 6000
+     },
+     {
+      "minSpend": 1200000,
+      "monthlyCap": 10000
+     }
+    ]
+   },
+   {
+    "tag": "대중교통·택시",
+    "type": "discount",
+    "rate": 4,
+    "monthlyCap": 4000,
+    "stars": 2,
+    "note": "카카오T·UT 앱 결제 및 택시 업종, 버스·지하철 미포함",
+    "tiers": [
+     {
+      "minSpend": 800000,
+      "monthlyCap": 8000
+     },
+     {
+      "minSpend": 1200000,
+      "monthlyCap": 12000
+     }
+    ]
+   }
+  ],
+  "universal": {
+   "type": "discount",
+   "rate": 0.8,
+   "monthlyCap": null
+  },
+  "complexity": 3,
+  "officialUrl": "https://www.hanacard.co.kr/OPI41000000D.web?CD_PD_SEQ=16947",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문+하나카드 공식 페이지 링크 확인. 카드고릴라 월간 56위. 기본 0.8%·간편결제 1.2%는 실적 조건 없음(4% 영역만 전월 40만 필요). 쿠팡·슈퍼마켓 2%(통합 월 5만)는 온라인 쇼핑 note에만 요약. 원더카드 2.0의 혜택 조합 선택형 중 FREE+ 조합."
+ },
+ {
+  "id": "hana-wonder2-free",
+  "name": "원더카드 2.0 FREE",
+  "issuer": "하나카드",
+  "kind": "credit",
+  "annualFee": 12000,
+  "minSpend": 0,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "discount",
+    "rate": 0.7,
+    "monthlyCap": null,
+    "stars": 2,
+    "note": "국내외 결제 할인, 실적 조건·한도 없음. 하나페이 등 간편결제 이용 시 1.2%"
+   },
+   {
+    "tag": "온라인 쇼핑",
+    "type": "discount",
+    "rate": 2,
+    "monthlyCap": 50000,
+    "stars": 1,
+    "capGroup": "life",
+    "note": "쿠팡 공식 앱·홈페이지 결제, 마트·베이커리·대중교통과 통합 월 5만 한도"
+   },
+   {
+    "tag": "대중교통·택시",
+    "type": "discount",
+    "rate": 3,
+    "monthlyCap": 50000,
+    "stars": 2,
+    "capGroup": "life",
+    "note": "대중교통 3%, 쿠팡·마트·베이커리와 통합 월 5만 한도"
+   }
+  ],
+  "universal": {
+   "type": "discount",
+   "rate": 0.7,
+   "monthlyCap": null
+  },
+  "complexity": 2,
+  "officialUrl": "https://www.hanacard.co.kr/OPI41000000D.web?CD_PD_SEQ=15859",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문+하나카드 공식 페이지 링크 확인. 카드고릴라 월간 75위. 마트(이마트·홈플러스·롯데마트)·베이커리 2%는 태그 밖이라 통합 한도 note로만 반영. 원더카드 2.0 혜택 조합 중 FREE 조합."
+ },
+ {
+  "id": "hana-moving-online",
+  "name": "MOVING카드 ONLINE모드",
+  "issuer": "하나카드",
+  "kind": "credit",
+  "annualFee": 20000,
+  "minSpend": 0,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "points",
+    "rate": 0.5,
+    "monthlyCap": null,
+    "stars": 2,
+    "note": "국내외 가맹점 하나머니 적립, 3일 연속 이용 시 1.0%(2배), 한도 없음"
+   },
+   {
+    "tag": "온라인 쇼핑",
+    "type": "points",
+    "rate": 1,
+    "monthlyCap": 30000,
+    "stars": 2,
+    "note": "하나페이·삼성페이·네이버페이 등 온라인 간편결제, 3일 연속 이용 시 3%"
+   },
+   {
+    "tag": "OTT·구독",
+    "type": "points",
+    "rate": 50,
+    "monthlyCap": 5000,
+    "stars": 2,
+    "note": "넷플릭스·유튜브 프리미엄 등 스트리밍 자동납부와 쿠팡와우 등 멤버십 통합 월 5천, 전월 50만 이상. AI 구독(ChatGPT·Claude 등)은 별도 월 1만"
+   },
+   {
+    "tag": "대중교통·택시",
+    "type": "points",
+    "rate": 50,
+    "monthlyCap": 5000,
+    "stars": 2,
+    "note": "택시 업종·카카오T·UT, 전월 50만 이상, 버스·지하철 미포함"
+   },
+   {
+    "tag": "카페",
+    "type": "points",
+    "rate": 50,
+    "monthlyCap": 5000,
+    "stars": 2,
+    "capGroup": "food",
+    "note": "스타벅스만 해당, 전월 50만 이상, 패스트푸드와 통합 월 5천"
+   },
+   {
+    "tag": "배달·외식",
+    "type": "points",
+    "rate": 50,
+    "monthlyCap": 5000,
+    "stars": 2,
+    "capGroup": "food",
+    "note": "맥도날드·버거킹 등 패스트푸드 오프라인 결제, 전월 50만 이상, 스타벅스와 통합 월 5천"
+   }
+  ],
+  "universal": {
+   "type": "points",
+   "rate": 0.5,
+   "monthlyCap": null
+  },
+  "complexity": 3,
+  "officialUrl": "https://www.hanacard.co.kr/OPI41000000D.web?CD_PD_SEQ=19150",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문+하나카드 공식 페이지 링크 확인. 카드고릴라 월간 68위. 기본 적립은 실적 조건 없음, 50% 적립 영역만 전월 50만 필요(minSpend 0으로 두고 note에 명시). 2배 적립은 3일 연속 이용 조건이라 기본값은 1배 기준."
+ },
+ {
+  "id": "hana-jade-prime",
+  "name": "JADE Prime",
+  "issuer": "하나카드",
+  "kind": "credit",
+  "annualFee": 295000,
+  "minSpend": 500000,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "points",
+    "rate": 1,
+    "monthlyCap": null,
+    "stars": 3,
+    "note": "국내 가맹점 하나머니 적립, 200만 미만 실적도 1% 한도 없음",
+    "tiers": [
+     {
+      "minSpend": 2000000,
+      "rate": 1.5,
+      "monthlyCap": 100000
+     }
+    ]
+   },
+   {
+    "tag": "해외 결제",
+    "type": "points",
+    "rate": 3,
+    "monthlyCap": 50000,
+    "stars": 2,
+    "note": "해외 가맹점, 항공·면세·여행과 통합 월 5만 하나머니"
+   },
+   {
+    "tag": "주유",
+    "type": "points",
+    "rate": 9,
+    "monthlyCap": 10000,
+    "stars": 2,
+    "note": "리터당 150 하나머니(휘발유가 환산 약 9%), LPG 포함, EV충전 30%와 통합 월 1만"
+   },
+   {
+    "tag": "대중교통·택시",
+    "type": "points",
+    "rate": 50,
+    "monthlyCap": 5000,
+    "stars": 2,
+    "note": "택시 업종·카카오T·UT, 버스·지하철 미포함"
+   },
+   {
+    "tag": "OTT·구독",
+    "type": "points",
+    "rate": 50,
+    "monthlyCap": 10000,
+    "stars": 2,
+    "note": "넷플릭스·티빙·멜론 등 자동납부 건만, 인앱결제 제외"
+   }
+  ],
+  "universal": {
+   "type": "points",
+   "rate": 1,
+   "monthlyCap": null,
+   "tiers": [
+    {
+     "minSpend": 2000000,
+     "rate": 1.5,
+     "monthlyCap": 100000
+    }
+   ]
+  },
+  "complexity": 3,
+  "officialUrl": "https://www.hanacard.co.kr/OPI41000000D.web?CD_PD_SEQ=17769",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문+하나카드 공식 페이지 링크 확인. 카드고릴라 월간 71위. 프리미엄이지만 초대·자산 조건 없음. 연 1회 20만원 상당 바우처(여행/호텔/신세계상품권/18만 하나머니 택1, 연 100만~1200만 실적 조건)·공항라운지 연 6회·연 2400만 이용 시 10만 하나머니는 태그 밖. 기본 적립은 실적 조건 없음, 특별 적립 영역만 전월 50만. 주유 rate 9%는 리터당 150원을 휘발유가 약 1,650원/L로 환산한 값(검수 시 확인 필요)."
+ },
+ {
+  "id": "hana-tossbank-day",
+  "name": "토스뱅크 하나카드 Day",
+  "issuer": "하나카드",
+  "kind": "credit",
+  "annualFee": 20000,
+  "minSpend": 500000,
+  "benefits": [
+   {
+    "tag": "병의원·약국",
+    "type": "discount",
+    "rate": 10,
+    "monthlyCap": 5000,
+    "stars": 2,
+    "note": "병원·의원 업종, 동물병원·약국 미포함",
+    "tiers": [
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 10000
+     }
+    ]
+   },
+   {
+    "tag": "관리비·공과금",
+    "type": "discount",
+    "rate": 10,
+    "monthlyCap": 5000,
+    "stars": 2,
+    "note": "아파트관리비 자동납부. 4대보험·손해보험 자동납부는 별도 영역으로 월 5천 추가",
+    "tiers": [
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 10000
+     }
+    ]
+   },
+   {
+    "tag": "통신비",
+    "type": "discount",
+    "rate": 10,
+    "monthlyCap": 5000,
+    "stars": 2,
+    "note": "SKT·KT·LGU+·주요 알뜰폰 자동납부",
+    "tiers": [
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 10000
+     }
+    ]
+   },
+   {
+    "tag": "카페",
+    "type": "discount",
+    "rate": 10,
+    "monthlyCap": 5000,
+    "stars": 2,
+    "note": "스타벅스·커피빈·이디야·투썸플레이스·할리스, 대형시설 입점 매장·배달앱 주문 제외",
+    "tiers": [
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 10000
+     }
+    ]
+   },
+   {
+    "tag": "학원·교육",
+    "type": "discount",
+    "rate": 10,
+    "monthlyCap": 5000,
+    "stars": 2,
+    "note": "외국어·입시보습·예체능·운전·직업훈련 등 학원 업종",
+    "tiers": [
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 10000
+     }
+    ]
+   }
+  ],
+  "universal": null,
+  "complexity": 3,
+  "officialUrl": "https://www.hanacard.co.kr/OPI41000000D.web?CD_PD_SEQ=18669",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문+하나카드 공식 페이지 링크 확인. 카드고릴라 월간 94위. 브리프에는 체크카드로 언급됐으나 하나카드 공식 분류는 신용카드(연회비 2만원)라 credit으로 수록. 8개 생활영역 10% 할인 중 마트(이마트·롯데마트·홈플러스·토스쇼핑)·보험·골프 영역(각 월 5천)은 태그 밖. 영역별 한도 외 전체 통합 한도 월 3만(전월 50만)·월 5만(전월 100만) 있음. 토스뱅크 앱에서 신청하는 제휴카드."
+ },
+ {
+  "id": "woori-all-infinite",
+  "name": "ALL 우리카드 Infinite",
+  "issuer": "우리카드",
+  "kind": "credit",
+  "annualFee": 500000,
+  "minSpend": 0,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "points",
+    "rate": 1.4,
+    "monthlyCap": null,
+    "stars": 3,
+    "note": "국내 가맹점 3,000원당 1.3 ALL 리워드 포인트(1포인트 약 32원, 약 1.4% 상당), 실적 조건·한도 없음"
+   },
+   {
+    "tag": "해외 결제",
+    "type": "points",
+    "rate": 3.2,
+    "monthlyCap": 128000,
+    "stars": 2,
+    "note": "해외 가맹점 3,000원당 3포인트(약 3.2% 상당), 아코르 호텔 적립과 통합 월 4,000포인트, 전월 50만 이상"
+   }
+  ],
+  "universal": {
+   "type": "points",
+   "rate": 1.4,
+   "monthlyCap": null
+  },
+  "complexity": 2,
+  "officialUrl": "https://pc.wooricard.com/dcpc/yh1/crd/crd01/H1CRD101S02.do?cdPrdCd=103187",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문+우리카드 공식 페이지 링크 확인. 카드고릴라 월간 54위. 프리미엄이지만 초대·자산 조건 없음(신청 시 아코르 ALL 회원 자동 가입). 포인트 원화 환산은 1P=0.02유로, 2025년 평균 환율 1,609.81원 기준(검수 시 확인 필요). 아코르 호텔 3,000원당 5포인트, 연회비 납부 시 14,000 ALL 포인트·아코르플러스 멤버십·GOLD 등급, 공항라운지 연 10회·KAL리무진 연 4회·여행자보험 등은 태그 밖."
+ },
+ {
+  "id": "woori-jeongseok2",
+  "name": "카드의정석2",
+  "issuer": "우리카드",
+  "kind": "credit",
+  "annualFee": 22000,
+  "minSpend": 500000,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "discount",
+    "rate": 1.2,
+    "monthlyCap": 36000,
+    "stars": 3,
+    "note": "국내외 가맹점 청구할인, 월 이용금액 300만원까지 적용"
+   }
+  ],
+  "universal": {
+   "type": "discount",
+   "rate": 1.2,
+   "monthlyCap": 36000
+  },
+  "complexity": 1,
+  "officialUrl": "https://pc.wooricard.com/dcpc/yh1/crd/crd01/H1CRD101S02.do?cdPrdCd=102997",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문+우리카드 공식 페이지 링크 확인. 카드고릴라 월간 85위. 분기 실적 300/600/900만원 이상 시 5천/1만/1.5만원 분기별 추가 청구할인(분기 내 매월 10만원 이상 이용 조건)은 월 단위 혜택이 아니라 태그 밖으로 둠."
+ },
+ {
+  "id": "lotte-loca-likit-20",
+  "name": "LOCA LIKIT 2.0",
+  "issuer": "롯데카드",
+  "kind": "credit",
+  "annualFee": 20000,
+  "minSpend": 0,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "discount",
+    "rate": 1.2,
+    "monthlyCap": null,
+    "stars": 3,
+    "note": "국내 전 가맹점 1.2% 결제일 할인, 전월실적·한도 없음. 대중교통·택시·세금·공과금·아파트관리비·상품권 등은 할인 제외"
+   },
+   {
+    "tag": "해외 결제",
+    "type": "discount",
+    "rate": 2,
+    "monthlyCap": null,
+    "stars": 2,
+    "note": "해외 가맹점 2% 결제일 할인, 실적·한도 없음. 해외겸용 카드 한정, 해외이용 수수료는 별도"
+   }
+  ],
+  "universal": {
+   "type": "discount",
+   "rate": 1.2,
+   "monthlyCap": null
+  },
+  "complexity": 1,
+  "officialUrl": "https://www.lottecard.co.kr/app/LPBOHAA_V100.lc?bId=105655",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문(공식 페이지 JS라 직접 확인 불가). 카드고릴라 월간 52위. 국내 5만원 이상 2~3개월 무이자할부는 태그 밖. 해외 간편결제·PG 결제는 국내 1.2% 적용."
+ },
+ {
+  "id": "lotte-loca-likit-15",
+  "name": "LOCA LIKIT 1.5",
+  "issuer": "롯데카드",
+  "kind": "credit",
+  "annualFee": 10000,
+  "minSpend": 0,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "discount",
+    "rate": 0.8,
+    "monthlyCap": null,
+    "stars": 2,
+    "note": "국내 전 가맹점 0.8% 결제일 할인, 전월실적·한도 없음. 대중교통·택시·세금·공과금·아파트관리비·상품권 등은 할인 제외"
+   },
+   {
+    "tag": "해외 결제",
+    "type": "discount",
+    "rate": 1.5,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "해외 가맹점 1.5% 결제일 할인, 실적·한도 없음. 해외겸용 카드 한정, 해외이용 수수료는 별도"
+   }
+  ],
+  "universal": {
+   "type": "discount",
+   "rate": 0.8,
+   "monthlyCap": null
+  },
+  "complexity": 1,
+  "officialUrl": "https://www.lottecard.co.kr/app/LPBOHAA_V100.lc?bId=105354",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문(공식 페이지 JS라 직접 확인 불가). 카드고릴라 월간 79위. 국내 5만원 이상 2~3개월 무이자할부는 태그 밖."
+ },
+ {
+  "id": "kb-wesh-travel",
+  "name": "KB국민 WE:SH Travel 카드",
+  "issuer": "KB국민카드",
+  "kind": "credit",
+  "annualFee": 25000,
+  "minSpend": 300000,
+  "benefits": [
+   {
+    "tag": "온라인 쇼핑",
+    "type": "discount",
+    "rate": 10,
+    "monthlyCap": 10000,
+    "stars": 2,
+    "capGroup": "daily",
+    "note": "11번가·G마켓·SSG.COM과 무신사·W컨셉·지그재그·29CM, KB Pay 결제 시에만. 커피·편의점·영화관과 통합 한도, 건당 1만원 한도",
+    "tiers": [
+     {
+      "minSpend": 700000,
+      "monthlyCap": 20000
+     },
+     {
+      "minSpend": 1200000,
+      "monthlyCap": 30000
+     }
+    ]
+   },
+   {
+    "tag": "카페",
+    "type": "discount",
+    "rate": 10,
+    "monthlyCap": 10000,
+    "stars": 2,
+    "capGroup": "daily",
+    "note": "커피전문점 오프라인·공식 앱 주문(사이렌오더 등) KB Pay 결제 시, 백화점·대형마트 입점 매장 제외. 온라인쇼핑·편의점과 통합 한도",
+    "tiers": [
+     {
+      "minSpend": 700000,
+      "monthlyCap": 20000
+     },
+     {
+      "minSpend": 1200000,
+      "monthlyCap": 30000
+     }
+    ]
+   },
+   {
+    "tag": "편의점",
+    "type": "discount",
+    "rate": 10,
+    "monthlyCap": 10000,
+    "stars": 2,
+    "capGroup": "daily",
+    "note": "GS25·CU 오프라인 매장 KB Pay 결제 시, 백화점·대형마트 입점 매장 제외. 온라인쇼핑·커피와 통합 한도",
+    "tiers": [
+     {
+      "minSpend": 700000,
+      "monthlyCap": 20000
+     },
+     {
+      "minSpend": 1200000,
+      "monthlyCap": 30000
+     }
+    ]
+   },
+   {
+    "tag": "해외 결제",
+    "type": "discount",
+    "rate": 0,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "해외이용 수수료 총 1.25%(브랜드 1%+해외서비스 0.25%) 면제, 환율우대 100%(USD 매매기준율 적용). 실적·한도 없음, 해외겸용 카드 한정"
+   }
+  ],
+  "universal": null,
+  "complexity": 3,
+  "officialUrl": "https://card.kbcard.com/CRD/DVIEW/HCAMCXPRICAC0076?cooperationcode=09561&mainCC=a",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문(KB 공식 상세 링크 확인). 카드고릴라 월간 63위. 태그 밖: 온라인 항공(대한항공·아시아나)·면세점 5%(월 2만), 철도·고속버스 10%(월 1만, 시내교통 아님), KB손보 여행자보험 10%, 영화관 10%(통합한도 포함), 공항라운지 연 2회(전월 30만). 모바일 단독카드 연회비 19,000원. 가족카드 발급 불가."
+ },
+ {
+  "id": "kb-bev-iii",
+  "name": "KB국민 BeV Ⅲ 카드",
+  "issuer": "KB국민카드",
+  "kind": "credit",
+  "annualFee": 200000,
+  "minSpend": 500000,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "points",
+    "rate": 1.1,
+    "monthlyCap": null,
+    "stars": 3,
+    "note": "전 가맹점 포인트리 주중 1.1%·주말 1.3% 적립(주유소·충전소 제외), 백화점·대형마트 1.3%, 주말 면세점·프리미엄아울렛 1.5%"
+   },
+   {
+    "tag": "주유",
+    "type": "discount",
+    "rate": 6,
+    "monthlyCap": 12000,
+    "stars": 2,
+    "note": "전 주유소·충전소 리터당 100원 할인(GS칼텍스 고시 휘발유가 연동, 경유·LPG는 비례 적용), 월 이용금액 20만원까지",
+    "tiers": [
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 24000
+     }
+    ]
+   }
+  ],
+  "universal": {
+   "type": "points",
+   "rate": 1.1,
+   "monthlyCap": null
+  },
+  "complexity": 2,
+  "officialUrl": "https://card.kbcard.com/CXPRICAC0076.cms?mainCC=a&cooperationcode=09310",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문. 카드고릴라 월간 92위. 프리미엄이나 초대·자산 조건 없이 신청 가능(is_discon false). 연 1회 15만원 상품권/호텔뷔페/영화 쿠폰(첫해 50만·이후 연 600만 이용 조건), 여행상품·렌트카·골프·은행 수수료 우대는 태그 밖. 주유 리터당 100원을 약 6%·월 최대 1.2만원(휘발유 약 1,650원/L 기준)으로 환산 — 유가에 따라 변동."
+ },
+ {
+  "id": "kb-all-point",
+  "name": "KB ALL point 카드",
+  "issuer": "KB국민카드",
+  "kind": "credit",
+  "annualFee": 15000,
+  "minSpend": 0,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "points",
+    "rate": 0.7,
+    "monthlyCap": null,
+    "stars": 2,
+    "note": "국내 가맹점 0.7% 포인트리, 실적·한도 없음. 주말·공휴일 0.5% 추가적립(대중교통·통신요금·해외는 주말 추가 제외)"
+   },
+   {
+    "tag": "배달·외식",
+    "type": "points",
+    "rate": 1.2,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "음식점 업종(한식·중식·일식·양식·뷔페·패밀리레스토랑) 기본 0.7%+추가 0.5%, 주말은 최대 1.7%"
+   },
+   {
+    "tag": "카페",
+    "type": "points",
+    "rate": 1.2,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "커피전문점(스타벅스·커피빈 등) 기본 0.7%+추가 0.5%, 주말은 최대 1.7%"
+   },
+   {
+    "tag": "대중교통·택시",
+    "type": "points",
+    "rate": 1.2,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "버스·지하철·택시 기본 0.7%+추가 0.5% 적립, 시외·고속버스 제외"
+   },
+   {
+    "tag": "통신비",
+    "type": "points",
+    "rate": 1.2,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "이동통신요금(SKT·KT·LG U+) 이 카드로 자동납부 등록 시 기본 0.7%+추가 0.5% 적립"
+   },
+   {
+    "tag": "해외 결제",
+    "type": "discount",
+    "rate": 1.7,
+    "monthlyCap": 17000,
+    "stars": 2,
+    "note": "해외이용금액 1.7% 캐시백(월 이용금액 100만원까지), 전월실적 없음, 다음달 결제계좌 입금"
+   }
+  ],
+  "universal": {
+   "type": "points",
+   "rate": 0.7,
+   "monthlyCap": null
+  },
+  "complexity": 2,
+  "officialUrl": "https://card.kbcard.com/CRD/DVIEW/HCAMCXPRICAC0076?cooperationcode=09162&mainCC=a",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라TOP100), 검수 전. 출처: 카드고릴라 API 상품안내 원문. 카드고릴라 월간 100위. 적립은 전월실적 조건 없음. 태그 밖(전월 30만 조건): CGV·메가박스 예매 건당 3,500원 할인(월 4매), 롯데월드·에버랜드 50%·캐리비안베이 30% 현장할인. 연회비 브랜드별 15,000원(K-World)~20,000원."
  }
 ]
