@@ -53,29 +53,27 @@ export function StepPersona({ value, onChange, onNext, editing = false, onCancel
       <h2 id="persona-label">카드를 어떻게 쓰시는 편이에요?</h2>
 
       <div className="field">
-        <div className="persona-tiles" role="radiogroup" aria-labelledby="persona-label">
+        <div className="persona-rows" role="radiogroup" aria-labelledby="persona-label">
           {PERSONAS.map((p) => (
             <button
               key={p.value}
               type="button"
               role="radio"
               aria-checked={value.persona === p.value}
-              className={`persona-tile ${value.persona === p.value ? 'is-selected' : ''}`}
+              aria-label={p.label}
+              className={`persona-row ${value.persona === p.value ? 'is-selected' : ''}`}
               onClick={() => onChange({ ...value, persona: p.value })}
             >
               <span className="persona-emoji" aria-hidden="true">{p.emoji}</span>
-              <span className="persona-label">{p.label}</span>
+              <span className="persona-body">
+                <span className="persona-label">{p.label}</span>
+                <span className="persona-desc">{p.desc}</span>
+                {value.persona === p.value && <span className="persona-effect">→ {p.effect}</span>}
+              </span>
             </button>
           ))}
         </div>
-        {selected ? (
-          <div className="persona-explain" aria-live="polite">
-            <p className="persona-desc">{selected.desc}</p>
-            <p className="persona-effect">→ {selected.effect}</p>
-          </div>
-        ) : (
-          <p className="persona-explain persona-prompt">{PERSONA_PROMPT}</p>
-        )}
+        {!selected && <p className="persona-prompt">{PERSONA_PROMPT}</p>}
       </div>
 
       {editing ? (
