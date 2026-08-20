@@ -59,6 +59,7 @@ const cardSchema = z
     pointsNote: z.string().min(1).optional(),
     kpass: z.literal(true).optional(),
   regional: z.literal(true).optional(),
+  issueNote: z.string().min(1).optional(),
   })
   .superRefine((data, ctx) => {
     if (data.universal !== null && !data.benefits.some((b) => b.tag === '모든 가맹점')) {

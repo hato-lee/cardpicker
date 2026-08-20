@@ -104,7 +104,7 @@ export function CardResult({ rank, scored, persona, today, lead, pickedTags = []
       <button type="button" className="card card-compact" onClick={() => setExpanded(true)} aria-expanded={false}>
         <span className="rank rank-sm" aria-label={`${rank}위`}>{rank}</span>
         <span className="compact-body">
-          <span className="compact-name">{card.name}{card.kpass && kpassRefund === 0 && <span className="kpass-mark" title={KPASS_BADGE_TITLE} aria-label={KPASS_BADGE}> 🎫</span>}{card.regional && <span className="kpass-mark" title={REGIONAL_BADGE_TITLE} aria-label={REGIONAL_BADGE}> 🏦</span>}</span>
+          <span className="compact-name">{card.name}{card.kpass && kpassRefund === 0 && <span className="kpass-mark" title={KPASS_BADGE_TITLE} aria-label={KPASS_BADGE}> 🎫</span>}{card.regional && <span className="kpass-mark" title={REGIONAL_BADGE_TITLE} aria-label={REGIONAL_BADGE}> 🏦</span>}{card.issueNote && <span className="kpass-mark" title={card.issueNote} aria-label={`발급 조건: ${card.issueNote}`}> 📌</span>}</span>
           <span className="compact-bar" aria-hidden="true"><span style={{ width: `${Math.round(ratio * 100)}%` }} /></span>
         </span>
         <span className="compact-value">{net > 0 ? `약 ${won(net)}` : '연회비가 더 커요'}</span>
@@ -141,6 +141,7 @@ export function CardResult({ rank, scored, persona, today, lead, pickedTags = []
             {card.regional && <span className="regional-badge" title={REGIONAL_BADGE_TITLE}>🏦 {REGIONAL_BADGE}</span>}
           </h3>
           <div className="card-sub">{card.issuer} · {card.kind === 'credit' ? '신용' : '체크'} · 연회비 {won(card.annualFee)} · {card.minSpend === 0 ? '실적 없음' : `전월실적 ${won(card.minSpend)}`}</div>
+          {card.issueNote && <div className="issue-note">📌 {card.issueNote}</div>}
         </div>
         {compact && <button type="button" className="collapse-btn" aria-label="줄이기" title="줄이기" onClick={() => setExpanded(false)}>▴</button>}
       </header>

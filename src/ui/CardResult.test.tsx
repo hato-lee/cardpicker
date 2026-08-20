@@ -42,6 +42,17 @@ test('내역 줄: 태그와 연 금액', () => {
   expect(screen.getByText('6만 원')).toBeInTheDocument()
 })
 
+test('발급 조건(issueNote)이 있으면 📌 한 줄이 보인다', () => {
+  const noted: Card = { ...oil, issueNote: '유료 멤버십 가입자만 발급할 수 있어요' }
+  const s: Scored = { ...scored, card: noted }
+  const { unmount } = render(<CardResult rank={1} scored={s} persona="moderate" today={today} />)
+  expect(screen.getByText(/📌 유료 멤버십 가입자만 발급할 수 있어요/)).toBeInTheDocument()
+  unmount()
+  // 접힌 줄에서는 📌 마크로
+  render(<CardResult rank={2} scored={s} persona="moderate" today={today} compact maxNet={230000} />)
+  expect(screen.getByLabelText(/발급 조건: 유료 멤버십/)).toBeInTheDocument()
+})
+
 test('1위는 가장 많이 아껴요 배지, 2위는 없음', () => {
   const { unmount } = render(<CardResult rank={1} scored={scored} persona="moderate" today={today} />)
   expect(screen.getByText('가장 많이 아껴요')).toBeInTheDocument()

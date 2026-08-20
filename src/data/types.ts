@@ -68,6 +68,8 @@ export interface Card {
   kpass?: boolean
   /** 지방은행 발급 카드: 발급 지역·채널이 제한될 수 있어 순위를 뒤로 밀고 배지를 단다 */
   regional?: boolean
+  /** 발급 조건 한 줄(사용자 표시). 유료 멤버십 필요, 특정 통장 필요, 일시 발급 중단 등. 계산엔 안 쓴다 */
+  issueNote?: string
 }
 
 export type KpassGroup = 'general' | 'youth' | 'multi3' | 'low'
