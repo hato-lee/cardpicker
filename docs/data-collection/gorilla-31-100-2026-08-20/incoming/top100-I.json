@@ -1,0 +1,280 @@
+[
+ {
+  "id": "hana-moving-allday",
+  "name": "MOVING카드 ALLDAY모드",
+  "issuer": "하나카드",
+  "kind": "credit",
+  "annualFee": 20000,
+  "minSpend": 0,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "points",
+    "rate": 0.5,
+    "monthlyCap": null,
+    "stars": 2,
+    "note": "국내외 가맹점 하나머니 적립, 3일 연속 이용 시 1.0%(2배), 한도 없음"
+   },
+   {
+    "tag": "온라인 쇼핑",
+    "type": "points",
+    "rate": 2,
+    "monthlyCap": 50000,
+    "stars": 2,
+    "capGroup": "allday",
+    "note": "쿠팡·네이버플러스스토어·SSG·컬리·오아시스 공식 앱 결제 2%, ALLDAY 영역 통합 월 5만 하나머니. 간편결제(하나페이·삼성페이·네이버페이 등) 1%는 별도 월 2만"
+   },
+   {
+    "tag": "배달·외식",
+    "type": "points",
+    "rate": 2,
+    "monthlyCap": 50000,
+    "stars": 2,
+    "capGroup": "allday",
+    "note": "쿠팡이츠·배달의민족·요기요 공식 앱 결제 2%, 음식점 직접 결제 제외, ALLDAY 통합 월 5만"
+   },
+   {
+    "tag": "대중교통·택시",
+    "type": "points",
+    "rate": 3,
+    "monthlyCap": 50000,
+    "stars": 2,
+    "capGroup": "allday",
+    "note": "버스·지하철 3% + 카카오T·UT·택시업종, 시외·고속버스·철도 제외, ALLDAY 통합 월 5만"
+   }
+  ],
+  "universal": {
+   "type": "points",
+   "rate": 0.5,
+   "monthlyCap": null
+  },
+  "complexity": 3,
+  "officialUrl": "https://www.hanacard.co.kr/OPI42000000D.web?CD_PD_SEQ=19194",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라 인기혜택 차트), 검수 전. 출처: 카드고릴라 API 상품안내 원문+하나카드 공식 페이지 링크 확인. 카드고릴라 인기혜택 차트(간편결제 8위). 전 영역 실적 조건 없음. MOVING 모드 선택형(발급 후 하나페이 앱에서 모드 변경 가능) — ONLINE모드(hana-moving-online)·LIFE모드(hana-moving-life)와 자매. 마트·슈퍼마켓·백화점 오프라인 2%(ALLDAY 통합 한도 공유)는 태그 밖. '3일 연속 이용 시 2배'(전가맹점 1%·간편결제 2%)는 기본률로 기재하지 않고 note에만 표기, ALLDAY 2~3% 영역은 2배 대상 아님. 하나머니 1P=1원."
+ },
+ {
+  "id": "woori-jeongseok2-routine",
+  "name": "카드의정석2 ROUTINE",
+  "issuer": "우리카드",
+  "kind": "credit",
+  "annualFee": 28000,
+  "minSpend": 500000,
+  "benefits": [
+   {
+    "tag": "관리비·공과금",
+    "type": "discount",
+    "rate": 15,
+    "monthlyCap": 5000,
+    "stars": 2,
+    "tiers": [
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 10000
+     }
+    ],
+    "note": "아파트관리비·전기·도시가스 자동납부 15% 청구할인, 영역별 월 한도, 아파트관리비는 전월실적에도 포함"
+   },
+   {
+    "tag": "통신비",
+    "type": "discount",
+    "rate": 15,
+    "monthlyCap": 5000,
+    "stars": 2,
+    "tiers": [
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 10000
+     }
+    ],
+    "note": "SKT·KT·LG U+ 및 알뜰폰(우리WON모바일·KT M모바일·U+유모바일·SK세븐모바일) 자동납부, 통합 월 1회, 영역별 월 한도"
+   },
+   {
+    "tag": "학원·교육",
+    "type": "discount",
+    "rate": 15,
+    "monthlyCap": 5000,
+    "stars": 2,
+    "tiers": [
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 10000
+     }
+    ],
+    "note": "결제선생 학원 결제(우리WON페이 간편·자동결제)와 학습지 업종 15%, 밀리의서재 등 도서 구독 포함, 영역별 월 한도"
+   },
+   {
+    "tag": "OTT·구독",
+    "type": "discount",
+    "rate": 30,
+    "monthlyCap": 5000,
+    "stars": 2,
+    "tiers": [
+     {
+      "minSpend": 1000000,
+      "monthlyCap": 10000
+     }
+    ],
+    "note": "유튜브 프리미엄·넷플릭스·디즈니+·티빙·ChatGPT 정기결제 30%(영역 월 한도), 쿠팡와우·네이버플러스·배민클럽 등 멤버십 30%는 별도 영역 동일 한도, 인앱결제·간편결제 제외"
+   },
+   {
+    "tag": "온라인 쇼핑",
+    "type": "discount",
+    "rate": 0,
+    "monthlyCap": 3000,
+    "stars": 1,
+    "note": "우리WON페이·네이버페이·카카오페이 온라인 결제 건당 5만원 이상 시 1,000원 할인, 월 통합 3회"
+   },
+   {
+    "tag": "해외 결제",
+    "type": "discount",
+    "rate": 1.5,
+    "monthlyCap": 10000,
+    "stars": 2,
+    "note": "해외 온·오프라인 1.5% 청구할인, 반기별(1~6월/7~12월) 총 6만원 한도(월 환산 1만원)"
+   }
+  ],
+  "universal": null,
+  "complexity": 3,
+  "officialUrl": "https://pc.wooricard.com/dcpc/yh1/crd/crd01/H1CRD201S00.do",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라 인기혜택 차트), 검수 전. 출처: 카드고릴라 API 상품안내 원문+언론 보도 교차확인, 우리카드 공식 상세 페이지 상품코드 미확인이라 홈으로 대체. 카드고릴라 인기혜택 차트(교육비 8위). 카드의정석2(woori-jeongseok2)·SUPER(woori-jeongseok2-super)와 자매. 정기결제 한도는 영역별 각각(전월 50만 이상 영역별 5천, 100만 이상 영역별 1만 — 6개 영역 월 최대 3만/6만). 렌탈(코웨이·LG전자 가전구독 등) 15%는 태그 밖. 연회비 실물 28,000원, 모바일카드 발급 시 22,000원. 신규 발급 시 다음 달 말일까지 최저 구간 실적 조건 면제. 2~3개월 무이자할부(5만원 이상)는 태그 밖. 링크: 개별 상품코드(cdPrdCd) 특정 실패로 카드의정석 시리즈 목록 페이지로 연결(200 확인)."
+ },
+ {
+  "id": "hyundai-alphabet-t-bold",
+  "name": "알파벳카드T BOLD",
+  "issuer": "현대카드",
+  "kind": "credit",
+  "annualFee": 50000,
+  "minSpend": 0,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "discount",
+    "rate": 0.7,
+    "monthlyCap": null,
+    "stars": 2,
+    "note": "국내 가맹점 청구 할인, 실적·한도 없음"
+   },
+   {
+    "tag": "해외 결제",
+    "type": "discount",
+    "rate": 2,
+    "monthlyCap": null,
+    "stars": 2,
+    "note": "해외 온·오프라인 2% 할인 + 국제브랜드(Amex 1.4%)·해외서비스 수수료(0.2%) 전액 할인, 국내외겸용 카드만, 한도 없음"
+   }
+  ],
+  "universal": {
+   "type": "discount",
+   "rate": 0.7,
+   "monthlyCap": null
+  },
+  "complexity": 1,
+  "officialUrl": "https://www.hyundaicard.com/cpc/ca/CPCCA0101_01.hc?cardWcd=ALT",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라 인기혜택 차트), 검수 전. 출처: 카드고릴라 API 상품안내 원문(현대카드 공식 페이지는 JS라 직접 미확인, 신청 링크의 cardWcd=ALT로 상세 URL 구성). 카드고릴라 인기혜택 차트(해외결제 8위). 알파벳카드T(hyundai-alphabet-t)의 상위 에디션(브랜드 Amex Platinum). 해외 연간 보너스(건당 10만원 이상 결제 시 2.5만원 할인, 월 1회·연 2회, 2차년도부터 전년 600만원 이용 조건)와 인천공항 라운지·발레파킹 각 연 2회(전월 50만), 메탈 플레이트(수수료 7만원)는 태그 밖. 국내 0.7%는 해외 이용분 제외(해외는 2% 별도)."
+ },
+ {
+  "id": "shinhan-sol-travel",
+  "name": "신한카드 SOL트래블",
+  "issuer": "신한카드",
+  "kind": "credit",
+  "annualFee": 27000,
+  "minSpend": 400000,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "points",
+    "rate": 0.5,
+    "monthlyCap": 50000,
+    "stars": 2,
+    "capGroup": "domestic",
+    "note": "국내 가맹점 0.5% 마이신한포인트(기본 적립은 실적 조건 없음), 추가 적립 포함 국내 통합 월 5만P"
+   },
+   {
+    "tag": "대중교통·택시",
+    "type": "points",
+    "rate": 2,
+    "monthlyCap": 50000,
+    "stars": 2,
+    "capGroup": "domestic",
+    "note": "카카오T 앱 내 카드결제·KTX·SRT 2%(기본 0.5%+추가 1.5%), 추가 적립은 전월 40만 이상, 버스·지하철 미포함, 국내 통합 월 5만P"
+   },
+   {
+    "tag": "배달·외식",
+    "type": "points",
+    "rate": 2,
+    "monthlyCap": 50000,
+    "stars": 2,
+    "capGroup": "domestic",
+    "note": "주중 배달앱(배달의민족·쿠팡이츠·땡겨요) 앱 내 카드결제와 주말 음식점 업종 2%, 추가 적립은 전월 40만 이상, 국내 통합 월 5만P"
+   },
+   {
+    "tag": "해외 결제",
+    "type": "points",
+    "rate": 0.5,
+    "monthlyCap": 50000,
+    "stars": 1,
+    "note": "해외 일시불 0.5% 적립(실적 무관, 월 5만P 별도 한도). 전월 국내 40만 이상 시 국제브랜드 1%·해외서비스 0.18% 수수료 면제 + 환율 100% 우대 + 해외 ATM 인출 수수료(건당 $3) 면제"
+   }
+  ],
+  "universal": {
+   "type": "points",
+   "rate": 0.5,
+   "monthlyCap": 50000
+  },
+  "complexity": 3,
+  "officialUrl": "https://www.shinhancard.com/pconts/html/card/apply/credit/1228373_2207.html",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라 인기혜택 차트), 검수 전. 출처: 카드고릴라 API 상품안내 원문+신한카드 공식 페이지 URL 확인. 카드고릴라 인기혜택 차트(해외결제 9위). SOL트래블 체크(shinhan-sol-travel-check)의 신용카드판. 연회비 국내전용 27,000원·Mastercard 30,000원. 추가 적립(+1.5%) 대상 중 항공(대한항공·아시아나·제주항공 등 공식 홈)·호텔(호텔스닷컴·트립닷컴·아고다)·면세점·프리미엄 아울렛·스포츠센터/골프장은 태그 밖(국내 통합 월 5만P 공유). THE LOUNGE 라운지 연 3회(전월 40만)는 태그 밖. 신규 발급 시 등록 다음 달까지 실적 조건 면제."
+ },
+ {
+  "id": "hana-travelog",
+  "name": "트래블로그 신용카드",
+  "issuer": "하나카드",
+  "kind": "credit",
+  "annualFee": 20000,
+  "minSpend": 0,
+  "benefits": [
+   {
+    "tag": "모든 가맹점",
+    "type": "points",
+    "rate": 1,
+    "monthlyCap": null,
+    "stars": 3,
+    "note": "국내외 전 가맹점 하나머니 1% 적립, 전월실적·한도 없음"
+   },
+   {
+    "tag": "온라인 쇼핑",
+    "type": "points",
+    "rate": 1.3,
+    "monthlyCap": null,
+    "stars": 1,
+    "note": "하나페이 1.3%, 삼성·네이버·카카오페이 등 기타 간편결제 1% 적립, 한도 없음"
+   },
+   {
+    "tag": "해외 결제",
+    "type": "points",
+    "rate": 3,
+    "monthlyCap": 50000,
+    "stars": 2,
+    "note": "해외 가맹점 3% 하나머니 적립, 항공·면세점·여행과 통합 월 5만 하나머니, 해외서비스 수수료(0.2%)·국제브랜드 수수료(1%)·해외 ATM 인출 수수료 면제"
+   }
+  ],
+  "universal": {
+   "type": "points",
+   "rate": 1,
+   "monthlyCap": null
+  },
+  "complexity": 2,
+  "officialUrl": "https://www.hanacard.co.kr/OPI41000000D.web?CD_PD_SEQ=16787",
+  "lastChecked": "2026-08-20",
+  "status": "active",
+  "memo": "AI 수집(2026-08-20, 고릴라 인기혜택 차트), 검수 전. 출처: 카드고릴라 API 상품안내 원문+하나카드 공식 페이지 URL 확인. 카드고릴라 인기혜택 차트(해외결제 10위). 트래블로그+(hana-travelog-plus)·하나 트래블로그 체크(hana-travelog-check)와 자매(이 카드가 오리지널 신용판). 항공(대한항공·아시아나 등 8개사)·면세점(신라·신세계·롯데·현대)·여행(하나투어·아고다·익스피디아·호텔스닷컴) 3%는 해외와 통합 한도라 해외 결제 note에만 반영(태그 밖). 외화 하나머니 스위치(해외 결제를 신용/외화 하나머니 선불로 전환) 기능. 적립 제외: 공과금·등록금·상품권·선불충전 등."
+ }
+]
