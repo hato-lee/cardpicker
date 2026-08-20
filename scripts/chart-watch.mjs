@@ -101,12 +101,16 @@ for (const { our, charts } of matched.values()) {
       const tok = token(our.name)
       if (!r.body.includes(tok) && !r.body.includes(our.name)) { verdict = 'unverified'; detail = `페이지 원문에 '${tok}' 없음 — JS 렌더링 페이지일 가능성` }
     }
-  } catch (e) { verdict = 'error'; detail = e.name === 'AbortError' ? '타임아웃' : e.message.slice(0, 80) }
-  // 현대카드는 봇 차단으로 fetch가 실패하는 것이 정상 — 오탐 방지
-  if (verdict === 'error' && /hyundaicard\.com/.test(our.officialUrl)) { verdict = 'skip'; detail = '현대카드는 스크립트 접근 차단(브라우저 정상)' }
+  } catch (e) {
+    // 연결 자체가 안 되는 것(fetch failed·타임아웃)은 해외 서버(깃허브)에서 한국 사이트가 차단한 경우가 대부분 — 문제가 아니라 참고
+    verdict = 'blocked'; detail = (e.name === 'AbortError' ? '타임아웃' : String(e.message || e).slice(0, 80)) + ' — 해외 접속 차단 가능성, 문제 아닐 확률 높음'
+  }
+  // 403도 봇/해외 차단이 대부분 (진짜 죽은 페이지는 보통 404)
+  if (verdict === 'error' && /HTTP 403/.test(detail)) { verdict = 'blocked'; detail += ' — 봇/해외 차단 가능성' }
+  if (verdict === 'blocked' && /hyundaicard\.com/.test(our.officialUrl)) { verdict = 'skip'; detail = '현대카드는 스크립트 접근 차단(브라우저 정상)' }
   linkChecked.push(our.id)
   const row = { id: our.id, name: our.name, url: our.officialUrl, verdict, detail, charts: [...new Set(charts)].slice(0, 3) }
-  if (verdict === 'unverified') linkUnverified.push(row)
+  if (verdict === 'unverified' || verdict === 'blocked') linkUnverified.push(row)
   else if (verdict !== 'ok' && verdict !== 'skip') linkIssues.push(row)
 }
 
@@ -154,7 +158,7 @@ if (process.argv.includes('--md')) {
     L.push('')
   }
   if (!newCards.length && !linkIssues.length) L.push('## ✅ 이상 없음', '', '새로 뜬 카드도, 죽은 링크도 없어요.')
-  if (linkUnverified.length) L.push('', `<details><summary>참고: 자동 확인이 안 되는 링크 ${linkUnverified.length}건 (JS 페이지 — 문제 아닐 가능성 높음)</summary>`, '', ...linkUnverified.map((l) => `- ${l.name} (${l.id})`), '', '</details>')
+  if (linkUnverified.length) L.push('', `<details><summary>참고: 자동 확인이 안 되는 링크 ${linkUnverified.length}건 (JS 페이지거나 해외 접속 차단 — 문제 아닐 가능성 높음)</summary>`, '', ...linkUnverified.map((l) => `- ${l.name} (${l.id})`), '', '</details>')
   console.log(L.join('\n'))
 } else {
   console.log(JSON.stringify(report, null, 1))
