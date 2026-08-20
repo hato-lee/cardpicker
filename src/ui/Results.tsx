@@ -21,6 +21,8 @@ interface Props {
   today: Date
   /** 빠른 길(바로 보기)로 온 결과: 성향을 안 물었으니 칩에 '모든 카드' */
   quick?: boolean
+  /** 빠른 길 착지 안내 한 줄 ("🌱 사회초년생 기준으로 바로 골랐어요") */
+  note?: string | null
 }
 
 /** 결과 제목 아래 한 줄 — 1단계 성향 설명의 '→ 효과'와 같은 말 */
@@ -67,7 +69,7 @@ export function kpassNote(q: Query): string {
 
 export const RELAXED_NOTE = '고른 영역을 한 장으로 다 되는 카드가 없어서, 가장 많이 되는 카드부터 보여줘요.'
 
-export function Results({ query, results, relaxed = false, mileResults = { top: [], lightPick: null }, onEdit, today, quick = false }: Props) {
+export function Results({ query, results, relaxed = false, mileResults = { top: [], lightPick: null }, onEdit, today, quick = false, note = null }: Props) {
   const mileage = isMileageQuery(query)
   const refund = query.kpass ? kpassAnnualRefund(query.kpass) : 0
   // 칩을 누르면 그 조건을 고치는 화면으로 바로 간다 (나머지 조건은 그대로)
@@ -91,6 +93,7 @@ export function Results({ query, results, relaxed = false, mileResults = { top: 
           </li>
         ))}
       </ul>
+      {quick && note && <p className="quick-note">{note} — 위 칩을 누르면 조건을 바꿀 수 있어요</p>}
     </div>
   )
   const footer = (

@@ -168,3 +168,41 @@ describe('K-패스 트랙', () => {
     expect(kpassMonthlyRefund({ transitSpend: 300_000, group: 'general' })).toBe(60_000)
   })
 })
+
+describe('빠른 길 타겟팅 (requireCover)', () => {
+  // 태그 3개 중: big은 주유 하나만(금액 큼), fit은 주유+대중교통 둘(금액 작음)
+  const big = card({ id: 'big', benefits: [{ tag: '주유', type: 'discount', rate: 10, monthlyCap: 50_000, stars: 3 }], complexity: 2 })
+  const fit = card({
+    id: 'fit', complexity: 2,
+    benefits: [
+      { tag: '주유', type: 'discount', rate: 5, monthlyCap: 10_000, stars: 2 },
+      { tag: '대중교통·택시', type: 'discount', rate: 5, monthlyCap: 5_000, stars: 2 },
+    ],
+  })
+  const tags3 = q({ tags: ['주유', '대중교통·택시', '통신비·OTT'] })
+
+  test('requireCover 없으면 금액 큰 단일 태그 카드가 1위', () => {
+    const got = recommendGeneral([fit, big], tags3)
+    expect(got.items.map((s) => s.card.id)).toEqual(['big', 'fit'])
+    expect(got.relaxed).toBe(false)
+  })
+  test('requireCover면 태그 과반(3개 중 2개)을 전용 혜택으로 커버해야 명단에 든다', () => {
+    const got = recommendGeneral([fit, big], { ...tags3, requireCover: true })
+    expect(got.items.map((s) => s.card.id)).toEqual(['fit'])
+    expect(got.relaxed).toBe(false)
+  })
+  test('범용(모든 가맹점) 커버는 과반 계산에 안 쳐준다', () => {
+    // universalCard는 범용 적립뿐 — 전용 혜택 0개라 탈락
+    const got = recommendGeneral([universalCard, fit], { ...tags3, requireCover: true })
+    expect(got.items.map((s) => s.card.id)).toEqual(['fit'])
+  })
+  test('과반 커버 카드가 하나도 없으면 커버 많은 순으로 풀고 relaxed', () => {
+    const got = recommendGeneral([big], { ...tags3, requireCover: true })
+    expect(got.items.map((s) => s.card.id)).toEqual(['big'])
+    expect(got.relaxed).toBe(true)
+  })
+  test('태그 1개면 그 혜택이 있는 카드만', () => {
+    const got = recommendGeneral([universalCard, big], q({ tags: ['주유'], requireCover: true }))
+    expect(got.items.map((s) => s.card.id)).toEqual(['big'])
+  })
+})

@@ -172,5 +172,6 @@ h1 { font-size: 22px; margin: 0 0 24px; }
 .quick-emoji { font-size: 22px; margin-bottom: 2px; }
 .quick-label { font-size: 15px; font-weight: 700; color: var(--ink); }
 .quick-sub { font-size: 12px; color: var(--muted); line-height: 1.35; }
-.quick-pick { display: block; margin: 16px auto 0; font-size: 14px; }
+.quick-tile-pick { border-style: dashed; }
+.quick-note { margin: 8px 0 0; font-size: 13px; color: var(--muted); }
 .kpass-box.is-plain { margin: 0 0 20px; padding: 0; background: transparent; border: 0; }

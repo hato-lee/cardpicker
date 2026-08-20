@@ -111,6 +111,7 @@ describe('빠른 길(바로 보기)', () => {
     render(<App />)
     await userEvent.click(screen.getByRole('button', { name: /사회초년생/ }))
     expect(screen.getByRole('heading', { name: '이런 카드가 잘 맞겠어요' })).toBeInTheDocument()
+    expect(screen.getByText(/사회초년생 기준으로 바로 골랐어요/)).toBeInTheDocument()
     expect(screen.getByRole('button', { name: '모든 카드 ✎' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: '월 80만 원 ✎' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: '연회비 1만 원까지 ✎' })).toBeInTheDocument()
@@ -131,14 +132,15 @@ describe('빠른 길(바로 보기)', () => {
     expect(screen.getByRole('heading', { name: '이런 K-패스 카드가 잘 맞겠어요' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: '교통비 월 10만 원 ✎' })).toBeInTheDocument()
   })
-  test('혜택 직접 골라서 바로 보기: 태그 고르고 바로 결과, 처음으로 돌아가기', async () => {
+  test('직접 고를게요: 태그 고르고 바로 결과, 처음으로 돌아가기', async () => {
     render(<App />)
-    await userEvent.click(screen.getByRole('button', { name: /혜택 직접 골라서/ }))
+    await userEvent.click(screen.getByRole('button', { name: /직접 고를게요/ }))
     await userEvent.click(screen.getByRole('button', { name: '주유' }))
     expect(screen.getByRole('button', { name: '바로 보기 (1개)' })).toBeInTheDocument()
     await userEvent.click(screen.getByRole('button', { name: '바로 보기 (1개)' }))
     expect(screen.getByRole('heading', { name: '이런 카드가 잘 맞겠어요' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: '월 150만 원 ✎' })).toBeInTheDocument()
+    expect(screen.getByText(/고른 혜택으로 바로 보여드려요/)).toBeInTheDocument()
     await userEvent.click(screen.getByRole('button', { name: '처음부터' }))
     expect(screen.getByRole('heading', { name: '어떻게 찾아볼까요?' })).toBeInTheDocument()
   })
@@ -150,5 +152,7 @@ describe('빠른 길(바로 보기)', () => {
     await userEvent.click(screen.getByRole('button', { name: '100만' }))
     await userEvent.click(screen.getByRole('button', { name: '다시 추천 받기' }))
     expect(screen.getByRole('button', { name: '월 100만 원 ✎' })).toBeInTheDocument()
+    // 조건을 고쳤으니 '깔린 기준' 안내는 사라진다
+    expect(screen.queryByText(/기준으로 바로 골랐어요/)).toBeNull()
   })
 })

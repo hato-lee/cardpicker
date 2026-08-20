@@ -82,4 +82,6 @@ export interface Query {
   feeLimit: number | null // 원. null = 상관없음
   tags: Tag[]
   kpass?: KpassInput
+  /** 빠른 길: 고른 태그의 절반 이상(올림)에 전용 혜택이 있는 카드만 (상황 타겟팅) */
+  requireCover?: boolean
 }

@@ -32,8 +32,12 @@ export function StepHome({ onGuided, onQuick, onPickTags }: Props) {
             <span className="quick-sub">{c.sub}</span>
           </button>
         ))}
+        <button type="button" className="quick-tile quick-tile-pick" onClick={onPickTags}>
+          <span className="quick-emoji" aria-hidden="true">✍️</span>
+          <span className="quick-label">직접 고를게요</span>
+          <span className="quick-sub">혜택만 골라서 바로 보기</span>
+        </button>
       </div>
-      <button type="button" className="link-btn quick-pick" onClick={onPickTags}>혜택 직접 골라서 바로 보기 →</button>
     </section>
   )
 }

@@ -79,19 +79,32 @@ export function recommendGeneral(cards: Card[], q: Query, rules: Rules = RULES):
     if (benefit === null) continue
     scored.push({ card, benefit, coveredTags: coveredTagsOf(card, q.tags), universalCovers: universalCoversOf(card, q.tags, rules) })
   }
+  // 빠른 길: 고른 태그의 절반 이상(올림)을 전용 혜택으로 커버해야 '상황에 맞는 카드'.
+  // 아무 카드도 못 채우면 커버 많은 순으로 풀어서 보여준다(relaxed).
+  let pool = scored
+  let coverRelaxed = false
+  if (q.requireCover && q.tags.length > 0) {
+    const need = Math.ceil(q.tags.length / 2)
+    const fit = scored.filter((s) => s.coveredTags.length >= need)
+    if (fit.length > 0) pool = fit
+    else coverRelaxed = true
+  }
   if (q.persona === 'carefree') {
     // 할인·캐시백형 먼저, 포인트형 뒤 (무심형은 포인트를 안 쓰고 흘려보내기 쉬워서)
     const pointsLast = (a: Scored, b: Scored) =>
       rules.carefreeDiscountFirst ? Number(isHardPoints(a, rules)) - Number(isHardPoints(b, rules)) : 0
     const order = (a: Scored, b: Scored) => pointsLast(a, b) || byNet(a, b)
     if (rules.carefreeFullCoverOnly) {
-      const full = scored.filter((s) => coverCount(s) === q.tags.length)
+      const full = pool.filter((s) => coverCount(s) === q.tags.length)
       if (full.length > 0) return { items: full.sort(order).slice(0, rules.topN), relaxed: false }
-      return { items: scored.sort((a, b) => coverCount(b) - coverCount(a) || order(a, b)).slice(0, rules.topN), relaxed: true }
+      return { items: pool.sort((a, b) => coverCount(b) - coverCount(a) || order(a, b)).slice(0, rules.topN), relaxed: true }
     }
-    return { items: scored.sort(order).slice(0, rules.topN), relaxed: false }
+    return { items: pool.sort(order).slice(0, rules.topN), relaxed: coverRelaxed }
   }
-  return { items: scored.sort(byNet).slice(0, rules.topN), relaxed: false }
+  const finalOrder = coverRelaxed
+    ? (a: Scored, b: Scored) => coverCount(b) - coverCount(a) || byNet(a, b)
+    : byNet
+  return { items: pool.sort(finalOrder).slice(0, rules.topN), relaxed: coverRelaxed }
 }
 
 export function recommend(cards: Card[], q: Query, rules: Rules = RULES): Scored[] {

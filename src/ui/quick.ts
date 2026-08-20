@@ -19,7 +19,7 @@ export const QUICK_CATEGORIES: QuickCategory[] = [
   { key: 'driver', emoji: '🚗', label: '차 끌고 출퇴근', sub: '월 150만 · 연회비 5만 원까지', spendMan: 150, feeLimit: 50_000, tags: ['주유', '대중교통·택시', '통신비·OTT'] },
   { key: 'family', emoji: '🏠', label: '살림 챙기기', sub: '월 250만 · 연회비 5만 원까지', spendMan: 250, feeLimit: 50_000, tags: ['관리비·공과금', '병의원·약국', '학원·교육', '온라인 쇼핑'] },
   { key: 'travel', emoji: '✈️', label: '여행·마일리지', sub: '월 200만 · 연회비 상관없음', spendMan: 200, feeLimit: null, tags: ['마일리지'] },
-  { key: 'transit', emoji: '🎫', label: '대중교통 많이 타요', sub: 'K-패스 · 교통비만 물어요', spendMan: 100, feeLimit: null, tags: ['대중교통·택시'], kpass: true },
+  { key: 'transit', emoji: '🚌', label: '대중교통 많이 타요', sub: 'K-패스 · 교통비만 물어요', spendMan: 100, feeLimit: null, tags: ['대중교통·택시'], kpass: true },
 ]
 
 /** '혜택 직접 고르기'로 들어왔을 때 깔리는 기본값 */
