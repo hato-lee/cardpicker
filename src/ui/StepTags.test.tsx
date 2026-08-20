@@ -14,9 +14,9 @@ function KpassHarness() {
   return <StepTags value={t} onChange={setT} onBack={() => {}} onNext={() => {}} kpass={k} onKpassChange={setK} />
 }
 
-test('태그 14개 버튼이 보인다', () => {
+test('태그 15개 버튼이 보인다', () => {
   render(<Harness />)
-  expect(screen.getAllByRole('button', { pressed: false })).toHaveLength(14)
+  expect(screen.getAllByRole('button', { pressed: false })).toHaveLength(15)
 })
 
 test('하나도 안 고르면 다음 비활성, 고르면 활성', async () => {

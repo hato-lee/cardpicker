@@ -7,6 +7,6 @@ test('cards.json은 스키마를 통과한다', () => {
   expect(cards.length).toBeGreaterThan(0)
 })
 
-test('TAGS는 14개', () => {
-  expect(TAGS).toHaveLength(14)
+test('TAGS는 15개', () => {
+  expect(TAGS).toHaveLength(15)
 })
