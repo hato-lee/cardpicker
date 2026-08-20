@@ -1,0 +1,47 @@
+[
+ {
+  "name": "MOVING카드 ALLDAY모드",
+  "corp": "",
+  "gorillaIdx": 2995,
+  "gorillaApi": "https://api.card-gorilla.com/v1/cards/2995",
+  "annualFeeRaw": "국내전용 [20,000]원 / 해외겸용 [20,000]원",
+  "isDiscon": false,
+  "note": "인기혜택 차트(간편결제/교육비/해외결제)에서 발견"
+ },
+ {
+  "name": "카드의정석2 ROUTINE",
+  "corp": "",
+  "gorillaIdx": 2993,
+  "gorillaApi": "https://api.card-gorilla.com/v1/cards/2993",
+  "annualFeeRaw": "국내전용 [28,000]원 / 해외겸용 [28,000]원",
+  "isDiscon": false,
+  "note": "인기혜택 차트(간편결제/교육비/해외결제)에서 발견"
+ },
+ {
+  "name": "알파벳카드T BOLD",
+  "corp": "",
+  "gorillaIdx": 2991,
+  "gorillaApi": "https://api.card-gorilla.com/v1/cards/2991",
+  "annualFeeRaw": "국내전용 [50,000]원 / 해외겸용 [50,000]원",
+  "isDiscon": false,
+  "note": "인기혜택 차트(간편결제/교육비/해외결제)에서 발견"
+ },
+ {
+  "name": "신한카드 SOL트래블",
+  "corp": "",
+  "gorillaIdx": 2722,
+  "gorillaApi": "https://api.card-gorilla.com/v1/cards/2722",
+  "annualFeeRaw": "국내전용 [27,000] / 해외겸용 [30,000]원",
+  "isDiscon": false,
+  "note": "인기혜택 차트(간편결제/교육비/해외결제)에서 발견"
+ },
+ {
+  "name": "트래블로그 신용카드",
+  "corp": "",
+  "gorillaIdx": 2529,
+  "gorillaApi": "https://api.card-gorilla.com/v1/cards/2529",
+  "annualFeeRaw": "국내전용 [20,000]원 / 해외겸용 [20,000]원",
+  "isDiscon": false,
+  "note": "인기혜택 차트(간편결제/교육비/해외결제)에서 발견"
+ }
+]

@@ -22,7 +22,9 @@ const cards = JSON.parse(fs.readFileSync(new URL('../src/data/cards.json', impor
 const ours = cards.map((c) => ({ id: c.id, name: c.name, n: norm(c.name), officialUrl: c.officialUrl, status: c.status, memo: c.memo || '' }))
 const findOurs = (gname) => {
   const gn = norm(gname)
-  return ours.find((o) => o.n && gn && (o.n === gn || (gn.length >= 3 && o.n.includes(gn)) || (o.n.length >= 3 && gn.includes(o.n))))
+  // 우리 이름이 고릴라 이름을 포함하는 방향만 인정 (고릴라는 카드사명을 생략하는 경향).
+  // 반대 방향(고릴라 이름이 더 긺)을 허용하면 '알파벳카드T BOLD'가 '알파벳카드T'에 잘못 붙는다.
+  return ours.find((o) => o.n && gn && (o.n === gn || (gn.length >= 3 && o.n.includes(gn))))
 }
 // 알려진 가짜 경보: 표기 차이로 매칭이 안 되지만 이미 보유했거나, 의도적으로 제외한 카드
 const KNOWN_ALIASES = [
@@ -32,6 +34,7 @@ const KNOWN_ALIASES = [
   'American Express The Platinum Card®Edition2', // = hyundai-amex-platinum
   'BC 바로 Air Max 카드', // = bc-baro-air-max
   'TWO CHAIRS', // 우리은행 자산가 전용이라 제외 결정(2026-08-20)
+  'THE 1 (스카이패스)', // = samsung-the1-sfc-skypass (이름 중간에 SFC가 껴서 자동 매칭 실패)
 ]
 const EXCLUDE_PATTERNS = [/MY BUSINESS/i, /SOHO/i] // 개인사업자 전용은 대상 아님
 
