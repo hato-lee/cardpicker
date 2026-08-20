@@ -1,0 +1,74 @@
+[
+ {
+  "ranking": 32,
+  "name": "알파벳카드O",
+  "corp": "현대카드",
+  "gorillaIdx": 2880,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2880",
+  "annualFeeRaw": "국내전용 [15,000]원 / 해외겸용 [15,000]원"
+ },
+ {
+  "ranking": 41,
+  "name": "알파벳카드B",
+  "corp": "현대카드",
+  "gorillaIdx": 2967,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2967",
+  "annualFeeRaw": "국내전용 [15,000]원 / 해외겸용 [15,000]원"
+ },
+ {
+  "ranking": 77,
+  "name": "알파벳카드T",
+  "corp": "현대카드",
+  "gorillaIdx": 2882,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2882",
+  "annualFeeRaw": "국내전용 [15,000]원 / 해외겸용 [15,000]원"
+ },
+ {
+  "ranking": 55,
+  "name": "American Express® Green Card Edition2",
+  "corp": "현대카드",
+  "gorillaIdx": 2662,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2662",
+  "annualFeeRaw": "해외겸용 [150,000]원"
+ },
+ {
+  "ranking": 93,
+  "name": "American Express The Platinum Card®Edition2",
+  "corp": "현대카드",
+  "gorillaIdx": 2664,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2664",
+  "annualFeeRaw": "해외겸용 [1,000,000]원"
+ },
+ {
+  "ranking": 57,
+  "name": "현대카드 Summit",
+  "corp": "현대카드",
+  "gorillaIdx": 2692,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2692",
+  "annualFeeRaw": "국내전용 [200,000]원 / 해외겸용 [200,000]원"
+ },
+ {
+  "ranking": 73,
+  "name": "현대카드 ZERO Up(할인형)",
+  "corp": "현대카드",
+  "gorillaIdx": 2844,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2844",
+  "annualFeeRaw": "국내전용 [30,000]원 / 해외겸용 [30,000]원"
+ },
+ {
+  "ranking": 88,
+  "name": "현대카드 ZERO Up(포인트형)",
+  "corp": "현대카드",
+  "gorillaIdx": 2985,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2985",
+  "annualFeeRaw": "국내전용 [30,000]원 / 해외겸용 [30,000]원"
+ },
+ {
+  "ranking": 80,
+  "name": "에너지플러스 현대카드",
+  "corp": "현대카드",
+  "gorillaIdx": 2942,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2942",
+  "annualFeeRaw": "국내전용 [10,000]원 / 해외겸용 [10,000]원"
+ }
+]

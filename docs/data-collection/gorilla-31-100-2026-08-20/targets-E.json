@@ -1,0 +1,82 @@
+[
+ {
+  "ranking": 59,
+  "name": "메리어트 본보이™ 더 베스트 신한카드",
+  "corp": "신한카드",
+  "gorillaIdx": 716,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/716",
+  "annualFeeRaw": "국내전용 [264,000]원 / 해외겸용 [267,000]원"
+ },
+ {
+  "ranking": 72,
+  "name": "알리익스프레스 신한카드",
+  "corp": "신한카드",
+  "gorillaIdx": 2831,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2831",
+  "annualFeeRaw": "국내전용 [16,000]원 / 해외겸용 [19,000]원"
+ },
+ {
+  "ranking": 86,
+  "name": "신한카드 RPM+ Platinum#",
+  "corp": "신한카드",
+  "gorillaIdx": 16,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/16",
+  "annualFeeRaw": "해외겸용 [32,000]원"
+ },
+ {
+  "ranking": 82,
+  "name": "신한카드 The CLASSIC+",
+  "corp": "신한카드",
+  "gorillaIdx": 15,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/15",
+  "annualFeeRaw": "해외겸용 [120,000]원"
+ },
+ {
+  "ranking": 99,
+  "name": "신한카드 The BEST-XO",
+  "corp": "신한카드",
+  "gorillaIdx": 2807,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2807",
+  "annualFeeRaw": "국내전용 [297,000]원 / 해외겸용 [300,000]원"
+ },
+ {
+  "ranking": 66,
+  "name": "네이버페이 taptap",
+  "corp": "삼성카드",
+  "gorillaIdx": 458,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/458",
+  "annualFeeRaw": "국내전용 [15,000]원 / 해외겸용 [15,000]원"
+ },
+ {
+  "ranking": 90,
+  "name": "트라이플러스 삼성카드",
+  "corp": "삼성카드",
+  "gorillaIdx": 2988,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2988",
+  "annualFeeRaw": "국내전용 [15,000]원 / 해외겸용 [15,000]원"
+ },
+ {
+  "ranking": 98,
+  "name": "국민행복 삼성카드 V2",
+  "corp": "삼성카드",
+  "gorillaIdx": 718,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/718",
+  "annualFeeRaw": "국내전용 [없음] / 해외겸용 [없음]"
+ },
+ {
+  "ranking": 45,
+  "name": "삼성 iD SIMPLE 카드",
+  "corp": "삼성카드",
+  "gorillaIdx": 2376,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2376",
+  "annualFeeRaw": "국내전용 [7,000원] / 해외겸용 [7,000원]"
+ },
+ {
+  "ranking": 38,
+  "name": "THE 1 (스카이패스)",
+  "corp": "삼성카드",
+  "gorillaIdx": 1909,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/1909",
+  "annualFeeRaw": "국내전용 [245,000]원 / 해외겸용 [250,000]원"
+ }
+]

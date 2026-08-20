@@ -1,0 +1,74 @@
+[
+ {
+  "ranking": 56,
+  "name": "원더카드 2.0 FREE+",
+  "corp": "하나카드",
+  "gorillaIdx": 2820,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2820",
+  "annualFeeRaw": "국내전용 [19,900]원 / 해외겸용 [19,900]원"
+ },
+ {
+  "ranking": 75,
+  "name": "원더카드 2.0 FREE",
+  "corp": "하나카드",
+  "gorillaIdx": 2446,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2446",
+  "annualFeeRaw": "국내전용 [12,000]원 / 해외겸용 [12,000]원"
+ },
+ {
+  "ranking": 68,
+  "name": "MOVING카드 ONLINE모드",
+  "corp": "하나카드",
+  "gorillaIdx": 2996,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2996",
+  "annualFeeRaw": "국내전용 [20,000]원 / 해외겸용 [20,000]원"
+ },
+ {
+  "ranking": 71,
+  "name": "JADE Prime",
+  "corp": "하나카드",
+  "gorillaIdx": 2703,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2703",
+  "annualFeeRaw": "국내전용 [295,000]원 / 해외겸용 [300,000]원"
+ },
+ {
+  "ranking": 94,
+  "name": "토스뱅크 하나카드 Day",
+  "corp": "하나카드",
+  "gorillaIdx": 2904,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2904",
+  "annualFeeRaw": "국내전용 [20,000]원 / 해외겸용 [20,000]원"
+ },
+ {
+  "ranking": 64,
+  "name": "하나 스카이패스 아멕스 플래티늄 카드",
+  "corp": "하나카드",
+  "gorillaIdx": 2237,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2237",
+  "annualFeeRaw": "해외겸용 [45,000]원"
+ },
+ {
+  "ranking": 54,
+  "name": "ALL 우리카드 Infinite",
+  "corp": "우리카드",
+  "gorillaIdx": 2613,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2613",
+  "annualFeeRaw": "국내전용 [500,000]원 / 해외겸용 [500,000]원"
+ },
+ {
+  "ranking": 76,
+  "name": "TWO CHAIRS",
+  "corp": "우리카드",
+  "gorillaIdx": 2627,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2627",
+  "annualFeeRaw": "해외겸용 [2,500,000]원"
+ },
+ {
+  "ranking": 85,
+  "name": "카드의정석2",
+  "corp": "우리카드",
+  "gorillaIdx": 2848,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2848",
+  "annualFeeRaw": "국내전용 [22,000]원 / 해외겸용 [22,000]원"
+ }
+]

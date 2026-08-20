@@ -1,0 +1,82 @@
+[
+ {
+  "ranking": 44,
+  "name": "zgm 할인카드",
+  "corp": "NH농협카드",
+  "gorillaIdx": 2706,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2706",
+  "annualFeeRaw": "국내전용 [27,000]원 / 해외겸용 [30,000]원"
+ },
+ {
+  "ranking": 60,
+  "name": "zgm.일본여행중 카드",
+  "corp": "NH농협카드",
+  "gorillaIdx": 2593,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2593",
+  "annualFeeRaw": "국내전용 [23,000]원 / 해외겸용 [25,000]원"
+ },
+ {
+  "ranking": 65,
+  "name": "zgm.the pay카드",
+  "corp": "NH농협카드",
+  "gorillaIdx": 2427,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2427",
+  "annualFeeRaw": "국내전용 [12,000]원 / 해외겸용 [12,000]원"
+ },
+ {
+  "ranking": 69,
+  "name": "별다줄카드",
+  "corp": "NH농협카드",
+  "gorillaIdx": 2305,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2305",
+  "annualFeeRaw": "국내전용 [12,000]원 / 해외겸용 [14,000]원"
+ },
+ {
+  "ranking": 97,
+  "name": "zgm.streaming카드",
+  "corp": "NH농협카드",
+  "gorillaIdx": 2428,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2428",
+  "annualFeeRaw": "국내전용 [12,000]원 / 해외겸용 [12,000]원"
+ },
+ {
+  "ranking": 40,
+  "name": "IBK포인트(신용)",
+  "corp": "IBK기업은행",
+  "gorillaIdx": 2779,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2779",
+  "annualFeeRaw": "국내전용 [21,000]원 / 해외겸용 [22,000]원"
+ },
+ {
+  "ranking": 49,
+  "name": "IBK포인트3.8(신용)",
+  "corp": "IBK기업은행",
+  "gorillaIdx": 2778,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2778",
+  "annualFeeRaw": "국내전용 [37,000]원 / 해외겸용 [38,000]원"
+ },
+ {
+  "ranking": 51,
+  "name": "I-ALL",
+  "corp": "IBK기업은행",
+  "gorillaIdx": 2482,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2482",
+  "annualFeeRaw": "국내전용 [14,000]원 / 해외겸용 [15,000]원"
+ },
+ {
+  "ranking": 62,
+  "name": "I-Mileage (대한항공)",
+  "corp": "IBK기업은행",
+  "gorillaIdx": 2674,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2674",
+  "annualFeeRaw": "국내전용 [41,000]원 / 해외겸용 [42,000]원"
+ },
+ {
+  "ranking": 95,
+  "name": "BLISS Mileage",
+  "corp": "IBK기업은행",
+  "gorillaIdx": 2958,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2958",
+  "annualFeeRaw": "국내전용 [99,000]원 / 해외겸용 [100,000]원"
+ }
+]

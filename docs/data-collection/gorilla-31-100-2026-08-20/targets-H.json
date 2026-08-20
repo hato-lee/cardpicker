@@ -1,0 +1,50 @@
+[
+ {
+  "ranking": 52,
+  "name": "LOCA LIKIT 2.0",
+  "corp": "롯데카드",
+  "gorillaIdx": 2987,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2987",
+  "annualFeeRaw": "국내전용 [20,000]원 / 해외겸용 [20,000]원"
+ },
+ {
+  "ranking": 79,
+  "name": "LOCA LIKIT 1.5",
+  "corp": "롯데카드",
+  "gorillaIdx": 2975,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2975",
+  "annualFeeRaw": "국내전용 [10,000]원 / 해외겸용 [10,000]원"
+ },
+ {
+  "ranking": 50,
+  "name": "BC 바로 Air Max 카드",
+  "corp": "BC 바로카드",
+  "gorillaIdx": 2927,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2927",
+  "annualFeeRaw": "국내전용 [43,000]원 / 해외겸용 [43,000]원"
+ },
+ {
+  "ranking": 63,
+  "name": "WE:SH Travel",
+  "corp": "KB국민카드",
+  "gorillaIdx": 2685,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/2685",
+  "annualFeeRaw": "국내전용 [25,000]원 / 해외겸용 [25,000]원"
+ },
+ {
+  "ranking": 92,
+  "name": "BeV Ⅲ 카드",
+  "corp": "KB국민카드",
+  "gorillaIdx": 133,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/133",
+  "annualFeeRaw": "해외겸용 [200,000]원"
+ },
+ {
+  "ranking": 100,
+  "name": "KB ALL point 카드",
+  "corp": "KB국민카드",
+  "gorillaIdx": 769,
+  "gorillaUrl": "https://m.card-gorilla.com/card/detail/769",
+  "annualFeeRaw": "해외겸용 [15,000]원 | [20,000]원"
+ }
+]
