@@ -66,6 +66,8 @@ export interface Card {
   pointsNote?: string
   /** K-패스(모두의카드) 환급 대상 카드. K-패스 트랙에서 이 카드들만 후보가 된다 */
   kpass?: boolean
+  /** 지방은행 발급 카드: 발급 지역·채널이 제한될 수 있어 순위를 뒤로 밀고 배지를 단다 */
+  regional?: boolean
 }
 
 export type KpassGroup = 'general' | 'youth' | 'multi3' | 'low'

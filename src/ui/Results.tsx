@@ -55,7 +55,7 @@ export function leadText(results: Scored[], i: number, tags: Tag[] = []): string
   } else {
     const diff = results[0].benefit.annualNet - me.benefit.annualNet
     if (diff > 0) parts.push(`1위 ${results[0].card.name}보다 1년에 ${won(diff)} 적어요`)
-    else if (diff < 0) parts.push(`1위 ${results[0].card.name}보다 1년에 ${won(-diff)} 더 아끼지만, 상황을 다 담지는 못해요`)
+    else if (diff < 0) parts.push(`1위 ${results[0].card.name}보다 1년에 ${won(-diff)} 더 아끼지만, ${me.card.regional ? '지방은행 카드예요' : '상황을 다 담지는 못해요'}`)
     else parts.push(`1위 ${results[0].card.name}와 금액은 같아요`)
   }
   const covered = new Set<string>([...me.coveredTags, ...me.universalCovers])

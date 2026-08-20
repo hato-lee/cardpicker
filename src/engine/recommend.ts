@@ -61,6 +61,11 @@ export function isHardPoints(s: Pick<Scored, 'card' | 'benefit'>, rules: Rules =
   return isPointsHeavy(s.benefit, rules) && s.card.pointsEase !== 'cash'
 }
 
+/** 지방은행 카드는 같은 조건이면 전국 발급 카드 뒤로 */
+function regionalLast(a: Scored, b: Scored): number {
+  return Number(!!a.card.regional) - Number(!!b.card.regional)
+}
+
 function byNet(a: Scored, b: Scored): number {
   return b.benefit.annualNet - a.benefit.annualNet ||
     a.card.annualFee - b.card.annualFee ||
@@ -93,7 +98,7 @@ export function recommendGeneral(cards: Card[], q: Query, rules: Rules = RULES):
     // 할인·캐시백형 먼저, 포인트형 뒤 (무심형은 포인트를 안 쓰고 흘려보내기 쉬워서)
     const pointsLast = (a: Scored, b: Scored) =>
       rules.carefreeDiscountFirst ? Number(isHardPoints(a, rules)) - Number(isHardPoints(b, rules)) : 0
-    const order = (a: Scored, b: Scored) => pointsLast(a, b) || byNet(a, b)
+    const order = (a: Scored, b: Scored) => pointsLast(a, b) || regionalLast(a, b) || byNet(a, b)
     if (rules.carefreeFullCoverOnly) {
       const full = pool.filter((s) => coverCount(s) === q.tags.length)
       if (full.length > 0) return { items: full.sort(order).slice(0, rules.topN), relaxed: false }
@@ -104,8 +109,8 @@ export function recommendGeneral(cards: Card[], q: Query, rules: Rules = RULES):
   // 빠른 길: 상황을 통째로 담는(태그를 다 커버하는) 카드가 먼저, 그 안에서 금액 순.
   // 태그 하나가 빠지면 금액이 커도 아래로 내려간다.
   const finalOrder = q.requireCover
-    ? (a: Scored, b: Scored) => coverCount(b) - coverCount(a) || byNet(a, b)
-    : byNet
+    ? (a: Scored, b: Scored) => coverCount(b) - coverCount(a) || regionalLast(a, b) || byNet(a, b)
+    : (a: Scored, b: Scored) => regionalLast(a, b) || byNet(a, b)
   return { items: pool.sort(finalOrder).slice(0, rules.topN), relaxed: coverRelaxed }
 }
 

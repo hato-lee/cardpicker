@@ -233,3 +233,31 @@ describe('빠른 길 타겟팅 (requireCover)', () => {
     expect(got.items.map((s) => s.card.id)).toEqual(['big'])
   })
 })
+
+describe('지방은행 카드는 같은 조건이면 뒤로', () => {
+  const t = (over: Partial<Card>) => card({ benefits: [{ tag: '주유', type: 'discount', rate: 10, monthlyCap: 20_000, stars: 3 }], complexity: 2, ...over })
+  test('금액이 더 커도 지방은행이면 전국 카드 뒤 (일반 정렬)', () => {
+    const local = t({ id: 'local', regional: true, benefits: [{ tag: '주유', type: 'discount', rate: 10, monthlyCap: 50_000, stars: 3 }] })
+    const nation = t({ id: 'nation' })
+    const got = recommend([local, nation], q({ tags: ['주유'] }))
+    expect(got.map((s) => s.card.id)).toEqual(['nation', 'local'])
+  })
+  test('빠른 길(requireCover)에서도 같은 커버면 지방은행이 뒤', () => {
+    const local = t({ id: 'local', regional: true, benefits: [{ tag: '주유', type: 'discount', rate: 10, monthlyCap: 50_000, stars: 3 }] })
+    const nation = t({ id: 'nation' })
+    const got = recommendGeneral([local, nation], q({ tags: ['주유'], requireCover: true }))
+    expect(got.items.map((s) => s.card.id)).toEqual(['nation', 'local'])
+  })
+  test('커버가 더 많으면 지방은행이라도 먼저 (커버가 우선)', () => {
+    const local2 = card({
+      id: 'local2', regional: true, complexity: 2,
+      benefits: [
+        { tag: '주유', type: 'discount', rate: 5, monthlyCap: 5_000, stars: 2 },
+        { tag: '대중교통·택시', type: 'discount', rate: 5, monthlyCap: 5_000, stars: 2 },
+      ],
+    })
+    const nation1 = t({ id: 'nation1' })
+    const got = recommendGeneral([nation1, local2], q({ tags: ['주유', '대중교통·택시'], requireCover: true }))
+    expect(got.items.map((s) => s.card.id)).toEqual(['local2', 'nation1'])
+  })
+})
