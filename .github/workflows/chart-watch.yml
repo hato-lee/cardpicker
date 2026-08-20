@@ -1,0 +1,32 @@
+name: 주간 인기카드 감지
+on:
+  schedule:
+    - cron: '0 15 * * 1'   # 매주 화요일 00:00 KST (월→화 자정)
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  chart-watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 차트 스캔
+        run: |
+          node scripts/chart-watch.mjs > report.json
+          node scripts/chart-watch.mjs --md > report.md
+          echo "new=$(node -e 'const r=require("./report.json");console.log(r.newCards.length)')" >> "$GITHUB_OUTPUT"
+          echo "issues=$(node -e 'const r=require("./report.json");console.log(r.linkIssues.length)')" >> "$GITHUB_OUTPUT"
+        id: scan
+      - name: 발견 시 이슈 생성
+        if: steps.scan.outputs.new != '0' || steps.scan.outputs.issues != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --title "[chart-watch] $(date +%Y-%m-%d): 새 카드 ${{ steps.scan.outputs.new }}장 · 링크 문제 ${{ steps.scan.outputs.issues }}건" \
+            --body-file report.md
+      - name: 요약
+        run: cat report.md >> "$GITHUB_STEP_SUMMARY"

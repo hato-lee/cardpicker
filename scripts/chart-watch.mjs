@@ -110,6 +110,24 @@ for (const { our, charts } of matched.values()) {
   else if (verdict !== 'ok' && verdict !== 'skip') linkIssues.push(row)
 }
 
+// ---- 4) 새 카드 공식 페이지 1:1 검수 ----
+for (const n of newCards) {
+  try {
+    const d = await get(`${API}/cards/${n.gorillaIdx}`)
+    n.discontinued = !!d.is_discon
+    n.corp = (() => { try { return JSON.parse(d.corp).name } catch { return '' } })()
+    n.officialLink = d.request_pc || d.request_m || ''
+    if (n.discontinued) { n.linkCheck = '단종(발급 중단) — 수집 불필요' }
+    else if (!n.officialLink) { n.linkCheck = '공식 링크 없음 — 수동 확인 필요' }
+    else {
+      const r = await fetchText(n.officialLink)
+      const tok = token(n.name)
+      n.linkCheck = r.status >= 400 ? `HTTP ${r.status}` : r.atHome ? '홈으로 리다이렉트 — 수동 확인 필요'
+        : (r.body.includes(tok) || r.body.includes(n.name)) ? '1:1 매칭 확인됨' : `페이지에서 '${tok}' 못 찾음 — JS 렌더링 가능성, 수동 확인 권장`
+    }
+  } catch (e) { n.linkCheck = '확인 실패: ' + String(e.message || e).slice(0, 60) }
+}
+
 const report = {
   date: today,
   chartCards: seen.size,
@@ -119,4 +137,25 @@ const report = {
   linkIssues,
   linkUnverified,
 }
-console.log(JSON.stringify(report, null, 1))
+if (process.argv.includes('--md')) {
+  const L = []
+  L.push(`# 카드피커 주간 차트 리포트 (${today})`, '')
+  L.push(`카드고릴라 종합 TOP 100 + 인기혜택 차트 10종에서 카드 ${report.chartCards}종을 확인했고, 그중 ${report.matchedInDb}종은 이미 카드피커에 있어요. 보유 카드 ${report.linkChecked}장의 공식 링크를 점검했어요.`, '')
+  if (newCards.length) {
+    L.push(`## 🆕 카드피커에 없는 인기 카드 ${newCards.length}장`, '')
+    L.push('| 카드 | 카드사 | 차트 순위 | 공식 페이지 검수 |', '|---|---|---|---|')
+    for (const n of newCards) L.push(`| ${n.name} | ${n.corp || '?'} | ${n.charts.slice(0, 3).join(', ')} | ${n.linkCheck || '?'} |`)
+    L.push('', '> 수집하려면 Claude 세션에서 "이 카드들 수집해"라고 말하면 돼요.', '')
+  }
+  if (linkIssues.length) {
+    L.push(`## ⚠️ 공식 링크 문제 ${linkIssues.length}건`, '')
+    L.push('| 카드 | 증상 | 지금 링크 |', '|---|---|---|')
+    for (const l of linkIssues) L.push(`| ${l.name} (${l.id}) | ${l.detail} | ${l.url} |`)
+    L.push('')
+  }
+  if (!newCards.length && !linkIssues.length) L.push('## ✅ 이상 없음', '', '새로 뜬 카드도, 죽은 링크도 없어요.')
+  if (linkUnverified.length) L.push('', `<details><summary>참고: 자동 확인이 안 되는 링크 ${linkUnverified.length}건 (JS 페이지 — 문제 아닐 가능성 높음)</summary>`, '', ...linkUnverified.map((l) => `- ${l.name} (${l.id})`), '', '</details>')
+  console.log(L.join('\n'))
+} else {
+  console.log(JSON.stringify(report, null, 1))
+}
