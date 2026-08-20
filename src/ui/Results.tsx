@@ -33,6 +33,9 @@ export const PERSONA_ECHO: Record<Persona, string> = {
 }
 export type EditPart = 'persona' | 'tags' | 'budget' | 'all'
 
+/** 빠른 길 결과의 정렬 설명 (성향 대신) */
+export const QUICK_ECHO = '고른 상황을 다 담는 카드 먼저 · 그중 가장 많이 아끼는 순'
+
 /** 카드마다 붙는 비교 한 줄. 1위: "2위 OO보다 1년에 N 더 아껴요" / 그 외: "1위 OO보다 1년에 N 적어요". 고른 영역 중 안 되는 게 있으면 덧붙인다 */
 export function leadText(results: Scored[], i: number, tags: Tag[] = []): string {
   const me = results[i]
@@ -51,7 +54,9 @@ export function leadText(results: Scored[], i: number, tags: Tag[] = []): string
     }
   } else {
     const diff = results[0].benefit.annualNet - me.benefit.annualNet
-    parts.push(diff > 0 ? `1위 ${results[0].card.name}보다 1년에 ${won(diff)} 적어요` : `1위 ${results[0].card.name}와 금액은 같아요`)
+    if (diff > 0) parts.push(`1위 ${results[0].card.name}보다 1년에 ${won(diff)} 적어요`)
+    else if (diff < 0) parts.push(`1위 ${results[0].card.name}보다 1년에 ${won(-diff)} 더 아끼지만, 상황을 다 담지는 못해요`)
+    else parts.push(`1위 ${results[0].card.name}와 금액은 같아요`)
   }
   const covered = new Set<string>([...me.coveredTags, ...me.universalCovers])
   const missing = tags.filter((t) => !covered.has(t))
@@ -127,7 +132,7 @@ export function Results({ query, results, relaxed = false, mileResults = { top: 
     <section className="step">
       {summary}
       <h2>{results.length > 0 ? (query.kpass ? '이런 K-패스 카드가 잘 맞겠어요' : '이런 카드가 잘 맞겠어요') : (query.kpass ? '조건에 맞는 K-패스 카드를 못 찾았어요' : '조건에 맞는 카드를 못 찾았어요')}</h2>
-      {results.length > 0 && <p className="hint">{PERSONA_ECHO[query.persona]} · TOP {results.length}</p>}
+      {results.length > 0 && <p className="hint">{quick ? QUICK_ECHO : PERSONA_ECHO[query.persona]} · TOP {results.length}</p>}
       {relaxed && results.length > 0 && <p className="hint">{RELAXED_NOTE}</p>}
       {query.kpass && results.length > 0 && <p className="kpass-note">🎫 {kpassNote(query)}</p>}
       {results.length === 0 ? (

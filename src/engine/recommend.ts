@@ -101,7 +101,9 @@ export function recommendGeneral(cards: Card[], q: Query, rules: Rules = RULES):
     }
     return { items: pool.sort(order).slice(0, rules.topN), relaxed: coverRelaxed }
   }
-  const finalOrder = coverRelaxed
+  // 빠른 길: 상황을 통째로 담는(태그를 다 커버하는) 카드가 먼저, 그 안에서 금액 순.
+  // 태그 하나가 빠지면 금액이 커도 아래로 내려간다.
+  const finalOrder = q.requireCover
     ? (a: Scored, b: Scored) => coverCount(b) - coverCount(a) || byNet(a, b)
     : byNet
   return { items: pool.sort(finalOrder).slice(0, rules.topN), relaxed: coverRelaxed }

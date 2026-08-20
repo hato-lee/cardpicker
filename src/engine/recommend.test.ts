@@ -191,6 +191,33 @@ describe('빠른 길 타겟팅 (requireCover)', () => {
     expect(got.items.map((s) => s.card.id)).toEqual(['fit'])
     expect(got.relaxed).toBe(false)
   })
+  test('상황을 다 담는(3/3) 카드가 금액이 적어도 과반(2/3) 카드보다 먼저', () => {
+    // full은 3태그 전부 커버하지만 금액은 fit보다 작다
+    const full = card({
+      id: 'full', complexity: 2,
+      benefits: [
+        { tag: '주유', type: 'discount', rate: 3, monthlyCap: 3_000, stars: 1 },
+        { tag: '대중교통·택시', type: 'discount', rate: 3, monthlyCap: 3_000, stars: 1 },
+        { tag: '통신비·OTT', type: 'discount', rate: 3, monthlyCap: 3_000, stars: 1 },
+      ],
+    })
+    const got = recommendGeneral([fit, full], { ...tags3, requireCover: true })
+    expect(got.items.map((s) => s.card.id)).toEqual(['full', 'fit'])
+  })
+  test('범용(모든 가맹점) 커버도 상황 담기로 쳐준다 — 전용 과반 + 범용으로 전부 커버면 전용만 2/3인 카드보다 먼저', () => {
+    // fitUni: 주유·대중교통 전용 + 나머지는 범용 적립으로 커버 (총 3/3)
+    const fitUni = card({
+      id: 'fituni', complexity: 2,
+      universal: { type: 'points', rate: 0.5, monthlyCap: null },
+      benefits: [
+        { tag: '모든 가맹점', type: 'points', rate: 0.5, monthlyCap: null, stars: 1 },
+        { tag: '주유', type: 'discount', rate: 5, monthlyCap: 5_000, stars: 2 },
+        { tag: '대중교통·택시', type: 'discount', rate: 5, monthlyCap: 5_000, stars: 2 },
+      ],
+    })
+    const got = recommendGeneral([fit, fitUni], { ...tags3, requireCover: true })
+    expect(got.items[0].card.id).toBe('fituni')
+  })
   test('범용(모든 가맹점) 커버는 과반 계산에 안 쳐준다', () => {
     // universalCard는 범용 적립뿐 — 전용 혜택 0개라 탈락
     const got = recommendGeneral([universalCard, fit], { ...tags3, requireCover: true })
