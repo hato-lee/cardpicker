@@ -12,6 +12,7 @@ export interface BenefitRow {
   monthlyCap: number | null   // mileage면 마일, 그 밖은 원
   note?: string
   capGroup?: string
+  sharedCapGroup?: string
   monthlyValue: number        // 원. 상한 조정 후, 성향 반영 전
   requiredSpend: number | null // 한도를 채우는 데 필요한 월 지출(원). 정액은 null
   viaUniversal: boolean       // 고른 태그에 벤핏이 없어 범용으로 대신 계산한 줄
@@ -50,7 +51,7 @@ export function resolveTier(
 
 /** 한 벤핏(또는 범용)의 월 최대 혜택과 필요 지출. 스펙 1번. */
 function makeRow(
-  b: { tag: Tag; type: BenefitType; rate: number; monthlyCap: number | null; note?: string; capGroup?: string; tiers?: Tier[] },
+  b: { tag: Tag; type: BenefitType; rate: number; monthlyCap: number | null; note?: string; capGroup?: string; sharedCapGroup?: string; tiers?: Tier[] },
   spend: number,
   viaUniversal: boolean,
   rules: Rules,
@@ -78,38 +79,64 @@ function makeRow(
     monthlyValue = toWon(b.type, cap, rules)
     requiredSpend = cap / r
   }
-  return { tag: b.tag, type: b.type, rate, monthlyCap: cap, note: b.note, capGroup: b.capGroup, monthlyValue, requiredSpend, viaUniversal, assumedCap, nextTier: t.nextTier }
+  return { tag: b.tag, type: b.type, rate, monthlyCap: cap, note: b.note, capGroup: b.capGroup, sharedCapGroup: b.sharedCapGroup, monthlyValue, requiredSpend, viaUniversal, assumedCap, nextTier: t.nextTier }
+}
+
+function groupRowsBy(rows: BenefitRow[], key: (r: BenefitRow) => string | undefined): Map<string, BenefitRow[]> {
+  const groups = new Map<string, BenefitRow[]>()
+  for (const r of rows) {
+    const k = key(r)
+    if (!k) continue
+    const arr = groups.get(k) ?? []
+    arr.push(r)
+    groups.set(k, arr)
+  }
+  return groups
 }
 
 /**
- * 같은 capGroup 줄들의 monthlyValue 합이 그룹 한도(monthlyCap, mileage면 ×mileWon)를 넘으면 비례 축소.
+ * 묶인 줄들의 monthlyValue 합이 상한을 넘으면 비례 축소한다.
  * requiredSpend도 같은 비율로 줄인다 — 안 줄이면 아래 총액 상한(clampFactor)에 한 번 더 걸려 두 번 깎이고,
  * 그 결과 "태그를 하나 더 고르면 카드 가치가 절반이 되는" 역전이 생긴다.
- * 요율이 같은 그룹에서는 이 값이 정확하다: 한도 L을 요율 r로 채우는 데 드는 지출은 L/r인데,
+ * 요율이 같은 묶음에서는 이 값이 정확하다: 한도 L을 요율 r로 채우는 데 드는 지출은 L/r인데,
  * 축소 전에는 줄 수만큼(n×L/r) 부풀어 있기 때문이다.
  */
+function clampGroup(rows: BenefitRow[], groupRows: BenefitRow[], limit: number): BenefitRow[] {
+  const sum = groupRows.reduce((s, x) => s + x.monthlyValue, 0)
+  if (sum <= limit || sum <= 0) return rows
+  const factor = limit / sum
+  const scaled = new Set(groupRows)
+  return rows.map((x) =>
+    scaled.has(x)
+      ? { ...x, monthlyValue: x.monthlyValue * factor, requiredSpend: x.requiredSpend === null ? null : x.requiredSpend * factor }
+      : x,
+  )
+}
+
+/** 1단: 같은 capGroup 줄들이 한도 하나를 나눠 쓴다. 그룹 한도 = 줄들의 monthlyCap(스키마가 같은 값을 강제) */
 function applyCapGroups(rows: BenefitRow[], rules: Rules): BenefitRow[] {
-  const groups = new Map<string, BenefitRow[]>()
-  for (const r of rows) {
-    if (!r.capGroup) continue
-    const arr = groups.get(r.capGroup) ?? []
-    arr.push(r)
-    groups.set(r.capGroup, arr)
-  }
   let result = rows
-  for (const [, groupRows] of groups) {
+  for (const [, groupRows] of groupRowsBy(rows, (r) => r.capGroup)) {
     if (groupRows.length < 2) continue
-    const limit = toWon(groupRows[0].type, groupRows[0].monthlyCap ?? 0, rules)
-    const sum = groupRows.reduce((s, x) => s + x.monthlyValue, 0)
-    if (sum > limit && sum > 0) {
-      const factor = limit / sum
-      const scaled = new Set(groupRows)
-      result = result.map((x) =>
-        scaled.has(x)
-          ? { ...x, monthlyValue: x.monthlyValue * factor, requiredSpend: x.requiredSpend === null ? null : x.requiredSpend * factor }
-          : x,
-      )
-    }
+    result = clampGroup(result, groupRows, toWon(groupRows[0].type, groupRows[0].monthlyCap ?? 0, rules))
+  }
+  return result
+}
+
+/**
+ * 2단: 영역별 한도(줄마다 제 monthlyCap) 위에 또 걸리는 통합 상한.
+ * 카드사가 흔히 쓰는 구조다 — "영역별 월 5천원, 단 전체 통합 월 2만원" 같은 것.
+ * 1단(capGroup)은 줄들이 한도 '하나'를 나눠 쓰는 구조라 이걸 표현하지 못한다.
+ */
+function applySharedCaps(rows: BenefitRow[], card: Card, spend: number, rules: Rules): BenefitRow[] {
+  if (!card.sharedCaps) return rows
+  let result = rows
+  for (const [name, groupRows] of groupRowsBy(rows, (r) => r.sharedCapGroup)) {
+    const def = card.sharedCaps[name]
+    if (!def) continue
+    const cap = resolveTier({ rate: 0, monthlyCap: def.monthlyCap, tiers: def.tiers }, spend).monthlyCap
+    if (cap === null) continue
+    result = clampGroup(result, groupRows, toWon(groupRows[0].type, cap, rules))
   }
   return result
 }
@@ -141,8 +168,8 @@ export function annualBenefit(card: Card, q: Query, rules: Rules = RULES): Annua
   const deduped = hasMileageRow ? rows.filter((x) => !(x.tag === UNIVERSAL_TAG && x.type === 'mileage')) : rows
   if (deduped.length === 0) return null
 
-  // 통합(공유) 월 한도: 같은 capGroup 줄들의 합이 그룹 한도를 넘으면 비례 축소
-  const grouped = applyCapGroups(deduped, rules)
+  // 1단 — 같은 capGroup 줄들이 한도 하나를 나눠 쓴다. 2단 — 그 위에 또 걸리는 통합 상한(sharedCaps)
+  const grouped = applySharedCaps(applyCapGroups(deduped, rules), card, S, rules)
 
   // 총액 기준 상한 (스펙 2번)
   const R = grouped.reduce((s, x) => s + (x.requiredSpend ?? 0), 0)

@@ -23,6 +23,18 @@ export interface Benefit {
   note?: string
   // 같은 카드 안에서 같은 문자열을 가진 혜택들은 월 한도를 공유한다. 각 혜택의 monthlyCap에는 그 공유 한도 금액을 그대로 적는다
   capGroup?: string
+  /**
+   * 영역별 한도(이 혜택의 monthlyCap) 위에 또 걸리는 통합 상한의 이름. card.sharedCaps에 그 금액을 적는다.
+   * capGroup과 다르다 — capGroup은 여러 줄이 한도 '하나'를 나눠 쓰는 구조이고,
+   * 이건 줄마다 제 한도가 따로 있으면서 합계에만 천장이 걸리는 구조다("영역별 5천원, 단 전체 통합 2만원").
+   */
+  sharedCapGroup?: string
+  tiers?: Tier[]
+}
+
+/** 여러 혜택의 합계에 걸리는 통합 월 상한. 단위는 묶인 혜택의 type을 따른다(mileage면 마일) */
+export interface SharedCap {
+  monthlyCap: number
   tiers?: Tier[]
 }
 
@@ -48,6 +60,8 @@ export interface Card {
   annualFee: number       // 원. 브랜드별로 다르면 가장 낮은 값
   minSpend: number        // 원. 전월 실적. 없으면 0
   benefits: Benefit[]
+  /** 통합 상한 정의. 키는 benefits의 sharedCapGroup이 가리키는 이름 */
+  sharedCaps?: Record<string, SharedCap>
   universal: Universal | null
   complexity: Complexity
   officialUrl: string

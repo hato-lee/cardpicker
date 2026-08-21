@@ -158,6 +158,55 @@ test('통합 한도를 나눠 쓰는 줄은 태그를 더 골라도 값이 줄�
   expect(two.rows.reduce((s, x) => s + (x.requiredSpend ?? 0), 0)).toBe(1_000_000)
 })
 
+// 2단 한도: 영역별로 제 한도가 있으면서 합계에만 천장이 또 걸리는 구조 (2026-08-22 신설)
+describe('sharedCaps — 영역별 한도 위의 통합 상한', () => {
+  // 영역 셋이 각각 월 5천원, 그 위 통합 상한 1만원. 요율 10%라 영역 한도를 채우려면 영역당 5만원.
+  const c = card({
+    minSpend: 0,
+    sharedCaps: { life: { monthlyCap: 10000 } },
+    benefits: [
+      { tag: '주유', type: 'discount', rate: 10, monthlyCap: 5000, stars: 2, sharedCapGroup: 'life' },
+      { tag: '카페', type: 'discount', rate: 10, monthlyCap: 5000, stars: 2, sharedCapGroup: 'life' },
+      { tag: '편의점', type: 'discount', rate: 10, monthlyCap: 5000, stars: 2, sharedCapGroup: 'life' },
+    ],
+  })
+  test('영역을 적게 고르면 각자 한도까지', () => {
+    expect(annualBenefit(c, q({ tags: ['주유'] }))!.monthlyMax).toBe(5000)
+    expect(annualBenefit(c, q({ tags: ['주유', '카페'] }))!.monthlyMax).toBe(10000)
+  })
+  test('합계가 통합 상한을 넘으면 거기서 잘린다', () => {
+    const r = annualBenefit(c, q({ tags: ['주유', '카페', '편의점'] }))!
+    expect(r.monthlyMax).toBe(10000)
+    // 필요 지출도 같은 비율로 줄어 총액 상한에 두 번 깎이지 않는다 (1만원 ÷ 10% = 10만원)
+    expect(r.rows.reduce((s, x) => s + (x.requiredSpend ?? 0), 0)).toBeCloseTo(100_000, 6)
+  })
+  test('통합 상한도 실적 구간을 탄다', () => {
+    const tiered = card({
+      minSpend: 300_000,
+      sharedCaps: { life: { monthlyCap: 10000, tiers: [{ minSpend: 1_000_000, monthlyCap: 30000 }] } },
+      benefits: c.benefits,
+    })
+    expect(annualBenefit(tiered, q({ tags: ['주유', '카페', '편의점'], monthlySpend: 500_000 }))!.monthlyMax).toBe(10000)
+    // 실적 100만원이면 상한이 3만원으로 올라가 영역 합계(1.5만원)가 그대로 통과한다
+    expect(annualBenefit(tiered, q({ tags: ['주유', '카페', '편의점'], monthlySpend: 1_000_000 }))!.monthlyMax).toBe(15000)
+  })
+  test('capGroup과 함께 걸리면 영역 한도 → 통합 상한 순으로 적용된다', () => {
+    // 주유·카페가 한도 8천원을 나눠 쓰고(1단), 그 위 편의점까지 합쳐 통합 1만원(2단)
+    const both = card({
+      minSpend: 0,
+      sharedCaps: { all: { monthlyCap: 10000 } },
+      benefits: [
+        { tag: '주유', type: 'discount', rate: 10, monthlyCap: 8000, stars: 2, capGroup: 'g', sharedCapGroup: 'all' },
+        { tag: '카페', type: 'discount', rate: 10, monthlyCap: 8000, stars: 2, capGroup: 'g', sharedCapGroup: 'all' },
+        { tag: '편의점', type: 'discount', rate: 10, monthlyCap: 5000, stars: 2, sharedCapGroup: 'all' },
+      ],
+    })
+    // 1단: 주유+카페 = 8천, 2단: 8천 + 편의점 5천 = 1.3만 → 1만으로 축소
+    expect(annualBenefit(both, q({ tags: ['주유', '카페', '편의점'] }))!.monthlyMax).toBe(10000)
+    expect(annualBenefit(both, q({ tags: ['주유', '카페'] }))!.monthlyMax).toBe(8000)
+  })
+})
+
 test('capGroup이 하나뿐인 줄은 영향 없음', () => {
   const c = card({ benefits: [
     { tag: '주유', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3, capGroup: 'g' },

@@ -20,6 +20,12 @@ const benefitSchema = z.strictObject({
   stars: oneToThree,
   note: z.string().optional(),
   capGroup: z.string().min(1).optional(),
+  sharedCapGroup: z.string().min(1).optional(),
+  tiers: tiersSchema,
+})
+
+const sharedCapSchema = z.strictObject({
+  monthlyCap: z.number().int().min(1),
   tiers: tiersSchema,
 })
 
@@ -32,6 +38,7 @@ const cardSchema = z
     annualFee: z.number().int().min(0),
     minSpend: z.number().int().min(0),
     benefits: z.array(benefitSchema),
+    sharedCaps: z.record(z.string().min(1), sharedCapSchema).optional(),
     universal: z
       .strictObject({
         type: benefitType,
@@ -99,9 +106,36 @@ const cardSchema = z
         })
       }
     }
+    // sharedCaps: 정의와 참조가 서로 맞아야 한다
+    const declared = new Set(Object.keys(data.sharedCaps ?? {}))
+    const usedShared = new Map<string, typeof data.benefits>()
+    for (const b of data.benefits) {
+      if (!b.sharedCapGroup) continue
+      const arr = usedShared.get(b.sharedCapGroup) ?? []
+      arr.push(b)
+      usedShared.set(b.sharedCapGroup, arr)
+    }
+    for (const [name, members] of usedShared) {
+      if (!declared.has(name)) {
+        ctx.addIssue({ code: 'custom', path: ['benefits'], message: `sharedCapGroup '${name}'이 sharedCaps에 정의돼 있지 않습니다 (${data.id})` })
+        continue
+      }
+      if (members.length < 2) {
+        ctx.addIssue({ code: 'custom', path: ['sharedCaps', name], message: `sharedCapGroup '${name}'에 혜택이 하나뿐입니다 — 통합 상한이 아니라 그 혜택의 monthlyCap으로 적으세요 (${data.id})` })
+      }
+      if (!members.every((m) => m.type === members[0].type)) {
+        ctx.addIssue({ code: 'custom', path: ['sharedCaps', name], message: `sharedCapGroup '${name}'에 type이 다른 혜택이 섞여 있습니다 — 상한의 단위(원/마일)가 모호해집니다 (${data.id})` })
+      }
+    }
+    for (const name of declared) {
+      if (!usedShared.has(name)) {
+        ctx.addIssue({ code: 'custom', path: ['sharedCaps', name], message: `sharedCaps '${name}'을 쓰는 혜택이 없습니다 (${data.id})` })
+      }
+    }
     // tiers: 오름차순 + 카드 minSpend 초과
     const allTierOwners: Array<{ where: string; tiers?: { minSpend: number; monthlyCap: number | null }[] }> = [
       ...data.benefits.map((b) => ({ where: `benefits.${b.tag}`, tiers: b.tiers })),
+      ...Object.entries(data.sharedCaps ?? {}).map(([k, v]) => ({ where: `sharedCaps.${k}`, tiers: v.tiers })),
       ...(data.universal ? [{ where: 'universal', tiers: data.universal.tiers }] : []),
     ]
     for (const { where, tiers } of allTierOwners) {

@@ -72,7 +72,25 @@
 
 - 같은 capGroup 줄들은 **monthlyCap·tiers가 완전히 동일**해야 함(스키마 강제). 그룹 한도 = 첫 줄의 cap, 엔진이 합계 초과 시 비례 축소.
 - 한 혜택이 두 태그에 걸치면(카페+편의점 통합 등): **줄 복제 + 같은 capGroup**.
-- 그룹 내 cap이 실제로 다르면(예: 영역별 개별 한도 + 별도 통합한도) capGroup을 억지로 쓰지 말 것 — 개별 한도만 반영하고 memo에 통합한도 기록 (국민행복 V2 사례; 엔진 sharedCap 확장안은 verify-2026-08-21/findings-V3 참고).
+- **2단 한도(영역별 한도 + 그 위의 통합 상한)는 `sharedCaps`로 적는다** (2026-08-22 엔진 확장. 그 전에는 표현 못 해 개별 한도만 반영하고 통합은 memo로 내렸다).
+
+  ```jsonc
+  "sharedCaps": { "life": { "monthlyCap": 20000, "tiers": [{ "minSpend": 600000, "monthlyCap": 40000 }] } },
+  "benefits": [
+    { "tag": "통신비", "rate": 10, "monthlyCap": 5000, "sharedCapGroup": "life", ... },
+    { "tag": "마트·장보기", "rate": 10, "monthlyCap": 5000, "sharedCapGroup": "life", ... }
+  ]
+  ```
+
+  - **capGroup과 헷갈리지 말 것.** `capGroup`은 줄들이 **한도 하나를 나눠 쓰는** 구조(영역별 한도가 따로 없다).
+    `sharedCapGroup`은 줄마다 **제 한도가 있고** 그 위에 **합계 천장**이 또 있는 구조다. 둘을 같이 쓸 수도 있다.
+  - 계산 순서: 줄 한도 → capGroup 축소 → sharedCap 축소 → 총액 상한.
+  - **통합 상한이 영역 한도 합계 이상이면 넣지 마라** — 아무 일도 안 일어나고 복잡도만 는다.
+  - 제약: 한 sharedCapGroup에 혜택이 **2개 이상**이어야 하고 **type이 같아야** 한다(상한의 단위가 원/마일로 갈리므로).
+    `sharedCaps`의 tiers도 카드 minSpend보다 커야 한다.
+  - **되돌릴 것**: 2단을 표현 못 하던 시절 **통합값을 줄의 monthlyCap에 대신 써 넣은 카드**가 있다.
+    sharedCaps를 넣을 때 그 줄들의 monthlyCap을 **원래 영역별 값으로 되돌려야** 한다 — 안 그러면 영역 한도가
+    부푼 채로 천장만 얹는 꼴이 된다. memo의 "통합값으로 수정" 같은 흔적을 확인할 것.
 
 ## 5. 선택형(택1) 혜택
 
