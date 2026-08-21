@@ -1,0 +1,30 @@
+{
+  "cardId": "nh-on-platinum-skypass",
+  "confidence": "high",
+  "diffs": [
+    {
+      "where": "officialUrl",
+      "current": "https://card.nonghyup.com/index_cardProd.html?SERVICE_ID=IPCC2021R&NAVIGATE_TYPE=1&cd_wrs_sqno=90000414",
+      "proposal": "https://card.nonghyup.com/index_cardProd.html?SERVICE_ID=IPCC2021R&NAVIGATE_TYPE=1&cd_wrs_sqno=90010058",
+      "evidence": "servlet 우회(IpCc2021R.act?CD_WRS_SQNO=90000414)로 직접 렌더링해보니 90000414는 '올바른POINT UP+ 카드'(2019-08 출시, NH포인트 적립형) 페이지였음. NH 공식 키워드검색 servlet(IpCc1411R.act?SCH_TXT=플래티늄)에서 'ON PLATINUM카드(스카이패스)' = cd_wrs_sqno 90010058 확인, servlet으로 90010058 렌더링 시 카드명·연회비(TriPlus 128,000/130,000)·1,500원당 1마일·분기 보너스·라운지 연3회가 모두 이 카드와 일치. memo의 'URL 정정(2026-08-19): 90000414 채택' 이력은 오식별이었음 — memo에도 정정 이력 추가 필요.",
+      "warning": null
+    }
+  ],
+  "structureTree": "ON PLATINUM카드(스카이패스) [NH 공식 servlet 90010058 원문 + 카드고릴라 API idx 2128]\n├─ 연회비: 국내전용(TriPlus) 128,000원 / 해외겸용 130,000원 (기본 6,000 + 제휴 122,000/124,000), 가족회원 5만원\n├─ 기본 적립: 국내·외 매출 건별 1,500원당 1마일(스카이패스) = 0.067\n│   ├─ 전월실적 조건 없음, 적립 한도 없음 → minSpend 0, monthlyCap null (한도 없는 전가맹점 기본적립이라 universal로 계산, '추가적립 한도없음 미반영' 규칙과 무관)\n│   ├─ 건별 1,500원으로 나눠 소수점 반올림, 결제일+10영업일 후 적립\n│   └─ 적립 제외: 등록금·교육비·임대료·세금공과금·4대보험·아파트관리비·도시가스·전기요금·상품권/선불충전·현금서비스·카드론·수수료/이자/연회비·무이자할부 등\n├─ 보너스 마일리지 (분기 1회, 연 4회): 분기실적 150만↑ 1,500마일 / 100만~150만 750마일\n│   ├─ 본인회원만, 연회비 납부완료가 지급 전제, 다음 분기 첫 달 15일 이후 지급\n│   └─ mileageBonus {6000마일, 연 600만}은 150만×4분기 근사 — 스키마 한계 내 타당(기존 memo 근사 유지)\n├─ 라운지: 더 라운지 멤버스 앱 — 국내·외 공항 라운지 통합 일 1회·연 3회, 전월실적 30만원 이상 시 (본인·가족 각각 실적 산정·각각 제공)\n├─ 브랜드: Mastercard Platinum 프리미엄 서비스 (공항/호텔 발레파킹 등 '선택 서비스'는 전월실적 30만↑ 조건의 브랜드 공통 안내문 — 이 카드에 실제 제공되는 선택 서비스 목록은 원문에서 특정 안 됨)\n├─ 택1 구조: 포인트형 / 스카이패스 마일리지형 / 아시아나클럽 마일리지형 중 발급 시 선택 (별도 상품으로 DB 분리되어 있음, 아시아나클럽형은 2025-04-02부터 신청 불가)\n└─ 상태: NH 공식 검색 목록 노출 + '신청가능' 배지 + 고릴라 is_discon=false → active 확정",
+  "verified": [
+    "annualFee 128,000원 (국내전용; 해외겸용 130,000) — NH 공식·고릴라 일치",
+    "benefits.마일리지 rate 0.067 (1,500원당 1마일), monthlyCap null, 전월실적 없음(minSpend 0) — NH 공식 '전월실적조건 및 적립한도는 없습니다' 원문 확인",
+    "benefits.모든 가맹점 + universal 0.067 — 국내·외 전 가맹점 기본적립이므로 구조 타당",
+    "note의 분기 보너스 서술(100만~150만 750마일 / 150만↑ 1,500마일) — NH 공식 표와 일치",
+    "mileageBonus {miles: 6000, minAnnualSpend: 6000000} — 분기 150만×4 근사로 원문과 정합 (기존 memo에 근사 이력 있음)",
+    "perks 라운지 '연 3회(일 1회, 전월실적 30만원 이상)' — NH 공식 표(국내·외 통합 일 1회, 연 3회, 30만원 이상 시)와 정확히 일치",
+    "status active — NH 공식 판매목록(키워드검색) 노출 + 신청가능 + 고릴라 is_discon=false",
+    "kind credit, complexity 2, 마일리지 검산 1,500원당 1마일=0.067 규약값"
+  ],
+  "outOfTag": "Mastercard Platinum 브랜드 서비스로 공항 발레파킹·호텔 발레파킹이 '선택 서비스' 예시로 안내되나(전월실적 30만↑ 조건), 이 카드에 실제 제공되는 선택 서비스 목록은 공식 원문에서 특정되지 않음(타 플래티늄 카드 페이지에도 동일 문구). 기존 memo의 '발레파킹 미제공 확인'과 상충 가능성 있으나 근거 불충분으로 perks 추가 보류.",
+  "issueNoteProposal": null,
+  "unresolved": [
+    "Mastercard Platinum '선택 서비스' 중 이 카드에 실제 배정된 항목(발레파킹 여부) — 브랜드 공통 안내문뿐이라 미확정",
+    "보너스 마일리지 최초 지급의 '연회비 납부완료' 전제는 note에 없음 — 계산 무관 조건이라 보수적으로 미반영"
+  ]
+}
