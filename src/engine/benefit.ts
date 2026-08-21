@@ -81,7 +81,13 @@ function makeRow(
   return { tag: b.tag, type: b.type, rate, monthlyCap: cap, note: b.note, capGroup: b.capGroup, monthlyValue, requiredSpend, viaUniversal, assumedCap, nextTier: t.nextTier }
 }
 
-/** 같은 capGroup 줄들의 monthlyValue 합이 그룹 한도(monthlyCap, mileage면 ×mileWon)를 넘으면 비례 축소. requiredSpend는 그대로 둔다. */
+/**
+ * 같은 capGroup 줄들의 monthlyValue 합이 그룹 한도(monthlyCap, mileage면 ×mileWon)를 넘으면 비례 축소.
+ * requiredSpend도 같은 비율로 줄인다 — 안 줄이면 아래 총액 상한(clampFactor)에 한 번 더 걸려 두 번 깎이고,
+ * 그 결과 "태그를 하나 더 고르면 카드 가치가 절반이 되는" 역전이 생긴다.
+ * 요율이 같은 그룹에서는 이 값이 정확하다: 한도 L을 요율 r로 채우는 데 드는 지출은 L/r인데,
+ * 축소 전에는 줄 수만큼(n×L/r) 부풀어 있기 때문이다.
+ */
 function applyCapGroups(rows: BenefitRow[], rules: Rules): BenefitRow[] {
   const groups = new Map<string, BenefitRow[]>()
   for (const r of rows) {
@@ -98,7 +104,11 @@ function applyCapGroups(rows: BenefitRow[], rules: Rules): BenefitRow[] {
     if (sum > limit && sum > 0) {
       const factor = limit / sum
       const scaled = new Set(groupRows)
-      result = result.map((x) => (scaled.has(x) ? { ...x, monthlyValue: x.monthlyValue * factor } : x))
+      result = result.map((x) =>
+        scaled.has(x)
+          ? { ...x, monthlyValue: x.monthlyValue * factor, requiredSpend: x.requiredSpend === null ? null : x.requiredSpend * factor }
+          : x,
+      )
     }
   }
   return result

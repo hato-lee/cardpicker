@@ -142,6 +142,22 @@ test('capGroup 없으면 그룹 상한 없이 각자 한도까지', () => {
   expect(r.monthlyMax).toBe(40000)
 })
 
+// 통합 한도로 축소할 때 필요 지출도 같이 줄지 않으면 총액 상한에 한 번 더 걸려 두 번 깎인다.
+// 그러면 "태그를 하나 더 골랐더니 카드 가치가 절반이 되는" 역전이 생긴다 (2026-08-22 수정).
+test('통합 한도를 나눠 쓰는 줄은 태그를 더 골라도 값이 줄지 않는다', () => {
+  // 한도 2만원을 두 줄이 공유. 요율 2%라 한도를 채우려면 월 100만원을 써야 한다.
+  const c = card({ benefits: [
+    { tag: '주유', type: 'discount', rate: 2, monthlyCap: 20000, stars: 2, capGroup: 'g' },
+    { tag: '카페', type: 'discount', rate: 2, monthlyCap: 20000, stars: 2, capGroup: 'g' },
+  ] })
+  const one = annualBenefit(c, q({ tags: ['주유'], monthlySpend: 1_000_000 }))!
+  const two = annualBenefit(c, q({ tags: ['주유', '카페'], monthlySpend: 1_000_000 }))!
+  expect(one.monthlyMax).toBe(20000)
+  expect(two.monthlyMax).toBe(20000)   // 그룹 한도가 상한이므로 태그를 더 골라도 같다
+  // 필요 지출도 절반씩 나뉘어 합계가 그대로여야 한다 (2만원 ÷ 2% = 100만원)
+  expect(two.rows.reduce((s, x) => s + (x.requiredSpend ?? 0), 0)).toBe(1_000_000)
+})
+
 test('capGroup이 하나뿐인 줄은 영향 없음', () => {
   const c = card({ benefits: [
     { tag: '주유', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3, capGroup: 'g' },
