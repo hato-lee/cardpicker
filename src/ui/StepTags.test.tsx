@@ -14,9 +14,9 @@ function KpassHarness() {
   return <StepTags value={t} onChange={setT} onBack={() => {}} onNext={() => {}} kpass={k} onKpassChange={setK} />
 }
 
-test('태그 15개 버튼이 보인다', () => {
+test('태그 16개 버튼이 보인다', () => {
   render(<Harness />)
-  expect(screen.getAllByRole('button', { pressed: false })).toHaveLength(15)
+  expect(screen.getAllByRole('button', { pressed: false })).toHaveLength(16)
 })
 
 test('하나도 안 고르면 다음 비활성, 고르면 활성', async () => {
@@ -64,11 +64,11 @@ describe('마일리지는 다른 태그와 섞을 수 없다', () => {
 })
 
 describe('K-패스 스위치', () => {
-  test('켜면 대중교통·택시가 자동 선택·잠김, 안내가 뜨고, 다른 혜택은 더 고를 수 있다', async () => {
+  test('켜면 대중교통이 자동 선택·잠김, 안내가 뜨고, 다른 혜택은 더 고를 수 있다', async () => {
     render(<KpassHarness />)
     await userEvent.click(screen.getByRole('button', { name: /K-패스 카드만/ }))
     expect(screen.getByRole('button', { name: /K-패스 카드만/ })).toHaveAttribute('aria-pressed', 'true')
-    const transit = screen.getByRole('button', { name: /대중교통·택시/ })
+    const transit = screen.getByRole('button', { name: /대중교통/ })
     expect(transit).toHaveAttribute('aria-pressed', 'true')
     expect(transit).toBeDisabled()
     expect(screen.getByText(KPASS_HINT)).toBeInTheDocument()

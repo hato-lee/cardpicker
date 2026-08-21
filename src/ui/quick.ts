@@ -14,12 +14,12 @@ export interface QuickCategory {
 }
 
 export const QUICK_CATEGORIES: QuickCategory[] = [
-  { key: 'starter', emoji: '🌱', label: '사회초년생', sub: '월 80만 · 연회비 1만 원까지', spendMan: 80, feeLimit: 10_000, tags: ['대중교통·택시', '카페', '편의점', '통신비'] },
+  { key: 'starter', emoji: '🌱', label: '사회초년생', sub: '월 80만 · 연회비 1만 원까지', spendMan: 80, feeLimit: 10_000, tags: ['대중교통', '카페', '편의점', '통신비'] },
   { key: 'settled', emoji: '🏃', label: '자리 잡은 직장인', sub: '월 150만 · 연회비 5만 원까지', spendMan: 150, feeLimit: 50_000, tags: ['모든 가맹점', '온라인 쇼핑', '배달·외식'] },
-  { key: 'driver', emoji: '🚗', label: '차 끌고 출퇴근', sub: '월 150만 · 연회비 5만 원까지', spendMan: 150, feeLimit: 50_000, tags: ['주유', '대중교통·택시', '통신비'] },
+  { key: 'driver', emoji: '🚗', label: '차 끌고 출퇴근', sub: '월 150만 · 연회비 5만 원까지', spendMan: 150, feeLimit: 50_000, tags: ['주유', '대중교통', '통신비'] },
   { key: 'family', emoji: '🏠', label: '살림 챙기기', sub: '월 250만 · 연회비 5만 원까지', spendMan: 250, feeLimit: 50_000, tags: ['관리비·공과금', '마트·장보기', '병의원·약국', '학원·교육', '온라인 쇼핑'] },
   { key: 'travel', emoji: '✈️', label: '여행·마일리지', sub: '월 200만 · 연회비 상관없음', spendMan: 200, feeLimit: null, tags: ['마일리지'] },
-  { key: 'transit', emoji: '🚌', label: '대중교통 많이 타요', sub: 'K-패스 · 교통비만 물어요', spendMan: 100, feeLimit: null, tags: ['대중교통·택시'], kpass: true },
+  { key: 'transit', emoji: '🚌', label: '대중교통 많이 타요', sub: 'K-패스 · 교통비만 물어요', spendMan: 100, feeLimit: null, tags: ['대중교통'], kpass: true },
 ]
 
 /** '혜택 직접 고르기'로 들어왔을 때 깔리는 기본값 */

@@ -55,7 +55,8 @@ button.secondary { width: 100%; padding: 12px; font-size: 15px; background: #fff
 .tag-grid.is-dimmed { opacity: .45; }
 .tag { position: relative; display: flex; align-items: center; gap: 8px; min-height: 52px; padding: 10px 12px; font-size: 15px; font: inherit; color: var(--ink); background: #fff; border: 1px solid #dfe3e8; border-radius: 12px; cursor: pointer; text-align: left; }
 .tag-emoji { font-size: 20px; line-height: 1; flex: none; }
-.tag-text { flex: 1; min-width: 0; }
+/* keep-all: 한글이 '지하/철'처럼 낱글자로 잘리지 않고 단어 단위로 줄바꿈된다 */
+.tag-text { flex: 1; min-width: 0; word-break: keep-all; }
 .tag-check { flex: none; font-size: 13px; font-weight: 700; }
 .tag.is-wide { grid-column: 1 / -1; }
 .tag-sub { font-size: 12px; font-weight: 400; opacity: .75; }

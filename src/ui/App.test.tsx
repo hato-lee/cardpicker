@@ -122,7 +122,7 @@ describe('빠른 길(바로 보기)', () => {
     expect(screen.getByRole('button', { name: '모든 카드 ✎' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: '월 80만 원 ✎' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: '연회비 1만 원까지 ✎' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: '대중교통·택시 ✎' })).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: '대중교통 ✎' })).toBeInTheDocument()
   })
   test('여행·마일리지는 마일리지 트랙 결과', async () => {
     render(<App />)

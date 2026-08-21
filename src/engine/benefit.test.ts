@@ -107,8 +107,8 @@ test('한도 정보 없는 영역 할인은 가정 한도까지만', () => {
   expect(r.rows[0].assumedCap).toBe(true)
 })
 test('가정 한도에 안 걸리면 assumedCap=false, 값은 S×rate', () => {
-  const c = card({ benefits: [{ tag: '대중교통·택시', type: 'points', rate: 0.8, monthlyCap: null, stars: 1 }] })
-  const r = annualBenefit(c, q({ tags: ['대중교통·택시'], monthlySpend: 500_000 }))!
+  const c = card({ benefits: [{ tag: '대중교통', type: 'points', rate: 0.8, monthlyCap: null, stars: 1 }] })
+  const r = annualBenefit(c, q({ tags: ['대중교통'], monthlySpend: 500_000 }))!
   expect(r.rows[0].monthlyValue).toBe(4000)
   expect(r.rows[0].assumedCap).toBe(false)
 })

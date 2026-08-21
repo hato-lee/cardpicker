@@ -77,7 +77,7 @@ describe('걸러내기', () => {
     const two = card({ id: 'two', benefits: [
       { tag: '주유', type: 'discount', rate: 5, monthlyCap: 1000, stars: 1 },
       { tag: '카페', type: 'discount', rate: 5, monthlyCap: 1000, stars: 1 }] })
-    const r = recommendGeneral([cafe, two], q({ persona: 'carefree', tags: ['주유', '카페', '대중교통·택시'] }))
+    const r = recommendGeneral([cafe, two], q({ persona: 'carefree', tags: ['주유', '카페', '대중교통'] }))
     expect(r.relaxed).toBe(true)
     // cafe가 금액은 크지만 two가 2영역 커버라 먼저
     expect(r.items.map((x) => x.card.id)).toEqual(['two', 'cafe'])
@@ -140,24 +140,24 @@ describe('무심형은 할인형 먼저, 포인트형 뒤', () => {
     const twoPts = card({ id: 'twoPts', benefits: [
       { tag: '주유', type: 'points', rate: 5, monthlyCap: 1000, stars: 1 },
       { tag: '카페', type: 'points', rate: 5, monthlyCap: 1000, stars: 1 }] })
-    const r = recommendGeneral([cafe, twoPts], q({ persona: 'carefree', tags: ['주유', '카페', '대중교통·택시'] }))
+    const r = recommendGeneral([cafe, twoPts], q({ persona: 'carefree', tags: ['주유', '카페', '대중교통'] }))
     expect(r.relaxed).toBe(true)
     expect(r.items.map((x) => x.card.id)).toEqual(['twoPts', 'cafe'])
   })
 })
 
 describe('K-패스 트랙', () => {
-  const transit = (over: Partial<Card>) => card({ benefits: [{ tag: '대중교통·택시', type: 'discount', rate: 10, monthlyCap: 5000, stars: 2 }], complexity: 2, ...over })
+  const transit = (over: Partial<Card>) => card({ benefits: [{ tag: '대중교통', type: 'discount', rate: 10, monthlyCap: 5000, stars: 2 }], complexity: 2, ...over })
   test('kpass 입력이 있으면 K-패스 카드만 후보', () => {
     const kp = transit({ id: 'kp', kpass: true })
-    const plain = transit({ id: 'plain', benefits: [{ tag: '대중교통·택시', type: 'discount', rate: 10, monthlyCap: 50000, stars: 3 }] })
-    const got = recommend([plain, kp], q({ tags: ['대중교통·택시'], kpass: { transitSpend: 100_000, group: 'general' } }))
+    const plain = transit({ id: 'plain', benefits: [{ tag: '대중교통', type: 'discount', rate: 10, monthlyCap: 50000, stars: 3 }] })
+    const got = recommend([plain, kp], q({ tags: ['대중교통'], kpass: { transitSpend: 100_000, group: 'general' } }))
     expect(got.map((s) => s.card.id)).toEqual(['kp'])
   })
   test('kpass 입력이 없으면 K-패스 여부와 무관', () => {
     const kp = transit({ id: 'kp', kpass: true })
     const plain = transit({ id: 'plain' })
-    expect(recommend([plain, kp], q({ tags: ['대중교통·택시'] }))).toHaveLength(2)
+    expect(recommend([plain, kp], q({ tags: ['대중교통'] }))).toHaveLength(2)
   })
   test('환급: 교통비 × 요율(일반 20%·청년 30%·3자녀 50%·저소득 53.3%), 상한 없음', () => {
     expect(kpassMonthlyRefund({ transitSpend: 100_000, group: 'general' })).toBe(20_000)
@@ -176,10 +176,10 @@ describe('빠른 길 타겟팅 (requireCover)', () => {
     id: 'fit', complexity: 2,
     benefits: [
       { tag: '주유', type: 'discount', rate: 5, monthlyCap: 10_000, stars: 2 },
-      { tag: '대중교통·택시', type: 'discount', rate: 5, monthlyCap: 5_000, stars: 2 },
+      { tag: '대중교통', type: 'discount', rate: 5, monthlyCap: 5_000, stars: 2 },
     ],
   })
-  const tags3 = q({ tags: ['주유', '대중교통·택시', '통신비'] })
+  const tags3 = q({ tags: ['주유', '대중교통', '통신비'] })
 
   test('requireCover 없으면 금액 큰 단일 태그 카드가 1위', () => {
     const got = recommendGeneral([fit, big], tags3)
@@ -197,7 +197,7 @@ describe('빠른 길 타겟팅 (requireCover)', () => {
       id: 'full', complexity: 2,
       benefits: [
         { tag: '주유', type: 'discount', rate: 3, monthlyCap: 3_000, stars: 1 },
-        { tag: '대중교통·택시', type: 'discount', rate: 3, monthlyCap: 3_000, stars: 1 },
+        { tag: '대중교통', type: 'discount', rate: 3, monthlyCap: 3_000, stars: 1 },
         { tag: '통신비', type: 'discount', rate: 3, monthlyCap: 3_000, stars: 1 },
       ],
     })
@@ -212,7 +212,7 @@ describe('빠른 길 타겟팅 (requireCover)', () => {
       benefits: [
         { tag: '모든 가맹점', type: 'points', rate: 0.5, monthlyCap: null, stars: 1 },
         { tag: '주유', type: 'discount', rate: 5, monthlyCap: 5_000, stars: 2 },
-        { tag: '대중교통·택시', type: 'discount', rate: 5, monthlyCap: 5_000, stars: 2 },
+        { tag: '대중교통', type: 'discount', rate: 5, monthlyCap: 5_000, stars: 2 },
       ],
     })
     const got = recommendGeneral([fit, fitUni], { ...tags3, requireCover: true })
@@ -253,11 +253,11 @@ describe('지방은행 카드는 같은 조건이면 뒤로', () => {
       id: 'local2', regional: true, complexity: 2,
       benefits: [
         { tag: '주유', type: 'discount', rate: 5, monthlyCap: 5_000, stars: 2 },
-        { tag: '대중교통·택시', type: 'discount', rate: 5, monthlyCap: 5_000, stars: 2 },
+        { tag: '대중교통', type: 'discount', rate: 5, monthlyCap: 5_000, stars: 2 },
       ],
     })
     const nation1 = t({ id: 'nation1' })
-    const got = recommendGeneral([nation1, local2], q({ tags: ['주유', '대중교통·택시'], requireCover: true }))
+    const got = recommendGeneral([nation1, local2], q({ tags: ['주유', '대중교통'], requireCover: true }))
     expect(got.items.map((s) => s.card.id)).toEqual(['local2', 'nation1'])
   })
 })

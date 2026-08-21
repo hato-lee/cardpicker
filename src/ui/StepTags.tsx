@@ -8,12 +8,19 @@ export const TAG_WARN_TEXT = '많이 고르면 조건 많은 카드가 위로 �
 export const MILEAGE_HINT = '항공 마일리지는 따로 추천해요. 끄면 다른 혜택을 고를 수 있어요.'
 export const MILEAGE_SWITCH = '항공 마일리지 카드만 볼래요'
 export const KPASS_SWITCH = 'K-패스 카드만 볼래요'
-export const KPASS_HINT = 'K-패스(모두의카드) 환급 받는 카드만 봐요. 대중교통은 자동으로 들어가고, 다른 혜택도 같이 고를 수 있어요.'
+export const KPASS_HINT = 'K-패스(모두의카드) 환급 받는 카드만 봐요. 대중교통(버스·지하철)은 자동으로 들어가고, 다른 혜택도 같이 고를 수 있어요. 택시는 K-패스 대상이 아니에요.'
 const MILEAGE: Tag = '마일리지'
-export const TRANSIT: Tag = '대중교통·택시'
+export const TRANSIT: Tag = '대중교통'
 
 const UNIVERSAL: Tag = '모든 가맹점'
 const GRID_TAGS = TAGS.filter((t) => t !== MILEAGE && t !== UNIVERSAL)
+
+/** 이름만으로 경계가 헷갈리는 태그에만 한 줄 덧붙인다 */
+const TAG_SUB: Partial<Record<Tag, string>> = {
+  '모든 가맹점': '어디서 쓰든 기본 적립·할인',
+  '대중교통': '버스·지하철',
+  '택시': '카카오T·UT 포함',
+}
 
 interface Props {
   value: Tag[]
@@ -24,7 +31,7 @@ interface Props {
   editing?: boolean
   /** 빠른 길(바로 보기)에서 혜택 직접 고르기: 다음이 곧 결과 */
   quick?: boolean
-  /** K-패스 트랙 스위치. 켜면 '대중교통·택시'가 자동으로 들어가고 마일리지는 꺼진다 */
+  /** K-패스 트랙 스위치. 켜면 '대중교통'이 자동으로 들어가고 마일리지는 꺼진다 ('택시'는 K-패스 대상이 아니라 안 들어간다) */
   kpass?: boolean
   onKpassChange?: (on: boolean) => void
 }
@@ -67,7 +74,7 @@ export function StepTags({ value, onChange, onBack, onNext, editing = false, qui
               onClick={() => toggle(t)}
             >
               <span className="tag-emoji" aria-hidden="true">{TAG_EMOJI[t]}</span>
-              <span className="tag-text">{t}{t === UNIVERSAL && <span className="tag-sub"> — 어디서 쓰든 기본 적립·할인</span>}{kpass && t === TRANSIT && <span className="tag-sub"> — 자동</span>}</span>
+              <span className="tag-text">{t}{TAG_SUB[t] && <span className="tag-sub"> — {TAG_SUB[t]}</span>}{kpass && t === TRANSIT && <span className="tag-sub"> · 자동</span>}</span>
               {on && <span className="tag-check" aria-hidden="true">✓</span>}
             </button>
           )
