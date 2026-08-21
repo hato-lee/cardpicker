@@ -1,0 +1,33 @@
+{
+  "cardId": "woori-jeongseok2-super",
+  "confidence": "high",
+  "diffs": [
+    {
+      "where": "benefits.해외 결제.stars",
+      "current": 2,
+      "proposal": 3,
+      "evidence": "ENCODING-RULES 8조: '다른 행에서 복제한 행은 원본 stars 상속'. 해외 결제 행은 모든 가맹점 행과 동일 혜택(2%·국내외 통합 월 10만원, capGroup 'all')을 태그 커버리지 때문에 복제한 행이므로 원본(★3)을 상속해야 함. 고릴라 API(idx 2980) 원문 표: '국내/해외 가맹점 | 2.0% | 10만원' 단일 행 — 국내·해외가 한 혜택임을 확인.",
+      "warning": "계산(엔진)에는 영향 없는 표시용 필드. 유사 사례(nh-zgm-discount)는 해외 행 stars를 낮춰 둔 전례가 있으나 그 카드는 해외 요율이 달라(1%vs2%) 별도 혜택이고, 본 카드는 완전 동일 혜택의 복제라 상속이 맞다고 판단. 하토님이 '해외 행은 체감 낮게' 관행을 선호하면 기각 가능."
+    }
+  ],
+  "structureTree": "카드의정석2 SUPER (우리카드, 신용, 연회비 국내전용/Mastercard 동일 3만원, 출시 2026-04-16)\n└─ 전월실적 조건 없음 (고릴라 pre_month_money=0)\n   ├─ 국내외 가맹점 2.0% 청구할인 — 국내+해외 통합 월 할인한도 10만원 (단일 혜택·단일 한도, capGroup 'all' 정합)\n   │   └─ 할인 제외: 무이자할부금액, 정부지원금, 아파트관리비, 공공임대료, 부동산임대료, 초중고 납부금, 대학등록금, 국세·지방세·관세, 공공요금(4대보험·전기·가스·상하수도 등), 상품권·선불카드·기프트카드, 환금성 업종, 교통카드 충전, 시외/고속버스, 신차구매, 의약품 전용몰, 수수료·이자·연회비, 현금서비스·카드론 등\n   │   └─ 유이자 할부는 전체 이용금액 할인 대상, 타 프로모션 중복 불가\n   ├─ 해외수수료 면제 — 국제브랜드(Mastercard) 1.0% + 해외서비스 0.3% = 1.3% 면제 (해외 ATM 인출·현금서비스는 제외, 해외사이트라도 국내 PG 결제 건 제외)\n   ├─ 2~3개월 무이자할부 — 국내 가맹점 5만원 이상 결제 시 (태그 밖)\n   └─ Mastercard Platinum 서비스 — Mastercard 브랜드 발급 시 (태그 밖)\n※ 추가적립·택1·tiers·특수 실적조건 일절 없음. 단순 구조(complexity 1 타당).",
+  "verified": [
+    "annualFee 30000 — 고릴라: 국내전용 30,000원 / 해외겸용(Mastercard) 30,000원 동일",
+    "minSpend 0 — 고릴라 pre_month_money=0, 원문 '전월 실적 조건 없음' 전 혜택 명시",
+    "benefits.모든 가맹점: discount 2% / monthlyCap 100000 / capGroup 'all' / stars 3 — 원문 표 '국내/해외 가맹점 2.0% 월 10만원'과 일치. ★3은 규약 8조 문면(rate≥7%)과는 다르나 전 가맹점 행의 코드베이스 관행(현대M 1.5%=★3, 정석2 1.2%=★3 등)과 정합",
+    "benefits.해외 결제: rate 2 / monthlyCap 100000 / capGroup 'all' — 국내와 통합 한도 구조 정확 (규약 4조 줄 복제+같은 capGroup)",
+    "해외 결제 note의 수수료 1.3%(브랜드 1%+이용 0.3%) 면제 — 원문 표와 정확히 일치",
+    "universal: discount 2% / 100000 — benefits '모든 가맹점' 행과 동일값 (규약 6조 충족)",
+    "status active — is_discon=false, is_impend=false, 출시 2026-04-16 신상품, 리뉴얼·단종 신호 없음. 이름-혜택-연회비 세대 일치",
+    "memo의 할인 제외 업종 요지(관리비·공과금·세금·등록금·상품권·무이자할부) — 원문과 일치",
+    "memo의 태그 밖 혜택(2~3개월 무이자할부 5만원↑, Mastercard Platinum 서비스) — 원문과 일치",
+    "officialUrl wooricard-super.com — 200 응답, '카드의정석2 SUPER / SUPER WEASY' 우리카드 공식 마이크로사이트 확인 (GTM 포함 실서비스). 고릴라 request_pc는 null이라 본사이트 상품 페이지는 여전히 미확인 — 기존 memo 기록 그대로 유효",
+    "tiers·추가적립·택1 없음 — 원문에 해당 구조 부재 확인, 한도 총액/추가분 문제 자체가 없음(단일 할인 한도)"
+  ],
+  "outOfTag": "2~3개월 무이자할부(국내 5만원 이상, 일시불→할부 전환 시 미제공), Mastercard Platinum 서비스(Mastercard 브랜드 발급 시) — 모두 기존 memo에 이미 기록됨. 신규 없음.",
+  "issueNoteProposal": null,
+  "unresolved": [
+    "우리카드 본사이트(pc.wooricard.com) 상품 상세 페이지 상품코드 — JS 렌더링+검색 미노출로 미확인 (고릴라 request_pc도 null). 마이크로사이트가 공식 링크 역할 중이라 실해 없음",
+    "상품설명서 PDF 원본 미확보 — 고릴라 key_benefit info가 우리카드 상품안내 원문 전문(제외 업종 목록 포함)이라 3급 출처로 충분하다고 판단"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "cardId": "hyundai-m",
+  "confidence": "high",
+  "diffs": [
+    {
+      "where": "benefits.온라인 쇼핑",
+      "current": { "rate": 5, "monthlyCap": 10000, "stars": 2, "capGroup": "extra5", "note": "온라인쇼핑몰 5% 추가 M포인트, 전월실적 100만원 이상 조건" },
+      "proposal": {
+        "tag": "온라인 쇼핑",
+        "type": "points",
+        "rate": 3.5,
+        "monthlyCap": 0,
+        "stars": 1,
+        "capGroup": "extra5",
+        "tiers": [{ "minSpend": 1000000, "monthlyCap": 7000 }],
+        "note": "대상 온라인몰(네이버쇼핑·쿠팡·G마켓·옥션·11번가·SSG·컬리 공식 앱/웹만) 5% M포인트 — 기본 1.5% 대체형이라 추가분 3.5%. 전월 100만원 이상부터(카드 기본 실적 50만보다 높음). 3개 영역(온라인몰·일반음식점·해외) 통합 월 1만P는 5% 총액 기준 → 추가분 실질 월 7,000P(본인+가족 합산). 쿠팡이츠 제외, 한도 초과 시 기본 1.5%로 적립"
+      },
+      "evidence": "카드고릴라 API idx 2669 key_benefit 원문: \"[추가 혜택] 온라인몰·외식·해외 가맹점 5% M포인트 적립(월 1만 M포인트 적립 한도), 전월 이용 금액 100만원 이상\" + \"추가 혜택 적용 시 기본 혜택은 중복 제공되지 않음\" + \"대상점 통합해 월 1만 M포인트 적립 한도(본인+가족 카드 합산 기준, 적립 한도 초과 시 기본 혜택 적립률 적용)\". 검산: 대상 소비 20만원 × 5% = 1만P(한도 도달점) = 기본 1.5%(3,000P) + 추가분 3.5%(7,000P) — universal 1.5% + 추가 3.5%/cap 7,000 모델이 총액 1만·초과 시 1.5% 지속과 정확히 일치. 실적 게이트는 ENCODING-RULES §3 패턴(monthlyCap 0 + tiers), 사례: hana-club-sk·ibk-bliss-mileage.",
+      "warning": "상품설명서 PDF는 현대카드 스크립트 차단으로 미열람 — 한도 총액 기준은 고릴라 게재 카드사 원문 문구('5% 적립(월 1만 한도)'+'초과 시 기본 적립률 적용')로 판별. stars 2→1은 규약 §8(최저 실적구간 기본값=0) + hana-club-sk 선례 적용."
+    },
+    {
+      "where": "benefits.배달·외식",
+      "current": { "rate": 5, "monthlyCap": 10000, "stars": 2, "capGroup": "extra5", "note": "일반음식점 5% 추가 M포인트, 전월실적 100만원 이상 조건" },
+      "proposal": {
+        "tag": "배달·외식",
+        "type": "points",
+        "rate": 3.5,
+        "monthlyCap": 0,
+        "stars": 1,
+        "capGroup": "extra5",
+        "tiers": [{ "minSpend": 1000000, "monthlyCap": 7000 }],
+        "note": "일반음식점 업종 5% M포인트 — 기본 1.5% 대체형이라 추가분 3.5%. 전월 100만원 이상부터. 3개 영역 통합 월 1만P(5% 총액 기준) → 추가분 실질 7,000P. 배달앱은 대상 명시 없음(쿠팡이츠 적립 제외 명시)"
+      },
+      "evidence": "동일 원문(카드고릴라 API idx 2669). 대상점: \"외식 : 일반음식점\". 쿠팡이츠 결제 건 적립 제외 명시. 통합 한도·비중복·100만 실적 근거는 온라인 쇼핑 행과 동일.",
+      "warning": "capGroup 규약상 monthlyCap·tiers는 온라인 쇼핑 행과 완전 동일해야 함."
+    },
+    {
+      "where": "benefits.해외 결제",
+      "current": { "rate": 5, "monthlyCap": 10000, "stars": 2, "capGroup": "extra5", "note": "해외가맹점 5% 추가 M포인트, 전월실적 100만원 이상 조건" },
+      "proposal": {
+        "tag": "해외 결제",
+        "type": "points",
+        "rate": 3.5,
+        "monthlyCap": 0,
+        "stars": 1,
+        "capGroup": "extra5",
+        "tiers": [{ "minSpend": 1000000, "monthlyCap": 7000 }],
+        "note": "해외 온·오프라인 가맹점 5% M포인트 — 기본 1.5% 대체형이라 추가분 3.5%. 전월 100만원 이상부터. 3개 영역 통합 월 1만P(5% 총액 기준) → 추가분 실질 7,000P. 국제브랜드·해외서비스 수수료는 적립 제외"
+      },
+      "evidence": "동일 원문(카드고릴라 API idx 2669). 대상점: \"해외 가맹점 : 해외 온·오프라인 가맹점\". 포인트 트랙이므로 '해외 결제 추가적립 마일리지 합산 제외' 정책(§2)은 해당 없음.",
+      "warning": ""
+    }
+  ],
+  "structureTree": "현대카드M (2024-01-19 리뉴얼 신상, cardWcd=ME4, idx 2669, is_discon=false)\n├─ 연회비 3만원 (국내전용/해외겸용 VISA·AMEX Platinum 동일)\n├─ 기본: 국내외 전 가맹점 1.5% M포인트 — 전월 50만↑, 1회·연간 한도 없음\n│   ├─ 신규 발급월+익월은 실적 무관 혜택 제공\n│   └─ 적립 제외: 공과금·아파트관리비·등록금·상품권/선불충전·4대보험·통행료·고속버스·무이자할부 등\n├─ 추가: 온라인몰(네이버쇼핑·쿠팡·G마켓·옥션·11번가·SSG·컬리)+일반음식점+해외 가맹점 5% — 전월 100만↑\n│   ├─ 기본 1.5%와 비중복(대체형) → 추가분 3.5%\n│   ├─ 3개 영역 통합 월 1만 M포인트 한도(5% 총액, 본인+가족 합산) → 추가분 실질 7,000P (대상 소비 월 20만원에서 도달)\n│   └─ 한도 초과분은 기본 1.5%로 적립\n├─ M 긴급적립: 최대 50만P 선지급, 적립분으로 최대 24개월 상환(미상환분 1P=1원 현금 청구) — 태그 밖\n└─ M포인트: 유효 5년, M포인트몰·가맹점 사용, 현금전환 1.5P=1원 관행 → pointsEase shop 유지",
+  "verified": [
+    "annualFee 30000 (국내전용/해외겸용 모두 30,000원 — 고릴라 annual_fee_detail)",
+    "minSpend 500000 (기본 혜택 전월 50만↑)",
+    "benefits.모든 가맹점 + universal: 1.5% points, monthlyCap null (\"1회 및 연간 적립 한도 제한 없음\" 원문 확인), stars 3",
+    "status active (is_discon=false, is_impend=false)",
+    "세대 확인: '현대카드 M' 2024-01-19 출시 신상 — M Edition2(idx 461)·Edition3(idx 492)과 별개 카드, 연회비·혜택·이름 세대 일치",
+    "officialUrl cardWcd=ME4 — 고릴라 request_pc와 동일 카드코드",
+    "capGroup extra5로 3개 영역 통합 한도 묶음 자체는 올바름 (한도 수치·기준만 정정 대상)",
+    "pointsProgram M포인트, pointsEase shop, pointsNote '현금전환 1.5:1' — 긴급적립 현금 청구 시 1P=1원이지만 이용자 현금전환 관행은 1.5P=1원, shop 유지 타당",
+    "kind credit, complexity 2"
+  ],
+  "outOfTag": "M 긴급적립(최대 50만P 선지급, 24개월 상환) — 기존 memo에 이미 기록됨. 그 외 태그 밖 상시 혜택 없음(고릴라 search_benefit의 '최대 20만원 캐시백'은 이벤트).",
+  "issueNoteProposal": null,
+  "unresolved": [
+    "현대카드 공식 상품설명서 PDF 미열람(스크립트 차단) — 한도 기준의 공식 워크드 예시는 없어 카드사 원문 문구+정합 검산으로 판별",
+    "월 1만P 한도가 '본인+가족 카드 합산' 기준인 점은 엔진 미반영(note로만 기재)",
+    "일반음식점 5%의 배달앱 포함 여부 불명(쿠팡이츠 제외만 명시) — note에 보수적으로 기재"
+  ]
+}
