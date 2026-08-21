@@ -34,9 +34,9 @@ shinhan-simple-plan-plus, shinhan-sol-travel, woori-all-infinite 등).
 `sharedCaps`(카드 단위 정의) + `sharedCapGroup`(혜택이 가리키는 이름)을 추가하고,
 `annualBenefit`이 **줄 한도 → capGroup → sharedCap → 총액 상한** 순으로 조이도록 고쳤다. 규약 §4에 사용법을 적었다.
 
-후보 67장(키워드 2회 스캔)을 원문 대조해 **12장**이 진짜 2단 구조였다:
+후보 67장(키워드 2회 스캔) + 교차 검토가 memo에서 찾아낸 2장을 원문 대조해 **13장**이 진짜 2단 구조였다:
 `shinhan-mr-life` `bc-baro-onoff` `nh-zgm-discount` `hana-tossbank-day` `samsung-gukmin-haengbok-v2`
-`hyundai-alphabet-s/-r/-b/-o` `hyundai-h` `bc-baro-macao` `ibk-kpass-check`.
+`hyundai-alphabet-s/-r/-b/-o` `hyundai-h` `bc-baro-macao` `ibk-kpass-check` `woori-everyday-check`.
 
 **절반은 "통합값이 줄의 monthlyCap에 새어들어 있던" 카드였다.** 2단을 표현 못 하던 시절의 우회였는데,
 그대로 두고 천장만 얹으면 영역 한도가 부푼 채로 남는다. 현대 알파벳 5형제가 대표적이다 —
