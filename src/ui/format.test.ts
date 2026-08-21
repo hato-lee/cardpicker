@@ -13,6 +13,11 @@ test('rateText 할인/적립', () => {
   expect(rateText('points', 1)).toBe('1% 적립')
 })
 
+test('rateText 100%는 "한도까지 전액"으로 (요금 전체가 공짜로 읽히지 않게)', () => {
+  expect(rateText('discount', 100)).toBe('한도까지 전액 할인')
+  expect(rateText('points', 100)).toBe('한도까지 전액 적립')
+})
+
 test('rateText 마일리지', () => {
   expect(rateText('mileage', 0.067)).toBe('1,500원당 1마일')  // 0.5마일 단위로 안 떨어지면 'N원당 1마일'로
   expect(rateText('mileage', 0.05)).toBe('1,000원당 0.5마일')

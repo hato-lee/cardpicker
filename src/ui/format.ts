@@ -30,5 +30,8 @@ export function rateText(type: 'discount' | 'points' | 'mileage', rate: number):
     return `1,000원당 ${miles}마일`
   }
   const label = type === 'discount' ? '할인' : '적립'
+  // rate 100 = "할인액보다 결제액이 작으면 결제액까지만" 유형(최소 결제금액 조건이 없어 한도까지 전액).
+  // "100% 할인"으로 적으면 요금 전체가 공짜인 것처럼 읽혀서 한도가 상한임을 문구로 드러낸다.
+  if (rate >= 100) return `한도까지 전액 ${label}`
   return `${rate}% ${label}`
 }
