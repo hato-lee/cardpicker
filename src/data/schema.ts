@@ -9,8 +9,18 @@ const tierSchema = z.strictObject({
   minSpend: z.number().int().min(0),
   rate: z.number().min(0).optional(),
   monthlyCap: z.number().int().min(0).nullable(),
+  maxUsesPerMonth: z.number().int().min(1).optional(),
+  perUseCap: z.number().int().min(1).optional(),
 })
 const tiersSchema = z.array(tierSchema).optional()
+
+/** 건당 조건. minPerTx는 '카드사 승인 매출 1건' 금액이다 — 월 합산 청구액·전월 실적에는 쓰지 않는다 */
+const perTxFields = {
+  minPerTx: z.number().int().min(1).optional(),
+  maxUsesPerMonth: z.number().int().min(1).optional(),
+  perUseCap: z.number().int().min(1).optional(),
+  useGroup: z.string().min(1).optional(),
+}
 
 const benefitSchema = z.strictObject({
   tag: z.enum([...TAGS]),
@@ -22,6 +32,7 @@ const benefitSchema = z.strictObject({
   capGroup: z.string().min(1).optional(),
   sharedCapGroup: z.string().min(1).optional(),
   tiers: tiersSchema,
+  ...perTxFields,
 })
 
 const sharedCapSchema = z.strictObject({
@@ -45,6 +56,7 @@ const cardSchema = z
         rate: z.number().min(0),
         monthlyCap: z.number().int().min(0).nullable(),
         tiers: tiersSchema,
+        ...perTxFields,
       })
       .nullable(),
     complexity: oneToThree,
@@ -177,6 +189,59 @@ const cardSchema = z
       const uniB = data.benefits.find((b) => b.tag === '모든 가맹점')
       if (uniB && tierKey(uniB.tiers) !== tierKey(data.universal.tiers)) {
         ctx.addIssue({ code: 'custom', path: ['universal', 'tiers'], message: `universal의 tiers와 '모든 가맹점' 벤핏의 tiers(minSpend·monthlyCap)가 다릅니다 (${data.id})` })
+      }
+      const txnKey = (x: { minPerTx?: number; maxUsesPerMonth?: number; perUseCap?: number }) =>
+        JSON.stringify([x.minPerTx ?? null, x.maxUsesPerMonth ?? null, x.perUseCap ?? null])
+      if (uniB && txnKey(uniB) !== txnKey(data.universal)) {
+        ctx.addIssue({ code: 'custom', path: ['universal'], message: `universal과 '모든 가맹점' 벤핏의 건당 조건(minPerTx·maxUsesPerMonth·perUseCap)이 다릅니다 (${data.id})` })
+      }
+    }
+    // 건당 조건
+    for (const b of data.benefits) {
+      const where = `benefits.${b.tag}`
+      // 횟수 제한이 없으면 건수를 늘려 한도를 채울 수 있어 계산이 안 줄어든다 — 적어도 하나는 있어야 의미가 생긴다
+      if (b.maxUsesPerMonth !== undefined && b.perUseCap === undefined && b.monthlyCap === null) {
+        ctx.addIssue({ code: 'custom', path: [where], message: `maxUsesPerMonth가 있으면 perUseCap이나 monthlyCap 중 하나는 있어야 합니다 (${data.id})` })
+      }
+      // 1회 상한이 건당 요율로 받을 수 있는 금액보다 작으면 그 상한이 진짜 제약이다. 반대면 값을 잘못 적은 것
+      if (b.perUseCap !== undefined && b.minPerTx !== undefined && b.rate > 0) {
+        const byRate = (b.minPerTx * b.rate) / 100
+        if (b.perUseCap > byRate + 1) {
+          ctx.addIssue({ code: 'custom', path: [where], message: `perUseCap(${b.perUseCap})이 minPerTx×rate(${Math.round(byRate)})보다 큽니다 — 단위(원/마일)나 값을 확인하세요 (${data.id})` })
+        }
+      }
+      if (b.perUseCap !== undefined && b.monthlyCap !== null && b.perUseCap > b.monthlyCap) {
+        ctx.addIssue({ code: 'custom', path: [where], message: `perUseCap(${b.perUseCap})이 monthlyCap(${b.monthlyCap})보다 큽니다 (${data.id})` })
+      }
+      // §1의 회차 환산("3·6·9번째")은 횟수를 이미 요율에 녹여 놨다 — 여기 또 적으면 두 번 깎인다
+      if (b.maxUsesPerMonth !== undefined && /번째/.test(b.note ?? '')) {
+        ctx.addIssue({ code: 'custom', path: [where], message: `회차 조건('번째') 줄에는 maxUsesPerMonth를 적지 않습니다 — 요율에 이미 반영돼 있습니다 (${data.id})` })
+      }
+      // minPerTx는 승인 매출 1건에만. 월 합산 청구 건에 쓰면 건당 금액을 몇십 배로 잡게 된다
+      if (b.minPerTx !== undefined && /합산/.test(b.note ?? '')) {
+        ctx.addIssue({ code: 'custom', path: [where], message: `note에 '합산'이 있는 줄에는 minPerTx를 쓰지 않습니다 — 월 합산 조건은 요율로 환산합니다 (${data.id})` })
+      }
+    }
+    // useGroup: 횟수를 나눠 쓰는 묶음은 2줄 이상 · 같은 type · 횟수가 같아야 한다
+    const useGroups = new Map<string, typeof data.benefits>()
+    for (const b of data.benefits) {
+      if (!b.useGroup) continue
+      const arr = useGroups.get(b.useGroup) ?? []
+      arr.push(b)
+      useGroups.set(b.useGroup, arr)
+    }
+    for (const [name, members] of useGroups) {
+      if (members.length < 2) {
+        ctx.addIssue({ code: 'custom', path: ['benefits'], message: `useGroup '${name}'에 혜택이 하나뿐입니다 — 그 줄의 maxUsesPerMonth로 적으세요 (${data.id})` })
+      }
+      if (!members.every((m) => m.type === members[0].type)) {
+        ctx.addIssue({ code: 'custom', path: ['benefits'], message: `useGroup '${name}'에 type이 다른 혜택이 섞여 있습니다 (${data.id})` })
+      }
+      if (!members.every((m) => m.maxUsesPerMonth === members[0].maxUsesPerMonth)) {
+        ctx.addIssue({ code: 'custom', path: ['benefits'], message: `useGroup '${name}'의 maxUsesPerMonth가 서로 다릅니다 (${data.id})` })
+      }
+      if (members[0].maxUsesPerMonth === undefined) {
+        ctx.addIssue({ code: 'custom', path: ['benefits'], message: `useGroup '${name}'에 maxUsesPerMonth가 없습니다 — 나눠 쓸 횟수를 적으세요 (${data.id})` })
       }
     }
   })

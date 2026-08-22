@@ -11,9 +11,35 @@ export interface Tier {
   minSpend: number          // 이 실적(원) 이상이면 이 구간. 카드 minSpend보다 커야 한다
   rate?: number             // 없으면 기본 rate 그대로
   monthlyCap: number | null // 이 구간의 월 한도(원, mileage면 마일). null = 한도 없음
+  // 구간마다 달라지는 건당 조건. 없으면 혜택의 값을 그대로 물려받는다
+  maxUsesPerMonth?: number
+  perUseCap?: number
 }
 
-export interface Benefit {
+/**
+ * 건당 조건 — "건당 1만원 이상, 월 4회, 1회 2천원까지" 같은 것.
+ * 이걸 무시하면 월 한도를 회차로 다 못 채우는 혜택이 한도 전액으로 계산돼 과대평가된다.
+ * 단위는 monthlyCap과 같다(type이 mileage면 perUseCap도 마일).
+ */
+export interface PerTxCondition {
+  /**
+   * 이 혜택을 받으려면 한 번에 최소 얼마를 결제해야 하는지(원).
+   * 게이트가 아니라 '이 줄의 건당 결제금액'으로 쓴다 — 조건을 만족하는 결제는 정의상 이 금액 이상이다.
+   * 카드사 승인 매출 1건에만 적는다. 월 합산 청구·전월 실적 금액에는 쓰지 않는다.
+   */
+  minPerTx?: number
+  /** 월 최대 적용 횟수. 이게 없으면 건수를 늘려 한도를 채울 수 있으므로 월 총액이 줄지 않는다 */
+  maxUsesPerMonth?: number
+  /** 1회당 혜택 상한. 단위는 monthlyCap과 같다 */
+  perUseCap?: number
+  /**
+   * 횟수를 함께 쓰는 묶음의 이름(한도가 아니라 '횟수'를 공유한다).
+   * 예: "카페·편의점·병의원 통합 월 2회" — 줄마다 월 2회로 적으면 3배로 부풀어난다.
+   */
+  useGroup?: string
+}
+
+export interface Benefit extends PerTxCondition {
   tag: Tag
   type: BenefitType
   rate: number            // 퍼센트. 마일리지는 "1,000원당 1마일" = 0.1
@@ -38,7 +64,11 @@ export interface SharedCap {
   tiers?: Tier[]
 }
 
-export interface Universal {
+/**
+ * 범용(기본적립). 건당 조건 필드는 '모든 가맹점' 벤핏과 모양을 맞추려고 두지만 계산에는 반영하지 않는다 —
+ * 범용은 다른 태그가 조건을 못 채웠을 때 흘러드는 최종 폴백이라, 여기서 줄이면 대신 들어갈 줄이 없다.
+ */
+export interface Universal extends PerTxCondition {
   type: BenefitType
   rate: number
   monthlyCap: number | null  // Benefit.monthlyCap와 같은 단위 규칙 (mileage면 마일, 그 밖은 원)

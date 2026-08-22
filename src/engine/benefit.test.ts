@@ -341,3 +341,87 @@ describe("'마일리지'는 마일 적립만 채울 수 있다 (mileageTagOnlyBy
     expect(r.rows).toHaveLength(1)
   })
 })
+
+describe('건당·횟수 조건', () => {
+  // 카페 기준값 7,200원. 조건이 "건당 1만원 이상"이면 건당 결제액은 1만원으로 본다
+  const 카페기준 = RULES.txnSize['카페']!
+
+  test('월 횟수 제한이 있으면 한도를 회차만큼만 채운다', () => {
+    // 10% · 한도 2만원인데 월 4회까지 → 건당 7,200×10% = 720원 × 4회 = 2,880원이 진짜 한도
+    const c = card({ benefits: [{ tag: '카페', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3, maxUsesPerMonth: 4 }] })
+    const r = annualBenefit(c, q({ tags: ['카페'] }))!
+    expect(r.rows[0].effectiveCap).toBe(카페기준 * 0.1 * 4)
+    expect(r.rows[0].monthlyValue).toBe(2880)
+    expect(r.rows[0].txnLimited).toBe(true)
+    // 이름값 한도는 그대로 남는다 (통합 한도 계산이 여기 기대고 있다)
+    expect(r.rows[0].monthlyCap).toBe(20000)
+  })
+
+  test('횟수 제한이 없으면 아무것도 줄지 않는다 — 건수를 늘려 한도를 채울 수 있으므로', () => {
+    const c = card({ benefits: [{ tag: '카페', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3, minPerTx: 10000, perUseCap: 1000 }] })
+    const r = annualBenefit(c, q({ tags: ['카페'] }))!
+    expect(r.rows[0].monthlyValue).toBe(20000)
+    expect(r.rows[0].txnLimited).toBe(false)
+  })
+
+  test('minPerTx가 태그 기준값보다 크면 그 값이 건당 결제액이 된다', () => {
+    const c = card({ benefits: [{ tag: '카페', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3, minPerTx: 30000, maxUsesPerMonth: 2 }] })
+    const r = annualBenefit(c, q({ tags: ['카페'] }))!
+    expect(r.rows[0].effectiveCap).toBe(30000 * 0.1 * 2)   // 기준값 7,200이 아니라 30,000 기준
+  })
+
+  test('1회 상한이 있으면 건당 혜택이 거기서 잘린다', () => {
+    const c = card({ benefits: [{ tag: '카페', type: 'discount', rate: 50, monthlyCap: 20000, stars: 3, maxUsesPerMonth: 3, perUseCap: 2000 }] })
+    const r = annualBenefit(c, q({ tags: ['카페'] }))!
+    // 건당 7,200×50% = 3,600원이지만 1회 2,000원까지 → 2,000 × 3회
+    expect(r.rows[0].effectiveCap).toBe(6000)
+  })
+
+  test('기준값이 없는 태그는 minPerTx가 대신하고, 둘 다 없으면 축소하지 않는다', () => {
+    expect(RULES.txnSize['주유']).toBeUndefined()
+    const 조건없음 = card({ benefits: [{ tag: '주유', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3, maxUsesPerMonth: 2 }] })
+    expect(annualBenefit(조건없음, q())!.rows[0].monthlyValue).toBe(20000)
+    const 문턱있음 = card({ benefits: [{ tag: '주유', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3, minPerTx: 30000, maxUsesPerMonth: 2 }] })
+    expect(annualBenefit(문턱있음, q())!.rows[0].effectiveCap).toBe(6000)
+  })
+
+  test('한도가 없는 줄은 가정 한도(1만원) 대신 회차 계산값을 쓴다 — 가정보다 확실한 근거라서', () => {
+    const c = card({ benefits: [{ tag: '카페', type: 'discount', rate: 10, monthlyCap: null, stars: 3, minPerTx: 20000, maxUsesPerMonth: 2 }] })
+    const r = annualBenefit(c, q({ tags: ['카페'] }))!
+    expect(r.rows[0].monthlyValue).toBe(4000)   // 20,000×10%×2회, assumedCapWhenUnknown(10,000)이 아니다
+    expect(r.rows[0].assumedCap).toBe(false)
+  })
+
+  test('범용으로 대신 채운 줄에는 건당 조건을 걸지 않는다 — 대신 들어갈 줄이 없어서', () => {
+    const c = card({
+      benefits: [{ tag: '모든 가맹점', type: 'discount', rate: 1, monthlyCap: null, stars: 3, minPerTx: 50000, maxUsesPerMonth: 1 }],
+      universal: { type: 'discount', rate: 1, monthlyCap: null, minPerTx: 50000, maxUsesPerMonth: 1 },
+    })
+    const r = annualBenefit(c, q({ tags: ['카페'], monthlySpend: 1_000_000 }))!
+    expect(r.rows[0].viaUniversal).toBe(true)
+    expect(r.rows[0].monthlyValue).toBe(10000)   // 1,000,000 × 1%, 축소 없음
+  })
+
+  test('useGroup: 횟수를 나눠 쓰는 줄들은 합쳐서 그 횟수만큼만', () => {
+    const 공유 = card({
+      benefits: [
+        { tag: '카페', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3, minPerTx: 10000, maxUsesPerMonth: 2, useGroup: 'life' },
+        { tag: '편의점', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3, minPerTx: 10000, maxUsesPerMonth: 2, useGroup: 'life' },
+      ],
+    })
+    const r = annualBenefit(공유, q({ tags: ['카페', '편의점'] }))!
+    // 건당 1,000원 × 2회 = 2,000원을 둘이 나눠 쓴다 (각자 2,000원씩 4,000원이 아니다)
+    expect(r.monthlyMax).toBe(2000)
+  })
+
+  test('실적 구간이 횟수를 덮어쓴다', () => {
+    const c = card({
+      benefits: [{
+        tag: '카페', type: 'discount', rate: 10, monthlyCap: 20000, stars: 3, minPerTx: 10000, maxUsesPerMonth: 2,
+        tiers: [{ minSpend: 1_500_000, monthlyCap: 20000, maxUsesPerMonth: 5 }],
+      }],
+    })
+    expect(annualBenefit(c, q({ tags: ['카페'], monthlySpend: 1_000_000 }))!.rows[0].effectiveCap).toBe(2000)
+    expect(annualBenefit(c, q({ tags: ['카페'], monthlySpend: 2_000_000 }))!.rows[0].effectiveCap).toBe(5000)
+  })
+})

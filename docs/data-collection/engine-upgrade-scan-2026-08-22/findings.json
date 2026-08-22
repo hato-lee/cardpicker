@@ -1,0 +1,458 @@
+{
+  "summary": "엔진이 아직 반영 못 하는 조건을 데이터 전수 스캔으로 집계하고 업그레이드 후보를 평가",
+  "agentCount": 6,
+  "logs": [],
+  "result": {
+    "scans": [
+      {
+        "category": "결제 수단 조건부 혜택 — 간편결제·페이로 결제하면 요율이 상향(추가/2배)되는 조건이 note/memo에만 기록되고 rate에는 미반영",
+        "rowCount": 16,
+        "cardCount": 14,
+        "direction": "under",
+        "examples": [
+          {
+            "cardId": "woori-shopping-plus",
+            "tag": "온라인 쇼핑",
+            "quote": "삼성·네이버·카카오페이·PAYCO로 결제하면 5% 추가(합계 15%)이나 온라인 통합 한도 안에서만"
+          },
+          {
+            "cardId": "hana-club-sk",
+            "tag": "대중교통",
+            "quote": "하나페이 앱 미이용 시 3.5%, 앱 이용 시 7% 청구할인"
+          },
+          {
+            "cardId": "kb-cheongchundaero-toktok",
+            "tag": "카페",
+            "quote": "카페 50%는 간편결제(Pay) 결제 시 간편결제 10%가 중복돼 최대 60%까지 되지만 각 한도에서 따로 차감되는 구조"
+          },
+          {
+            "cardId": "shinhan-point-plan-plus",
+            "tag": "모든 가맹점",
+            "quote": "신한 SOL페이 결제 시 +0.5%"
+          },
+          {
+            "cardId": "kb-need-edu",
+            "tag": "학원·교육",
+            "quote": "KB Pay 결제 시 5% 추가(월 3천원, 전월 80만원 이상)라 상위 구간은 합산 2.3만·3.3만원"
+          },
+          {
+            "cardId": "kb-heritage-smart-mileage",
+            "tag": "마일리지",
+            "quote": "전월실적 50만원 이상 시 KB Pay 결제 2,000원당 1마일 추가(월 최대 2,000마일)"
+          },
+          {
+            "cardId": "samsung-id-global",
+            "tag": "해외 결제",
+            "quote": "삼성페이 해외 오프라인 5%(전월 50만원 이상, 월 1~2만원)는 결제수단 조건이라 미계산"
+          },
+          {
+            "cardId": "nh-zgm-the-pay",
+            "tag": "온라인 쇼핑",
+            "quote": "국내 온라인 간편결제 1.2% 청구할인(삼성·네이버·카카오·쿠페이·스마일·배민·SSG·L·SK페이·페이코) — NH페이로 결제하면 1.7%"
+          }
+        ],
+        "magnitude": "요율로는 1.4~2배 차이(3.5→7%, 5→10%, 10→15%, 0.7→1.2%, 카페 50→60%). 페이 상용자 기준 카드당 월 1,500~5,000원(연 2~6만원)쯤 과소평가 — 예: hana-club-sk 교통 월 10만원이면 3,500원 vs 5,000원(캡), kb-cheongchundaero 스타벅스는 간편결제 10%가 별도 한도라 월 최대 +5,000원, kb-heritage-smart-mileage는 KB Pay 월 100만원에 +500마일. 다만 절반쯤은 monthlyCap에 먼저 걸려(woori-shopping-plus는 캡 4천원이라 월 4만원 이상 지출 시 차이 0) 실제 오차는 캡 미달 지출자에게 집중된다. 참고로 거울상인 '페이 조건 요율이 이미 rate에 전액 인코딩된 행'(kb-kpass 5행, kb-need-pay 10행, KB Pay 전용 10% 등 약 45행)은 페이 미사용자에게 과대평가 방향인데, 이번 집계 규칙(상향분만)에 따라 rowCount에서 제외했다.",
+        "engineFeature": "쿼리에 '주로 쓰는 간편결제'(SOL·KB·하나·NH·삼성·네이버·카카오페이 등 다중 선택) 입력을 받고, 혜택 행에 결제수단 조건부 요율 필드(method, rate 또는 +%p, 추가분 별도 monthlyCap)를 추가해 resolveTier처럼 조건 충족 시 상향 요율을 적용하는 기능이 필요하다(현행 tiers는 전월실적 기반이라 결제수단 조건을 표현할 수 없음).",
+        "feasibility": "실현 난이도는 낮은 편 — 16행 전부 note/memo에 페이 종류·상향 요율·추가 한도 수치까지 이미 기록돼 있어 데이터 인코딩은 재수집 없이 바로 가능하고, shinhan-point-plan-plus memo가 '미해결: SOL페이 +0.5%를 universal에 반영할지'로 이 결정을 명시적으로 대기 중이다. 추가분이 별도 한도에서 차감되는 3건(kb-cheongchundaero 간편결제 5천원, kb-need-edu KB Pay 3천원, kb-heritage-smart-mileage 2천마일)은 행 분리+capGroup으로도 근사할 수 있으나, 정확히 하려면 조건부 요율 필드가 깔끔하다. 같은 필드로 거울상 45행(페이 조건 요율 전액 인코딩)의 과대평가도 함께 해소되므로 투자 대비 효과가 크다. 단, 사용자별 페이 사용 여부를 묻는 UI 추가가 전제라 데이터만으로는 완결되지 않는다."
+      },
+      {
+        "category": "요일·기간 조건부 혜택 (주말/평일 한정, 시간대 한정, 특정일, 한시 프로모션)",
+        "rowCount": 56,
+        "cardCount": 16,
+        "direction": "mixed",
+        "examples": [
+          {
+            "cardId": "shinhan-mr-life",
+            "tag": "주유",
+            "quote": "주말(토·일만, 공휴일 제외) 4대 정유사(SK·GS·HD현대오일뱅크·S-Oil) 리터당 60원 할인"
+          },
+          {
+            "cardId": "hana-multi-living",
+            "tag": "온라인 쇼핑",
+            "quote": "주중(월~금)만 G마켓/옥션/11번가/위메프/인터파크/SSG 등 청구할인"
+          },
+          {
+            "cardId": "shinhan-the-classic-neo",
+            "tag": "외식",
+            "quote": "Brunch 할인 — 평일(월~금) 11~14시 승인 건만 요식업종(한·중·일·양식·뷔페·패스트푸드) 5% 결제일 할인"
+          },
+          {
+            "cardId": "shinhan-discount-plan-plus",
+            "tag": "편의점",
+            "quote": "CU·GS25·세븐일레븐·이마트24 18~22시 오프라인 결제만 10% 할인"
+          },
+          {
+            "cardId": "samsung-id-select-on",
+            "tag": "외식",
+            "quote": "음식점(한식~패스트푸드) 금~일 10%·월~목 5% 결제일할인"
+          },
+          {
+            "cardId": "kakaobank-friends-check",
+            "tag": "대중교통",
+            "quote": "후불교통 월 합산 5만원 이상이면 4,000원 캐시백(월 1회) … 2026.2~2027.1 프로모션"
+          },
+          {
+            "cardId": "kb-all-point",
+            "tag": "모든 가맹점",
+            "quote": "주말·공휴일 0.5% 추가적립 … 주말 추가분은 한도가 없어 계산엔 미반영"
+          },
+          {
+            "cardId": "nh-we-terra-skypass",
+            "tag": "마일리지",
+            "quote": "주말(토·일)은 1,500원당 2마일(기본+1마일 추가) — 주말 한정·한도 없는 추가분이라 계산엔 미반영"
+          }
+        ],
+        "magnitude": "과대 43행: 요일·시간대 한정 요율을 전체 지출에 적용 — shinhan-mr-life는 9행 중 6행이 주말/심야 한정이라 평일 낮 사용자에게 월 최대 약 1.3만원(연 15만원+) 과대, shinhan-the-classic-neo 외식은 평일 11~14시 한정인데 cap 2만원이라 저녁·주말 외식자에게 연 최대 24만원 과대, samsung-id-select-on은 금~일 10%를 월~목(실제 5%)에도 적용해 저지출자 기준 최대 2배 과대. 카카오뱅크 체크 2종의 정액 캐시백 18행은 2027-01 종료 프로모션인데 ×12 연간화 — 합계 월 최대 2.9만원이라 미갱신 시 연 최대 약 20만원 과대. 과소 13행: 주말·공휴일 추가적립(+0.3~0.5%p, +1마일/1,500원) 미반영 — 주말 지출 월 30만원 가정 시 연 1~2만원 수준으로 상대적으로 작음. 별도로 약 30행은 시점 조건이 이미 환산에 녹아 있어 제외(연 6회→월평균 환산 2행, 월 N회→monthlyCap 환산 약 25행, kb-coupang-wow 한시 프로모션 3행은 아예 미반영 처리, kb-bev-iii 주중 조건은 검산 결과 요일 무관 확인).",
+        "engineFeature": "벤핏 행에 적용 시간 가중치(예: weekend=2/7, 심야·점심은 해당 시간대 지출 비중 가정치)를 곱해 실효 요율을 낮추는 필드와, 프로모션 종료일(validUntil) 필드를 두어 연간화(×12) 시 잔여 개월만큼 비례 축소하는 로직이 필요하다.",
+        "feasibility": "조건 원문(주말/평일/시간대/프로모션 기간)이 이미 56행 전부 note에 명시돼 있어 구조화 필드로 옮기는 재인코딩은 기계적으로 가능하고 추가 검증 비용이 거의 없다. 다만 사용자별 요일·시간대 지출 분포는 알 수 없어 기본 가중치(주말 2/7≈0.29 등)를 가정하거나 성향 질문을 1개 추가해야 정밀해지며, 가중치 없이 일괄 적용하면 주말 위주 사용자에게 역방향 오차가 생긴다. 프로모션 validUntil은 lastChecked 갱신 루틴과 묶으면 유지 가능하나 종료일이 note에 없는 행(kakaobank kpass 대중교통 등)은 재확인이 필요하다."
+      },
+      {
+        "category": "건당 최소 결제금액·월/일 횟수 조건 (건당 X원 이상, 월 N회·일 1회, N번째 이용 건)",
+        "rowCount": 265,
+        "cardCount": 89,
+        "direction": "over",
+        "examples": [
+          {
+            "cardId": "woori-everyday-check",
+            "tag": "대중교통",
+            "quote": "건당 1만원 미만 결제는 적립 제외라 버스·지하철 단건 요금으로는 사실상 적립되지 않는다"
+          },
+          {
+            "cardId": "im-kpass",
+            "tag": "카페",
+            "quote": "건당 1만원 이상(커피 한 잔은 대부분 미달), 상품권·선불충전 제외, 생활업종 통합 한도"
+          },
+          {
+            "cardId": "shinhan-kpass",
+            "tag": "카페",
+            "quote": "5% 할인(건별 2만원 이상 — 커피 결제 대부분 미달)"
+          },
+          {
+            "cardId": "kb-kpass",
+            "tag": "카페",
+            "quote": "커피 업종 건당 1만원 이상 결제 시 5% + KB Pay로 결제하면 5%p 추가 = 총 10%"
+          },
+          {
+            "cardId": "nh-zgm-playplus",
+            "tag": "외식",
+            "quote": "패스트푸드 업종 20% 청구할인, 건당 5천원 이상·일 1회·월 2회"
+          },
+          {
+            "cardId": "kb-you-with",
+            "tag": "병의원·약국",
+            "quote": "종합·일반병원(치과/한방)·의원·한약방·건강식품점 10% 청구할인(건당 3만원 이상)"
+          },
+          {
+            "cardId": "nh-classy-travel",
+            "tag": "모든 가맹점",
+            "quote": "건당 1만원 이상 결제 시 적립. 전월실적 조건 없음"
+          },
+          {
+            "cardId": "hyundai-zero-up-discount",
+            "tag": "온라인 쇼핑",
+            "quote": "공식 홈페이지·앱에서 10만원 이상 단일 결제 건만(쿠팡이츠·간편결제/PG 승인 건은 기본 0.8%), 한도 없음"
+          }
+        ],
+        "magnitude": "(a)환산 완료 행 90개(카드 44)·(b)조건 통째 무시 행 175개(카드 53, 그중 6행은 건당 금액별 차등요율을 최저 구간으로 넣어 유일하게 과소 방향). (b)의 오차는 큼: 객단가 5~6천원인 카페에 '건당 1만원 이상' 조건이 걸린 행(im-kpass·kb-kpass·shinhan-kpass 계열 등 20여 행)은 엔진이 잡는 혜택의 50~100%가 허수 — kb-kpass 카페 10%·cap 1만이면 월 5만 커피 지출에 엔진 5,000원/월(연 6만원) vs 실제 0원에 가깝다. woori-everyday-check 대중교통은 note 스스로 '사실상 적립 안 됨'이라는데 엔진은 1%를 전액 계산. 월 2회류 횟수 무시 행(nh-zgm-playplus 등)은 cap까지 2~5배 과대. '일 1회'만 걸린 행(hyundai-z 계열 등)은 대개 수백 원~수천 원 수준의 경미한 과대.",
+        "engineFeature": "benefits 행에 minPerTx(건당 최소 결제금액)·maxUsesPerMonth(월 횟수)·perUseCap(회당 할인한도) 필드를 추가하고, 태그별 평균 객단가 가정(카페 5천·편의점 7천·외식 1.2만원 등)으로 월 지출을 건수로 나눠 '조건 충족 건'만 rate 적용 대상으로 조이는 계산이 필요하다.",
+        "feasibility": "근거 확보는 쉬운 편 — 조건이 이미 note 원문에 '건당 X원 이상·월 N회' 형태로 기록돼 있어 275개 행 대부분 기계적 필드 추출이 가능하고, 90행은 이미 환산돼 cap이 정확하므로 손댈 필요가 없다. 어려운 쪽은 사용자 입력: 지출액만 받는 현 구조로는 건수를 알 수 없어 태그별 객단가 기본값(또는 '커피 한 잔에 얼마쯤?' 한 개 질문)을 도입해야 하며, 이 가정 하나로 (b) 175행과 (a) 90행의 잔여 오차(객단가가 기준보다 작은 사용자 과대)를 동시에 해소한다. 참고로 이번 집계에서 뺀 인접 유형 — '건당 할인한도 2,500원'류 회당 상한만 있는 행 36개(카드 7: kb-need-pay·kb-you-wish·bc-baro-onoff 등) — 도 같은 perUseCap 필드로 함께 풀린다."
+      },
+      {
+        "category": "선택형 팩(택1) 구조 — N개 팩/옵션 중 하나만 골라 그 안의 혜택만 받는 구조를 capGroup 하나로 눌러(또는 아예 못 눌러) 표현",
+        "rowCount": 81,
+        "cardCount": 17,
+        "direction": "mixed",
+        "examples": [
+          {
+            "cardId": "kb-you-prime",
+            "tag": "카페",
+            "quote": "memo: \"실제 구조는 팩 내 '영역별 개별 한도'라 이 방식은 다영역 사용자를 과소평가함 … 가족팩 6영역 실제 월 3만 vs 계산 5천 … 해소하려면 엔진에 '옵션 팩 프로필' 지원이 필요하다(OPEN-ISSUES B-6)\" — [2팩(일상/가족) 택1, 팩 안 6영역이 각각 월 5천(실적별 7천/1만)인데 capGroup pack 하나가 10행 전체를 5천으로 압축 → 최대 6배 과소]"
+          },
+          {
+            "cardId": "bc-baro-green-card",
+            "tag": "주유",
+            "quote": "note: \"5대 업종(대형할인점·백화점·학원·병의원·주유소) 중 그 달 사용액 상위 2개만 자동으로 추가적립 — 사용자가 고르는 게 아니라 매월 자동 선택. 업종별 월 5천점\" — [5업종 중 상위 2개 자동선택, 업종별 각 5천+통합 1만 2단인데 capGroup eco-top2가 4행을 5천 하나로 압축 → 최대 2배 과소]"
+          },
+          {
+            "cardId": "samsung-id-select-on",
+            "tag": "외식",
+            "quote": "memo: \"배달·외식과 온라인 쇼핑 벤핏을 각각 자기 옵션의 2배 값으로 적었으므로 실제로는 동시에 둘 다 최대치가 될 수 없음. 음식점·온라인몰 한도는 서로 별도 풀\" — [2옵션 택1, 옵션마다 2배 영역 5천+1배 영역 별도 5천=실제 최대 1만인데 capGroup select가 5천으로 압축 → 최대 2배 과소]"
+          },
+          {
+            "cardId": "kb-goldenlife-olim",
+            "tag": "병의원·약국",
+            "quote": "note: \"Golden Choice 택1(주유·대형마트 팩과 둘 중 하나만 선택, 월 단위 변경)\" / memo: \"스키마상 배타 표현 불가라 3행 유지+note 명시(과대 가능, 엔진 배타 그룹 생기면 재검토)\" — [2팩 택1인데 미압축: 병의원 1만+주유 6,400+마트 5천=2.1만 동시 합산 vs 실제 최대 1.1만 ≈ 2배 과대]"
+          },
+          {
+            "cardId": "tossbank-check",
+            "tag": "모든 가맹점",
+            "quote": "note: \"스위치는 한 번에 한 모드만 선택 가능해 아래 카테고리 캐시백과 동시에 받을 수 없어요. 표에는 둘 다 보이지만 실제로는 택1\" — [스위치 모드 5종 택1인데 행 6개가 4개 모드에 흩어져 무압축(capGroup food는 팩 내부만 묶음). 카테고리 3태그 선택 시 월 1.5만 계산 vs 실제 한 모드 ~5천 → 약 3배 과대]"
+          },
+          {
+            "cardId": "kbank-one-check",
+            "tag": "카페",
+            "quote": "note: \"모두 다 캐시백·369 캐시백과 택1, 통합 월한도 2만5천원\" / memo: \"'모두 다'와 '여기서 더'는 택1 배타인데 스키마상 동시 계산됨(부풀림, 엔진 확장 대기)\" — [3종 캐시백 택1: '여기서 더' 5행은 팩 내 통합 2.5만이라 capGroup shared가 정확, '모두 다'(0.5% 전가맹점 행)와의 배타만 미표현 → 과대]"
+          },
+          {
+            "cardId": "kb-my-wesh",
+            "tag": "카페",
+            "quote": "note: \"'더욱 진심 서비스' 3팩 중 택1 — 먹는데 진심(배달+커피)·노는데 진심(택시+커피+영화) 어느 쪽이든 커피/음료전문점 5%, 팩 통합 월 5천원\" — [3팩 택1, 팩 안 한도가 '통합' 5천이라 capGroup pack=5천이 총액 기준 정확 — you-prime과 달리 눌림 없음. kb-you-wish·nh-zgm-playplus·samsung-id-on·naverpay-taptap도 같은 유형]"
+          },
+          {
+            "cardId": "samsung-id-select-all",
+            "tag": "외식",
+            "quote": "note: \"생활소비 옵션(택1) 중 '음식점·편의점·할인점·주유'를 고른 달에 음식점 오프라인 7% — 같은 옵션 영역과 통합 월 7천원(전월 80만/120만 이상 1만/1.5만원)\" — [이중 택1(SELECT1 3옵션 + SELECT2 3옵션), 옵션 내부가 통합 7천이라 fixed·living 두 capGroup 인코딩이 총액 기준 정확. kb-you-with(first/second)·samsung-id-select-up도 같은 유형]"
+          }
+        ],
+        "magnitude": "총액이 실제로 어긋나는 카드는 6장: kb-you-prime은 가족팩 다영역 사용자가 실제 월 3만원 vs 계산 5천원(6배, 연 30만원 과소)으로 최대 사례. bc-baro-green-card·samsung-id-select-on은 최대 2배(월 5천~1만원) 과소. 반대편에서 kb-goldenlife-olim은 월 최대 약 1만원(2배) 과대, tossbank-check는 카테고리 3태그 선택 시 약 3배(월 1만원 안팎) 과대, kbank-one-check도 모두다+여기서더 동시 계산으로 소폭 과대. 나머지 11장(my-wesh·you-wish·you-with·id-on·select-all·select-up·zgm-playplus·allone-pi·mileage-platinum·special-mileage·naverpay-taptap)은 팩 내 한도가 통합이라 capGroup 압축이 총액 기준 정확하고 행 단위 귀속만 흐려진다.",
+        "engineFeature": "행들을 '선택 팩(옵션 그룹)'으로 선언해 — 팩별 소속 행과 행별 개별 한도를 유지한 채 — 쿼리마다 팩 단위로 합산해 가장 유리한 팩 하나만 채택하는 배타 계산이 필요하다(you-prime memo가 OPEN-ISSUES B-6 '옵션 팩 프로필'로 이미 기록).",
+        "feasibility": "근거는 사실상 확보 완료 — 17장 전부 note/memo에 팩 구성·팩별 한도가 상품설명서 원문 대조로 기록돼 있어 추가 조사 없이 재인코딩할 수 있다. 엔진은 benefit.ts의 applyCapGroups 앞에 '팩별 후보 계산 후 최대 팩 선택' 한 단계와 스키마의 팩 선언 필드(팩 id·행 소속)가 필요하며, 총액 오차가 실재하는 카드가 6장으로 좁혀져 있어 단계적 적용이 가능하다. 다만 정확하게 인코딩된 11장의 capGroup을 회귀 없이 새 구조로 옮기는 검증과, 하나 MOVING·원더 2.0처럼 모드를 자매 카드로 분리해 둔 기존 우회 인코딩과의 일관성 정리가 부담이다."
+      },
+      {
+        "category": "같은 태그 두 번째 혜택의 note 강등 (태그당 1행 스키마 제약, 보수적 과소)",
+        "rowCount": 8,
+        "cardCount": 7,
+        "direction": "under",
+        "examples": [
+          {
+            "cardId": "hana-wonder2-free-plus",
+            "tag": "온라인 쇼핑",
+            "quote": "G마켓·옥션·11번가·티몬(오픈마켓)도 같은 4%에 같은 크기의 한도가 따로 붙지만, 한 태그에 한 행만 둘 수 있어 한쪽만 반영했다 — 둘 다 쓰면 실제로는 두 배를 받는다 [강등: 오픈마켓 4% 별도 한도, 월 최대 4천/8천/1만원(실적 40/80/120만)]"
+          },
+          {
+            "cardId": "shinhan-air-one",
+            "tag": "해외 결제",
+            "quote": "플러스 혜택 '해외 일시불 마이신한포인트 1%(무한도·무실적)'는 같은 태그 2행 금지 스키마로 행 미반영 — 기록만 (memo) [강등: 해외 일시불 1% 포인트, 무한도 — 해외 월 50만 사용 시 월 5,000P 누락]"
+          },
+          {
+            "cardId": "kb-heritage-smart-mileage",
+            "tag": "마일리지+모든 가맹점(2행)",
+            "quote": "전월실적 50만원 이상 시 KB Pay 결제 2,000원당 1마일 추가(월 최대 2,000마일) / 별도 행 신설은 같은 태그(마일리지·모든 가맹점) 2행 금지 스키마로 보류, note 유지 (memo) [강등: KB Pay +0.05%p, 월 최대 2,000마일≈수만원 상당]"
+          },
+          {
+            "cardId": "kb-you-prime",
+            "tag": "온라인 쇼핑",
+            "quote": "일상팩 온라인쇼핑 5%(7개몰)는 가족팩 온라인장보기 10%와 같은 태그라 미추가 (memo) [강등: 일상팩 온라인쇼핑 5%, 영역별 월 한도 5천/7천/1만원 — 일상팩 사용자의 7개몰 지출이 계산에서 빠짐]"
+          },
+          {
+            "cardId": "kb-you-with",
+            "tag": "외식",
+            "quote": "2nd '자녀중심' 패스트푸드 10%는 태그 중복 제한으로 미반영 [강등: 자녀중심팩 패스트푸드 10%, 2nd팩 통합 월 7,000원(실적 구간 최대 1.5만원)]"
+          },
+          {
+            "cardId": "kakaobank-friends-check",
+            "tag": "온라인 쇼핑",
+            "quote": "에이블리 5만원 이상 2,000원도 별도 제공되나 보수적으로 미반영 [강등: 에이블리 5만원↑ 2,000원 캐시백, 월 최대 2,000원 — 쿠팡 3,000원 행이 태그 점유]"
+          },
+          {
+            "cardId": "shinhan-the-classic-neo",
+            "tag": "온라인 쇼핑",
+            "quote": "온라인 패션몰(무신사·29CM)은 3%(동일 통합한도, 보수적으로 2%로 계산) [변형: 강등 대신 낮은 요율로 병합 — 패션몰 지출에 1%p 과소, 월 30만 지출 시 3,000P]"
+          },
+          {
+            "cardId": "shinhan-the-best-f",
+            "tag": "카페",
+            "quote": "커피전문점 업종 0.5% 마이신한포인트는 별도지만 한 태그 한 행 구조상 큰 쪽만 반영 [강등: 커피 0.5% 적립 무한도, 카페 월 10만 지출 시 500P — 단종 카드라 집계 제외, 참고용]"
+          }
+        ],
+        "magnitude": "건당 월 2천원~1만원대(연 2만~12만원)가 전형 — 대표로 원더카드 2.0 FREE+는 오픈마켓·온라인식품 병용 시 월 최대 1만원(연 12만원) 과소, kb-you-with 패스트푸드 헤비유저는 월 7천~1.5만원. 무한도 강등인 Air One(해외 1%P)·헤리티지(KB Pay 월 2,000마일)는 헤비유저일수록 오차가 커져 해외 월 50만 사용자 기준 연 6만P 수준.",
+        "engineFeature": "schema의 태그당 1행 유일성 제약을 풀어 같은 태그에 복수 혜택 행(각자 rate·monthlyCap·capGroup)을 허용하고, benefit.ts가 같은 태그 행들을 합산(배타 관계는 배타 그룹으로) 계산하도록 확장.",
+        "feasibility": "근거 확보는 쉽다 — 8행 전부 note/memo에 강등된 쪽의 요율·한도 원문 수치가 이미 인용돼 있어 재수집 없이 곧장 인코딩 가능하다. 순수 병렬 사례 6행(air-one, heritage 2행, wonder2, kakaobank, classic-neo)은 유일성 해제+합산만으로 해결되지만, kb-you-prime·you-with 2행은 팩 택1 배타(OPEN-ISSUES B-6 옵션 팩) 표현이 함께 필요해 난이도가 한 단계 높다. 참고: 알려진 6건 중 2건(1Q Daily·1Q Shopping+)은 단종이라 집계 제외했고, '브런치'는 the-classic-plus가 아니라 the-classic-neo 사례로 외식 태그 분리 때 이미 자체 행으로 해소됐다(대신 같은 카드에 패션몰 3%→2% 병합 변형이 남음)."
+      }
+    ],
+    "design": {
+      "pipeline": "annualBenefit(src/engine/benefit.ts)은 사용자가 고른 태그마다 벤핏 행 하나를 찾고(없으면 universal이 대신 채움) 월 혜택을 만든 뒤, 자체 한도 → capGroup(여러 행이 한도 하나를 나눠 씀) → sharedCaps(행마다 제 한도 + 합계 천장) → 총액 상한(필요 지출 합이 월 지출을 넘으면 비례 축소)의 4겹으로 조인다. recommend.ts가 성향별 complexity 필터(선택형 팩 카드=복잡도 3은 꼼꼼형만 노출)·연회비·실적·커버리지 규칙으로 정렬해 TOP5를 낸다. 선택형 팩(택1)은 capGroup으로 흉내 내고, 같은 태그 2행은 스키마가 금지(큰 쪽만 반영), note에만 적힌 조건은 계산에 안 들어간다. 참고: 환율 우대·건당 정액 수수료(US$0.5)·해외 ATM 면제(B-3 잔여)는 요율로 바꿀 데이터 근거가 아예 없어 옵션에서 뺐고, A-1(적립 제외 업종에 universal이 대신 붙는 문제)은 하토님이 '현행 유지'로 결정한 사안이라 순위에 넣지 않는다 — universalExcludes 필드는 되살릴 때의 선택지로만 기록돼 있다.",
+      "options": [
+        {
+          "name": "1. 옵션 팩 프로필 (B-6) — 유리한 팩 자동 선택",
+          "what": "카드에 packGroups(선택 그룹별 팩 목록) 정의를 두고 Benefit에 pack:{group,option} 소속 표기를 추가한다. 엔진은 그룹별 팩 조합을 열거해(실측 최대 kb-you-with의 3×3=9조합) 조합마다 해당 행만 남긴 annualBenefit을 통째로 계산하고 최댓값을 채택한다 — '가장 유리한 팩 자동 선택'은 타당하다: 팩은 매월 변경 가능하고 엔진 철학이 원래 '이렇게 쓰면 최대'라서, 다만 총액 상한이 그룹들을 얽어매므로 그룹별 독립 argmax가 아니라 조합 전체 열거가 정확하다. capGroup \"pack\" 우회를 쓰던 카드의 데이터 이관 + explain.ts에 '가족팩 기준' 문구가 따라간다.",
+          "impact": "실제 택1 구조 active 카드 12장(kb-you-prime/-with/-wish, kb-my-wesh, kb-goldenlife-olim, samsung-id-select-all/-up/-on, nh-zgm-playplus, kbank-one-check, tossbank-check, nh-allone-pi) — 전부 복잡도 3이라 꼼꼼형 사용자만 해당. 과소 해소: kb-you-prime 가족팩 최대 6배(월 5천→3만, 연 +30만원). 과대 교정 2장: tossbank-check(스위치 모드 배타가 아예 미인코딩 — 여러 모드+universal이 동시 합산, 최대 약 2.6배)·kb-goldenlife-olim(Golden Choice 택1 미인코딩, 약 1.9배). 저지출 구간에서 capGroup 흉내가 만들던 '배타인데 두 팩이 동시에 값 기여' 과대도 사라진다.",
+          "effort": "대",
+          "risk": "12장 전수 재인코딩에서 '팩 안 영역별 한도'인지 '팩 통합 한도'인지 원문 재확인이 필수(kb-you-prime은 영역별, kb-my-wesh는 팩 통합 — 혼동하면 B-6이 반대 방향 오류로 뒤집힘). nh-allone-pi의 '5개 중 1~2개 선택+개수별 요율 변화'는 택1 모델로는 부족해 근사가 남는다. 값이 오르는 카드가 많아 회귀 기준(3,360개 조합) 갱신 폭이 가장 크고, 꼼꼼형 TOP5가 실제로 바뀐다."
+        },
+        {
+          "name": "2. 같은 태그 복수 행 허용 (B-2 잔여)",
+          "what": "schema.ts의 중복 태그 금지를 완화하고(같은 태그 행은 한도·note가 달라야 한다는 약한 검증으로 교체), benefit.ts의 benefits.find(한 행만 집음)를 같은 태그 전체 순회로 바꾼다. 핵심은 지출 배분 — 두 행은 같은 태그 지출을 나눠 쓰는 서로 다른 가맹점 부분집합이라, 각 행에 월 지출 S를 통째로 주면 이중 계산이므로 요율 높은 행부터 한도까지 채우는 그리디 배분이 함께 필요하다. universal 대체·마일리지 중복 제거는 some/filter 기반이라 그대로 동작한다.",
+          "impact": "active 잔여는 3~4장으로 줄었다(hana-1q 2장은 단종돼 집계 제외). 대표 hana-wonder2-free-plus: 온라인식품몰과 오픈마켓을 둘 다 쓰는 사람에게 최대 2배(월 4천→8천) 과소가 풀린다. shinhan-air-one 해외 +1%, kb-heritage-smart-mileage KB Pay 추가적립도 살아난다. kb-you-wish·kb-you-with의 미반영분은 태그 중복이 아니라 팩 배타가 원인이라 후보 1이 함께 있어야 살아난다.",
+          "effort": "중",
+          "risk": "'행마다 지출 S 전액' 전제(makeRow)와 어긋나는 첫 사례라, 나이브하게 두 행 모두 S를 주면 requiredSpend가 부풀어 총액 상한이 카드의 다른 행까지 깎는 부작용(B-5의 재림)이 난다. UI 내역에 같은 태그 두 줄이 생겨 문구 정리 필요. 혜택 대상 카드가 적어 후보 1보다 후순위가 맞다."
+        },
+        {
+          "name": "3. 유령 행(태그 밖 sharedCap 소진) — 도입 부결, 표시 필드로 대체",
+          "what": "유령 행은 태그 밖 영역(영화·보험·골프 등)의 지출액 데이터가 없어 가정 지출을 새로 만들어야 하고, 이는 규약 §0-2(확실한 것만 숫자로)와 정면 충돌한다. 게다가 엔진 의미론이 '달성 가능한 최대'다 — 태그 밖 혜택을 안 쓰면 풀 전액을 고른 태그로 받을 수 있으므로 지금 값이 이미 올바른 최대치고, 유령 행은 태그 밖 혜택을 안 쓰는 사용자 전원을 체계적으로 과소평가하게 만든다. 대신 SharedCap에 alsoUsedBy:string[](풀을 같이 쓰는 태그 밖 영역 이름) 표시 필드를 추가하고 explain/UI에서 '이 한도는 영화 할인과 공유돼 체감이 낮을 수 있어요' 경고만 붙인다.",
+          "impact": "계산은 안 바뀐다(의도된 결정). 해당 active 7~8장(ibk-kpass-check 영화, nh-zgm-discount 보험, hana-tossbank-day 보험·골프, samsung-gukmin-haengbok-v2 보험·렌탈, hyundai-alphabet-s/-o/-b, bc-baro-macao)의 사용자가 '계산보다 체감이 낮은' 이유를 화면에서 미리 알게 된다.",
+          "effort": "소",
+          "risk": "표시 필드 자체는 위험 없음. 유령 행을 실제로 넣는 쪽을 택하면 가정 지출이라는 새 추측 축이 생기고 방향이 일괄 과소로 뒤집히는 것이 위험 — 그래서 부결 권고."
+        },
+        {
+          "name": "4. 조건부 게이트 (requiresTag) — 태그 간 의존",
+          "what": "Benefit에 requiresTag?: Tag 필드 하나를 추가하고(schema.ts에서 TAGS 소속·자기 자신 금지 검증), annualBenefit 루프에서 '사용자가 게이트 태그를 안 골랐으면 그 행을 버리는' 3~4줄을 넣는다. '태그를 골랐다 = 그 영역에 지출이 있다'를 게이트 충족의 대리 지표로 쓴다. benefit.test.ts에 게이트 미충족 케이스 1~2개 추가면 끝.",
+          "impact": "active 카드 중 정확히 1장(shinhan-edu, 복잡도 3) — 관리비만 고르고 학원·교육을 안 고른 사용자에게 붙던 유령 5,000원/월(연 6만원, 100% 환산 행)이 사라진다. 계좌·통장 연결형 게이트(kb-goldenlife-olim 연금우대통장, tossbank-check 외화통장 등)는 태그 의존이 아니라 대상이 아니며 이미 보수적으로 인코딩돼 있다.",
+          "effort": "소",
+          "risk": "대리 가정의 빈틈 — 학원비를 실제로 쓰면서 태그를 안 고른 사람에게는 과소가 되지만 보수 방향이라 무해. 대상이 1장이라 순위 변동 위험이 거의 없어, 공수 대비 가장 깨끗한 즉시 수리 항목."
+        },
+        {
+          "name": "5. 3단 이상 한도 중첩 — 풀 직교화, 실수요 확인 전 보류",
+          "what": "지금도 자체 한도→capGroup→sharedCap→총액 4겹이 순차로 쌓이고, shinhan-mr-life 외식·카페처럼 한 행이 capGroup+sharedCapGroup을 동시에 갖는 3단이 이미 돌아간다. 못 하는 것은 (a)한 행이 이름 있는 풀 2개 이상 소속, (b)capGroup 행의 자체 한도가 그룹 한도와 다른 경우뿐이다. 일반화하려면 capGroup/sharedCapGroup을 pools: string[] + 카드 단위 풀 정의 하나로 합치고 clampGroup을 풀 목록 순회로 바꾸면 되는데, 엔진 코드는 소품이고 본체는 capGroup 107장+sharedCaps 13장의 데이터 이관·재검증이다.",
+          "impact": "지금 데이터에 3개 풀이 필요한 확정 카드가 하나도 없다 — 유일 후보였던 nh-20-haebom 통신비(자체 4천+off 풀)는 기존 sharedCaps로 이관하면 풀리는 데이터 작업이라 엔진 변경 없이 해결된다. 즉 당장 정확해지는 사용자가 없다.",
+          "effort": "중",
+          "risk": "확정 수요 없이 120장을 이관하면 회귀 소음만 크다. 권고: 지금은 nh-20-haebom만 sharedCaps로 옮기는 점 수정(소)에 그치고, 3단 실카드가 검수에서 나올 때 직교화를 진행."
+        },
+        {
+          "name": "6. 결제수단·요일 조건의 사용자 질문화 (B-4 구조화)",
+          "what": "Query에 '간편결제(페이) 쓰세요?' 1문항을 넣고 Benefit에 requiresPay 류의 조건 필드+조건부 요율을 추가, 엔진이 답에 따라 행 채택·요율을 바꾼다. 현재 데이터는 방향이 갈려 있다: 74행이 특정 페이 결제를 전제로 요율을 이미 박아 넣었고(kb-need-pay 15%, kb-you-prime 온라인장보기 등 — 페이 안 쓰는 사용자에게 과대), 반대로 note로만 내린 행(woori-shopping-plus 4대PAY 15%, hana-club-sk 등)은 페이 사용자에게 과소다. 요일(주말/평일) 조건도 30행 이상에서 같은 이중 잣대가 확인됐다.",
+          "impact": "양방향 정합 — 간편결제를 안 쓰는 사용자에게 페이 전제 74행의 과대가 잡히고, 쓰는 사용자에게 note 행이 되살아난다. 대상 행이 100개 안팎이라 전 성향·전 카드에 걸쳐 순위 영향 폭이 가장 넓다.",
+          "effort": "대",
+          "risk": "질문 추가는 '3분 컷' UX와 충돌하므로 1문항(페이 여부)으로 제한해야 하고, 요일은 후순위로 미루는 게 안전. 74행+α 전수 재분류가 본체라 일부만 하면 A-1에서 피하려던 '확인된 카드만 손해 보는 역차별'이 재현된다 — 시작하면 끝까지 가야 하는 작업."
+        },
+        {
+          "name": "7. 총액 상한의 비례 축소 → 그리디 최적 배분 (코드 정독에서 발견)",
+          "what": "benefit.ts의 총액 상한은 필요 지출 합이 월 지출 S를 넘으면 모든 행을 같은 비율로 깎는다(clampFactor) — 사용자가 지출을 요율 비례로 나눈다는 가정이라, '요율 높은 영역부터 한도까지 채우는' 진짜 최적보다 항상 낮거나 같다. 상한 적용을 요율 내림차순 그리디 배분으로 바꾸면 '이렇게 쓰면 최대' 의미론과 정확히 일치한다. capGroup/sharedCap 축소가 끝난 뒤의 행들에 적용해야 해서 상호작용 정리가 필요하다.",
+          "impact": "고요율 소액 한도+저요율 무한도(universal) 조합 카드에서 저지출 사용자의 값이 소폭 오른다(검산 예: 카페 10%/5천+universal 1%, 월 50만 → 현행 9,090원, 최적 9,500원). 방향이 일괄 상향·소폭이라 개별 사용자 체감보다 카드 간 공정성 개선에 가깝다.",
+          "effort": "중",
+          "risk": "모든 카드 값이 미세하게 움직여 회귀 기준 전면 갱신이 필요한 데 비해 순위 변동은 작을 가능성이 높다 — B-5에서 확립한 '태그를 더 골라도 값이 줄지 않는다' 불변식을 그리디에서도 지키는지 테스트 필수. 우선순위 낮음, 후보 1·2를 만질 때 같이 정리하면 이득."
+        }
+      ]
+    }
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "Scan"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Design"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "design:engine",
+      "phaseIndex": 2,
+      "phaseTitle": "Design",
+      "agentId": "ac156d3e3f103f561",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1787364333189,
+      "queuedAt": 1787364333182,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "annualBenefit(src/engine/benefit.ts)은 사용자가 고른 태그마…",
+      "promptPreview": "프로젝트: /Users/hato/Projects/cardpicker (카드 추천 사이트). 데이터: /Users/hato/Projects/cardpicker/src/data/cards.json — 카드 배열이고 각 카드는 id, status('discontinued'면 추천에서 제외되므로 집계에서 빼라), memo(인코딩 결정 기록), benefits[](tag, rate(%), monthlyCap, note(원문 조건 기록), capGroup, sharedCapGroup, tiers) 필드를 가진다.\n엔진(/Users/hato/Projects/cardpicker/src/engine/benefit.ts)은 rate×지출을 monthlyCap·capGroup·sharedCaps·전월실적(tiers)으로 조여 …",
+      "lastProgressAt": 1787364895243,
+      "tokens": 132916,
+      "toolCalls": 21,
+      "durationMs": 562054,
+      "resultPreview": "{\"pipeline\":\"annualBenefit(src/engine/benefit.ts)은 사용자가 고른 태그마다 벤핏 행 하나를 찾고(없으면 universal이 대신 채움) 월 혜택을 만든 뒤, 자체 한도 → capGroup(여러 행이 한도 하나를 나눠 씀) → sharedCaps(행마다 제 한도 + 합계 천장) → 총액 상한(필요 지출 합이 월 지출을 넘으면 비례 축소)의 4겹으로 조인다. recommend.ts가 성향별 complexity 필터(선택형 팩 카드=복잡도 3은 꼼꼼형만 노출)·연회비·실적·커버리지 규칙으로 정렬해 TOP5를 낸다. 선택형 팩(택1)은 capGroup으로 흉내 내고, 같은 태그 2행은 스키마가 금지(큰 쪽만 반영), note에만 적힌 조건은 계산에 안 들어간다. 참고: 환율 …"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "scan:payment-method",
+      "phaseIndex": 1,
+      "phaseTitle": "Scan",
+      "agentId": "adefdd960fbddd0ec",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1787364333199,
+      "queuedAt": 1787364333194,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "결제 수단 조건부 혜택 — 간편결제·페이로 결제하면 요율이 상…",
+      "promptPreview": "프로젝트: /Users/hato/Projects/cardpicker (카드 추천 사이트). 데이터: /Users/hato/Projects/cardpicker/src/data/cards.json — 카드 배열이고 각 카드는 id, status('discontinued'면 추천에서 제외되므로 집계에서 빼라), memo(인코딩 결정 기록), benefits[](tag, rate(%), monthlyCap, note(원문 조건 기록), capGroup, sharedCapGroup, tiers) 필드를 가진다.\n엔진(/Users/hato/Projects/cardpicker/src/engine/benefit.ts)은 rate×지출을 monthlyCap·capGroup·sharedCaps·전월실적(tiers)으로 조여 …",
+      "lastProgressAt": 1787364652759,
+      "tokens": 79486,
+      "toolCalls": 11,
+      "durationMs": 319560,
+      "resultPreview": "{\"category\":\"결제 수단 조건부 혜택 — 간편결제·페이로 결제하면 요율이 상향(추가/2배)되는 조건이 note/memo에만 기록되고 rate에는 미반영\",\"rowCount\":16,\"cardCount\":14,\"direction\":\"under\",\"examples\":[{\"cardId\":\"woori-shopping-plus\",\"tag\":\"온라인 쇼핑\",\"quote\":\"삼성·네이버·카카오페이·PAYCO로 결제하면 5% 추가(합계 15%)이나 온라인 통합 한도 안에서만\"},{\"cardId\":\"hana-club-sk\",\"tag\":\"대중교통\",\"quote\":\"하나페이 앱 미이용 시 3.5%, 앱 이용 시 7% 청구할인\"},{\"cardId\":\"kb-cheongchundaero-toktok\",\"tag\":\"카페\",\"q…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "scan:weekday",
+      "phaseIndex": 1,
+      "phaseTitle": "Scan",
+      "agentId": "a92e0eacc0a266df5",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1787364333199,
+      "queuedAt": 1787364333194,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "요일·기간 조건부 혜택 (주말/평일 한정, 시간대 한정, 특정일,…",
+      "promptPreview": "프로젝트: /Users/hato/Projects/cardpicker (카드 추천 사이트). 데이터: /Users/hato/Projects/cardpicker/src/data/cards.json — 카드 배열이고 각 카드는 id, status('discontinued'면 추천에서 제외되므로 집계에서 빼라), memo(인코딩 결정 기록), benefits[](tag, rate(%), monthlyCap, note(원문 조건 기록), capGroup, sharedCapGroup, tiers) 필드를 가진다.\n엔진(/Users/hato/Projects/cardpicker/src/engine/benefit.ts)은 rate×지출을 monthlyCap·capGroup·sharedCaps·전월실적(tiers)으로 조여 …",
+      "lastProgressAt": 1787364633000,
+      "tokens": 79648,
+      "toolCalls": 10,
+      "durationMs": 298250,
+      "resultPreview": "{\"category\":\"요일·기간 조건부 혜택 (주말/평일 한정, 시간대 한정, 특정일, 한시 프로모션)\",\"rowCount\":56,\"cardCount\":16,\"direction\":\"mixed\",\"examples\":[{\"cardId\":\"shinhan-mr-life\",\"tag\":\"주유\",\"quote\":\"주말(토·일만, 공휴일 제외) 4대 정유사(SK·GS·HD현대오일뱅크·S-Oil) 리터당 60원 할인\"},{\"cardId\":\"hana-multi-living\",\"tag\":\"온라인 쇼핑\",\"quote\":\"주중(월~금)만 G마켓/옥션/11번가/위메프/인터파크/SSG 등 청구할인\"},{\"cardId\":\"shinhan-the-classic-neo\",\"tag\":\"외식\",\"quote\":\"Brunch 할인 — 평일(월~금)…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "scan:per-txn",
+      "phaseIndex": 1,
+      "phaseTitle": "Scan",
+      "agentId": "a97ab1a18486216f3",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1787364333199,
+      "queuedAt": 1787364333194,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "건당 최소 결제금액·월/일 횟수 조건 (건당 X원 이상, 월 N회·…",
+      "promptPreview": "프로젝트: /Users/hato/Projects/cardpicker (카드 추천 사이트). 데이터: /Users/hato/Projects/cardpicker/src/data/cards.json — 카드 배열이고 각 카드는 id, status('discontinued'면 추천에서 제외되므로 집계에서 빼라), memo(인코딩 결정 기록), benefits[](tag, rate(%), monthlyCap, note(원문 조건 기록), capGroup, sharedCapGroup, tiers) 필드를 가진다.\n엔진(/Users/hato/Projects/cardpicker/src/engine/benefit.ts)은 rate×지출을 monthlyCap·capGroup·sharedCaps·전월실적(tiers)으로 조여 …",
+      "lastProgressAt": 1787364769279,
+      "tokens": 116713,
+      "toolCalls": 10,
+      "durationMs": 434527,
+      "resultPreview": "{\"category\":\"건당 최소 결제금액·월/일 횟수 조건 (건당 X원 이상, 월 N회·일 1회, N번째 이용 건)\",\"rowCount\":265,\"cardCount\":89,\"direction\":\"over\",\"examples\":[{\"cardId\":\"woori-everyday-check\",\"tag\":\"대중교통\",\"quote\":\"건당 1만원 미만 결제는 적립 제외라 버스·지하철 단건 요금으로는 사실상 적립되지 않는다\"},{\"cardId\":\"im-kpass\",\"tag\":\"카페\",\"quote\":\"건당 1만원 이상(커피 한 잔은 대부분 미달), 상품권·선불충전 제외, 생활업종 통합 한도\"},{\"cardId\":\"shinhan-kpass\",\"tag\":\"카페\",\"quote\":\"5% 할인(건별 2만원 이상 — 커피 결제 대…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 5,
+      "label": "scan:pick-one",
+      "phaseIndex": 1,
+      "phaseTitle": "Scan",
+      "agentId": "a254fb4fc6c85a4b3",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1787364333199,
+      "queuedAt": 1787364333194,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "선택형 팩(택1) 구조 — N개 팩/옵션 중 하나만 골라 그 안의 혜…",
+      "promptPreview": "프로젝트: /Users/hato/Projects/cardpicker (카드 추천 사이트). 데이터: /Users/hato/Projects/cardpicker/src/data/cards.json — 카드 배열이고 각 카드는 id, status('discontinued'면 추천에서 제외되므로 집계에서 빼라), memo(인코딩 결정 기록), benefits[](tag, rate(%), monthlyCap, note(원문 조건 기록), capGroup, sharedCapGroup, tiers) 필드를 가진다.\n엔진(/Users/hato/Projects/cardpicker/src/engine/benefit.ts)은 rate×지출을 monthlyCap·capGroup·sharedCaps·전월실적(tiers)으로 조여 …",
+      "lastProgressAt": 1787364770747,
+      "tokens": 179384,
+      "toolCalls": 15,
+      "durationMs": 435995,
+      "resultPreview": "{\"category\":\"선택형 팩(택1) 구조 — N개 팩/옵션 중 하나만 골라 그 안의 혜택만 받는 구조를 capGroup 하나로 눌러(또는 아예 못 눌러) 표현\",\"rowCount\":81,\"cardCount\":17,\"direction\":\"mixed\",\"examples\":[{\"cardId\":\"kb-you-prime\",\"tag\":\"카페\",\"quote\":\"memo: \\\"실제 구조는 팩 내 '영역별 개별 한도'라 이 방식은 다영역 사용자를 과소평가함 … 가족팩 6영역 실제 월 3만 vs 계산 5천 … 해소하려면 엔진에 '옵션 팩 프로필' 지원이 필요하다(OPEN-ISSUES B-6)\\\" — [2팩(일상/가족) 택1, 팩 안 6영역이 각각 월 5천(실적별 7천/1만)인데 capGroup pack 하나가 10행 전…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 6,
+      "label": "scan:second-row",
+      "phaseIndex": 1,
+      "phaseTitle": "Scan",
+      "agentId": "aaa0f9ad0082ecc42",
+      "model": "claude-fable-5",
+      "state": "done",
+      "startedAt": 1787364333199,
+      "queuedAt": 1787364333194,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "같은 태그 두 번째 혜택의 note 강등 (태그당 1행 스키마 제약,…",
+      "promptPreview": "프로젝트: /Users/hato/Projects/cardpicker (카드 추천 사이트). 데이터: /Users/hato/Projects/cardpicker/src/data/cards.json — 카드 배열이고 각 카드는 id, status('discontinued'면 추천에서 제외되므로 집계에서 빼라), memo(인코딩 결정 기록), benefits[](tag, rate(%), monthlyCap, note(원문 조건 기록), capGroup, sharedCapGroup, tiers) 필드를 가진다.\n엔진(/Users/hato/Projects/cardpicker/src/engine/benefit.ts)은 rate×지출을 monthlyCap·capGroup·sharedCaps·전월실적(tiers)으로 조여 …",
+      "lastProgressAt": 1787364777229,
+      "tokens": 126691,
+      "toolCalls": 17,
+      "durationMs": 442476,
+      "resultPreview": "{\"category\":\"같은 태그 두 번째 혜택의 note 강등 (태그당 1행 스키마 제약, 보수적 과소)\",\"rowCount\":8,\"cardCount\":7,\"direction\":\"under\",\"examples\":[{\"cardId\":\"hana-wonder2-free-plus\",\"tag\":\"온라인 쇼핑\",\"quote\":\"G마켓·옥션·11번가·티몬(오픈마켓)도 같은 4%에 같은 크기의 한도가 따로 붙지만, 한 태그에 한 행만 둘 수 있어 한쪽만 반영했다 — 둘 다 쓰면 실제로는 두 배를 받는다 [강등: 오픈마켓 4% 별도 한도, 월 최대 4천/8천/1만원(실적 40/80/120만)]\"},{\"cardId\":\"shinhan-air-one\",\"tag\":\"해외 결제\",\"quote\":\"플러스 혜택 '해외 일시불 마이신한…"
+    }
+  ],
+  "totalTokens": 714838,
+  "totalToolCalls": 84
+}

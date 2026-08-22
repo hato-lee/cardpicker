@@ -1,7 +1,7 @@
 import type { Card, Query, Benefit, Tier, MileageBonus } from '../data/types'
 import type { Tag } from '../data/tags'
 import { RULES, type Rules } from './rules'
-import { resolveTier } from './benefit'
+import { resolveTier, effectiveCapOf } from './benefit'
 import { nextTierText } from './explain'
 import { won, rateText, capValueText } from '../ui/format'
 
@@ -57,11 +57,13 @@ function extraEarn(card: Card, S: number): { monthlyMiles: number; tags: Tag[] }
   for (const b of card.benefits) {
     if (b.type !== 'mileage' || b.tag === MILEAGE_TAG || b.tag === UNIVERSAL_TAG || b.tag === '해외 결제') continue
     const t = resolveTier(b, S)
-    if (t.monthlyCap === null || t.monthlyCap === 0 || t.rate <= 0) continue
+    // 일반 트랙과 같은 건당·횟수 축소를 탄다 (한도를 회차로 다 못 채우는 줄이 전액으로 잡히지 않게)
+    const cap = effectiveCapOf(b, t, RULES)
+    if (cap === null || cap === 0 || t.rate <= 0) continue
     const key = b.capGroup ?? `#${solo++}`
     const prev = buckets.get(key)
     if (prev) prev.tags.push(b.tag)
-    else buckets.set(key, { cap: t.monthlyCap, rate: t.rate, tags: [b.tag] })
+    else buckets.set(key, { cap, rate: t.rate, tags: [b.tag] })
   }
   if (buckets.size === 0) return { monthlyMiles: 0, tags: [] }
   const arr = [...buckets.values()]

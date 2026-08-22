@@ -19,8 +19,8 @@ export function rowAnnualValue(row: BenefitRow): number {
 
 function tipOf(row: BenefitRow, rules: Rules): string {
   const main = mainTip(row, rules)
-  // 정액·가정 한도 줄에는 다음 구간 안내를 붙이지 않는다
-  const canHint = row.rate !== 0 && !row.assumedCap
+  // 정액·가정 한도·건당 조건에 걸린 줄에는 다음 구간 안내를 붙이지 않는다
+  const canHint = row.rate !== 0 && !row.assumedCap && !row.txnLimited
   const hint = canHint && row.nextTier ? nextTierText(row, row.nextTier) : ''
   return hint ? `${main} ${hint}` : main
 }
@@ -29,8 +29,10 @@ function mainTip(row: BenefitRow, rules: Rules): string {
   if (row.viaUniversal) return `그 외 소비는 모든 가맹점 ${rateText(row.type, row.rate)}`
   if (row.rate === 0) return `${row.tag}: ${row.note ?? '정액 혜택'}`
   if (row.assumedCap) return `${row.tag}${eun(row.tag)} 한도 정보가 없어 월 ${won(rules.assumedCapWhenUnknown)}으로 계산했어요`
-  if (row.monthlyCap === null) return `${row.tag}${eun(row.tag)} 쓰는 만큼 ${rateText(row.type, row.rate)} — 한도 없음`
-  const cap = capValueText(row.type, row.monthlyCap)
+  if (row.effectiveCap === null) return `${row.tag}${eun(row.tag)} 쓰는 만큼 ${rateText(row.type, row.rate)} — 한도 없음`
+  const cap = capValueText(row.type, row.effectiveCap)
+  // 카드가 내건 한도를 횟수 조건 때문에 다 못 채우는 줄은 그 사실을 먼저 알려준다
+  if (row.txnLimited) return `${row.tag}${eun(row.tag)} 횟수 제한이 있어 월 ${cap}까지만 쌓여요 (카드가 내건 한도는 ${capValueText(row.type, row.monthlyCap!)})`
   return `${row.tag}에 월 ${won(Math.round(row.requiredSpend!))} 이상 쓰면 한도(${cap})를 꽉 채워요`
 }
 
