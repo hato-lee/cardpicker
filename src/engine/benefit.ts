@@ -175,15 +175,24 @@ function clampGroup(rows: BenefitRow[], groupRows: BenefitRow[], limit: number):
  */
 function applyUseGroups(rows: BenefitRow[], card: Card, spend: number, rules: Rules): BenefitRow[] {
   let result = rows
-  for (const [name, groupRows] of groupRowsBy(rows, (r) => r.useGroup)) {
+  for (const name of new Set(rows.map((r) => r.useGroup).filter((n): n is string => !!n))) {
     const uses = card.benefits
       .filter((b) => b.useGroup === name)
       .map((b) => resolveTier(b, spend).maxUsesPerMonth)
       .find((m) => m !== undefined)
     if (!uses) continue
+    const groupRows = result.filter((r) => r.useGroup === name)
     const perTx = groupRows.map((r) => r.perTxValue).filter((v): v is number => v !== null)
     if (perTx.length === 0) continue
-    result = clampGroup(result, groupRows, toWon(groupRows[0].type, uses * Math.max(...perTx), rules))
+    const limit = uses * Math.max(...perTx)
+    // 실질 한도를 먼저 내린다 — 안 그러면 화면이 못 채울 한도를 약속한다.
+    // clampGroup이 새 객체를 만들어 돌려주므로 순서를 뒤집으면 이 표시가 사라진다.
+    const marked = result.map((x) =>
+      x.useGroup === name && x.monthlyCap !== null && limit < x.monthlyCap
+        ? { ...x, effectiveCap: limit, txnLimited: true }
+        : x,
+    )
+    result = clampGroup(marked, marked.filter((r) => r.useGroup === name), toWon(groupRows[0].type, limit, rules))
   }
   return result
 }
